@@ -18,25 +18,20 @@ namespace CrystiliumMod.NPCs
 
 		public override void EditSpawnPool(IDictionary<int, float> pool, NPCSpawnInfo spawnInfo)
 		{
-			for (int k = 0; k < 255; k++)
+			if (spawnInfo.player.GetModPlayer<CrystalPlayer>(mod).ZoneCrystal)
 			{
-				Player player = Main.player[k];
-				if (player.GetModPlayer<CrystalPlayer>(mod).ZoneCrystal)
-				{
-					pool.Clear(); //remove ALL spawns here
-					pool.Add(mod.NPCType<CrystalElemental>(), 4f); // a modded enemy
-					pool.Add(mod.NPCType<CrystalArcher>(), 10f); // a modded enemy
-					pool.Add(mod.NPCType<CrystalSlime>(), 10f); // a modded enemy
-					pool.Add(mod.NPCType<CrystalZombie>(), 8f); // a modded enemy
+				pool.Clear(); //remove ALL spawns here
+				pool.Add(mod.NPCType<CrystalElemental>(), 4f); // a modded enemy
+				pool.Add(mod.NPCType<CrystalArcher>(), 10f); // a modded enemy
+				pool.Add(mod.NPCType<CrystalSlime>(), 10f); // a modded enemy
+				pool.Add(mod.NPCType<CrystalZombie>(), 8f); // a modded enemy
 
-					if (Main.hardMode)
-					{
-						pool.Add(mod.NPCType<CrystalMimic>(), 0.1f); // another modded enemy
-						pool.Add(mod.NPCType<GeodeMonster>(), 13f); // another modded enemy
-						pool.Add(mod.NPCType<Prismancer>(), 13f); // another modded enemy
-					}
+				if (Main.hardMode)
+				{
+					pool.Add(mod.NPCType<CrystalMimic>(), 0.1f); // another modded enemy
+					pool.Add(mod.NPCType<GeodeMonster>(), 13f); // another modded enemy
+					pool.Add(mod.NPCType<Prismancer>(), 13f); // another modded enemy
 				}
-				return;
 			}
 		}
 

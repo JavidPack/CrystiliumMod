@@ -3,6 +3,8 @@ using System;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ModLoader;
+using Microsoft.Xna.Framework.Graphics;
+using System.IO;
 
 namespace CrystiliumMod
 {
@@ -114,6 +116,41 @@ namespace CrystiliumMod
 		public override void UpdateBiomes()
 		{
 			ZoneCrystal = (CrystalWorld.CrystalTiles > 400);
+		}
+
+		// TODO, need MapBackgroundImage
+		public override Texture2D GetMapBackgroundImage()
+		{
+			if (ZoneCrystal)
+			{
+				//return mod.GetTexture("CrystalBiomeMapBackground");
+			}
+			return base.GetMapBackgroundImage();
+		}
+
+		public override bool CustomBiomesMatch(Player other)
+		{
+			CrystalPlayer modOther = other.GetModPlayer<CrystalPlayer>(mod);
+			return ZoneCrystal == modOther.ZoneCrystal;
+		}
+
+		public override void CopyCustomBiomesTo(Player other)
+		{
+			CrystalPlayer modOther = other.GetModPlayer<CrystalPlayer>(mod);
+			modOther.ZoneCrystal = ZoneCrystal;
+		}
+
+		public override void SendCustomBiomes(BinaryWriter writer)
+		{
+			BitsByte flags = new BitsByte();
+			flags[0] = ZoneCrystal;
+			writer.Write(flags);
+		}
+
+		public override void ReceiveCustomBiomes(BinaryReader reader)
+		{
+			BitsByte flags = reader.ReadByte();
+			ZoneCrystal = flags[0];
 		}
 
 		public override bool PreHurt(bool pvp, bool quiet, ref int damage, ref int hitDirection, ref bool crit,

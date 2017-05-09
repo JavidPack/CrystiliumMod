@@ -8,7 +8,6 @@ namespace CrystiliumMod.Items.Accessories
 	{
 		public override void SetDefaults(Item item)
 		{
-			base.SetDefaults(item);
 			if (item.type == ItemID.DiamondRing)
 			{
 				item.toolTip = "5% increased critical strike chance";
@@ -20,7 +19,6 @@ namespace CrystiliumMod.Items.Accessories
 
 		public override void UpdateAccessory(Item item, Player player, bool hideVisual)
 		{
-			base.UpdateAccessory(item, player, hideVisual);
 			if (item.type == ItemID.DiamondRing)
 			{
 				player.magicCrit += 5;

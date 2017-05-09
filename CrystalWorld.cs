@@ -2,6 +2,7 @@ using CrystiliumMod.Tiles;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.GameContent.Generation;
+using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.World.Generation;
 
@@ -10,7 +11,6 @@ namespace CrystiliumMod
 	public class CrystalWorld : ModWorld
 	{
 		public static int CrystalTiles = 0;
-		public int Num;
 
 		public override void ModifyWorldGenTasks(List<GenPass> tasks, ref float totalWeight)
 		{
@@ -97,20 +97,21 @@ namespace CrystiliumMod
 				   WorldGen.PlaceObject(XvalueMid, YvalueMid - 1, mod.TileType<Fountain>());
 				   WorldGen.PlaceObject(XvalueMid, YvalueMid - 6, mod.TileType<Fountain>());
 				   WorldGen.PlaceObject(XvalueMid + 1, YvalueMid - 6, mod.TileType<Fountain>());
-				   WorldGen.PlaceObject(XvalueMid - 1, YvalueMid - 1, 93, false, 5);
+				   WorldGen.PlaceObject(XvalueMid - 1, YvalueMid - 1, TileID.Lamps, false, 5); // Style 5 Lamp is FrozenLamp
 				   WorldGen.PlaceObject(XvalueMid - 4, YvalueMid - 1, mod.TileType<Crystal>());
 				   WorldGen.PlaceObject(XvalueMid + 7, YvalueMid - 1, mod.TileType<Crystal>());
-				   WorldGen.PlaceObject(XvalueMid + 6, YvalueMid - 1, 93, false, 5);
+				   WorldGen.PlaceObject(XvalueMid + 6, YvalueMid - 1, TileID.Lamps, false, 5);
 			   }
 		   }));
 		}
 
+		// TODO, this is ugly code, overwriting the first choice.
 		public override void PostWorldGen()
 		{
 			int upperLimit = Main.rand.Next(4, 6);
 			for (int i = 1; i < upperLimit; i++)
 			{
-				int[] itemsToPlaceInGlassChestsSecondary = new int[] { mod.ItemType<Items.CrystalBottle>(), mod.ItemType<Items.ShinyGemstone>(), mod.ItemType<Items.RadiantPrism>(), mod.ItemType<Items.GeodeItem>(), 73 };
+				int[] itemsToPlaceInGlassChestsSecondary = new int[] { mod.ItemType<Items.CrystalBottle>(), mod.ItemType<Items.ShinyGemstone>(), mod.ItemType<Items.RadiantPrism>(), mod.ItemType<Items.GeodeItem>(), ItemID.GoldCoin };
 				int itemsToPlaceInGlassChestsSecondaryChoice = 0;
 				for (int chestIndex = 0; chestIndex < 1000; chestIndex++)
 				{
@@ -153,6 +154,7 @@ namespace CrystiliumMod
 		{
 			CrystalPlayer modPlayer = Main.LocalPlayer.GetModPlayer<CrystalPlayer>(mod);
 			modPlayer.crystalFountain = false;
+			CrystalTiles = 0;
 		}
 
 		public override void TileCountsAvailable(int[] tileCounts)

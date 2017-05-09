@@ -12,11 +12,6 @@ namespace CrystiliumMod.Items.Armor
 			return true;
 		}
 
-		public override void DrawHands(ref bool drawHands, ref bool drawArms)
-		{
-			base.DrawHands(ref drawHands, ref drawArms);
-		}
-
 		public override void SetDefaults()
 		{
 			item.name = "Crystal Breastplate";
