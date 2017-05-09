@@ -34,10 +34,10 @@ namespace CrystiliumMod.Items.Weapons
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(null, "RadiantPrism", 1);
-			recipe.AddIngredient(null, "ShinyGemstone", 1);
+			recipe.AddIngredient(mod.ItemType<RadiantPrism>());
+			recipe.AddIngredient(mod.ItemType<ShinyGemstone>());
 			recipe.AddIngredient(ItemID.Wood, 2);
-			recipe.AddTile(16);
+			recipe.AddTile(TileID.Anvils);
 			recipe.SetResult(this, 10);
 			recipe.AddRecipe();
 		}

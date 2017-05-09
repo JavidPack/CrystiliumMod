@@ -33,9 +33,9 @@ namespace CrystiliumMod.Items.Weapons
 		{
 			ModRecipe recipe = new ModRecipe(mod);
 			recipe.AddIngredient(ItemID.FragmentNebula, 10);
-			recipe.AddIngredient(mod, "CrystiliumBar", 15);
-			recipe.AddTile(412);
-			recipe.SetResult(this, 1);
+			recipe.AddIngredient(mod.ItemType<CrystiliumBar>(), 15);
+			recipe.AddTile(TileID.LunarCraftingStation);
+			recipe.SetResult(this);
 			recipe.AddRecipe();
 		}
 	}

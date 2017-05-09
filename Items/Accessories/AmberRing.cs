@@ -25,7 +25,7 @@ namespace CrystiliumMod.Items.Accessories
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(3380, 4);
+			recipe.AddIngredient(ItemID.FossilOre, 4);
 			recipe.AddIngredient(ItemID.Amber, 3);
 			recipe.SetResult(this);
 			recipe.AddRecipe();

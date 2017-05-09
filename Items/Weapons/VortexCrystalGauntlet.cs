@@ -33,10 +33,11 @@ namespace CrystiliumMod.Items.Weapons
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(3456, 10);
-			recipe.AddIngredient(null, "CrystiliumBar", 15);
-			recipe.AddTile(412);
-			recipe.SetResult(this, 1);
+			recipe.AddIngredient(ItemID.FragmentVortex, 10);
+			recipe.AddIngredient(mod.ItemType<CrystiliumBar>(), 15);
+			recipe.AddIngredient(mod.ItemType<CrystiliumBar>(), 15);
+			recipe.AddTile(TileID.LunarCraftingStation);
+			recipe.SetResult(this);
 			recipe.AddRecipe();
 		}
 

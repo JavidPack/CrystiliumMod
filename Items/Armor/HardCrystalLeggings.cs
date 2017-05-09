@@ -35,7 +35,7 @@ namespace CrystiliumMod.Items.Armor
 			recipe.AddIngredient(ItemID.CrystalShard, 15);
 			recipe.AddIngredient(mod.ItemType<Items.EnchantedGeode>(), 10);
 			recipe.AddTile(Terraria.ID.TileID.Anvils);
-			recipe.SetResult(this, 1);
+			recipe.SetResult(this);
 			recipe.AddRecipe();
 		}
 	}

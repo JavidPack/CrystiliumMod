@@ -25,8 +25,8 @@ namespace CrystiliumMod.Items.Placeable
 		{
 			ModRecipe recipe = new ModRecipe(mod);
 			recipe.AddIngredient(ItemID.WoodenChair);
-			recipe.AddIngredient(null, "CrystalWood", 10);
-			recipe.AddTile(null, "CrystalWoodWorkbench");
+			recipe.AddIngredient(mod.ItemType<CrystalWood>(), 10);
+			recipe.AddTile(mod.TileType<Tiles.CrystalWoodWorkbench>());
 			recipe.SetResult(this);
 			recipe.AddRecipe();
 		}

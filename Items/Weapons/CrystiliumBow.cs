@@ -29,9 +29,9 @@ namespace CrystiliumMod.Items.Weapons
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(null, "CrystiliumBar", 17);
+			recipe.AddIngredient(mod.ItemType<CrystiliumBar>(), 17);
 			recipe.AddTile(TileID.MythrilAnvil);
-			recipe.SetResult(this, 1);
+			recipe.SetResult(this);
 			recipe.AddRecipe();
 		}
 	}

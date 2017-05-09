@@ -22,7 +22,7 @@ namespace CrystiliumMod.Items.Weapons
 		{
 			ModRecipe recipe = new ModRecipe(mod);
 			recipe.AddIngredient(ItemID.Grenade, 5);
-			recipe.AddIngredient(null, "ShinyGemstone", 1);
+			recipe.AddIngredient(mod.ItemType<ShinyGemstone>());
 			recipe.SetResult(this, 5);
 			recipe.AddRecipe();
 		}

@@ -24,9 +24,9 @@ namespace CrystiliumMod.Items.Placeable
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(null, "CrystalBlock", 2);
-			recipe.AddTile(16);
-			recipe.SetResult(this, 1);
+			recipe.AddIngredient(mod.ItemType<CrystalBlock>(), 2);
+			recipe.AddTile(TileID.Anvils);
+			recipe.SetResult(this);
 			recipe.AddRecipe();
 		}
 	}

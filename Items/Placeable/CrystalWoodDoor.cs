@@ -18,15 +18,15 @@ namespace CrystiliumMod.Items.Placeable
 			item.useStyle = 1;
 			item.consumable = true;
 			item.value = 150;
-			item.createTile = mod.TileType("CrystalWoodDoorClosed");
+			item.createTile = mod.TileType<Tiles.CrystalWoodDoorClosed>();
 		}
 
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);
 			recipe.AddIngredient(ItemID.WoodenDoor);
-			recipe.AddIngredient(null, "CrystalWood", 10);
-			recipe.AddTile(null, "CrystalWoodWorkbench");
+			recipe.AddIngredient(mod.ItemType<CrystalWood>(), 10);
+			recipe.AddTile(mod.TileType<Tiles.CrystalWoodWorkbench>());
 			recipe.SetResult(this);
 			recipe.AddRecipe();
 		}

@@ -34,7 +34,7 @@ namespace CrystiliumMod.Items.Armor
 			ModRecipe recipe = new ModRecipe(mod);
 			recipe.AddIngredient(mod.ItemType<Items.CrystiliumBar>(), 12);
 			recipe.AddTile(TileID.MythrilAnvil);
-			recipe.SetResult(this, 1);
+			recipe.SetResult(this);
 			recipe.AddRecipe();
 		}
 	}

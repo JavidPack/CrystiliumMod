@@ -51,7 +51,7 @@ namespace CrystiliumMod.Items.Armor
 			recipe.AddIngredient(mod.ItemType<Items.RadiantPrism>(), 10);
 			recipe.AddIngredient(mod.ItemType<Items.ShinyGemstone>(), 15);
 			recipe.AddTile(Terraria.ID.TileID.Anvils);
-			recipe.SetResult(this, 1);
+			recipe.SetResult(this);
 			recipe.AddRecipe();
 		}
 	}

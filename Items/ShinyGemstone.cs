@@ -14,17 +14,5 @@ namespace CrystiliumMod.Items
 			item.value = 2500;
 			item.rare = 3;
 		}
-
-		/*	public override void AddRecipes()
-			{
-				ModRecipe recipe = new ModRecipe(mod);
-				recipe.AddIngredient(ItemID.DirtBlock);
-				recipe.SetResult(this, 999);
-				recipe.AddRecipe();
-				recipe = new ModRecipe(mod);
-				recipe.AddCraftGroup(null, "ExampleItem");
-				recipe.SetResult(this, 999);
-				recipe.AddRecipe();
-			} */
 	}
 }

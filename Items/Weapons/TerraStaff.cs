@@ -34,15 +34,15 @@ namespace CrystiliumMod.Items.Weapons
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(mod.ItemType<TrueRubyStaff>(), 1);
-			recipe.AddIngredient(mod.ItemType<TrueEmeraldStaff>(), 1);
-			recipe.AddIngredient(mod.ItemType<TrueDiamondStaff>(), 1);
-			recipe.AddIngredient(mod.ItemType<TrueSapphireStaff>(), 1);
-			recipe.AddIngredient(mod.ItemType<TrueAmethystStaff>(), 1);
-			recipe.AddIngredient(mod.ItemType<TrueTopazStaff>(), 1);
-			recipe.AddIngredient(mod.ItemType<TrueAmberStaff>(), 1);
+			recipe.AddIngredient(mod.ItemType<TrueRubyStaff>());
+			recipe.AddIngredient(mod.ItemType<TrueEmeraldStaff>());
+			recipe.AddIngredient(mod.ItemType<TrueDiamondStaff>());
+			recipe.AddIngredient(mod.ItemType<TrueSapphireStaff>());
+			recipe.AddIngredient(mod.ItemType<TrueAmethystStaff>());
+			recipe.AddIngredient(mod.ItemType<TrueTopazStaff>());
+			recipe.AddIngredient(mod.ItemType<TrueAmberStaff>());
 			recipe.AddTile(TileID.MythrilAnvil);
-			recipe.SetResult(this, 1);
+			recipe.SetResult(this);
 			recipe.AddRecipe();
 		}
 

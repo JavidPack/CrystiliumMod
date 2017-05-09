@@ -36,10 +36,10 @@ namespace CrystiliumMod.Items.Weapons
 		{
 			ModRecipe recipe = new ModRecipe(mod);
 			recipe.AddIngredient(ItemID.Amber, 15);
-			recipe.AddIngredient(ItemID.AmberStaff, 1);
-			recipe.AddIngredient(null, "ShinyGemstone", 10);
-			recipe.AddTile(16);
-			recipe.SetResult(this, 1);
+			recipe.AddIngredient(ItemID.AmberStaff);
+			recipe.AddIngredient(mod.ItemType<ShinyGemstone>(), 10);
+			recipe.AddTile(TileID.Anvils);
+			recipe.SetResult(this);
 			recipe.AddRecipe();
 		}
 

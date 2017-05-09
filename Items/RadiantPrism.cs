@@ -1,4 +1,5 @@
 using Terraria.DataStructures;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace CrystiliumMod.Items
@@ -24,22 +25,10 @@ namespace CrystiliumMod.Items
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(null, "RadiantOre", 3);
-			recipe.AddTile(17);
-			recipe.SetResult(this, 1);
+			recipe.AddIngredient(mod.ItemType<Placeable.RadiantOre>(), 3);
+			recipe.AddTile(TileID.Furnaces);
+			recipe.SetResult(this);
 			recipe.AddRecipe();
 		}
-
-		/*	public override void AddRecipes()
-			{
-				ModRecipe recipe = new ModRecipe(mod);
-				recipe.AddIngredient(ItemID.DirtBlock);
-				recipe.SetResult(this, 999);
-				recipe.AddRecipe();
-				recipe = new ModRecipe(mod);
-				recipe.AddCraftGroup(null, "ExampleItem");
-				recipe.SetResult(this, 999);
-				recipe.AddRecipe();
-			} */
 	}
 }

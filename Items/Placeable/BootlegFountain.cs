@@ -24,8 +24,8 @@ namespace CrystiliumMod.Items.Placeable
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(null, "ShinyGemstone", 15);
-			recipe.AddIngredient(null, "RadiantPrism", 10);
+			recipe.AddIngredient(mod.ItemType<ShinyGemstone>(), 15);
+			recipe.AddIngredient(mod.ItemType<RadiantPrism>(), 10);
 			recipe.SetResult(this);
 			recipe.AddRecipe();
 		}

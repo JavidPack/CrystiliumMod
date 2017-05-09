@@ -34,16 +34,16 @@ namespace CrystiliumMod.Items.Weapons
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(null, "EnchantedRubyStaff", 1);
-			recipe.AddIngredient(null, "EnchantedAmberStaff", 1);
-			recipe.AddIngredient(null, "EnchantedEmeraldStaff", 1);
-			recipe.AddIngredient(null, "EnchantedDiamondStaff", 1);
-			recipe.AddIngredient(null, "EnchantedSapphireStaff", 1);
-			recipe.AddIngredient(null, "EnchantedTopazStaff", 1);
-			recipe.AddIngredient(null, "EnchantedAmethystStaff", 1);
-			recipe.AddIngredient(null, "ShinyGemstone", 10);
-			recipe.AddTile(16);
-			recipe.SetResult(this, 1);
+			recipe.AddIngredient(mod.ItemType<EnchantedRubyStaff>());
+			recipe.AddIngredient(mod.ItemType<EnchantedAmberStaff>());
+			recipe.AddIngredient(mod.ItemType<EnchantedEmeraldStaff>());
+			recipe.AddIngredient(mod.ItemType<EnchantedDiamondStaff>());
+			recipe.AddIngredient(mod.ItemType<EnchantedSapphireStaff>());
+			recipe.AddIngredient(mod.ItemType<EnchantedTopazStaff>());
+			recipe.AddIngredient(mod.ItemType<EnchantedAmethystStaff>());
+			recipe.AddIngredient(mod.ItemType<ShinyGemstone>(), 10);
+			recipe.AddTile(TileID.Anvils);
+			recipe.SetResult(this);
 			recipe.AddRecipe();
 		}
 

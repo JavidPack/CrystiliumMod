@@ -1,3 +1,4 @@
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace CrystiliumMod.Items
@@ -18,8 +19,8 @@ namespace CrystiliumMod.Items
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(null, "ShinyGemstone", 5);
-			recipe.AddIngredient(327, 1);
+			recipe.AddIngredient(mod.ItemType<ShinyGemstone>(), 5);
+			recipe.AddIngredient(ItemID.GoldenKey);
 			recipe.SetResult(this);
 			recipe.AddRecipe();
 		}

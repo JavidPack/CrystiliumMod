@@ -37,10 +37,10 @@ namespace CrystiliumMod.Items
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(mod.ItemType<CrystalBottleWater>(), 1);
-			recipe.AddIngredient(ItemID.TissueSample, 1);
-			recipe.AddIngredient(ItemID.Deathweed, 1);
-			recipe.AddIngredient(ItemID.Ichor, 1);
+			recipe.AddIngredient(mod.ItemType<CrystalBottleWater>());
+			recipe.AddIngredient(ItemID.TissueSample);
+			recipe.AddIngredient(ItemID.Deathweed);
+			recipe.AddIngredient(ItemID.Ichor);
 			recipe.AddTile(TileID.Bottles);
 			recipe.SetResult(this);
 			recipe.AddRecipe();
