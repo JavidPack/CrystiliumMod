@@ -69,7 +69,7 @@ namespace CrystiliumMod.NPCs
 			}
 			npc.velocity.Y = MathHelper.Clamp(npc.velocity.Y + 0.05f * npc.localAI[1], -2f, 2f);
 
-			if (Main.rand.Next(5) == 1)
+			if (Main.rand.Next(5) == 0)
 			{
 				Dust.NewDust(npc.position + npc.velocity, npc.width - (Main.rand.Next(npc.width)), 1, mod.DustType("CrystalDust"), (float)Main.rand.Next(-5, 5), (float)Main.rand.Next(-5, 5), 0);
 			}
@@ -79,7 +79,7 @@ namespace CrystiliumMod.NPCs
 			float Angle = (float)Math.Atan(Xdis / Ydis);
 			float TrajectoryX = (float)(Math.Sin(Angle));
 			float TrajectoryY = (float)(Math.Cos(Angle));
-			if (Main.rand.Next(450) == 5)
+			if (Main.rand.Next(450) == 0)
 			{
 				if (Main.player[npc.target].Center.Y <= npc.Center.Y)
 				{
@@ -112,9 +112,9 @@ namespace CrystiliumMod.NPCs
 				multiplier = 1.5f;
 			}
 			Lighting.AddLight(npc.position, RGB.X, RGB.Y, RGB.Z);
-			if (Main.rand.Next(575) == 5)
+			if (Main.rand.Next(575) == 0)
 			{
-				for (int I = 0; I < 20; I++)
+				for (int i = 0; i < 20; i++)
 				{
 					Dust.NewDust(npc.position, npc.width - (Main.rand.Next(npc.width)), npc.height - (Main.rand.Next(npc.height)), mod.DustType("CrystalDust"), (float)Main.rand.Next(-5, 5), (float)Main.rand.Next(-5, 5), 0);
 				}

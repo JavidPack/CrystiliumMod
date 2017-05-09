@@ -29,7 +29,7 @@ namespace CrystiliumMod.Projectiles
 		{
 			if (projectile.timeLeft == 1500 || projectile.timeLeft == 1)
 			{
-				for (int I = 0; I < 15; I++)
+				for (int i = 0; i < 15; i++)
 				{
 					Dust.NewDust(projectile.position, projectile.width, projectile.height, mod.DustType("StardustDust"), (float)Main.rand.Next(-3, 3), (float)Main.rand.Next(-3, 3), 0);
 				}
@@ -69,7 +69,7 @@ namespace CrystiliumMod.Projectiles
 			}
 			NPC target = (Main.npc[(int)projectile.ai[1]] ?? new NPC());
 			//fire!!
-			if (Main.rand.Next(25) == 6 && target.active && projectile.Distance(target.Center) / 16 < range)
+			if (Main.rand.Next(25) == 0 && target.active && projectile.Distance(target.Center) / 16 < range)
 			{
 				//spawn the arrow centered on the bow (this code aligns the centers :3)
 				Vector2 vel = projectile.DirectionTo(target.Center);

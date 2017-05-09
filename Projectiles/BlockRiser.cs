@@ -36,8 +36,8 @@ namespace CrystiliumMod.Projectiles
 			projectile.position = new Vector2(mouseX, y);
 			Main.NewText("PrX:" + projectile.position.X.ToString());
 			Main.NewText("PrY:" + projectile.position.Y.ToString());
-			Main.NewText("PX:" + Main.player[Main.myPlayer].position.X.ToString());
-			Main.NewText("PY:" + Main.player[Main.myPlayer].position.Y.ToString());
+			Main.NewText("PX:" + Main.LocalPlayer.position.X.ToString());
+			Main.NewText("PY:" + Main.LocalPlayer.position.Y.ToString());
 			start = false;
 		}
 	}

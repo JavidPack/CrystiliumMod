@@ -46,23 +46,23 @@ namespace CrystiliumMod.Items.Weapons
 		public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
 		{
 			Vector2 mouse = new Vector2(Main.mouseX, Main.mouseY) + Main.screenPosition;
-			float Xdis1 = (Main.player[Main.myPlayer].Center.X - mouse.X) + 45;  // change myplayer to nearest player in full version
-			float Ydis1 = (Main.player[Main.myPlayer].Center.Y - mouse.Y) + 45;// change myplayer to nearest player in full version
+			float Xdis1 = (Main.LocalPlayer.Center.X - mouse.X) + 45;  // change myplayer to nearest player in full version
+			float Ydis1 = (Main.LocalPlayer.Center.Y - mouse.Y) + 45;// change myplayer to nearest player in full version
 			float Angle1 = (float)Math.Atan(Xdis1 / Ydis1);
 			float TrijectoryX1 = (float)(Math.Sin(Angle1));
 			float TrijectoryY1 = (float)(Math.Cos(Angle1));
-			float Xdis2 = (Main.player[Main.myPlayer].Center.X - mouse.X) - 45;  // change myplayer to nearest player in full version
-			float Ydis2 = (Main.player[Main.myPlayer].Center.Y - mouse.Y) + 45;// change myplayer to nearest player in full version
+			float Xdis2 = (Main.LocalPlayer.Center.X - mouse.X) - 45;  // change myplayer to nearest player in full version
+			float Ydis2 = (Main.LocalPlayer.Center.Y - mouse.Y) + 45;// change myplayer to nearest player in full version
 			float Angle2 = (float)Math.Atan(Xdis2 / Ydis2);
 			float TrijectoryX2 = (float)(Math.Sin(Angle2));
 			float TrijectoryY2 = (float)(Math.Cos(Angle2));
-			float Xdis3 = (Main.player[Main.myPlayer].Center.X - mouse.X) + 45;  // change myplayer to nearest player in full version
-			float Ydis3 = (Main.player[Main.myPlayer].Center.Y - mouse.Y) - 45;// change myplayer to nearest player in full version
+			float Xdis3 = (Main.LocalPlayer.Center.X - mouse.X) + 45;  // change myplayer to nearest player in full version
+			float Ydis3 = (Main.LocalPlayer.Center.Y - mouse.Y) - 45;// change myplayer to nearest player in full version
 			float Angle3 = (float)Math.Atan(Xdis3 / Ydis3);
 			float TrijectoryX3 = (float)(Math.Sin(Angle3));
 			float TrijectoryY3 = (float)(Math.Cos(Angle3));
-			float Xdis4 = (Main.player[Main.myPlayer].Center.X - mouse.X) - 45;  // change myplayer to nearest player in full version
-			float Ydis4 = (Main.player[Main.myPlayer].Center.Y - mouse.Y) - 45;// change myplayer to nearest player in full version
+			float Xdis4 = (Main.LocalPlayer.Center.X - mouse.X) - 45;  // change myplayer to nearest player in full version
+			float Ydis4 = (Main.LocalPlayer.Center.Y - mouse.Y) - 45;// change myplayer to nearest player in full version
 			float Angle4 = (float)Math.Atan(Xdis4 / Ydis4);
 			float TrijectoryX4 = (float)(Math.Sin(Angle4));
 			float TrijectoryY4 = (float)(Math.Cos(Angle4));

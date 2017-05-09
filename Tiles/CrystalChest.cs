@@ -90,7 +90,7 @@ namespace CrystiliumMod.Tiles
 
 		public override void RightClick(int i, int j)
 		{
-			Player player = Main.player[Main.myPlayer];
+			Player player = Main.LocalPlayer;
 			for (int num66 = 0; num66 < 58; num66++)
 			{
 				if (player.inventory[num66].type == mod.ItemType<Items.CrystalKey>() && player.inventory[num66].stack > 0)
@@ -181,7 +181,7 @@ namespace CrystiliumMod.Tiles
 
 		public override void MouseOver(int i, int j)
 		{
-			Player player = Main.player[Main.myPlayer];
+			Player player = Main.LocalPlayer;
 			Tile tile = Main.tile[i, j];
 			int left = i;
 			int top = j;
@@ -222,7 +222,7 @@ namespace CrystiliumMod.Tiles
 		public override void MouseOverFar(int i, int j)
 		{
 			MouseOver(i, j);
-			Player player = Main.player[Main.myPlayer];
+			Player player = Main.LocalPlayer;
 			if (player.showItemIconText == "")
 			{
 				player.showItemIcon = false;

@@ -41,8 +41,8 @@ namespace CrystiliumMod.Projectiles
 				Vector2 mouse = new Vector2(Main.mouseX, Main.mouseY) + Main.screenPosition;
 				if (Main.player[projectile.owner].Center.Y < mouse.Y)
 				{
-					float Xdis = Main.player[Main.myPlayer].Center.X - mouse.X;  // change myplayer to nearest player in full version
-					float Ydis = Main.player[Main.myPlayer].Center.Y - mouse.Y; // change myplayer to nearest player in full version
+					float Xdis = Main.LocalPlayer.Center.X - mouse.X;  // change myplayer to nearest player in full version
+					float Ydis = Main.LocalPlayer.Center.Y - mouse.Y; // change myplayer to nearest player in full version
 					float Angle = (float)Math.Atan(Xdis / Ydis);
 					float DistXT = (float)(Math.Sin(Angle) * 29);
 					float DistYT = (float)(Math.Cos(Angle) * 29);
@@ -51,8 +51,8 @@ namespace CrystiliumMod.Projectiles
 				}
 				if (Main.player[projectile.owner].Center.Y >= mouse.Y)
 				{
-					float Xdis = Main.player[Main.myPlayer].Center.X - mouse.X;  // change myplayer to nearest player in full version
-					float Ydis = Main.player[Main.myPlayer].Center.Y - mouse.Y; // change myplayer to nearest player in full version
+					float Xdis = Main.LocalPlayer.Center.X - mouse.X;  // change myplayer to nearest player in full version
+					float Ydis = Main.LocalPlayer.Center.Y - mouse.Y; // change myplayer to nearest player in full version
 					float Angle = (float)Math.Atan(Xdis / Ydis);
 					float DistXT = (float)(Math.Sin(Angle) * 29);
 					float DistYT = (float)(Math.Cos(Angle) * 29);

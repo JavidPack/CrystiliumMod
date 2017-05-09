@@ -35,43 +35,12 @@ namespace CrystiliumMod.NPCs
 
 		public override void NPCLoot()
 		{
-			string[] lootTable = { "CrystalMonocle", "PrismBlade", "Gemshot", "Crystishae", "QuartzBlade",
-								   "DiamondSceptor", "ManaDrainer", "CrystalCharm", "PrismaticBoomstick"};
-			int loot = Main.rand.Next(lootTable.Length);
-			Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType(lootTable[loot]));
-			/*if (NPCloot == 0)
-			{
-				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType<Items.CrystalMonocle>());
-			}
-
-			if (NPCloot == 1)
-			{
-				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType<Items.PrismBlade>());
-			}
-			if (NPCloot == 2)
-			{
-				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType<Items.Gemshot>());
-			}
-			if (NPCloot == 3)
-			{
-				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType<Items.GEM>());
-			}
-			if (NPCloot == 4)
-			{
-				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType<Items.Crystishae>());
-			}
-			if (NPCloot == 5)
-			{
-				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType<Items.QuartzBlade>());
-			}
-            if (NPCloot == 6)
-            {
-                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType<Items.DiamonSceptor>());
-            }
-            if (NPCloot == 7)
-            {
-                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType<Items.ManaDrainer>());
-            }*/
+			//TODO, this use to reference an item called CrystalCharm, was it suppose to be CrystiliumHelmet? Also, old commented out code had GEM but didn't have PrismaticBoomstick or "CrystalCharm"/CrystiliumHelmet
+			int[] lootTable = { mod.ItemType<Items.Accessories.CrystalMonocle>(), mod.ItemType<Items.Weapons.PrismBlade>(), mod.ItemType<Items.Weapons.Gemshot>(),
+				mod.ItemType<Items.Weapons.Crystishae>(), mod.ItemType<Items.Weapons.QuartzBlade>(), mod.ItemType<Items.Weapons.DiamondSceptor>(),
+				mod.ItemType<Items.Weapons.ManaDrainer>(), mod.ItemType<Items.Armor.CrystiliumHelmet>(), mod.ItemType<Items.Weapons.PrismaticBoomstick>()};
+			int loot = lootTable[Main.rand.Next(lootTable.Length)];
+			Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, loot);
 		}
 	}
 }

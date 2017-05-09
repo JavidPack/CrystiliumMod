@@ -23,7 +23,7 @@ namespace CrystiliumMod.Buffs
 		public override void ModifyBuffTip(ref string tip, ref int rare)
 		{
 			//Use of myPlayer is OK, as buff tips are not visible by other players
-			tip = "+" + Main.player[Main.myPlayer].GetModPlayer<CrystalPlayer>(mod).crystalCharmStacks + "% magic damage";
+			tip = "+" + Main.LocalPlayer.GetModPlayer<CrystalPlayer>(mod).crystalCharmStacks + "% magic damage";
 		}
 	}
 }

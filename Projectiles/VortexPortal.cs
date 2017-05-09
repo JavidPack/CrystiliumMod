@@ -29,7 +29,7 @@ namespace CrystiliumMod.Projectiles //We need this to basically indicate the fol
 			projectile.rotation += rotationSpeed;
 			if (projectile.timeLeft == 110 || projectile.timeLeft <= 1)
 			{
-				for (int I = 0; I < 15; I++)
+				for (int i = 0; i < 15; i++)
 				{
 					Dust.NewDust(projectile.position, projectile.width, projectile.height, mod.DustType("VortexDust"), (float)Main.rand.Next(-3, 3), (float)Main.rand.Next(-3, 3), 0);
 				}

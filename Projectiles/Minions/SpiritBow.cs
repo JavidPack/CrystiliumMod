@@ -166,7 +166,7 @@ namespace CrystiliumMod.Projectiles.Minions
 			}
 			if (projectile.timeLeft == 600)
 			{
-				for (int I = 0; I < 15; I++)
+				for (int i = 0; i < 15; i++)
 				{
 					Dust.NewDust(projectile.position, projectile.width, projectile.height, mod.DustType("Sparkle"), (float)Main.rand.Next(-3, 3), (float)Main.rand.Next(-3, 3), 0);
 				}
@@ -176,7 +176,7 @@ namespace CrystiliumMod.Projectiles.Minions
 		public override void Kill(int timeLeft)
 		{
 			Main.PlaySound(2, projectile.Center, 27);
-			for (int I = 0; I < 15; I++)
+			for (int i = 0; i < 15; i++)
 			{
 				Dust.NewDust(projectile.position, projectile.width, projectile.height, mod.DustType("Sparkle"), (float)Main.rand.Next(-3, 3), (float)Main.rand.Next(-3, 3), 0);
 			}

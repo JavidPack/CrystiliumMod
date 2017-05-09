@@ -70,7 +70,7 @@ namespace CrystiliumMod.NPCs
 				multiplier = 1.5f;
 			}
 			Lighting.AddLight(npc.position, RGB.X, RGB.Y, RGB.Z);
-			if (Main.rand.Next(150) == 5)
+			if (Main.rand.Next(150) == 0)
 			{
 				for (int h = 0; h < 3; h++)
 				{

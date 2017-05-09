@@ -16,7 +16,7 @@ namespace CrystiliumMod.Tiles
 			Main.tileMergeDirt[Type] = true;
 			Main.tileBlockLight[Type] = true;
 			Main.tileLighted[Type] = true;
-			this.minPick = 999;
+			minPick = 999;
 			TileObjectData.newTile.Height = 6;
 			TileObjectData.newTile.Width = 6;
 			TileObjectData.newTile.Origin = new Point16(0, 0);
@@ -56,7 +56,7 @@ namespace CrystiliumMod.Tiles
 
 		public override void NearbyEffects(int i, int j, bool closer)
 		{
-			if (Vector2.Distance(Main.player[Main.myPlayer].Center, new Vector2(i * 16, j * 16)) < 16 * 5)
+			if (Vector2.Distance(Main.LocalPlayer.Center, new Vector2(i * 16, j * 16)) < 16 * 5)
 			{
 				Vector2 position = new Vector2((float)i, (float)j);
 
@@ -68,8 +68,8 @@ namespace CrystiliumMod.Tiles
 		public override void MouseOver(int i, int j)
 		{
 			//shows the Cryptic Crystal icon while mousing over this tile
-			Main.player[Main.myPlayer].showItemIcon = true;
-			Main.player[Main.myPlayer].showItemIcon2 = mod.ItemType<Items.CrypticCrystal>();
+			Main.LocalPlayer.showItemIcon = true;
+			Main.LocalPlayer.showItemIcon2 = mod.ItemType<Items.CrypticCrystal>();
 		}
 
 		public override void RightClick(int i, int j)
@@ -81,10 +81,10 @@ namespace CrystiliumMod.Tiles
 			}
 
 			//check if player has a Cryptic Crystal
-			if (Main.player[Main.myPlayer].HasItem(mod.ItemType<Items.CrypticCrystal>()))
+			if (Main.LocalPlayer.HasItem(mod.ItemType<Items.CrypticCrystal>()))
 			{
 				//now to search for it
-				Item[] inventory = Main.player[Main.myPlayer].inventory;
+				Item[] inventory = Main.LocalPlayer.inventory;
 				for (int k = 0; k < inventory.Length; k++)
 				{
 					if (inventory[k].type == mod.ItemType<Items.CrypticCrystal>())

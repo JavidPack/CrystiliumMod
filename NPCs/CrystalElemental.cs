@@ -75,7 +75,7 @@ namespace CrystiliumMod.NPCs
 			Lighting.AddLight(npc.position, RGB.X, RGB.Y, RGB.Z);
 			if (Main.rand.Next(500) == 5)
 			{
-				for (int I = 0; I < 20; I++)
+				for (int i = 0; i < 20; i++)
 				{
 					Dust.NewDust(npc.position, npc.width - (Main.rand.Next(npc.width)), npc.height - (Main.rand.Next(npc.height)), mod.DustType("CrystalDust"), (float)Main.rand.Next(-5, 5), (float)Main.rand.Next(-5, 5), 0);
 				}
@@ -84,7 +84,7 @@ namespace CrystiliumMod.NPCs
 					npc.position.X = (Main.player[npc.target].position.X - 500) + Main.rand.Next(1000);
 					npc.position.Y = (Main.player[npc.target].position.Y - 500) + Main.rand.Next(1000);
 				} while (npc.Distance(Main.player[npc.target].position) < 40);
-				for (int I = 0; I < 20; I++)
+				for (int i = 0; i < 20; i++)
 				{
 					Dust.NewDust(npc.position, npc.width - (Main.rand.Next(npc.width)), npc.height - (Main.rand.Next(npc.height)), mod.DustType("CrystalDust"), (float)Main.rand.Next(-5, 5), (float)Main.rand.Next(-5, 5), 0);
 				}

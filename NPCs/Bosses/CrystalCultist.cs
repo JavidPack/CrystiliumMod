@@ -73,7 +73,7 @@ namespace CrystiliumMod.NPCs.Bosses
 			float Angle = (float)Math.Atan(Xdis / Ydis);
 			float TrajectoryX = (float)(Math.Sin(Angle));
 			float TrajectoryY = (float)(Math.Cos(Angle));
-			if (Main.rand.Next(250) == 5)
+			if (Main.rand.Next(250) == 0)
 			{
 				if (Main.player[npc.target].Center.Y <= npc.Center.Y)
 				{

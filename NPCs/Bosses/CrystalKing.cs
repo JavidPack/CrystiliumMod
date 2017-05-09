@@ -5,6 +5,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.Utilities;
 
 namespace CrystiliumMod.NPCs.Bosses
 {
@@ -214,25 +215,7 @@ namespace CrystiliumMod.NPCs.Bosses
 
 		public override void NPCLoot()
 		{
-			//	int choice = Main.rand.Next(10);
-			//	int item = 0;
-			//	switch (choice)
-			//	{
-			//		case 0:
-			//			item = mod.ItemType<Items.PuritySpiritTrophy>();
-			//			break;
-			//		case 1:
-			//			item = mod.ItemType<Items.BunnyTrophy>();
-			//			break;
-			//		case 2:
-			//			item = mod.ItemType<Items.TreeTrophy>();
-			//			break;
-			//	}
-			//	if (item > 0)
-			//	{
-			//		Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, item);
-			//	}
-			if (Main.rand.Next(10) == 1)
+			if (Main.rand.Next(10) == 0)
 			{
 				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType<Items.Placeable.KingTrophy>());
 			}
@@ -242,48 +225,23 @@ namespace CrystiliumMod.NPCs.Bosses
 			}
 			else
 			{
-				int choice = Main.rand.Next(8);
-				if (Main.rand.Next(10) == 1)
+				if (Main.rand.Next(10) == 0)
 				{
 					Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType<Items.Armor.CrystalMask>());
 				}
-				int Randd = Main.rand.Next(13, 20);
-				for (int I = 0; I < Randd; I++)
-				{
-					Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType<Items.CrystiliumBar>());
-				}
-				if (choice == 0)
-				{
-					Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType<Callandor>());
-				}
-				else if (choice == 1)
-				{
-					Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType<Cryst>());
-				}
-				if (choice == 2)
-				{
-					Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType<QuartzSpear>());
-				}
-				if (choice == 3)
-				{
-					Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType<Slamborite>());
-				}
-				if (choice == 4)
-				{
-					Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType<ShiningTrigger>());
-				}
-				if (choice == 5)
-				{
-					Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType<Shimmer>());
-				}
-				if (choice == 6)
-				{
-					Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType<Shatterocket>());
-				}
-				if (choice == 7)
-				{
-					Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType<RoyalShredder>());
-				}
+				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType<Items.CrystiliumBar>(), Main.rand.Next(13, 20));
+
+				var ChoiceChooser = new WeightedRandom<int>();
+				ChoiceChooser.Add(mod.ItemType<Cryst>());
+				ChoiceChooser.Add(mod.ItemType<Callandor>());
+				ChoiceChooser.Add(mod.ItemType<QuartzSpear>());
+				ChoiceChooser.Add(mod.ItemType<ShiningTrigger>());
+				ChoiceChooser.Add(mod.ItemType<Slamborite>());
+				ChoiceChooser.Add(mod.ItemType<Shimmer>());
+				ChoiceChooser.Add(mod.ItemType<Shatterocket>());
+				ChoiceChooser.Add(mod.ItemType<RoyalShredder>());
+				int Choice = ChoiceChooser;
+				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, Choice);
 			}
 		}
 	}

@@ -19,7 +19,7 @@ namespace CrystiliumMod.Projectiles
 
 		public override void Kill(int timeLeft)
 		{
-			for (int I = 0; I < 15; I++)
+			for (int i = 0; i < 15; i++)
 			{
 				Dust.NewDust(projectile.position, projectile.width, projectile.height, mod.DustType("NebulaDust"), (float)Main.rand.Next(-3, 3), (float)Main.rand.Next(-3, 3), 0);
 			}

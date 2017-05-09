@@ -107,7 +107,8 @@ namespace CrystiliumMod
 
 		public override void PostWorldGen()
 		{
-			for (int i = 1; i < Main.rand.Next(4, 6); i++)
+			int upperLimit = Main.rand.Next(4, 6);
+			for (int i = 1; i < upperLimit; i++)
 			{
 				int[] itemsToPlaceInGlassChestsSecondary = new int[] { mod.ItemType<Items.CrystalBottle>(), mod.ItemType<Items.ShinyGemstone>(), mod.ItemType<Items.RadiantPrism>(), mod.ItemType<Items.GeodeItem>(), 73 };
 				int itemsToPlaceInGlassChestsSecondaryChoice = 0;
@@ -150,7 +151,7 @@ namespace CrystiliumMod
 
 		public override void ResetNearbyTileEffects()
 		{
-			CrystalPlayer modPlayer = Main.player[Main.myPlayer].GetModPlayer<CrystalPlayer>(mod);
+			CrystalPlayer modPlayer = Main.LocalPlayer.GetModPlayer<CrystalPlayer>(mod);
 			modPlayer.crystalFountain = false;
 		}
 

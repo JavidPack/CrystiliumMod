@@ -33,7 +33,7 @@ namespace CrystiliumMod.Items.Weapons
 		public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
 		{
 			Vector2 origVect = new Vector2(speedX, speedY);
-			if (Main.rand.Next(2) == 1)
+			if (Main.rand.Next(2) == 0)
 			{
 				newVect = origVect.RotatedBy(System.Math.PI / (Main.rand.Next(900, 1800) / 10));
 			}

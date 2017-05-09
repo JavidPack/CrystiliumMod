@@ -39,7 +39,7 @@ namespace CrystiliumMod.Projectiles.TrueGems
 				projectile.Kill();
 				Main.PlaySound(2, (int)projectile.position.X, (int)projectile.position.Y, 14);
 			}
-			for (int I = 0; I < 3; I++)
+			for (int i = 0; i < 3; i++)
 			{
 				Dust.NewDust(projectile.position, projectile.width, projectile.height, mod.DustType("CrystalDust"), (float)Main.rand.Next(-5, 5), (float)Main.rand.Next(-5, 5), 0);
 			}
@@ -53,7 +53,7 @@ namespace CrystiliumMod.Projectiles.TrueGems
 			{
 				projectile.Kill();
 				Main.PlaySound(2, (int)projectile.position.X, (int)projectile.position.Y, 14);
-				for (int I = 0; I < 15; I++)
+				for (int i = 0; i < 15; i++)
 				{
 					Dust.NewDust(projectile.position, projectile.width, projectile.height, mod.DustType("CrystalDust"), (float)Main.rand.Next(-5, 5), (float)Main.rand.Next(-5, 5), 0);
 				}

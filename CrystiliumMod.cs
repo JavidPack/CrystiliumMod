@@ -20,7 +20,7 @@ namespace CrystiliumMod
 
 		public override void UpdateMusic(ref int music)
 		{
-			Player player = Main.player[Main.myPlayer];
+			Player player = Main.LocalPlayer;
 
 			//Don't override the songs in this list!
 			int[] NoOverride = {MusicID.Boss1, MusicID.Boss2, MusicID.Boss3, MusicID.Boss4, MusicID.Boss5,

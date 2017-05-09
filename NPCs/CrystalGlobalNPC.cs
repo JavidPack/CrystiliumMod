@@ -42,7 +42,7 @@ namespace CrystiliumMod.NPCs
 
 		public override void SetupShop(int type, Chest shop, ref int nextSlot)
 		{
-			Player player = Main.player[Main.myPlayer];
+			Player player = Main.LocalPlayer;
 			if (type == NPCID.Cyborg)
 			{
 				for (int i = 0; i <= 50; i++)

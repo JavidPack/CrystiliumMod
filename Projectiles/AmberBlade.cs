@@ -28,7 +28,7 @@ namespace CrystiliumMod.Projectiles
 
 		public override void AI()
 		{
-			if (Main.rand.Next(3) == 1)
+			if (Main.rand.Next(3) == 0)
 			{
 				Dust.NewDust(projectile.position, projectile.width, projectile.height, 6);
 				projectile.rotation += 0.3f;

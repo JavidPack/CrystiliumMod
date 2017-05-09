@@ -36,7 +36,7 @@ namespace CrystiliumMod.Items.Weapons
 			Vector2 origVect = new Vector2(speedX, speedY);
 			for (int X = 0; X <= 4; X++)
 			{
-				if (Main.rand.Next(2) == 1)
+				if (Main.rand.Next(2) == 0)
 				{
 					newVect = origVect.RotatedBy(System.Math.PI / (Main.rand.Next(72, 1800) / 10));
 				}

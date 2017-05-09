@@ -1,6 +1,8 @@
+using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.Utilities;
 
 namespace CrystiliumMod.Items
 {
@@ -26,42 +28,18 @@ namespace CrystiliumMod.Items
 
 		public override void ExtractinatorUse(ref int resultType, ref int resultStack)
 		{
-			int GemType = Main.rand.Next(7);
-			if (GemType == 0)
-			{
-				resultType = ItemID.Sapphire;
-				resultStack = Main.rand.Next(4) + 1;
-			}
-			if (GemType == 1)
-			{
-				resultType = 178;
-				resultStack = Main.rand.Next(4) + 1;
-			}
-			if (GemType == 2)
-			{
-				resultType = 179;
-				resultStack = Main.rand.Next(4) + 1;
-			}
-			if (GemType == 3)
-			{
-				resultType = 180;
-				resultStack = Main.rand.Next(4) + 1;
-			}
-			if (GemType == 4)
-			{
-				resultType = 181;
-				resultStack = Main.rand.Next(4) + 1;
-			}
-			if (GemType == 5)
-			{
-				resultType = 182;
-				resultStack = Main.rand.Next(4) + 1;
-			}
-			if (GemType == 6)
-			{
-				resultType = 999;
-				resultStack = Main.rand.Next(4) + 1;
-			}
+			var GemTypeAndStackChooser = new WeightedRandom<Tuple<int,int>>();
+			GemTypeAndStackChooser.Add(new Tuple<int, int>(ItemID.Sapphire, Main.rand.Next(1, 5)));
+			GemTypeAndStackChooser.Add(new Tuple<int, int>(ItemID.Ruby, Main.rand.Next(1, 5)));
+			GemTypeAndStackChooser.Add(new Tuple<int, int>(ItemID.Emerald, Main.rand.Next(1, 5)));
+			GemTypeAndStackChooser.Add(new Tuple<int, int>(ItemID.Topaz, Main.rand.Next(1, 5)));
+			GemTypeAndStackChooser.Add(new Tuple<int, int>(ItemID.Amethyst, Main.rand.Next(1, 5)));
+			GemTypeAndStackChooser.Add(new Tuple<int, int>(ItemID.Diamond, Main.rand.Next(1, 5)));
+			GemTypeAndStackChooser.Add(new Tuple<int, int>(ItemID.Amber, Main.rand.Next(1, 5)));
+			Tuple<int,int> GemTypeAndStack = GemTypeAndStackChooser;
+
+			resultType = GemTypeAndStack.Item1;
+			resultStack = GemTypeAndStack.Item2;
 		}
 	}
 }

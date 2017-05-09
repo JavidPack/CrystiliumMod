@@ -1,5 +1,6 @@
 using Terraria;
 using Terraria.ModLoader;
+using Terraria.Utilities;
 
 namespace CrystiliumMod.Items
 {
@@ -23,49 +24,24 @@ namespace CrystiliumMod.Items
 
 		public override void RightClick(Player player)
 		{
-			if (Main.rand.Next(10) == 1)
+			if (Main.rand.Next(10) == 0)
 			{
-				player.QuickSpawnItem(mod.ItemType<Armor.CrystalMask>()); ;
+				player.QuickSpawnItem(mod.ItemType<Armor.CrystalMask>());
 			}
-			int Choice = Main.rand.Next(8);
-			int Crystilium = Main.rand.Next(13, 20);
 			player.QuickSpawnItem(mod.ItemType<Accessories.CrystalJewel>());
-			for (int I = 0; I < Crystilium; I++)
-			{
-				player.QuickSpawnItem(mod.ItemType<CrystiliumBar>());
-			}
-			if (Choice == 0)
-			{
-				player.QuickSpawnItem(mod.ItemType<Weapons.Cryst>());
-			}
-			if (Choice == 1)
-			{
-				player.QuickSpawnItem(mod.ItemType<Weapons.Callandor>());
-			}
-			if (Choice == 2)
-			{
-				player.QuickSpawnItem(mod.ItemType<Weapons.QuartzSpear>());
-			}
-			if (Choice == 3)
-			{
-				player.QuickSpawnItem(mod.ItemType<Weapons.ShiningTrigger>());
-			}
-			if (Choice == 4)
-			{
-				player.QuickSpawnItem(mod.ItemType<Weapons.Slamborite>());
-			}
-			if (Choice == 5)
-			{
-				player.QuickSpawnItem(mod.ItemType<Weapons.Shimmer>());
-			}
-			if (Choice == 6)
-			{
-				player.QuickSpawnItem(mod.ItemType<Weapons.Shatterocket>());
-			}
-			if (Choice == 7)
-			{
-				player.QuickSpawnItem(mod.ItemType<Weapons.RoyalShredder>());
-			}
+			player.QuickSpawnItem(mod.ItemType<CrystiliumBar>(), Main.rand.Next(13, 20));
+
+			var ChoiceChooser = new WeightedRandom<int>();
+			ChoiceChooser.Add(mod.ItemType<Weapons.Cryst>());
+			ChoiceChooser.Add(mod.ItemType<Weapons.Callandor>());
+			ChoiceChooser.Add(mod.ItemType<Weapons.QuartzSpear>());
+			ChoiceChooser.Add(mod.ItemType<Weapons.ShiningTrigger>());
+			ChoiceChooser.Add(mod.ItemType<Weapons.Slamborite>());
+			ChoiceChooser.Add(mod.ItemType<Weapons.Shimmer>());
+			ChoiceChooser.Add(mod.ItemType<Weapons.Shatterocket>());
+			ChoiceChooser.Add(mod.ItemType<Weapons.RoyalShredder>());
+			int Choice = ChoiceChooser;
+			player.QuickSpawnItem(Choice);
 		}
 	}
 }

@@ -24,7 +24,7 @@ namespace CrystiliumMod.Projectiles //We need this to basically indicate the fol
 		//How the projectile works
 		public override void Kill(int timeLeft)
 		{
-			for (int I = 0; I < 15; I++)
+			for (int i = 0; i < 15; i++)
 			{
 				Dust.NewDust(projectile.position, projectile.width, projectile.height, mod.DustType("SapphireDust"), (float)Main.rand.Next(-3, 3), (float)Main.rand.Next(-3, 3), 0);
 			}
@@ -36,7 +36,7 @@ namespace CrystiliumMod.Projectiles //We need this to basically indicate the fol
 			projectile.rotation += rotationSpeed;
 			if (projectile.timeLeft == 1300)
 			{
-				for (int I = 0; I < 15; I++)
+				for (int i = 0; i < 15; i++)
 				{
 					Dust.NewDust(projectile.position, projectile.width, projectile.height, mod.DustType("SapphireDust"), (float)Main.rand.Next(-3, 3), (float)Main.rand.Next(-3, 3), 0);
 				}
@@ -53,7 +53,7 @@ namespace CrystiliumMod.Projectiles //We need this to basically indicate the fol
 			{
 				//Do net updatey thing. Syncs this projectile.
 				projectile.netUpdate = true;
-				if (Main.rand.Next(25) == 4)
+				if (Main.rand.Next(25) == 0)
 				{
 					float dirX = Main.MouseWorld.X - projectile.position.X;
 					float dirY = Main.MouseWorld.Y - projectile.position.Y;

@@ -37,16 +37,16 @@ namespace CrystiliumMod.Tiles
 		{
 			if (Main.tile[i, j - 1] == null || Main.tile[i, j - 2] == null || Main.tile[i + 1, j] == null || Main.tile[i + 1, j - 2] == null || Main.tile[i + 2, j - 1] == null || Main.tile[i + 2, j - 2] == null)
 			{
-				if (Main.rand.Next(10) == 1)
+				if (Main.rand.Next(10) == 0)
 				{
 					WorldGen.PlaceObject(i, j - 1, mod.TileType<Crystal>());
 				}
-				if (Main.rand.Next(2) == 1)
+				if (Main.rand.Next(2) == 0)
 				{
 					WorldGen.PlaceObject(i, j - 1, mod.TileType<CrystalSapling>());
 				}
 			}
-			if (Main.rand.Next(10) == 1)
+			if (Main.rand.Next(10) == 0)
 			{
 				WorldGen.PlaceObject(i, j - 1, mod.TileType<CrystalSapling>());
 			}
