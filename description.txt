@@ -1,0 +1,4 @@
+Crystilium is a mod that focuses around a single new biome, the crystal biome. NOTE: You must
+generate a new world to get any of the content for this mod.
+
+Adds a lot of new items, and even a challenging fun new boss.
