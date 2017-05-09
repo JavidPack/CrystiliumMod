@@ -25,8 +25,8 @@ namespace CrystiliumMod.Projectiles
 
 		public override void Kill(int timeLeft)
 		{
-            Main.PlaySound(2, (int)projectile.position.X, (int)projectile.position.Y, 27);
-            for (int h = 0; h < 25; h++)
+			Main.PlaySound(2, (int)projectile.position.X, (int)projectile.position.Y, 27);
+			for (int h = 0; h < 25; h++)
 			{
 				Vector2 vel = new Vector2(0, -1);
 				float rand = Main.rand.NextFloat() * 6.283f;

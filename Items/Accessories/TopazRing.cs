@@ -20,7 +20,7 @@ namespace CrystiliumMod.Items.Accessories
 			item.rare = 1;
 			item.accessory = true;
 		}
-	
+
 		public override void UpdateAccessory(Player player, bool hideVisual)
 		{
 			player.moveSpeed += .05f;

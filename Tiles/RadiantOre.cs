@@ -11,10 +11,10 @@ namespace CrystiliumMod.Tiles
 			Main.tileSolid[Type] = true;
 			Main.tileMergeDirt[Type] = true;
 			Main.tileBlockLight[Type] = true;
-            this.minPick = 65;
-            Main.tileLighted[Type] = false;
+			this.minPick = 65;
+			Main.tileLighted[Type] = false;
 			dustType = mod.DustType("Sparkle");
-			drop = mod.ItemType("RadiantOre");
+			drop = mod.ItemType<Items.Placeable.RadiantOre>();
 			AddMapEntry(new Color(255, 93, 245));
 		}
 
@@ -29,10 +29,10 @@ namespace CrystiliumMod.Tiles
 			g = 0.75f;
 			b = 1.25f;
 		}
-        public override bool KillSound(int i, int j)
-        {
-            Main.PlaySound(2, i * 16, j * 16, 27);
-            return false;
-        }
-    }
+		public override bool KillSound(int i, int j)
+		{
+			Main.PlaySound(2, i * 16, j * 16, 27);
+			return false;
+		}
+	}
 }

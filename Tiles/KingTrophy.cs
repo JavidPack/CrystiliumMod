@@ -31,12 +31,12 @@ namespace CrystiliumMod.Tiles
 			g = 0.0f;
 			b = 2.5f;
 		}
-		
+
 		public override void KillMultiTile(int i, int j, int frameX, int frameY)
 		{
-            Item.NewItem(i * 16, j * 16, 32, 16, mod.ItemType("KingTrophy"));
-            Main.PlaySound(2, i * 16, j * 16, 27);
-		} 
-		
+			Item.NewItem(i * 16, j * 16, 32, 16, mod.ItemType<Items.Placeable.KingTrophy>());
+			Main.PlaySound(2, i * 16, j * 16, 27);
+		}
+
 	}
 }

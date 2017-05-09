@@ -12,23 +12,23 @@ namespace CrystiliumMod.Projectiles
 		public override void SetDefaults()
 		{
 			projectile.CloneDefaults(ProjectileID.Grenade);
-            projectile.penetrate = 1;
-            projectile.width = 24;
-            projectile.height = 26;
+			projectile.penetrate = 1;
+			projectile.width = 24;
+			projectile.height = 26;
 			projectile.friendly = true;
 			aiType = ProjectileID.Grenade;
 			projectile.alpha = 80;
 			projectile.light = 0.5f;
 		}
 
-	/*	public override void AI()
-		{
-			projectile.velocity.Y += projectile.ai[0];
-			if (Main.rand.Next(3) == 0)
+		/*	public override void AI()
 			{
-				Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, mod.DustType("Sparkle"), projectile.velocity.X * 0.5f, projectile.velocity.Y * 0.5f);
-			}
-		} */
+				projectile.velocity.Y += projectile.ai[0];
+				if (Main.rand.Next(3) == 0)
+				{
+					Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, mod.DustType("Sparkle"), projectile.velocity.X * 0.5f, projectile.velocity.Y * 0.5f);
+				}
+			} */
 
 		public override bool OnTileCollide(Vector2 oldVelocity)
 		{
@@ -68,7 +68,7 @@ namespace CrystiliumMod.Projectiles
 				float rand = Main.rand.NextFloat() * 6.283f;
 				vel = vel.RotatedBy(rand);
 				vel *= 5f;
-				Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y + 20, vel.X, vel.Y, mod.ProjectileType("Shatter"+(1+Main.rand.Next(0,3))), projectile.damage - 8, 0, projectile.owner);
+				Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y + 20, vel.X, vel.Y, mod.ProjectileType("Shatter" + (1 + Main.rand.Next(0, 3))), projectile.damage - 8, 0, projectile.owner);
 			}
 		}
 		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)

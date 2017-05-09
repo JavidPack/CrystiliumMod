@@ -16,13 +16,13 @@ namespace CrystiliumMod.Tiles
 			Main.tileTable[Type] = true;
 			Main.tileLavaDeath[Type] = true;
 			TileObjectData.newTile.CopyFrom(TileObjectData.Style2x1);
-			TileObjectData.newTile.CoordinateHeights = new int[]{ 18 };
+			TileObjectData.newTile.CoordinateHeights = new int[] { 18 };
 			TileObjectData.addTile(Type);
 			AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTable);
 			AddMapEntry(new Color(250, 140, 250), "Crystal Wood Workbench");
 			dustType = mod.DustType("CrystalDust");
 			disableSmartCursor = true;
-			adjTiles = new int[]{ TileID.WorkBenches };
+			adjTiles = new int[] { TileID.WorkBenches };
 		}
 
 		public override void NumDust(int i, int j, bool fail, ref int num)
@@ -32,7 +32,7 @@ namespace CrystiliumMod.Tiles
 
 		public override void KillMultiTile(int i, int j, int frameX, int frameY)
 		{
-			Item.NewItem(i * 16, j * 16, 32, 16, mod.ItemType("CrystalWoodWorkbench"));
+			Item.NewItem(i * 16, j * 16, 32, 16, mod.ItemType<Items.Placeable.CrystalWoodWorkbench>());
 		}
 	}
 }

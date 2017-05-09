@@ -4,28 +4,28 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
- 
+
 namespace CrystiliumMod.Projectiles
 {
-    public class ShatterangProj : ModProjectile
-    {
-        public override void SetDefaults()
-        {
-            projectile.name = "Shatterang";
-            projectile.width = 30;
-            projectile.height = 30;
-            projectile.aiStyle = 3;
-            projectile.friendly = true;
-            projectile.ranged = true;
-            projectile.magic = false;
-            projectile.penetrate = 10;
-            projectile.timeLeft = 600;
-            projectile.light = 0.5f;
-            projectile.extraUpdates = 1;
-           
-           
-        }
-       public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+	public class ShatterangProj : ModProjectile
+	{
+		public override void SetDefaults()
+		{
+			projectile.name = "Shatterang";
+			projectile.width = 30;
+			projectile.height = 30;
+			projectile.aiStyle = 3;
+			projectile.friendly = true;
+			projectile.ranged = true;
+			projectile.magic = false;
+			projectile.penetrate = 10;
+			projectile.timeLeft = 600;
+			projectile.light = 0.5f;
+			projectile.extraUpdates = 1;
+
+
+		}
+		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
 		{
 			for (int h = 0; h < 22; h++)
 			{
@@ -33,9 +33,9 @@ namespace CrystiliumMod.Projectiles
 				float rand = Main.rand.NextFloat() * 6.283f;
 				vel = vel.RotatedBy(rand);
 				vel *= 5f;
-				Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y + 20, vel.X, vel.Y, mod.ProjectileType("Shatter"+(1+Main.rand.Next(0,3))), projectile.damage / 3, 0, Main.myPlayer);
+				Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y + 20, vel.X, vel.Y, mod.ProjectileType("Shatter" + (1 + Main.rand.Next(0, 3))), projectile.damage / 3, 0, Main.myPlayer);
 			}
 		}
- 
-    }
+
+	}
 }

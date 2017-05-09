@@ -12,11 +12,11 @@ namespace CrystiliumMod.Tiles
 			Main.tileMergeDirt[Type] = true;
 			Main.tileBlockLight[Type] = true;
 			Main.tileLighted[Type] = false;
-            SetModTree(new CrystalTree());
-            dustType = mod.DustType("Sparkle");
-            soundType = 27;
-            soundStyle = 2;
-            drop = mod.ItemType("CrystalWood");
+			SetModTree(new CrystalTree());
+			dustType = mod.DustType("Sparkle");
+			soundType = 27;
+			soundStyle = 2;
+			drop = mod.ItemType<Items.Placeable.CrystalWood>();
 			AddMapEntry(new Color(19, 163, 189));
 		}
 
@@ -31,5 +31,5 @@ namespace CrystiliumMod.Tiles
 			g = 0.75f;
 			b = 1.75f;
 		}
-    }
+	}
 }

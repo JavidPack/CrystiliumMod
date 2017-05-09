@@ -16,19 +16,19 @@ namespace CrystiliumMod.Projectiles
 			projectile.tileCollide = false;
 			projectile.timeLeft = 40;
 			projectile.name = "DiamondExplosion";
-			Main.projFrames[projectile.type] = 7;   
-			
+			Main.projFrames[projectile.type] = 7;
+
 		}
 
-		 public override void AI()
-        {
+		public override void AI()
+		{
 			projectile.frameCounter++;
-            if (projectile.frameCounter >= 5)
-            {
-                projectile.frameCounter = 0;
-                projectile.frame = (projectile.frame + 1); 
-            } 
+			if (projectile.frameCounter >= 5)
+			{
+				projectile.frameCounter = 0;
+				projectile.frame = (projectile.frame + 1);
+			}
 		}
-		
+
 	}
 }

@@ -20,7 +20,7 @@ namespace CrystiliumMod.Items.Accessories
 			item.rare = 2;
 			item.accessory = true;
 		}
-		
+
 		public override void UpdateAccessory(Player player, bool hideVisual)
 		{
 			player.lifeRegen += 6;

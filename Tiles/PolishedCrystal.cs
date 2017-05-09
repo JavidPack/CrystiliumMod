@@ -13,9 +13,9 @@ namespace CrystiliumMod.Tiles
 			Main.tileBlockLight[Type] = true;
 			Main.tileLighted[Type] = false;
 			dustType = mod.DustType("Sparkle");
-			drop = mod.ItemType("PolishedCrystal");
-            AddMapEntry(new Color(19, 163, 189));
-        }
+			drop = mod.ItemType<Items.Placeable.PolishedCrystal>();
+			AddMapEntry(new Color(19, 163, 189));
+		}
 
 		public override void NumDust(int i, int j, bool fail, ref int num)
 		{
@@ -28,10 +28,10 @@ namespace CrystiliumMod.Tiles
 			g = 0.75f;
 			b = 1.75f;
 		}
-        public override bool KillSound(int i, int j)
-        {
-            Main.PlaySound(2, i * 16, j * 16, 27);
-            return false;
-        }
-    }
+		public override bool KillSound(int i, int j)
+		{
+			Main.PlaySound(2, i * 16, j * 16, 27);
+			return false;
+		}
+	}
 }

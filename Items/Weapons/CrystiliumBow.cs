@@ -27,15 +27,15 @@ namespace CrystiliumMod.Items.Weapons
 			item.autoReuse = true;
 			item.shoot = 3; //idk why but all the guns in the vanilla source have this
 			item.shootSpeed = 8f;
-            item.useAmmo = AmmoID.Arrow;
-        }
+			item.useAmmo = AmmoID.Arrow;
+		}
 		public override void AddRecipes()
-        {
-            ModRecipe recipe = new ModRecipe(mod);
-			 recipe.AddIngredient(null, "CrystiliumBar", 17);
-            recipe.AddTile(TileID.MythrilAnvil);
-            recipe.SetResult(this, 1);
-            recipe.AddRecipe();
-        }
+		{
+			ModRecipe recipe = new ModRecipe(mod);
+			recipe.AddIngredient(null, "CrystiliumBar", 17);
+			recipe.AddTile(TileID.MythrilAnvil);
+			recipe.SetResult(this, 1);
+			recipe.AddRecipe();
+		}
 	}
 }

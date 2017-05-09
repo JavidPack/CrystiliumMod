@@ -7,23 +7,14 @@ namespace CrystiliumMod
 {
 	public class CrystiliumMod : Mod
 	{
-		public CrystiliumMod()
-		{
-			Properties = new ModProperties()
-			{
-				Autoload = true,
-				AutoloadGores = true,
-				AutoloadSounds = true,
-                AutoloadBackgrounds = true
-            };
-		}
+		public CrystiliumMod() { }
 
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(this);
-			recipe.AddIngredient(null, "CrystalBottle");
+			recipe.AddIngredient(ItemType<Items.CrystalBottle>());
 			recipe.needWater = true;
-			recipe.SetResult("CrystalBottleWater", 1);
+			recipe.SetResult(ItemType<Items.CrystalBottleWater>());
 		}
 
 		public override void UpdateMusic(ref int music)
@@ -36,12 +27,14 @@ namespace CrystiliumMod
 				MusicID.PirateInvasion, GetSoundSlot(SoundType.Music, "Sounds/Music/CrystalKing")};
 
 			bool playMusic = true;
-			foreach(int n in NoOverride) {
-				if(music == n) playMusic = false;
+			foreach (int n in NoOverride)
+			{
+				if (music == n) playMusic = false;
 			}
 
-			if(player.active && player.GetModPlayer<CrystalPlayer>(this).ZoneCrystal && !Main.gameMenu && playMusic) {
-					music = this.GetSoundSlot(SoundType.Music, "Sounds/Music/CrystallineFlows");
+			if (player.active && player.GetModPlayer<CrystalPlayer>(this).ZoneCrystal && !Main.gameMenu && playMusic)
+			{
+				music = this.GetSoundSlot(SoundType.Music, "Sounds/Music/CrystallineFlows");
 			}
 		}
 	}

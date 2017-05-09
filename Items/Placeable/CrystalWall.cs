@@ -19,13 +19,13 @@ namespace CrystiliumMod.Items.Placeable
 			item.consumable = true;
 			item.createWall = mod.WallType("CrystalWall");
 		}
-        public override void AddRecipes()
-        {
-            ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(null, "CrystalBlock", 1);
-            recipe.AddTile(TileID.WorkBenches);
-            recipe.SetResult(this, 4);
-            recipe.AddRecipe();
-        }
-    }
+		public override void AddRecipes()
+		{
+			ModRecipe recipe = new ModRecipe(mod);
+			recipe.AddIngredient(null, "CrystalBlock", 1);
+			recipe.AddTile(TileID.WorkBenches);
+			recipe.SetResult(this, 4);
+			recipe.AddRecipe();
+		}
+	}
 }

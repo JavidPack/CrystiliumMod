@@ -7,7 +7,7 @@ namespace CrystiliumMod.Items
 	{
 		public override void SetDefaults()
 		{
-			item.CloneDefaults (ItemID.BrokenHeroSword);
+			item.CloneDefaults(ItemID.BrokenHeroSword);
 			item.name = "Broken Archmage Staff";
 		}
 	}

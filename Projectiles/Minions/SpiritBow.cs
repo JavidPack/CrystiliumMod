@@ -6,23 +6,23 @@ using Terraria.ModLoader;
 
 namespace CrystiliumMod.Projectiles.Minions
 {
-    public class SpiritBow : ModProjectile
-    {
-        public override void SetDefaults()
-        {
-            projectile.name = "Spirit Bow";
+	public class SpiritBow : ModProjectile
+	{
+		public override void SetDefaults()
+		{
+			projectile.name = "Spirit Bow";
 			projectile.width = 48;
-            projectile.height = 58;
-            projectile.timeLeft = 600;
+			projectile.height = 58;
+			projectile.timeLeft = 600;
 			projectile.friendly = false;
 			projectile.hostile = false;
-            projectile.penetrate = -1;
-            projectile.tileCollide = false;
-            projectile.ignoreWater = true;
+			projectile.penetrate = -1;
+			projectile.tileCollide = false;
+			projectile.ignoreWater = true;
 			projectile.minion = true;
 			projectile.minionSlots = 0;
 			Main.projFrames[projectile.type] = 9;
-        }
+		}
 
 		public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
 		{
@@ -39,10 +39,10 @@ namespace CrystiliumMod.Projectiles.Minions
 			return false;
 		}
 
-        //How the projectile works
+		//How the projectile works
 		//AI ARRAY INFO: 0 - NUFFIN  |  1 - TARGET
-        public override void AI()
-        {
+		public override void AI()
+		{
 			//CONFIG INFO
 			int range = 50;   //How many tiles away the projectile targets NPCs
 			float rotSpeed = (float)(Math.PI / 10); //speed of rotation (in radians per frame)
@@ -52,7 +52,7 @@ namespace CrystiliumMod.Projectiles.Minions
 
 			//TARGET NEAREST NPC WITHIN RANGE
 			float lowestDist = float.MaxValue;
-			foreach(NPC npc in Main.npc)
+			foreach (NPC npc in Main.npc)
 			{
 				//if npc is a valid target (active, not friendly, and not a critter)
 				if (npc.active && !npc.friendly && npc.catchItem == 0)
@@ -90,7 +90,7 @@ namespace CrystiliumMod.Projectiles.Minions
 				}
 
 				//handling counter-clockwise rotation
-				else 
+				else
 				{
 					//don't jitter
 					if (rotToTarget - projectile.rotation < rotSpeed) projectile.rotation = rotToTarget;
@@ -141,7 +141,7 @@ namespace CrystiliumMod.Projectiles.Minions
 				{
 					//spawn the arrow centered on the bow (this code aligns the centers :3)
 					Vector2 vel = new Vector2(shootVelocity, 0f).RotatedBy(projectile.rotation);
-					int proj = Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, vel.X, vel.Y, mod.ProjectileType("SpiritArrow"), projectile.damage, projectile.knockBack, projectile.owner);
+					int proj = Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, vel.X, vel.Y, mod.ProjectileType<SpiritArrow>(), projectile.damage, projectile.knockBack, projectile.owner);
 					Projectile newProj = Main.projectile[proj];
 					newProj.position += projectile.Center - newProj.Center;
 
@@ -151,35 +151,35 @@ namespace CrystiliumMod.Projectiles.Minions
 				}
 			}
 			//finish firing anim, revert back to 0
-			else if (projectile.frame > 6) 
+			else if (projectile.frame > 6)
 			{
 				projectile.frameCounter++;
-				if (projectile.frameCounter % animSpeed == 0) 
+				if (projectile.frameCounter % animSpeed == 0)
 				{
 					projectile.frame++;
 				}
-				if (projectile.frame == 9) 
+				if (projectile.frame == 9)
 				{
 					projectile.frame = 0;
 					projectile.frameCounter = 0;
 				}
 			}
 			if (projectile.timeLeft == 600)
-            {
-                for (int I = 0; I < 15; I++)
-                {
-                    Dust.NewDust(projectile.position, projectile.width, projectile.height, mod.DustType("Sparkle"), (float)Main.rand.Next(-3, 3), (float)Main.rand.Next(-3, 3), 0);
-                }
-            }
-        }
+			{
+				for (int I = 0; I < 15; I++)
+				{
+					Dust.NewDust(projectile.position, projectile.width, projectile.height, mod.DustType("Sparkle"), (float)Main.rand.Next(-3, 3), (float)Main.rand.Next(-3, 3), 0);
+				}
+			}
+		}
 
 		public override void Kill(int timeLeft)
 		{
-				Main.PlaySound(2, projectile.Center, 27);
-				 for (int I = 0; I < 15; I++)
-                {
-                    Dust.NewDust(projectile.position, projectile.width, projectile.height, mod.DustType("Sparkle"), (float)Main.rand.Next(-3, 3), (float)Main.rand.Next(-3, 3), 0);
-                }
+			Main.PlaySound(2, projectile.Center, 27);
+			for (int I = 0; I < 15; I++)
+			{
+				Dust.NewDust(projectile.position, projectile.width, projectile.height, mod.DustType("Sparkle"), (float)Main.rand.Next(-3, 3), (float)Main.rand.Next(-3, 3), 0);
+			}
 		}
-    }
+	}
 }

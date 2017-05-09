@@ -21,13 +21,13 @@ namespace CrystiliumMod.Items.Placeable
 			item.value = 500;
 			item.createTile = mod.TileType("CrystalWoodWorkbench");
 		}
-		  public override void AddRecipes()
-        {
-            ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(null, "CrystalWood", 10);
-            recipe.AddTile(TileID.WorkBenches);
-            recipe.SetResult(this, 1);
-            recipe.AddRecipe();
-        }
+		public override void AddRecipes()
+		{
+			ModRecipe recipe = new ModRecipe(mod);
+			recipe.AddIngredient(null, "CrystalWood", 10);
+			recipe.AddTile(TileID.WorkBenches);
+			recipe.SetResult(this, 1);
+			recipe.AddRecipe();
+		}
 	}
 }

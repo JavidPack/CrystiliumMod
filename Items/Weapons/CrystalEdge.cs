@@ -33,7 +33,7 @@ namespace CrystiliumMod.Items.Weapons
 				float rand = Main.rand.NextFloat() * 6.283f;
 				vel = vel.RotatedBy(rand);
 				vel *= 1f;
-				Projectile.NewProjectile(hitbox.X + Main.rand.Next(40), hitbox.Y + Main.rand.Next(40), vel.X, vel.Y, mod.ProjectileType("Shatter"+(1+Main.rand.Next(0,3))), item.damage, 0, Main.myPlayer);
+				Projectile.NewProjectile(hitbox.X + Main.rand.Next(40), hitbox.Y + Main.rand.Next(40), vel.X, vel.Y, mod.ProjectileType("Shatter" + (1 + Main.rand.Next(0, 3))), item.damage, 0, Main.myPlayer);
 			}
 		}
 
@@ -41,11 +41,11 @@ namespace CrystiliumMod.Items.Weapons
 		{
 			for (int J = 1; J < 3; J++)
 			{
-				Vector2 vel = new Vector2(0, -1);   
+				Vector2 vel = new Vector2(0, -1);
 				float rand = Main.rand.NextFloat() * 6.283f;
 				vel = vel.RotatedBy(rand);
 				vel *= 5f;
-		/*		int proj = Projectile.NewProjectile(projectile.Center.X, item.Center.Y + 20, vel.X, vel.Y, mod.ProjectileType("Shatter"+(1+Main.rand.Next(0,3))), item.damage / 4, 0, Main.myPlayer); */
+				/*		int proj = Projectile.NewProjectile(projectile.Center.X, item.Center.Y + 20, vel.X, vel.Y, mod.ProjectileType("Shatter"+(1+Main.rand.Next(0,3))), item.damage / 4, 0, Main.myPlayer); */
 			}
 		}
 	}

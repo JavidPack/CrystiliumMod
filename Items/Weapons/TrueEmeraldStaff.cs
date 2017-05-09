@@ -23,27 +23,27 @@ namespace CrystiliumMod.Items.Weapons
 			Item.staff[item.type] = true; //this makes the useStyle animate as a staff instead of as a gun
 			item.noMelee = true;
 			item.knockBack = 5;
-            item.value = 120000; //How much the item is worth
-            item.rare = 8; //The rarity of the item
-            item.UseSound = SoundID.Item20;
+			item.value = 120000; //How much the item is worth
+			item.rare = 8; //The rarity of the item
+			item.UseSound = SoundID.Item20;
 			item.autoReuse = true;
-			item.shoot = mod.ProjectileType("AmberDagger");
+			item.shoot = mod.ProjectileType<Projectiles.AmberDagger>();
 			item.shootSpeed = 8f;
 		}
-        public override void AddRecipes()
-        {
-            ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(mod.ItemType("CrystiliumBar"), 15);
-            recipe.AddIngredient(mod.ItemType("EnchantedEmeraldStaff"), 1);
-            recipe.AddIngredient(mod.ItemType("BrokenStaff"), 1);
-            recipe.AddTile(TileID.MythrilAnvil);
-            recipe.SetResult(this, 1);
-            recipe.AddRecipe();
-        }
-        public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+		public override void AddRecipes()
 		{
-            Projectile.NewProjectile(position.X, position.Y, speedX + Main.rand.Next(-3, 3), speedY + Main.rand.Next(-3, 3), mod.ProjectileType("TrueLeaf"), damage, knockBack, player.whoAmI, 0f, 0f);
-            return false;
-        }
+			ModRecipe recipe = new ModRecipe(mod);
+			recipe.AddIngredient(mod.ItemType<Items.CrystiliumBar>(), 15);
+			recipe.AddIngredient(mod.ItemType<Items.Weapons.EnchantedEmeraldStaff>(), 1);
+			recipe.AddIngredient(mod.ItemType<Items.BrokenStaff>(), 1);
+			recipe.AddTile(TileID.MythrilAnvil);
+			recipe.SetResult(this, 1);
+			recipe.AddRecipe();
+		}
+		public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+		{
+			Projectile.NewProjectile(position.X, position.Y, speedX + Main.rand.Next(-3, 3), speedY + Main.rand.Next(-3, 3), mod.ProjectileType<Projectiles.TrueLeaf>(), damage, knockBack, player.whoAmI, 0f, 0f);
+			return false;
+		}
 	}
 }

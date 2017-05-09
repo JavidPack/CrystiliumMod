@@ -19,8 +19,8 @@ namespace CrystiliumMod.Projectiles
 			projectile.friendly = true;
 			projectile.name = "GemFire";
 			projectile.damage = 10;
-			projectile.light = 0.5f;			
-			
+			projectile.light = 0.5f;
+
 		}
 
 		public override bool OnTileCollide(Vector2 oldVelocity)
@@ -32,9 +32,9 @@ namespace CrystiliumMod.Projectiles
 				Main.PlaySound(2, (int)projectile.position.X, (int)projectile.position.Y, 14);
 			}
 			for (int I = 0; I < 3; I++)
-				{
-					Dust.NewDust(projectile.position, projectile.width, projectile.height, mod.DustType("EtherealFlame"), (float)Main.rand.Next(-5, 5), (float)Main.rand.Next(-5, 5), 0);
-				}
+			{
+				Dust.NewDust(projectile.position, projectile.width, projectile.height, mod.DustType("EtherealFlame"), (float)Main.rand.Next(-5, 5), (float)Main.rand.Next(-5, 5), 0);
+			}
 			return false;
 		}
 		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
@@ -48,7 +48,7 @@ namespace CrystiliumMod.Projectiles
 				{
 					Dust.NewDust(projectile.position, projectile.width, projectile.height, mod.DustType("EtherealFlame"), (float)Main.rand.Next(-5, 5), (float)Main.rand.Next(-5, 5), 0);
 				}
-			
+
 			}
 		}
 		public override void AI()
@@ -57,7 +57,7 @@ namespace CrystiliumMod.Projectiles
 			Dust.NewDust(projectile.position, projectile.width, projectile.height, mod.DustType("EtherealFlame"), (float)Main.rand.Next(-5, 5), (float)Main.rand.Next(-5, 5), 0);
 			Dust.NewDust(projectile.position, projectile.width, projectile.height, mod.DustType("EtherealFlame"), (float)Main.rand.Next(-5, 5), (float)Main.rand.Next(-5, 5), 0);
 		}
-		
+
 		public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
 		{
 			Vector2 drawOrigin = new Vector2(Main.projectileTexture[projectile.type].Width * 0.5f, projectile.height * 0.5f);

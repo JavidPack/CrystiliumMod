@@ -20,9 +20,10 @@ namespace CrystiliumMod.Buffs
 		float ticks = 0f;
 		public override void Update(Player player, ref int buffIndex)
 		{
-			if (++ticks >= 6f) {
+			if (++ticks >= 6f)
+			{
 				ticks = 0f;
-					Projectile.NewProjectile ((player.Center.X - 125) + Main.rand.Next (250), (player.Center.Y - 125) + Main.rand.Next (250), 0f, 0f, mod.ProjectileType ("Shatter" + (1 + Main.rand.Next (0, 3))), 14, 0, Main.myPlayer);
+				Projectile.NewProjectile((player.Center.X - 125) + Main.rand.Next(250), (player.Center.Y - 125) + Main.rand.Next(250), 0f, 0f, mod.ProjectileType("Shatter" + (1 + Main.rand.Next(0, 3))), 14, 0, Main.myPlayer);
 			}
 		}
 	}

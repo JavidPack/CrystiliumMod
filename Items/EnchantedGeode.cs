@@ -19,7 +19,7 @@ namespace CrystiliumMod.Items
 			item.useStyle = 1;
 			item.consumable = true;
 			item.value = 7000;
-            item.rare = 5;
+			item.rare = 5;
 		}
 	}
 }

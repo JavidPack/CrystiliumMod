@@ -26,7 +26,7 @@ namespace CrystiliumMod.Items.Weapons
 			item.useStyle = 5; //How the weapon is held, 5 is the gun hold style
 			item.value = 120000; //How much the item is worth
 			item.rare = 8; //The rarity of the item
-			item.shoot = mod.ProjectileType("NebulaShard"); //What the item shoots, retains an int value
+			item.shoot = mod.ProjectileType<Projectiles.NebulaShard>(); //What the item shoots, retains an int value
 			item.shootSpeed = 4f; //How fast the projectile fires   
 			item.mana = 14;
 			item.channel = true;

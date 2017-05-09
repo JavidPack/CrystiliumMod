@@ -35,7 +35,7 @@ namespace CrystiliumMod.Tiles
 			disableSmartCursor = true;
 			adjTiles = new int[] { TileID.Containers };
 			chest = "CrystalWood Chest";
-			chestDrop = mod.ItemType("CrystalWoodChest");
+			chestDrop = mod.ItemType<Items.Placeable.CrystalWoodChest>();
 		}
 
 		public string MapChestName(string name, int i, int j)
@@ -170,7 +170,7 @@ namespace CrystiliumMod.Tiles
 				player.showItemIconText = Main.chest[chest].name.Length > 0 ? Main.chest[chest].name : "CrystalWood Chest";
 				if (player.showItemIconText == "CrystalWood Chest")
 				{
-					player.showItemIcon2 = mod.ItemType("CrystalWoodChest");
+					player.showItemIcon2 = mod.ItemType<Items.Placeable.CrystalWoodChest>();
 					player.showItemIconText = "";
 				}
 			}

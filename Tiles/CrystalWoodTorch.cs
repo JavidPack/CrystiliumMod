@@ -23,11 +23,11 @@ namespace CrystiliumMod.Tiles
 			TileObjectData.newTile.AnchorBottom = new AnchorData(AnchorType.SolidTile | AnchorType.SolidSide, TileObjectData.newTile.Width, 0);
 			TileObjectData.newAlternate.CopyFrom(TileObjectData.StyleTorch);
 			TileObjectData.newAlternate.AnchorLeft = new AnchorData(AnchorType.SolidTile | AnchorType.SolidSide | AnchorType.Tree | AnchorType.AlternateTile, TileObjectData.newTile.Height, 0);
-			TileObjectData.newAlternate.AnchorAlternateTiles = new int[]{ 124 };
+			TileObjectData.newAlternate.AnchorAlternateTiles = new int[] { 124 };
 			TileObjectData.addAlternate(1);
 			TileObjectData.newAlternate.CopyFrom(TileObjectData.StyleTorch);
 			TileObjectData.newAlternate.AnchorRight = new AnchorData(AnchorType.SolidTile | AnchorType.SolidSide | AnchorType.Tree | AnchorType.AlternateTile, TileObjectData.newTile.Height, 0);
-			TileObjectData.newAlternate.AnchorAlternateTiles = new int[]{ 124 };
+			TileObjectData.newAlternate.AnchorAlternateTiles = new int[] { 124 };
 			TileObjectData.addAlternate(2);
 			TileObjectData.newAlternate.CopyFrom(TileObjectData.StyleTorch);
 			TileObjectData.newAlternate.AnchorWall = true;
@@ -35,9 +35,9 @@ namespace CrystiliumMod.Tiles
 			TileObjectData.addTile(Type);
 			AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTorch);
 			AddMapEntry(new Color(250, 140, 250), "Torch");
-			drop = mod.ItemType("CrystalWoodTorch");
+			drop = mod.ItemType<Items.Placeable.CrystalWoodTorch>();
 			disableSmartCursor = true;
-			adjTiles = new int[]{ TileID.Torches };
+			adjTiles = new int[] { TileID.Torches };
 			torch = true;
 		}
 

@@ -7,10 +7,10 @@ using System.IO;
 
 namespace CrystiliumMod.Projectiles
 {
-    public class TrueRubyProjectile : ModProjectile
-    {
-        public override void SetDefaults()
-        {
+	public class TrueRubyProjectile : ModProjectile
+	{
+		public override void SetDefaults()
+		{
 			projectile.name = "True Ruby Gem";
 			projectile.friendly = true;
 			projectile.magic = true;
@@ -18,13 +18,15 @@ namespace CrystiliumMod.Projectiles
 			projectile.height = 26;
 			Main.projFrames[projectile.type] = 4;
 			projectile.timeLeft = 240; //Projectile lasts 4 seconds
-        }
+		}
 
 		//Projectile AI adapted from friendly Lost Soul AI (AKA Spectre Staff projectiles)
 		//Note ADAPTED. Code was essentially unreadable and impractical originally.
-		public override void AI(){
-			if(++projectile.frameCounter % 3 == 0) {
-				if(++projectile.frame > 3) projectile.frame = 0;
+		public override void AI()
+		{
+			if (++projectile.frameCounter % 3 == 0)
+			{
+				if (++projectile.frame > 3) projectile.frame = 0;
 			}
 
 			Vector2 targetPos = projectile.Center;
@@ -59,12 +61,12 @@ namespace CrystiliumMod.Projectiles
 				projectile.velocity = (projectile.velocity * 20 + homingVect) / 21f;
 			}
 
-            //Spawn the dust
-            if (Main.rand.Next(3) == 0)
-            {
-                Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, mod.DustType("TrueRubyDust"), projectile.velocity.X * 0.5f, projectile.velocity.Y * 0.5f);
-            }
-			projectile.rotation = projectile.velocity.ToRotation() + (float)(Math.PI/2);
+			//Spawn the dust
+			if (Main.rand.Next(3) == 0)
+			{
+				Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, mod.DustType("TrueRubyDust"), projectile.velocity.X * 0.5f, projectile.velocity.Y * 0.5f);
+			}
+			projectile.rotation = projectile.velocity.ToRotation() + (float)(Math.PI / 2);
 		}
-    }
+	}
 }

@@ -28,18 +28,18 @@ namespace CrystiliumMod.Items
 
 		public override void AddRecipes()
 		{
-            ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(null, "EnchantedGeode", 10);
-            recipe.AddTile(TileID.MythrilAnvil);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
-        }
+			ModRecipe recipe = new ModRecipe(mod);
+			recipe.AddIngredient(null, "EnchantedGeode", 10);
+			recipe.AddTile(TileID.MythrilAnvil);
+			recipe.SetResult(this);
+			recipe.AddRecipe();
+		}
 
 		public override void MeleeEffects(Player player, Rectangle hitbox)
 		{
 			if (Main.rand.Next(10) == 0)
 			{
-				Dust.NewDust(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, mod.DustType("Sparkle"));
+				Dust.NewDust(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, mod.DustType<Dusts.Sparkle>());
 			}
 		}
 	}

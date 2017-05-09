@@ -23,7 +23,7 @@ namespace CrystiliumMod.Items.Accessories
 			item.defense = 3;
 			item.accessory = true;
 		}
-	
+
 		public override void UpdateAccessory(Player player, bool hideVisual)
 		{
 			player.magicCrit += 10;

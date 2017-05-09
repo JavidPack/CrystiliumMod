@@ -16,7 +16,7 @@ namespace CrystiliumMod.Items
 			item.rare = 3;
 		}
 
-	public override void AddRecipes()
+		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);
 			recipe.AddIngredient(null, "ShinyGemstone", 5);

@@ -13,7 +13,7 @@ namespace CrystiliumMod.Projectiles
 			projectile.CloneDefaults(1);
 			projectile.name = "Enchanted Crystal Arrow";
 			projectile.damage = 10;
-			
+
 		}
 
 		public override bool OnTileCollide(Vector2 oldVelocity)
@@ -29,9 +29,9 @@ namespace CrystiliumMod.Projectiles
 					float rand = Main.rand.NextFloat() * 6.283f;
 					vel = vel.RotatedBy(rand);
 					vel *= 5f;
-					Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, vel.X, vel.Y, mod.ProjectileType("Shatter"+(1+Main.rand.Next(0,3))), projectile.damage - 20, 0, Main.myPlayer);
+					Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, vel.X, vel.Y, mod.ProjectileType("Shatter" + (1 + Main.rand.Next(0, 3))), projectile.damage - 20, 0, Main.myPlayer);
 				}
-			
+
 			}
 			return false;
 		}
@@ -48,12 +48,12 @@ namespace CrystiliumMod.Projectiles
 					float rand = Main.rand.NextFloat() * 6.283f;
 					vel = vel.RotatedBy(rand);
 					vel *= 5f;
-					Projectile.NewProjectile((projectile.Center.X - 30) + Main.rand.Next(60), (projectile.Center.Y - 30) + Main.rand.Next(60), vel.X, vel.Y, mod.ProjectileType("Shatter"+(1+Main.rand.Next(0,3))), projectile.damage -20, 0, Main.myPlayer);
+					Projectile.NewProjectile((projectile.Center.X - 30) + Main.rand.Next(60), (projectile.Center.Y - 30) + Main.rand.Next(60), vel.X, vel.Y, mod.ProjectileType("Shatter" + (1 + Main.rand.Next(0, 3))), projectile.damage - 20, 0, Main.myPlayer);
 				}
-			
+
 			}
 		}
-		
+
 		public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
 		{
 			Vector2 drawOrigin = new Vector2(Main.projectileTexture[projectile.type].Width * 0.5f, projectile.height * 0.5f);

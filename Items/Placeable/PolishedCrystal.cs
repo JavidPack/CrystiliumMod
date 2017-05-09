@@ -21,13 +21,13 @@ namespace CrystiliumMod.Items.Placeable
 			item.createTile = mod.TileType("PolishedCrystal");
 			ItemID.Sets.ExtractinatorMode[item.type] = item.type;
 		}
-        public override void AddRecipes()
-        {
-            ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(null, "CrystalBlock", 2);
-            recipe.AddTile(16);
-            recipe.SetResult(this, 1);
-            recipe.AddRecipe();
-        }
-    }
+		public override void AddRecipes()
+		{
+			ModRecipe recipe = new ModRecipe(mod);
+			recipe.AddIngredient(null, "CrystalBlock", 2);
+			recipe.AddTile(16);
+			recipe.SetResult(this, 1);
+			recipe.AddRecipe();
+		}
+	}
 }

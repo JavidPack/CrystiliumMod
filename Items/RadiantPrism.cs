@@ -17,11 +17,11 @@ namespace CrystiliumMod.Items
 			item.value = 3000;
 			item.rare = 3;
 		}
-		
-		 public override DrawAnimation GetAnimation()
-        {
-            return new DrawAnimationVertical(4, 4);
-        }
+
+		public override DrawAnimation GetAnimation()
+		{
+			return new DrawAnimationVertical(4, 4);
+		}
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);
@@ -29,17 +29,17 @@ namespace CrystiliumMod.Items
 			recipe.AddTile(17);
 			recipe.SetResult(this, 1);
 			recipe.AddRecipe();
-		} 
-	/*	public override void AddRecipes()
-		{
-			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(ItemID.DirtBlock);
-			recipe.SetResult(this, 999);
-			recipe.AddRecipe();
-			recipe = new ModRecipe(mod);
-			recipe.AddCraftGroup(null, "ExampleItem");
-			recipe.SetResult(this, 999);
-			recipe.AddRecipe();
-		} */
+		}
+		/*	public override void AddRecipes()
+			{
+				ModRecipe recipe = new ModRecipe(mod);
+				recipe.AddIngredient(ItemID.DirtBlock);
+				recipe.SetResult(this, 999);
+				recipe.AddRecipe();
+				recipe = new ModRecipe(mod);
+				recipe.AddCraftGroup(null, "ExampleItem");
+				recipe.SetResult(this, 999);
+				recipe.AddRecipe();
+			} */
 	}
 }

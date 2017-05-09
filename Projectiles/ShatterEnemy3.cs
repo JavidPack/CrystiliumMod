@@ -10,16 +10,16 @@ namespace CrystiliumMod.Projectiles
 		public override void SetDefaults()
 		{
 			projectile.CloneDefaults(ProjectileID.Grenade);
-            projectile.penetrate = 1;
-            projectile.width = 8;
-            projectile.height = 8;
-            projectile.hostile = true;
+			projectile.penetrate = 1;
+			projectile.width = 8;
+			projectile.height = 8;
+			projectile.hostile = true;
 			projectile.friendly = false;
 			projectile.alpha = 80;
 			aiType = ProjectileID.Grenade;
 			projectile.light = 0.5f;
 		}
-		
+
 		public override bool OnTileCollide(Vector2 oldVelocity)
 		{
 			projectile.penetrate--;

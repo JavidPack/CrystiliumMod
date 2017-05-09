@@ -21,9 +21,9 @@ namespace CrystiliumMod.Items.Weapons
 			Item.staff[item.type] = true; //this makes the useStyle animate as a staff instead of as a gun
 			item.noMelee = true;
 			item.knockBack = 5;
-            item.value = 30000;
-            item.rare = 3;
-            item.healLife = 10;
+			item.value = 30000;
+			item.rare = 3;
+			item.healLife = 10;
 			item.UseSound = SoundID.Item20;
 			item.autoReuse = true;
 		}

@@ -21,7 +21,7 @@ namespace CrystiliumMod
 		public int crystalCharmStacks = 0;
 		// TODO, need to sync this data?
 		public bool ZoneCrystal = false;
-        public bool crystalFountain = false;
+		public bool crystalFountain = false;
 
 		public override void ResetEffects()
 		{
@@ -31,27 +31,30 @@ namespace CrystiliumMod
 			defenseEffect = -1f;
 			CrystalAcc = false;
 			crystalCharm = false;
-        }
+		}
 
-	
+
 
 		public override void Hurt(bool pvp, bool quiet, double damage, int hitDirection, bool crit)
 		{
-			if (CrystalAcc) {
+			if (CrystalAcc)
+			{
 				Main.PlaySound(2, (int)player.position.X, (int)player.position.Y, 27);
-				for (int h = 0; h < 20; h++) {
+				for (int h = 0; h < 20; h++)
+				{
 					Vector2 vel = new Vector2(0, -1);
 					float rand = Main.rand.NextFloat() * 6.283f;
 					vel = vel.RotatedBy(rand);
 					vel *= 5f;
-					Projectile.NewProjectile(player.Center.X, player.Center.Y, vel.X, vel.Y, mod.ProjectileType ("Shatter" + (1 + Main.rand.Next (0, 3))), 20, 0, player.whoAmI);
+					Projectile.NewProjectile(player.Center.X, player.Center.Y, vel.X, vel.Y, mod.ProjectileType("Shatter" + (1 + Main.rand.Next(0, 3))), 20, 0, player.whoAmI);
 				}
 			}
 		}
 
 		private void ApplyCritBonus(ref int damage, ref bool crit)
 		{
-			if (crit) {
+			if (crit)
+			{
 				damage = (int)(damage * critDmgMult);
 			}
 		}
@@ -79,19 +82,24 @@ namespace CrystiliumMod
 		private void UpdateCharmBuff(NPC npc)
 		{
 			//only do this stuff if wearing accessory
-			if(crystalCharm) {
+			if (crystalCharm)
+			{
 				//add buff, update stacks
-				int buffIdx = player.FindBuffIndex(mod.BuffType("CrystalCharm"));
-				if(buffIdx < 0) {
-					player.AddBuff(mod.BuffType("CrystalCharm"), 120);
+				int buffIdx = player.FindBuffIndex(mod.BuffType<Buffs.CrystalCharm>());
+				if (buffIdx < 0)
+				{
+					player.AddBuff(mod.BuffType<Buffs.CrystalCharm>(), 120);
 					crystalCharmStacks = 1;
-				//1/3 chance to increase stack each hit
-				} else if(crystalCharmStacks < 25 && Main.rand.Next(2) == 0) {
+					//1/3 chance to increase stack each hit
+				}
+				else if (crystalCharmStacks < 25 && Main.rand.Next(2) == 0)
+				{
 					crystalCharmStacks += 1;
 				}
 
 				//reset buff time
-				if(buffIdx > -1) {
+				if (buffIdx > -1)
+				{
 					player.buffTime[buffIdx] = 120;
 				}
 			}
@@ -116,16 +124,21 @@ namespace CrystiliumMod
 		public override bool PreHurt(bool pvp, bool quiet, ref int damage, ref int hitDirection, ref bool crit,
 		ref bool customDamage, ref bool playSound, ref bool genGore, ref PlayerDeathReason damageSource)
 		{
-			if (constantDamage > 0 || percentDamage > 0f) {
+			if (constantDamage > 0 || percentDamage > 0f)
+			{
 				int damageFromPercent = (int)(player.statLifeMax2 * percentDamage);
-				damage = Math.Max (constantDamage, damageFromPercent);
+				damage = Math.Max(constantDamage, damageFromPercent);
 				customDamage = true;
-			} else if (defenseEffect >= 0f) {
-				if (Main.expertMode) {
+			}
+			else if (defenseEffect >= 0f)
+			{
+				if (Main.expertMode)
+				{
 					defenseEffect *= 1.5f;
 				}
 				damage -= (int)(player.statDefense * defenseEffect);
-				if (damage < 0) {
+				if (damage < 0)
+				{
 					damage = 1;
 				}
 				customDamage = true;
@@ -136,19 +149,20 @@ namespace CrystiliumMod
 			return true;
 		}
 
-        public override void PreUpdateBuffs()
-        {
-            if(crystalFountain)
-            {
-                player.AddBuff(mod.BuffType("CrystalHealing"),2);
-            }
-        }
+		public override void PreUpdateBuffs()
+		{
+			if (crystalFountain)
+			{
+				player.AddBuff(mod.BuffType<Buffs.CrystalHealing>(), 2);
+			}
+		}
 
 		public override void PostUpdateBuffs()
 		{
-			if(player.FindBuffIndex(mod.BuffType("CrystalCharm")) < 0) {
+			if (player.FindBuffIndex(mod.BuffType<Buffs.CrystalCharm>()) < 0)
+			{
 				crystalCharmStacks = 0;
 			}
 		}
-    }
+	}
 }

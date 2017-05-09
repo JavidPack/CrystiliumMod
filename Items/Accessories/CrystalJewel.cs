@@ -22,7 +22,7 @@ namespace CrystiliumMod.Items.Accessories
 			item.defense = 3;
 			item.accessory = true;
 		}
-	
+
 		public override void UpdateEquip(Player player)
 		{
 			player.GetModPlayer<CrystalPlayer>(mod).CrystalAcc = true;

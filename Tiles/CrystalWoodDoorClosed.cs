@@ -24,7 +24,7 @@ namespace CrystiliumMod.Tiles
 			TileObjectData.newTile.AnchorBottom = new AnchorData(AnchorType.SolidTile, TileObjectData.newTile.Width, 0);
 			TileObjectData.newTile.UsesCustomCanPlace = true;
 			TileObjectData.newTile.LavaDeath = true;
-			TileObjectData.newTile.CoordinateHeights = new int[]{ 16, 16, 16 };
+			TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16, 16 };
 			TileObjectData.newTile.CoordinateWidth = 16;
 			TileObjectData.newTile.CoordinatePadding = 2;
 			TileObjectData.newAlternate.CopyFrom(TileObjectData.newTile);
@@ -38,8 +38,8 @@ namespace CrystiliumMod.Tiles
 			AddMapEntry(new Color(250, 140, 250), "CrystalWood Door");
 			dustType = mod.DustType("CrystalDust");
 			disableSmartCursor = true;
-			adjTiles = new int[]{ TileID.ClosedDoor };
-			openDoorID = mod.TileType("CrystalWoodDoorOpen");
+			adjTiles = new int[] { TileID.ClosedDoor };
+			openDoorID = mod.TileType<CrystalWoodDoorOpen>();
 		}
 
 		public override void NumDust(int i, int j, bool fail, ref int num)
@@ -49,7 +49,7 @@ namespace CrystiliumMod.Tiles
 
 		public override void KillMultiTile(int i, int j, int frameX, int frameY)
 		{
-			Item.NewItem(i * 16, j * 16, 16, 48, mod.ItemType("CrystalWoodDoor"));
+			Item.NewItem(i * 16, j * 16, 16, 48, mod.ItemType<Items.Placeable.CrystalWoodDoor>());
 		}
 	}
 }

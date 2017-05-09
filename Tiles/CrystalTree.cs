@@ -30,7 +30,7 @@ namespace CrystiliumMod.Tiles
 
 		public override int DropWood()
 		{
-			return mod.ItemType("CrystalWood");
+			return mod.ItemType<Items.Placeable.CrystalWood>();
 		}
 
 		public override Texture2D GetTexture()

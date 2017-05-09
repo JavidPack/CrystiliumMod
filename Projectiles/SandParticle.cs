@@ -13,13 +13,13 @@ namespace CrystiliumMod.Projectiles
 			projectile.hostile = false;
 			projectile.magic = true;
 			projectile.width = 10;
-            projectile.timeLeft = 60;
+			projectile.timeLeft = 60;
 			projectile.height = 10;
 			projectile.friendly = true;
 			projectile.name = "Sand Particle";
 			projectile.damage = 10;
-			projectile.light = 0.5f;			
-			
+			projectile.light = 0.5f;
+
 		}
 
 		public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)

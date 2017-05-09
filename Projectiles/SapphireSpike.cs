@@ -8,26 +8,26 @@ namespace CrystiliumMod.Projectiles
 	public class SapphireSpike : ModProjectile
 	{
 		public override void SetDefaults()
-        {
+		{
 
-            projectile.name = "Crystal Staff Spike"; //Name of the projectile, only shows this if you get killed by it
-            projectile.width = 18; //Set the hitbox width
-            projectile.height = 18; //Set the hitbox height
+			projectile.name = "Crystal Staff Spike"; //Name of the projectile, only shows this if you get killed by it
+			projectile.width = 18; //Set the hitbox width
+			projectile.height = 18; //Set the hitbox height
 			projectile.aiStyle = 45;
 			projectile.damage = 5;
-            projectile.timeLeft = 600; //The amount of time the projectile is alive for
-            projectile.penetrate = 1; //Tells the game how many enemies it can hit before being destroyed
-            projectile.friendly = true; //Tells the game whether it is friendly to players/friendly npcs or not
-            projectile.hostile = false; //Tells the game whether it is hostile to players or not
-            projectile.tileCollide = true; //Tells the game whether or not it can collide with a tile
-            projectile.ignoreWater = true; //Tells the game whether or not projectile will be affected by water
-        }
+			projectile.timeLeft = 600; //The amount of time the projectile is alive for
+			projectile.penetrate = 1; //Tells the game how many enemies it can hit before being destroyed
+			projectile.friendly = true; //Tells the game whether it is friendly to players/friendly npcs or not
+			projectile.hostile = false; //Tells the game whether it is hostile to players or not
+			projectile.tileCollide = true; //Tells the game whether or not it can collide with a tile
+			projectile.ignoreWater = true; //Tells the game whether or not projectile will be affected by water
+		}
 
-        //How the projectile works
-        public override void AI()
-        {
-            projectile.AngleTo(Main.MouseWorld);
-        }
+		//How the projectile works
+		public override void AI()
+		{
+			projectile.AngleTo(Main.MouseWorld);
+		}
 		public override void Kill(int timeLeft)
 		{
 			for (int k = 0; k < 6; k++)
@@ -36,9 +36,9 @@ namespace CrystiliumMod.Projectiles
 			}
 		}
 
-     /*   public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
-        {
-            target.AddBuff(Terraria.ID.BuffID.Chilled, 300);
-        }*/
-    }
+		/*   public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+		   {
+			   target.AddBuff(Terraria.ID.BuffID.Chilled, 300);
+		   }*/
+	}
 }

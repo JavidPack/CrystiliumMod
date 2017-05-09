@@ -57,13 +57,12 @@
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
-    <Reference Include="Terraria">
-      <HintPath>..\..\..\..\..\..\..\..\SteamLibrary\steamapps\common\Terraria\Terraria.exe</HintPath>
+    <Reference Include="tModLoader v0.9.2.3">
+      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Terraria\tModLoader v0.9.2.3.exe</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
     <None Include=".gitignore" />
-    <None Include="Items\Placeable\Thumbs.db" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="**\*.cs" />

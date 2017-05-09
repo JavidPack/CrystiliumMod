@@ -12,11 +12,11 @@ namespace CrystiliumMod.Items.Weapons
 			item.CloneDefaults(ItemID.ThornChakram);
 			item.name = "Crystoshet";
 			item.damage = 77;
-            item.thrown = true;
-            item.value = Item.sellPrice(0, 1, 0, 0);
-            item.rare = 6;
-            item.toolTip = "'The powers of three do not set out alone'";
-			item.shoot = mod.ProjectileType("Crystishae");
+			item.thrown = true;
+			item.value = Item.sellPrice(0, 1, 0, 0);
+			item.rare = 6;
+			item.toolTip = "'The powers of three do not set out alone'";
+			item.shoot = mod.ProjectileType<Projectiles.Crystishae>();
 		}
 
 		public override bool CanUseItem(Player player)

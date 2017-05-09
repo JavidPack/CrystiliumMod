@@ -25,7 +25,7 @@ namespace CrystiliumMod.Items.Weapons
 			item.rare = 3;
 			item.UseSound = SoundID.Item20;
 			item.autoReuse = true;
-			item.shoot = mod.ProjectileType("CrystalBomb");
+			item.shoot = mod.ProjectileType<Projectiles.CrystalBomb>();
 			item.shootSpeed = 8f;
 		}
 	}

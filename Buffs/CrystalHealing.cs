@@ -16,10 +16,10 @@ namespace CrystiliumMod.Buffs
 			Main.pvpBuff[Type] = true;
 			longerExpertDebuff = false;
 		}
-        
+
 		public override void Update(Player player, ref int buffIndex)
 		{
-            player.lifeRegen += 16;
+			player.lifeRegen += 16;
 		}
 	}
 }

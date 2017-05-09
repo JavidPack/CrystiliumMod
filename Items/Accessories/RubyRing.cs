@@ -20,11 +20,11 @@ namespace CrystiliumMod.Items.Accessories
 			item.rare = 1;
 			item.accessory = true;
 		}
-	
+
 		public override void UpdateAccessory(Player player, bool hideVisual)
 		{
 			// 20% chance of having Magma Stone effect each frame, equivalent of 20% chance of fire each strike
-			if(Main.rand.Next(5) == 0)
+			if (Main.rand.Next(5) == 0)
 				player.magmaStone = true;
 		}
 

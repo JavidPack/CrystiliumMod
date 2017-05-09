@@ -19,10 +19,10 @@ namespace CrystiliumMod.Items
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(null, "CrystalBottle", 1);
-			recipe.AddTile(null, "Fountain");
-			recipe.SetResult("CrystalBottleWater", 1);
+			recipe.AddIngredient(mod.ItemType<Items.CrystalBottle>());
+			recipe.AddTile(mod.TileType<Tiles.Fountain>());
+			recipe.SetResult(mod.ItemType<Items.CrystalBottleWater>());
 			recipe.AddRecipe();
-		} 
+		}
 	}
 }

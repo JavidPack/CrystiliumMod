@@ -18,7 +18,7 @@ namespace CrystiliumMod.Items.Placeable
 			item.useStyle = 1;
 			item.consumable = true;
 			item.value = 500;
-			item.createTile = mod.TileType("CrystalChest");
+			item.createTile = mod.TileType<Tiles.CrystalChest>();
 		}
 	}
 }

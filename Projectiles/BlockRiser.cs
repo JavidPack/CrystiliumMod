@@ -6,12 +6,12 @@ using Terraria;
 using Terraria.ModLoader;
 
 namespace CrystiliumMod.Projectiles
-{	
-	public class BlockRiser : ModProjectile 
+{
+	public class BlockRiser : ModProjectile
 	{
 		public float mouseX;
 		bool start = true;
-		
+
 		public override void SetDefaults()
 		{
 			projectile.name = ""; //Name of the projectile, only shows this if you get killed by it
@@ -26,22 +26,22 @@ namespace CrystiliumMod.Projectiles
 			projectile.aiStyle = -1; //How the projectile works, 0 makes the projectile just go straight towards your cursor
 			projectile.light = 1;
 		}
-		
+
 		//How the projectile works
 		public override void AI()
-        {
-			if(start)
+		{
+			if (start)
 			{
-				mouseX = projectile.timeLeft/10;
+				mouseX = projectile.timeLeft / 10;
 			}
-			projectile.timeLeft+=10;
-			int y = (int)(-1 + (Main.mouseY + Main.screenPosition.Y)/16)*16;
-            projectile.position = new Vector2(mouseX,y);
+			projectile.timeLeft += 10;
+			int y = (int)(-1 + (Main.mouseY + Main.screenPosition.Y) / 16) * 16;
+			projectile.position = new Vector2(mouseX, y);
 			Main.NewText("PrX:" + projectile.position.X.ToString());
 			Main.NewText("PrY:" + projectile.position.Y.ToString());
 			Main.NewText("PX:" + Main.player[Main.myPlayer].position.X.ToString());
 			Main.NewText("PY:" + Main.player[Main.myPlayer].position.Y.ToString());
 			start = false;
-        }
+		}
 	}
 }

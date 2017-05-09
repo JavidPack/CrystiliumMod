@@ -21,10 +21,10 @@ namespace CrystiliumMod.Tiles
 			TileObjectData.newTile.Origin = new Point16(0, 1);
 			TileObjectData.newTile.AnchorBottom = new AnchorData(AnchorType.SolidTile, TileObjectData.newTile.Width, 0);
 			TileObjectData.newTile.UsesCustomCanPlace = true;
-			TileObjectData.newTile.CoordinateHeights = new int[]{ 16, 18 };
+			TileObjectData.newTile.CoordinateHeights = new int[] { 16, 18 };
 			TileObjectData.newTile.CoordinateWidth = 16;
 			TileObjectData.newTile.CoordinatePadding = 2;
-			TileObjectData.newTile.AnchorValidTiles = new int[]{ mod.TileType("CrystalBlock") };
+			TileObjectData.newTile.AnchorValidTiles = new int[] { mod.TileType("CrystalBlock") };
 			TileObjectData.newTile.StyleHorizontal = true;
 			TileObjectData.newTile.DrawFlipHorizontal = true;
 			TileObjectData.newTile.WaterPlacement = LiquidPlacement.Allowed;
@@ -34,7 +34,7 @@ namespace CrystiliumMod.Tiles
 			sapling = true;
 			AddMapEntry(new Color(200, 200, 200), "Sapling");
 			dustType = mod.DustType("Sparkle");
-			adjTiles = new int[]{ TileID.Saplings };
+			adjTiles = new int[] { TileID.Saplings };
 		}
 
 		public override void NumDust(int i, int j, bool fail, ref int num)
@@ -44,12 +44,12 @@ namespace CrystiliumMod.Tiles
 
 		public override void RandomUpdate(int i, int j)
 		{
-				bool isPlayerNear = WorldGen.PlayerLOS(i, j);
-				bool success = WorldGen.GrowTree(i, j);
-				if (success && isPlayerNear)
-				{
-					WorldGen.TreeGrowFXCheck(i, j);
-				}
+			bool isPlayerNear = WorldGen.PlayerLOS(i, j);
+			bool success = WorldGen.GrowTree(i, j);
+			if (success && isPlayerNear)
+			{
+				WorldGen.TreeGrowFXCheck(i, j);
+			}
 		}
 
 		public override void SetSpriteEffects(int i, int j, ref SpriteEffects effects)

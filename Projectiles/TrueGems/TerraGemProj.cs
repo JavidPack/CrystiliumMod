@@ -8,7 +8,7 @@ namespace CrystiliumMod.Projectiles.TrueGems
 {
 	public class TerraGemProj : ModProjectile
 	{
-		public override bool Autoload (ref string name, ref string texture)
+		public override bool Autoload(ref string name, ref string texture)
 		{
 			texture = "CrystiliumMod/Projectiles/TrueGems/TrueGem1";
 			return true;
@@ -23,8 +23,8 @@ namespace CrystiliumMod.Projectiles.TrueGems
 			projectile.height = 28;
 			projectile.friendly = true;
 			projectile.name = "True gem";
-			projectile.damage = 10; 
-			projectile.light = 0.5f;			
+			projectile.damage = 10;
+			projectile.light = 0.5f;
 		}
 
 		//Removes the need for separate projectiles by using custom drawing for all variants
@@ -35,12 +35,14 @@ namespace CrystiliumMod.Projectiles.TrueGems
 		public override bool OnTileCollide(Vector2 oldVelocity)
 		{
 			projectile.penetrate--;
-			if (projectile.penetrate <= 0) {
-				projectile.Kill ();
-				Main.PlaySound (2, (int)projectile.position.X, (int)projectile.position.Y, 14);
+			if (projectile.penetrate <= 0)
+			{
+				projectile.Kill();
+				Main.PlaySound(2, (int)projectile.position.X, (int)projectile.position.Y, 14);
 			}
-			for (int I = 0; I < 3; I++) {
-				Dust.NewDust (projectile.position, projectile.width, projectile.height, mod.DustType ("CrystalDust"), (float)Main.rand.Next (-5, 5), (float)Main.rand.Next (-5, 5), 0);
+			for (int I = 0; I < 3; I++)
+			{
+				Dust.NewDust(projectile.position, projectile.width, projectile.height, mod.DustType("CrystalDust"), (float)Main.rand.Next(-5, 5), (float)Main.rand.Next(-5, 5), 0);
 			}
 			return false;
 		}
@@ -55,10 +57,10 @@ namespace CrystiliumMod.Projectiles.TrueGems
 				{
 					Dust.NewDust(projectile.position, projectile.width, projectile.height, mod.DustType("CrystalDust"), (float)Main.rand.Next(-5, 5), (float)Main.rand.Next(-5, 5), 0);
 				}
-			
+
 			}
 		}
-			
+
 		public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
 		{
 			Vector2 drawOrigin = new Vector2(Main.projectileTexture[projectile.type].Width * 0.5f, projectile.height * 0.5f);

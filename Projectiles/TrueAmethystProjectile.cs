@@ -12,9 +12,9 @@ namespace CrystiliumMod.Projectiles
 		public override void SetDefaults()
 		{
 			projectile.name = "TrueAmethystProjectile";
-            projectile.penetrate = 3;
-            projectile.width = 24;
-            projectile.height = 26;
+			projectile.penetrate = 3;
+			projectile.width = 24;
+			projectile.height = 26;
 			projectile.timeLeft = 30;
 			projectile.friendly = true;
 			aiType = 7;
@@ -28,6 +28,6 @@ namespace CrystiliumMod.Projectiles
 			{
 				Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, mod.DustType("AmethystDust"), projectile.velocity.X * 0.5f, projectile.velocity.Y * 0.5f);
 			}
-		} 
+		}
 	}
 }

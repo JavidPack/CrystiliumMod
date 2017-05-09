@@ -22,7 +22,8 @@ namespace CrystiliumMod.Projectiles
 
 		public override bool PreAI()
 		{
-			if(Main.myPlayer == projectile.owner) {
+			if (Main.myPlayer == projectile.owner)
+			{
 				projectile.netUpdate = true;
 			}
 			return true;

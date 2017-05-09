@@ -11,13 +11,13 @@ namespace CrystiliumMod.Tiles
 			Main.tileSolid[Type] = true;
 			Main.tileMergeDirt[Type] = true;
 			Main.tileBlockLight[Type] = true;
-            this.minPick = 999;
-            Main.tileLighted[Type] = false;
-            SetModTree(new CrystalTree());
-            dustType = mod.DustType("Sparkle");
-            soundType = 27;
-            soundStyle = 2;
-            drop = mod.ItemType("CrystalBlock");
+			this.minPick = 999;
+			Main.tileLighted[Type] = false;
+			SetModTree(new CrystalTree());
+			dustType = mod.DustType("Sparkle");
+			soundType = 27;
+			soundStyle = 2;
+			drop = mod.ItemType<Items.Placeable.CrystalBlock>();
 			AddMapEntry(new Color(19, 163, 189));
 		}
 
@@ -34,31 +34,31 @@ namespace CrystiliumMod.Tiles
 		}
 		public override void RandomUpdate(int i, int j)
 		{
-            if (Main.tile[i, j - 1] == null || Main.tile[i, j - 2] == null || Main.tile[i + 1, j] == null || Main.tile[i + 1, j - 2] == null || Main.tile[i + 2, j - 1] == null || Main.tile[i + 2, j - 2] == null)
-            {
-                if (Main.rand.Next(10) == 1)
-                {
-                    WorldGen.PlaceObject(i, j - 1, mod.TileType("Crystal"));
-                }
-                if (Main.rand.Next(2) == 1)
-                {
-                    WorldGen.PlaceObject(i, j - 1, mod.TileType("CrystalSapling"));
-                }
-            }
-                if (Main.rand.Next(10) == 1)
-                {
-                    WorldGen.PlaceObject(i, j - 1, mod.TileType("CrystalSapling"));
-                }
+			if (Main.tile[i, j - 1] == null || Main.tile[i, j - 2] == null || Main.tile[i + 1, j] == null || Main.tile[i + 1, j - 2] == null || Main.tile[i + 2, j - 1] == null || Main.tile[i + 2, j - 2] == null)
+			{
+				if (Main.rand.Next(10) == 1)
+				{
+					WorldGen.PlaceObject(i, j - 1, mod.TileType<Crystal>());
+				}
+				if (Main.rand.Next(2) == 1)
+				{
+					WorldGen.PlaceObject(i, j - 1, mod.TileType<CrystalSapling>());
+				}
+			}
+			if (Main.rand.Next(10) == 1)
+			{
+				WorldGen.PlaceObject(i, j - 1, mod.TileType<CrystalSapling>());
+			}
 		}
-        public override int SaplingGrowthType(ref int style)
-        {
-            style = 0;
-            return mod.TileType("CrystalSapling");
-        }
-        public override bool KillSound(int i, int j)
-        {
-            Main.PlaySound(2, i * 16, j * 16, 27);
-            return false;
-        }
-    }
+		public override int SaplingGrowthType(ref int style)
+		{
+			style = 0;
+			return mod.TileType<CrystalSapling>();
+		}
+		public override bool KillSound(int i, int j)
+		{
+			Main.PlaySound(2, i * 16, j * 16, 27);
+			return false;
+		}
+	}
 }

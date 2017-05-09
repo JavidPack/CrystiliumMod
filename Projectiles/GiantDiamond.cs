@@ -12,9 +12,9 @@ namespace CrystiliumMod.Projectiles
 		public override void SetDefaults()
 		{
 			projectile.CloneDefaults(ProjectileID.Grenade);
-            projectile.penetrate = 1;
-            projectile.width = 24;
-            projectile.height = 26;
+			projectile.penetrate = 1;
+			projectile.width = 24;
+			projectile.height = 26;
 			projectile.timeLeft = 25;
 			projectile.friendly = true;
 			aiType = ProjectileID.Grenade;
@@ -22,14 +22,14 @@ namespace CrystiliumMod.Projectiles
 			projectile.light = 0.5f;
 		}
 
-	/*	public override void AI()
-		{
-			projectile.velocity.Y += projectile.ai[0];
-			if (Main.rand.Next(3) == 0)
+		/*	public override void AI()
 			{
-				Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, mod.DustType("Sparkle"), projectile.velocity.X * 0.5f, projectile.velocity.Y * 0.5f);
-			}
-		} */
+				projectile.velocity.Y += projectile.ai[0];
+				if (Main.rand.Next(3) == 0)
+				{
+					Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, mod.DustType("Sparkle"), projectile.velocity.X * 0.5f, projectile.velocity.Y * 0.5f);
+				}
+			} */
 
 		public override bool OnTileCollide(Vector2 oldVelocity)
 		{
@@ -65,7 +65,7 @@ namespace CrystiliumMod.Projectiles
 			}
 			for (int h = 0; h < 4; h++)
 			{
-				Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, Main.rand.Next(-5, 5), Main.rand.Next(-5, 5), mod.ProjectileType("DiamondBomb"), projectile.damage, 0, projectile.owner);
+				Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, Main.rand.Next(-5, 5), Main.rand.Next(-5, 5), mod.ProjectileType<DiamondBomb>(), projectile.damage, 0, projectile.owner);
 			}
 		}
 		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)

@@ -17,19 +17,19 @@ namespace CrystiliumMod.Projectiles
 			projectile.friendly = true;
 			projectile.name = "TrueLeaf";
 			projectile.damage = 10;
-			Main.projFrames[projectile.type] = 5;  
-			projectile.light = 0.5f;			
-			
+			Main.projFrames[projectile.type] = 5;
+			projectile.light = 0.5f;
+
 		}
 
-		 public override void AI()
-        {
+		public override void AI()
+		{
 			projectile.frameCounter++;
-            if (projectile.frameCounter >= 8)
-            {
-                projectile.frameCounter = 0;
-                projectile.frame = (projectile.frame + 1) % 5;
-            } 
+			if (projectile.frameCounter >= 8)
+			{
+				projectile.frameCounter = 0;
+				projectile.frame = (projectile.frame + 1) % 5;
+			}
 		}
 		public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
 		{

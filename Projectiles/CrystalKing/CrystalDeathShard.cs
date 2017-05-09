@@ -10,7 +10,7 @@ namespace CrystiliumMod.Projectiles.CrystalKing
 		public override void SetDefaults()
 		{
 			projectile.CloneDefaults(ProjectileID.Grenade);
-            projectile.penetrate = 1;
+			projectile.penetrate = 1;
 			projectile.friendly = false;
 			projectile.hostile = true;
 			projectile.alpha = 80;
