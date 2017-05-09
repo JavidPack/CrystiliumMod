@@ -1,8 +1,4 @@
-using System;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using Terraria;
-using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace CrystiliumMod.Projectiles.CrystalKing
@@ -20,8 +16,8 @@ namespace CrystiliumMod.Projectiles.CrystalKing
 			projectile.timeLeft = 120;
 			projectile.light = 2;
 			Main.projFrames[projectile.type] = 4;
-
 		}
+
 		public override void AI()
 		{
 			projectile.rotation = projectile.velocity.ToRotation() + 1.57f;

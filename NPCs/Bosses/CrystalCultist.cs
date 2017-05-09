@@ -1,10 +1,9 @@
-using Terraria;
-using System;
-using System.Collections.Generic;
+using CrystiliumMod.Projectiles.CrystalKing;
 using Microsoft.Xna.Framework;
+using System;
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using CrystiliumMod.Projectiles.CrystalKing;
 
 namespace CrystiliumMod.NPCs.Bosses
 {

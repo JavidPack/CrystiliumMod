@@ -1,5 +1,4 @@
 ﻿using Microsoft.Xna.Framework;
-using System;
 using Terraria;
 using Terraria.ModLoader;
 
@@ -23,6 +22,7 @@ namespace CrystiliumMod.Projectiles
 				}
 			}
 		}
+
 		public override void OnHitNPC(Projectile projectile, NPC target, int damage, float knockback, bool crit)
 		{
 			if (projectile.aiStyle == 88 && (projectile.knockBack >= .2f && projectile.knockBack <= .5f))
@@ -30,6 +30,7 @@ namespace CrystiliumMod.Projectiles
 				target.immune[projectile.owner] = 6;
 			}
 		}
+
 		public override bool? CanHitNPC(Projectile projectile, NPC target)
 		{
 			if (projectile.aiStyle == 88 && ((projectile.knockBack == .5f || projectile.knockBack == .4f) || (projectile.knockBack >= .4f && projectile.knockBack < .5f)) && target.immune[projectile.owner] > 0)

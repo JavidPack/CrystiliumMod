@@ -1,7 +1,4 @@
-using System;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Input;
-using Terraria.UI;
 using Terraria;
 using Terraria.ModLoader;
 
@@ -10,7 +7,7 @@ namespace CrystiliumMod.Projectiles
 	public class BlockRiser : ModProjectile
 	{
 		public float mouseX;
-		bool start = true;
+		private bool start = true;
 
 		public override void SetDefaults()
 		{

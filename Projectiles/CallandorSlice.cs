@@ -1,9 +1,8 @@
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
+using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using System;
 
 namespace CrystiliumMod.Projectiles
 {
@@ -11,6 +10,7 @@ namespace CrystiliumMod.Projectiles
 	{
 		private float DistX;
 		private float DistY;
+
 		public override void SetDefaults()
 		{
 			projectile.CloneDefaults(ProjectileID.Arkhalis);
@@ -25,6 +25,7 @@ namespace CrystiliumMod.Projectiles
 			projectile.aiStyle = 75;
 			aiType = 595;
 		}
+
 		public override void AI()
 		{
 			if (Main.myPlayer == projectile.owner)
@@ -59,9 +60,8 @@ namespace CrystiliumMod.Projectiles
 					projectile.position.Y = (Main.player[projectile.owner].Center.Y + (0 - DistYT)) - 30;
 				}
 			}
-
-
 		}
+
 		//public override void AI()
 		//{
 		//    Player player = Main.player[projectile.owner];
@@ -141,4 +141,3 @@ namespace CrystiliumMod.Projectiles
 		}
 	}
 }
-

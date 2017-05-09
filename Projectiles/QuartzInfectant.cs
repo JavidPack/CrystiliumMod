@@ -1,8 +1,4 @@
-using System;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using Terraria;
-using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace CrystiliumMod.Projectiles
@@ -26,7 +22,6 @@ namespace CrystiliumMod.Projectiles
 			projectile.timeLeft = 25;
 			projectile.hide = false;
 			projectile.whoAmI = Main.myPlayer;
-
 		}
 
 		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)

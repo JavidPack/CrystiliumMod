@@ -1,6 +1,4 @@
-using Microsoft.Xna.Framework;
 using Terraria;
-using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace CrystiliumMod.Projectiles
@@ -9,7 +7,6 @@ namespace CrystiliumMod.Projectiles
 	{
 		public override void SetDefaults()
 		{
-
 			projectile.name = "Crystal Staff Spike"; //Name of the projectile, only shows this if you get killed by it
 			projectile.width = 18; //Set the hitbox width
 			projectile.height = 18; //Set the hitbox height
@@ -28,6 +25,7 @@ namespace CrystiliumMod.Projectiles
 		{
 			projectile.AngleTo(Main.MouseWorld);
 		}
+
 		public override void Kill(int timeLeft)
 		{
 			for (int k = 0; k < 6; k++)

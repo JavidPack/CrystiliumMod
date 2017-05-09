@@ -1,4 +1,3 @@
-using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -13,7 +12,6 @@ namespace CrystiliumMod
 			{
 				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType<Items.BrokenStaff>());
 			}
-			base.NPCLoot(npc);
 		}
 	}
 }

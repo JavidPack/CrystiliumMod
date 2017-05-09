@@ -1,8 +1,4 @@
 using Terraria.ID;
-using Terraria;
-using System;
-using System.Diagnostics;
-using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 
 namespace CrystiliumMod.Items.Weapons
@@ -29,6 +25,7 @@ namespace CrystiliumMod.Items.Weapons
 			item.shootSpeed = 8f;
 			item.useAmmo = AmmoID.Arrow;
 		}
+
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);

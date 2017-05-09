@@ -1,7 +1,4 @@
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using Terraria;
-using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace CrystiliumMod.Projectiles
@@ -17,7 +14,6 @@ namespace CrystiliumMod.Projectiles
 			projectile.timeLeft = 40;
 			projectile.name = "DiamondExplosion";
 			Main.projFrames[projectile.type] = 7;
-
 		}
 
 		public override void AI()
@@ -29,6 +25,5 @@ namespace CrystiliumMod.Projectiles
 				projectile.frame = (projectile.frame + 1);
 			}
 		}
-
 	}
 }

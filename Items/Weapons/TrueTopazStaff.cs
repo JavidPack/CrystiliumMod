@@ -1,6 +1,6 @@
-using Terraria;
-using System;
 using Microsoft.Xna.Framework;
+using System;
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -8,8 +8,9 @@ namespace CrystiliumMod.Items.Weapons
 {
 	public class TrueTopazStaff : ModItem
 	{
-		float DistY = 0f;
-		float DistX = 0f;
+		private float DistY = 0f;
+		private float DistX = 0f;
+
 		public override void SetDefaults()
 		{
 			item.name = "True Topaz Staff";
@@ -28,7 +29,7 @@ namespace CrystiliumMod.Items.Weapons
 			item.value = 120000; //How much the item is worth
 			item.rare = 8; //The rarity of the item
 			item.shoot = mod.ProjectileType<Projectiles.SapphirePortal>();
-			item.shootSpeed = 7f; //How fast the projectile fires   
+			item.shootSpeed = 7f; //How fast the projectile fires
 			item.mana = 90;
 			item.autoReuse = true; //Whether it automatically uses the item again after its done being used/animated
 		}
@@ -43,6 +44,7 @@ namespace CrystiliumMod.Items.Weapons
 			recipe.SetResult(this, 1);
 			recipe.AddRecipe();
 		}
+
 		public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack) //This lets you modify the firing of the item
 		{
 			Vector2 mouse = new Vector2(Main.mouseX, Main.mouseY) + Main.screenPosition;
@@ -68,9 +70,6 @@ namespace CrystiliumMod.Items.Weapons
 			}
 			Projectile.NewProjectile(DistX, DistY, Main.rand.Next(-10, 10), Main.rand.Next(-10, 10), mod.ProjectileType<Projectiles.SandParticle>(), damage, knockBack, player.whoAmI, 0f, 0f);
 			return false;
-
-
 		}
-
 	}
 }

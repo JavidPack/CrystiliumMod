@@ -1,19 +1,19 @@
-using Terraria;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using Terraria.ID;
-using Terraria.ModLoader;
 using CrystiliumMod.Items.Weapons;
 using CrystiliumMod.Projectiles.CrystalKing;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using Terraria;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace CrystiliumMod.NPCs.Bosses
 {
 	public class CrystalKing : ModNPC
 	{
-		int timer = 0;
-		int timer2 = 0;
-		int timer3 = 0;
-		int timer4 = 0;
+		private int timer = 0;
+		private int timer2 = 0;
+		private int timer3 = 0;
+		private int timer4 = 0;
 
 		public override void SetDefaults()
 		{
@@ -49,8 +49,6 @@ namespace CrystiliumMod.NPCs.Bosses
 				}
 			}
 		}
-
-
 
 		public override void AI()
 		{
@@ -96,7 +94,6 @@ namespace CrystiliumMod.NPCs.Bosses
 				npc.velocity.Y = direction.Y * 6f;
 				npc.velocity.X = direction.X * 6f;
 			}
-
 
 			if (timer >= 600 && timer <= 900)
 			{
@@ -177,6 +174,7 @@ namespace CrystiliumMod.NPCs.Bosses
 				timer4 = 0;
 			}
 		}
+
 		public override void FindFrame(int frameHeight)
 		{
 			int frameWidth = 184; // I'm just hardcoding this, since this is the frame width of one frame along the X axis.
@@ -213,6 +211,7 @@ namespace CrystiliumMod.NPCs.Bosses
 
 			return false; // We return false, since we don't want vanilla drawing to execute.
 		}
+
 		public override void NPCLoot()
 		{
 			//	int choice = Main.rand.Next(10);

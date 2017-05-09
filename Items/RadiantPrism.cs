@@ -1,7 +1,5 @@
-using Terraria.ID;
-using Terraria.ModLoader;
-using Microsoft.Xna.Framework;
 using Terraria.DataStructures;
+using Terraria.ModLoader;
 
 namespace CrystiliumMod.Items
 {
@@ -22,6 +20,7 @@ namespace CrystiliumMod.Items
 		{
 			return new DrawAnimationVertical(4, 4);
 		}
+
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);
@@ -30,6 +29,7 @@ namespace CrystiliumMod.Items
 			recipe.SetResult(this, 1);
 			recipe.AddRecipe();
 		}
+
 		/*	public override void AddRecipes()
 			{
 				ModRecipe recipe = new ModRecipe(mod);

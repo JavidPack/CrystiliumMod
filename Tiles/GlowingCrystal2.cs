@@ -39,7 +39,6 @@ namespace CrystiliumMod.Tiles
 			disableSmartCursor = true;
 			adjTiles = new int[] { TileID.Torches };
 			torch = true;
-
 		}
 
 		public override void NumDust(int i, int j, bool fail, ref int num)

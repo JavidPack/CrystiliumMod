@@ -1,10 +1,6 @@
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
+using System;
 using Terraria;
 using Terraria.ModLoader;
-using Terraria.ID;
-using System;
-using System.IO;
 
 namespace CrystiliumMod.Projectiles
 {
@@ -28,8 +24,8 @@ namespace CrystiliumMod.Projectiles
 			projectile.rotation += rotationSpeed;
 			projectile.velocity.X *= 1.03f;
 			projectile.velocity.Y *= 1.03f;
-
 		}
+
 		public override void Kill(int timeLeft)
 		{
 			for (int k = 0; k < 6; k++)

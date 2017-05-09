@@ -1,9 +1,6 @@
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria;
-using System;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 
 namespace CrystiliumMod.Items.Weapons
 {
@@ -27,7 +24,7 @@ namespace CrystiliumMod.Items.Weapons
 			item.value = 120000; //How much the item is worth
 			item.rare = 8; //The rarity of the item
 			item.shoot = mod.ProjectileType<Projectiles.NebulaShard>(); //What the item shoots, retains an int value
-			item.shootSpeed = 4f; //How fast the projectile fires   
+			item.shootSpeed = 4f; //How fast the projectile fires
 			item.mana = 14;
 			item.channel = true;
 		}

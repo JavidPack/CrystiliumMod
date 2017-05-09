@@ -32,6 +32,7 @@ namespace CrystiliumMod.Tiles
 			g = 0.75f;
 			b = 1.75f;
 		}
+
 		public override void RandomUpdate(int i, int j)
 		{
 			if (Main.tile[i, j - 1] == null || Main.tile[i, j - 2] == null || Main.tile[i + 1, j] == null || Main.tile[i + 1, j - 2] == null || Main.tile[i + 2, j - 1] == null || Main.tile[i + 2, j - 2] == null)
@@ -50,11 +51,13 @@ namespace CrystiliumMod.Tiles
 				WorldGen.PlaceObject(i, j - 1, mod.TileType<CrystalSapling>());
 			}
 		}
+
 		public override int SaplingGrowthType(ref int style)
 		{
 			style = 0;
 			return mod.TileType<CrystalSapling>();
 		}
+
 		public override bool KillSound(int i, int j)
 		{
 			Main.PlaySound(2, i * 16, j * 16, 27);

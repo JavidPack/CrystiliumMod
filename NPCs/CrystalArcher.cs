@@ -1,10 +1,9 @@
-using System.Collections.Generic;
-using System;
+using CrystiliumMod.Projectiles;
 using Microsoft.Xna.Framework;
+using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using CrystiliumMod.Projectiles;
 
 namespace CrystiliumMod.NPCs
 {

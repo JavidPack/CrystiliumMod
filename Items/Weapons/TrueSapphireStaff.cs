@@ -1,8 +1,7 @@
+using Microsoft.Xna.Framework;
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 
 namespace CrystiliumMod.Items.Weapons
 {
@@ -26,7 +25,7 @@ namespace CrystiliumMod.Items.Weapons
 			item.value = 120000; //How much the item is worth
 			item.rare = 8; //The rarity of the item
 			item.shoot = 580; //What the item shoots, retains an int value | *
-			item.shootSpeed = 7f; //How fast the projectile fires   
+			item.shootSpeed = 7f; //How fast the projectile fires
 			item.mana = 4;
 			item.autoReuse = true; //Whether it automatically uses the item again after its done being used/animated
 		}
@@ -41,6 +40,7 @@ namespace CrystiliumMod.Items.Weapons
 			recipe.SetResult(this, 1);
 			recipe.AddRecipe();
 		}
+
 		public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
 		{
 			if (Main.myPlayer == player.whoAmI)

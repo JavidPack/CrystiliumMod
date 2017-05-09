@@ -1,8 +1,7 @@
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using System;
-using Microsoft.Xna.Framework;
 
 namespace CrystiliumMod.Items.Weapons
 {
@@ -30,6 +29,7 @@ namespace CrystiliumMod.Items.Weapons
 			item.shoot = mod.ProjectileType<Projectiles.AmberDagger>();
 			item.shootSpeed = 8f;
 		}
+
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);
@@ -40,6 +40,7 @@ namespace CrystiliumMod.Items.Weapons
 			recipe.SetResult(this, 1);
 			recipe.AddRecipe();
 		}
+
 		public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
 		{
 			Projectile.NewProjectile(position.X, position.Y, speedX + Main.rand.Next(-3, 3), speedY + Main.rand.Next(-3, 3), mod.ProjectileType<Projectiles.TrueLeaf>(), damage, knockBack, player.whoAmI, 0f, 0f);

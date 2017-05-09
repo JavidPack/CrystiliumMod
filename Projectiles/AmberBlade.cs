@@ -1,6 +1,3 @@
-using System;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -22,13 +19,13 @@ namespace CrystiliumMod.Projectiles
 			projectile.light = 1;
 			ProjectileID.Sets.TrailCacheLength[projectile.type] = 9;
 			ProjectileID.Sets.TrailingMode[projectile.type] = 0;
-
 		}
 
 		/* public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
 		 {
 			 target.AddBuff(mod.BuffType<Cut>(), 500);
 		 } */
+
 		public override void AI()
 		{
 			if (Main.rand.Next(3) == 1)
@@ -37,6 +34,7 @@ namespace CrystiliumMod.Projectiles
 				projectile.rotation += 0.3f;
 			}
 		}
+
 		public override void Kill(int timeLeft)
 		{
 			for (int i = 0; i < 5; i++)

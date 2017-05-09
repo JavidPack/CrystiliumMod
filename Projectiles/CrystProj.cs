@@ -1,6 +1,4 @@
 using System;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -22,8 +20,8 @@ namespace CrystiliumMod.Projectiles
 			projectile.light = 2;
 			ProjectileID.Sets.TrailCacheLength[projectile.type] = 9;
 			ProjectileID.Sets.TrailingMode[projectile.type] = 0;
-
 		}
+
 		public override void Kill(int timeLeft)
 		{
 			Main.PlaySound(2, (int)projectile.position.X, (int)projectile.position.Y, 27);
@@ -32,6 +30,7 @@ namespace CrystiliumMod.Projectiles
 				Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, mod.DustType("Sparkle"), projectile.oldVelocity.X * 0.5f, projectile.oldVelocity.Y * 0.5f);
 			}
 		}
+
 		public override void AI()
 		{
 			if (Main.rand.Next(5) == 0)

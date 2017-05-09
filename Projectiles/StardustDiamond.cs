@@ -1,6 +1,4 @@
-using System;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ModLoader;
 
@@ -80,8 +78,6 @@ namespace CrystiliumMod.Projectiles
 				newProj.position += projectile.Center - newProj.Center;
 
 				Main.PlaySound(2, projectile.Center, 5);  //make bow shooty sound
-
-
 			}
 		}
 

@@ -1,16 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace CrystiliumMod.Items.Weapons
 {
-	class TrueRubyStaff : ModItem
+	internal class TrueRubyStaff : ModItem
 	{
 		public override void SetDefaults()
 		{
@@ -30,10 +24,11 @@ namespace CrystiliumMod.Items.Weapons
 			item.value = 120000; //How much the item is worth
 			item.rare = 8; //The rarity of the item
 			item.shoot = mod.ProjectileType<Projectiles.TrueRubyProjectile>(); //What the item shoots, retains an int value | *
-			item.shootSpeed = 7f; //How fast the projectile fires   
+			item.shootSpeed = 7f; //How fast the projectile fires
 			item.mana = 2;
 			item.autoReuse = true; //Whether it automatically uses the item again after its done being used/animated
 		}
+
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);

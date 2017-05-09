@@ -1,6 +1,4 @@
-using System;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ModLoader;
 
@@ -21,6 +19,7 @@ namespace CrystiliumMod.Projectiles //We need this to basically indicate the fol
 			projectile.ignoreWater = true; //Tells the game whether or not projectile will be affected by water
 			Main.projFrames[projectile.type] = 7;
 		}
+
 		public override bool OnTileCollide(Vector2 oldVelocity)
 		{
 			projectile.penetrate--;
@@ -46,6 +45,7 @@ namespace CrystiliumMod.Projectiles //We need this to basically indicate the fol
 			}
 			return false;
 		}
+
 		//How the projectile works
 		public override void AI()
 		{

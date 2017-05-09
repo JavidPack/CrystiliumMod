@@ -1,4 +1,3 @@
-using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -7,7 +6,9 @@ namespace CrystiliumMod
 {
 	public class CrystiliumMod : Mod
 	{
-		public CrystiliumMod() { }
+		public CrystiliumMod()
+		{
+		}
 
 		public override void AddRecipes()
 		{

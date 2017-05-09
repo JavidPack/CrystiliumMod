@@ -1,4 +1,3 @@
-using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 
@@ -6,7 +5,6 @@ namespace CrystiliumMod.Dusts
 {
 	public class AmethystDust : ModDust
 	{
-
 		public override void OnSpawn(Dust dust)
 		{
 			dust.velocity *= 0.4f;

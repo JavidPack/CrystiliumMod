@@ -1,7 +1,6 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
-using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace CrystiliumMod.Projectiles
@@ -20,7 +19,6 @@ namespace CrystiliumMod.Projectiles
 			projectile.name = "Crystal Fire";
 			projectile.damage = 10;
 			Main.projFrames[projectile.type] = 4;
-
 		}
 
 		public override bool OnTileCollide(Vector2 oldVelocity)
@@ -37,6 +35,7 @@ namespace CrystiliumMod.Projectiles
 			}
 			return false;
 		}
+
 		public override void AI()
 		{
 			projectile.frameCounter++;
@@ -46,6 +45,7 @@ namespace CrystiliumMod.Projectiles
 				projectile.frame = (projectile.frame + 1) % 2;
 			}
 		}
+
 		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
 		{
 			projectile.penetrate--;

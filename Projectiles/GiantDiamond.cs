@@ -1,9 +1,7 @@
 using Microsoft.Xna.Framework;
 using Terraria;
-using Terraria.ModLoader;
 using Terraria.ID;
-using System;
-using System.IO;
+using Terraria.ModLoader;
 
 namespace CrystiliumMod.Projectiles
 {
@@ -68,6 +66,7 @@ namespace CrystiliumMod.Projectiles
 				Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, Main.rand.Next(-5, 5), Main.rand.Next(-5, 5), mod.ProjectileType<DiamondBomb>(), projectile.damage, 0, projectile.owner);
 			}
 		}
+
 		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
 		{
 			projectile.ai[0] += 0.1f;

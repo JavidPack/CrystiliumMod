@@ -1,6 +1,3 @@
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -26,6 +23,5 @@ namespace CrystiliumMod.Projectiles.GemAmmo
 			ProjectileID.Sets.TrailingMode[projectile.type] = 0;
 			aiType = ProjectileID.Bullet;
 		}
-
 	}
 }

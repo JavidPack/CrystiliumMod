@@ -1,7 +1,7 @@
+using CrystiliumMod.Projectiles;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using CrystiliumMod.Projectiles;
 
 namespace CrystiliumMod.Items.Weapons
 {

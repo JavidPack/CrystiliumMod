@@ -1,9 +1,6 @@
-using System;
-using System.IO;
+using CrystiliumMod.Projectiles;
 using Terraria;
 using Terraria.ModLoader;
-using CrystiliumMod.NPCs;
-using CrystiliumMod.Projectiles;
 
 namespace CrystiliumMod.Buffs
 {
@@ -19,7 +16,8 @@ namespace CrystiliumMod.Buffs
 			longerExpertDebuff = true;
 		}
 
-		float ticks = 0f;
+		private float ticks = 0f;
+
 		public override void Update(NPC npc, ref int buffIndex)
 		{
 			if (++ticks >= 4f)

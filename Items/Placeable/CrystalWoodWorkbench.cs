@@ -21,6 +21,7 @@ namespace CrystiliumMod.Items.Placeable
 			item.value = 500;
 			item.createTile = mod.TileType("CrystalWoodWorkbench");
 		}
+
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);

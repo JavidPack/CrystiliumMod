@@ -1,8 +1,8 @@
+using Microsoft.Xna.Framework;
+using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using System;
-using Microsoft.Xna.Framework;
 
 namespace CrystiliumMod.Items.Weapons
 {
@@ -30,6 +30,7 @@ namespace CrystiliumMod.Items.Weapons
 			item.shoot = mod.ProjectileType<Projectiles.AmberDagger>();
 			item.shootSpeed = 8f;
 		}
+
 		public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
 		{
 			//float SdirX = (Main.MouseWorld.X - player.position.X) * 9.5f;

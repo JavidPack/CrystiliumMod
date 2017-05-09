@@ -1,7 +1,6 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
-using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace CrystiliumMod.Projectiles.TrueGems
@@ -46,6 +45,7 @@ namespace CrystiliumMod.Projectiles.TrueGems
 			}
 			return false;
 		}
+
 		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
 		{
 			projectile.penetrate--;
@@ -57,7 +57,6 @@ namespace CrystiliumMod.Projectiles.TrueGems
 				{
 					Dust.NewDust(projectile.position, projectile.width, projectile.height, mod.DustType("CrystalDust"), (float)Main.rand.Next(-5, 5), (float)Main.rand.Next(-5, 5), 0);
 				}
-
 			}
 		}
 

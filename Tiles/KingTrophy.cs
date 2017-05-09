@@ -37,6 +37,5 @@ namespace CrystiliumMod.Tiles
 			Item.NewItem(i * 16, j * 16, 32, 16, mod.ItemType<Items.Placeable.KingTrophy>());
 			Main.PlaySound(2, i * 16, j * 16, 27);
 		}
-
 	}
 }

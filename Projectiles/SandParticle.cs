@@ -1,7 +1,6 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
-using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace CrystiliumMod.Projectiles
@@ -19,7 +18,6 @@ namespace CrystiliumMod.Projectiles
 			projectile.name = "Sand Particle";
 			projectile.damage = 10;
 			projectile.light = 0.5f;
-
 		}
 
 		public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)

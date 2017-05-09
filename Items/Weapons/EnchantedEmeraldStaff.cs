@@ -1,6 +1,6 @@
-using Terraria;
-using System;
 using Microsoft.Xna.Framework;
+using System;
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -30,6 +30,7 @@ namespace CrystiliumMod.Items.Weapons
 			item.shoot = mod.ProjectileType<Projectiles.Leaf>();
 			item.shootSpeed = 1f;
 		}
+
 		public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
 		{
 			float spread = 55f * 0.0174f;//45 degrees converted to radians
@@ -41,6 +42,7 @@ namespace CrystiliumMod.Items.Weapons
 			Projectile.NewProjectile(position.X, position.Y, speedX - 0.5f, speedY - 0.5f, mod.ProjectileType<Projectiles.Leaf>(), damage, knockBack, player.whoAmI);
 			return true;
 		}
+
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);

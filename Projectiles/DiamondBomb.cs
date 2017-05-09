@@ -1,9 +1,6 @@
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
-using Terraria.ID;
-using System;
-using System.IO;
 
 namespace CrystiliumMod.Projectiles
 {
@@ -31,6 +28,7 @@ namespace CrystiliumMod.Projectiles
 				projectile.frame = (projectile.frame + 1) % 2;
 			}
 		}
+
 		public override bool OnTileCollide(Vector2 oldVelocity)
 		{
 			projectile.penetrate--;
@@ -55,6 +53,7 @@ namespace CrystiliumMod.Projectiles
 			}
 			return false;
 		}
+
 		public override void Kill(int timeLeft)
 		{
 			for (int k = 0; k < 10; k++)
@@ -64,6 +63,7 @@ namespace CrystiliumMod.Projectiles
 			Main.PlaySound(2, (int)projectile.position.X, (int)projectile.position.Y, 27);
 			Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, 0, 0, mod.ProjectileType<DiamondExplosion>(), projectile.damage, 0, Main.myPlayer);
 		}
+
 		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
 		{
 			projectile.Kill();

@@ -1,5 +1,3 @@
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -26,6 +24,7 @@ namespace CrystiliumMod.Projectiles
 			ProjectileID.Sets.TrailingMode[projectile.type] = 0;
 			aiType = ProjectileID.Bullet;
 		}
+
 		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
 		{
 			Main.player[projectile.owner].statMana += 40;

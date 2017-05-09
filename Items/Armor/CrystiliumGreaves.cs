@@ -28,6 +28,7 @@ namespace CrystiliumMod.Items.Armor
 		{
 			player.magicCrit += 9;
 		}
+
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);

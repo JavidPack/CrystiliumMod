@@ -1,7 +1,6 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
-using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace CrystiliumMod.Projectiles
@@ -20,7 +19,6 @@ namespace CrystiliumMod.Projectiles
 			projectile.name = "GemFire";
 			projectile.damage = 10;
 			projectile.light = 0.5f;
-
 		}
 
 		public override bool OnTileCollide(Vector2 oldVelocity)
@@ -37,6 +35,7 @@ namespace CrystiliumMod.Projectiles
 			}
 			return false;
 		}
+
 		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
 		{
 			projectile.penetrate--;
@@ -48,9 +47,9 @@ namespace CrystiliumMod.Projectiles
 				{
 					Dust.NewDust(projectile.position, projectile.width, projectile.height, mod.DustType("EtherealFlame"), (float)Main.rand.Next(-5, 5), (float)Main.rand.Next(-5, 5), 0);
 				}
-
 			}
 		}
+
 		public override void AI()
 		{
 			Dust.NewDust(projectile.position, projectile.width, projectile.height, mod.DustType("EtherealFlame"), (float)Main.rand.Next(-5, 5), (float)Main.rand.Next(-5, 5), 0);

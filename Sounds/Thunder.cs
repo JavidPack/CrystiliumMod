@@ -13,7 +13,6 @@ namespace CrystiliumMod.Sounds
 			soundInstance.Pan = pan;
 			soundInstance.Pitch = Main.rand.Next(-6, 7) / 30f;
 			return soundInstance;
-
 		}
 	}
 }

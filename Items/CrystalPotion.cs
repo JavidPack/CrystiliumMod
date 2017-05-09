@@ -1,10 +1,5 @@
-using Microsoft.Xna.Framework;
-using Terraria;
-using Terraria.ModLoader;
 using Terraria.ID;
-using System;
-using System.Collections.Generic;
-
+using Terraria.ModLoader;
 
 namespace CrystiliumMod.Items
 {
@@ -27,6 +22,7 @@ namespace CrystiliumMod.Items
 			item.buffTime = 10000;
 			return;
 		}
+
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);

@@ -1,9 +1,8 @@
+using CrystiliumMod.Projectiles;
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using System;
-using Microsoft.Xna.Framework;
-using CrystiliumMod.Projectiles;
 
 namespace CrystiliumMod.Items.Weapons
 {
@@ -31,6 +30,7 @@ namespace CrystiliumMod.Items.Weapons
 			item.value = Item.sellPrice(0, 1, 0, 0);
 			item.rare = 6;
 		}
+
 		public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
 		{
 			Vector2 origVect = new Vector2(speedX, speedY);

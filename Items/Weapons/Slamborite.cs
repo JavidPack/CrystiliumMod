@@ -1,8 +1,3 @@
-using System;
-using Microsoft.Xna.Framework;
-using Terraria;
-using Terraria.Graphics.Effects;
-using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -21,7 +16,7 @@ namespace CrystiliumMod.Items.Weapons
 
 			item.noMelee = true; // Makes sure that the animation when using the item doesn't hurt NPCs.
 			item.useStyle = 5; // Set the correct useStyle.
-			item.useAnimation = 40; // Determines how long the animation lasts. 
+			item.useAnimation = 40; // Determines how long the animation lasts.
 			item.useTime = 40; // Determines how fast you can use this weapon (a lower value results in a faster use time).
 			item.knockBack = 7.5F;
 			item.damage = 85;

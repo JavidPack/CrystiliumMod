@@ -1,7 +1,7 @@
 using Microsoft.Xna.Framework;
 using Terraria;
-using Terraria.ModLoader;
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace CrystiliumMod.Projectiles
 {
@@ -14,6 +14,7 @@ namespace CrystiliumMod.Projectiles
 			projectile.penetrate = 2;
 			projectile.timeLeft = 600;
 		}
+
 		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
 		{
 			if (projectile.penetrate <= 1)

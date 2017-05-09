@@ -1,7 +1,6 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
-using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace CrystiliumMod.Projectiles
@@ -19,7 +18,6 @@ namespace CrystiliumMod.Projectiles
 			projectile.damage = 10;
 			Main.projFrames[projectile.type] = 5;
 			projectile.light = 0.5f;
-
 		}
 
 		public override void AI()
@@ -31,6 +29,7 @@ namespace CrystiliumMod.Projectiles
 				projectile.frame = (projectile.frame + 1) % 5;
 			}
 		}
+
 		public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
 		{
 			Vector2 drawOrigin = new Vector2(Main.projectileTexture[projectile.type].Width * 0.5f, projectile.height * 0.5f);
@@ -42,6 +41,7 @@ namespace CrystiliumMod.Projectiles
 			}
 			return true;
 		}
+
 		public override void Kill(int timeLeft)
 		{
 			for (int k = 0; k < 6; k++)

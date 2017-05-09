@@ -1,7 +1,3 @@
-using System;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -21,7 +17,6 @@ namespace CrystiliumMod.Projectiles.CrystalKing
 			projectile.light = 2;
 			projectile.aiStyle = 1;
 			aiType = ProjectileID.Bullet;
-
 		}
 	}
 }

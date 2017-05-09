@@ -43,6 +43,7 @@ namespace CrystiliumMod.Items.Armor
 			player.magicDamage *= 1.10f;
 			player.minionDamage *= 1.10f;
 		}
+
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);

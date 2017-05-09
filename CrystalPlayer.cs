@@ -1,11 +1,7 @@
-using System;
-using System.Collections.Generic;
-using System.IO;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
+using System;
 using Terraria;
 using Terraria.DataStructures;
-using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace CrystiliumMod
@@ -19,8 +15,10 @@ namespace CrystiliumMod
 		public float defenseEffect = -1f;
 		public bool crystalCharm = false;
 		public int crystalCharmStacks = 0;
+
 		// TODO, need to sync this data?
 		public bool ZoneCrystal = false;
+
 		public bool crystalFountain = false;
 
 		public override void ResetEffects()
@@ -32,8 +30,6 @@ namespace CrystiliumMod
 			CrystalAcc = false;
 			crystalCharm = false;
 		}
-
-
 
 		public override void Hurt(bool pvp, bool quiet, double damage, int hitDirection, bool crit)
 		{
@@ -119,7 +115,6 @@ namespace CrystiliumMod
 		{
 			ZoneCrystal = (CrystalWorld.CrystalTiles > 400);
 		}
-
 
 		public override bool PreHurt(bool pvp, bool quiet, ref int damage, ref int hitDirection, ref bool crit,
 		ref bool customDamage, ref bool playSound, ref bool genGore, ref PlayerDeathReason damageSource)

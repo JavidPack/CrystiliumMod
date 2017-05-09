@@ -34,11 +34,13 @@ namespace CrystiliumMod.Tiles
 		{
 			num = fail ? 1 : 3;
 		}
+
 		public override int SaplingGrowthType(ref int style)
 		{
 			style = 0;
 			return mod.TileType<CrystalSapling>();
 		}
+
 		public override void ModifyLight(int i, int j, ref float r, ref float g, ref float b)
 		{
 			r = 0.0f;
@@ -50,6 +52,5 @@ namespace CrystiliumMod.Tiles
 		{
 			Main.PlaySound(2, i * 16, j * 16, 27);
 		}
-
 	}
 }

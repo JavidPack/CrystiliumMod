@@ -1,4 +1,3 @@
-using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -24,6 +23,7 @@ namespace CrystiliumMod.Items.Weapons
 			item.UseSound = SoundID.Item1;
 			item.autoReuse = true;
 		}
+
 		public override bool UseItem(Player player)
 		{
 			for (int J = 1; J < 20; J++)

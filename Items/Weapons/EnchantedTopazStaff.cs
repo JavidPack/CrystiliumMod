@@ -1,9 +1,7 @@
+using CrystiliumMod.Projectiles;
 using Terraria;
-using System;
-using Microsoft.Xna.Framework;
 using Terraria.ID;
 using Terraria.ModLoader;
-using CrystiliumMod.Projectiles;
 
 namespace CrystiliumMod.Items.Weapons
 {
@@ -28,7 +26,7 @@ namespace CrystiliumMod.Items.Weapons
 			item.value = 30000;
 			item.rare = 3;
 			item.shoot = mod.ProjectileType<BouncyTopaz>(); //What the item shoots, retains an int value | *
-			item.shootSpeed = 6f; //How fast the projectile fires   
+			item.shootSpeed = 6f; //How fast the projectile fires
 			item.mana = 20;
 			item.autoReuse = true; //Whether it automatically uses the item again after its done being used/animated
 		}

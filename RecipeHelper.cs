@@ -1,13 +1,9 @@
-using Terraria.ID;
-using Terraria.ModLoader;
-
 namespace CrystiliumMod
 {
 	public static class RecipeHelper
 	{
 		/*public static void AddBossRecipes(Mod mod)
 		{
-			
 			ModRecipe recipe = new ModRecipe(mod);
 			recipe.AddIngredient(null, "BossItem", 10);
 			recipe.AddTile(null, "ExampleWorkbench");

@@ -1,8 +1,7 @@
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using Terraria.Enums;
-using Terraria.DataStructures;
 using Terraria;
+using Terraria.DataStructures;
+using Terraria.Enums;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
@@ -48,11 +47,11 @@ namespace CrystiliumMod.Tiles
 		{
 			Main.PlaySound(2, i * 16, j * 16, 27);
 		}
+
 		public override void AnimateTile(ref int frame, ref int frameCounter)
 		{
 			frame = (frame + 1) % 6;
 			frameCounter = 0;
 		}
-
 	}
 }

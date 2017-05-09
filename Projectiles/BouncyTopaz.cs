@@ -1,10 +1,4 @@
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using Terraria;
 using Terraria.ModLoader;
-using Terraria.ID;
-using System;
-using System.IO;
 
 namespace CrystiliumMod.Projectiles
 {

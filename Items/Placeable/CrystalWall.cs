@@ -1,5 +1,5 @@
-using Terraria.ModLoader;
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace CrystiliumMod.Items.Placeable
 {
@@ -19,6 +19,7 @@ namespace CrystiliumMod.Items.Placeable
 			item.consumable = true;
 			item.createWall = mod.WallType("CrystalWall");
 		}
+
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);

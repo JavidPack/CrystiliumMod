@@ -1,8 +1,8 @@
+using CrystiliumMod.Projectiles;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using CrystiliumMod.Projectiles;
 
 namespace CrystiliumMod.Items.Weapons
 {
@@ -27,6 +27,7 @@ namespace CrystiliumMod.Items.Weapons
 			item.shootSpeed = 6f;
 			item.autoReuse = true;
 		}
+
 		public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
 		{
 			//create velocity vectors for the two angled projectiles (outwards at PI/6 radians, or 15 degrees)

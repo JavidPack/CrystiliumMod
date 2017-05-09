@@ -1,5 +1,3 @@
-using System;
-using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -27,6 +25,7 @@ namespace CrystiliumMod.Items.Weapons
 			item.UseSound = SoundID.Item1;
 			item.autoReuse = true;
 		}
+
 		public override bool CanUseItem(Player player)       //this make that you can shoot only 1 boomerang at once
 		{
 			for (int i = 0; i < 1000; ++i)
@@ -38,6 +37,7 @@ namespace CrystiliumMod.Items.Weapons
 			}
 			return true;
 		}
+
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);

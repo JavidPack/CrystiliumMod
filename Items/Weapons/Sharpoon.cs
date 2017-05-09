@@ -1,8 +1,6 @@
-using Terraria.ID;
-using Terraria;
-using System;
-using System.Diagnostics;
 using Microsoft.Xna.Framework;
+using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace CrystiliumMod.Items.Weapons
@@ -10,6 +8,7 @@ namespace CrystiliumMod.Items.Weapons
 	public class Sharpoon : ModItem
 	{
 		private Vector2 newVect;
+
 		public override void SetDefaults()
 		{
 			item.name = "Sharp Shooter";
@@ -31,6 +30,7 @@ namespace CrystiliumMod.Items.Weapons
 			item.shootSpeed = 11f;
 			item.useAmmo = AmmoID.Bullet;
 		}
+
 		public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
 		{
 			Vector2 origVect = new Vector2(speedX, speedY);

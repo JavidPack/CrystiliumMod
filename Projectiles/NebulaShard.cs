@@ -1,8 +1,5 @@
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
-using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace CrystiliumMod.Projectiles
@@ -19,6 +16,7 @@ namespace CrystiliumMod.Projectiles
 			projectile.light = 0.75f;
 			projectile.penetrate = 25;
 		}
+
 		public override void Kill(int timeLeft)
 		{
 			for (int I = 0; I < 15; I++)

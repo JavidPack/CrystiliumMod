@@ -1,7 +1,6 @@
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
-using CrystiliumMod.Items.Placeable;
 
 namespace CrystiliumMod.Tiles
 {
@@ -32,6 +31,7 @@ namespace CrystiliumMod.Tiles
 			g = 0.75f;
 			b = 1.75f;
 		}
+
 		public override void RandomUpdate(int i, int j)
 		{
 			if (Framing.GetTileSafely(i, j - 1).type == 0 && Framing.GetTileSafely(i, j - 2).type == 0)
@@ -51,11 +51,13 @@ namespace CrystiliumMod.Tiles
 				}
 			}
 		}
+
 		public override int SaplingGrowthType(ref int style)
 		{
 			style = 0;
 			return mod.TileType<CrystalSapling>();
 		}
+
 		public override bool KillSound(int i, int j)
 		{
 			Main.PlaySound(2, i * 16, j * 16, 27);

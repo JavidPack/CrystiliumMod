@@ -22,6 +22,7 @@ namespace CrystiliumMod.Projectiles
 			projectile.timeLeft = 90;
 			projectile.hide = true;
 		}
+
 		public override void AI()
 		{
 			Main.player[projectile.owner].direction = projectile.direction;

@@ -15,6 +15,7 @@ namespace CrystiliumMod.NPCs
 					maxSpawns = (int)(maxSpawns * 1.45f);
 				}
 			}*/
+
 		public override void EditSpawnPool(IDictionary<int, float> pool, NPCSpawnInfo spawnInfo)
 		{
 			for (int k = 0; k < 255; k++)
@@ -38,6 +39,7 @@ namespace CrystiliumMod.NPCs
 				return;
 			}
 		}
+
 		public override void SetupShop(int type, Chest shop, ref int nextSlot)
 		{
 			Player player = Main.player[Main.myPlayer];

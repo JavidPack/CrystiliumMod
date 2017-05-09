@@ -1,8 +1,7 @@
+using CrystiliumMod.Projectiles;
 using Microsoft.Xna.Framework;
 using Terraria;
-using Terraria.ID;
 using Terraria.ModLoader;
-using CrystiliumMod.Projectiles;
 
 namespace CrystiliumMod.Items.Weapons
 {
@@ -39,9 +38,3 @@ namespace CrystiliumMod.Items.Weapons
 		}
 	}
 }
-
-
-
-
-
-

@@ -1,8 +1,5 @@
-using System;
-using System.IO;
 using Terraria;
 using Terraria.ModLoader;
-using CrystiliumMod.NPCs;
 
 namespace CrystiliumMod.Buffs
 {
@@ -21,7 +18,6 @@ namespace CrystiliumMod.Buffs
 		{
 			player.statDefense += 12;
 			player.moveSpeed *= 0.55f;
-
 		}
 	}
 }

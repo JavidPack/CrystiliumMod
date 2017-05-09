@@ -26,6 +26,7 @@ namespace CrystiliumMod.Items.Weapons
 			item.shootSpeed = 11f;
 			item.autoReuse = true;
 		}
+
 		public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
 		{
 			//create velocity vectors for the two angled projectiles (outwards at PI/15 radians)
@@ -39,6 +40,7 @@ namespace CrystiliumMod.Items.Weapons
 			Projectile.NewProjectile(position.X, position.Y, newVect2.X, newVect2.Y, type, damage, knockBack, player.whoAmI, 0, 0);
 			return false;
 		}
+
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);

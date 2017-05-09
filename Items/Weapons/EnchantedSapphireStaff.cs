@@ -1,6 +1,5 @@
-using Terraria;
-using System;
 using Microsoft.Xna.Framework;
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -27,10 +26,11 @@ namespace CrystiliumMod.Items.Weapons
 			item.value = 30000;
 			item.rare = 3;
 			item.shoot = mod.ProjectileType<Projectiles.SapphirePortal>(); //What the item shoots, retains an int value | *
-			item.shootSpeed = 1f; //How fast the projectile fires   
+			item.shootSpeed = 1f; //How fast the projectile fires
 			item.mana = 80;
 			item.autoReuse = false; //Whether it automatically uses the item again after its done being used/animated
 		}
+
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);

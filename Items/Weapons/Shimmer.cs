@@ -1,8 +1,6 @@
-using Terraria.ID;
-using Terraria;
-using System;
-using System.Diagnostics;
 using Microsoft.Xna.Framework;
+using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace CrystiliumMod.Items.Weapons
@@ -30,6 +28,7 @@ namespace CrystiliumMod.Items.Weapons
 			item.shootSpeed = 15f;
 			item.useAmmo = AmmoID.Bullet;
 		}
+
 		public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
 		{
 			for (int I = 0; I < 3; I++)

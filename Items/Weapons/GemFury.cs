@@ -1,10 +1,8 @@
-using Terraria.ID;
-using Terraria;
-using System;
-using System.Diagnostics;
-using Microsoft.Xna.Framework;
-using Terraria.ModLoader;
 using CrystiliumMod.Projectiles;
+using Microsoft.Xna.Framework;
+using Terraria;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace CrystiliumMod.Items.Weapons
 {
@@ -31,6 +29,7 @@ namespace CrystiliumMod.Items.Weapons
 			item.shootSpeed = 8f;
 			item.useAmmo = AmmoID.Arrow;
 		}
+
 		public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
 		{
 			Projectile.NewProjectile(position.X, position.Y, speedX, speedY, mod.ProjectileType<CrystalArrowPlayer>(), damage, knockBack, player.whoAmI, 0f, 0f);

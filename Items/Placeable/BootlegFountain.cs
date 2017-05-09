@@ -1,4 +1,3 @@
-using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace CrystiliumMod.Items.Placeable
@@ -21,6 +20,7 @@ namespace CrystiliumMod.Items.Placeable
 			item.value = 500;
 			item.createTile = mod.TileType<Tiles.BootlegFountain>();
 		}
+
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);

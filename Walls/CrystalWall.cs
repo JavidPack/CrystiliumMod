@@ -22,7 +22,7 @@ namespace CrystiliumMod.Walls
 			{
 				r = 0f;
 				g = 0f;
-				b = 2.5f; 
+				b = 2.5f;
 			} */
 	}
 }

@@ -1,9 +1,8 @@
+using Microsoft.Xna.Framework;
+using System;
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria;
-using System;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 
 namespace CrystiliumMod.Items.Weapons
 {
@@ -27,7 +26,7 @@ namespace CrystiliumMod.Items.Weapons
 			item.value = 120000; //How much the item is worth
 			item.rare = 8; //The rarity of the item
 			item.shoot = mod.ProjectileType<Projectiles.TrueAmethystProjectile>(); //What the item shoots, retains an int value
-			item.shootSpeed = 1f; //How fast the projectile fires   
+			item.shootSpeed = 1f; //How fast the projectile fires
 			item.mana = 3;
 			item.autoReuse = true; //Whether it automatically uses the item again after it's done being used/animated
 		}

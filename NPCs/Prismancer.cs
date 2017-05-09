@@ -1,7 +1,6 @@
-using System.Collections.Generic;
 using Microsoft.Xna.Framework;
-using Terraria;
 using System;
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -124,7 +123,6 @@ namespace CrystiliumMod.NPCs
 					npc.position.X = (Main.player[npc.target].position.X - 500) + Main.rand.Next(1000);
 					npc.position.Y = (Main.player[npc.target].position.Y - 500) + Main.rand.Next(1000);
 				} while (npc.Distance(Main.player[npc.target].position) < 40);
-
 			}
 		}
 	}

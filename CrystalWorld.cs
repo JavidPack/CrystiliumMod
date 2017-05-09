@@ -1,12 +1,9 @@
-using System.IO;
+using CrystiliumMod.Tiles;
 using System.Collections.Generic;
 using Terraria;
-using Terraria.ID;
+using Terraria.GameContent.Generation;
 using Terraria.ModLoader;
 using Terraria.World.Generation;
-using Microsoft.Xna.Framework;
-using Terraria.GameContent.Generation;
-using CrystiliumMod.Tiles;
 
 namespace CrystiliumMod
 {
@@ -44,7 +41,7 @@ namespace CrystiliumMod
 																																														 if (Main.tile[A,B] != null)
 																																														 {
 																																															 if (Main.tile[A,B].type ==  mod.TileType<Tiles.CrystalBlock>()) // A = x, B = y.
-																																															 { 
+																																															 {
 																																																 WorldGen.KillWall(A, B);
 																																																 WorldGen.PlaceWall(A, B, mod.WallType("CrystalWall"));
 																																															 }
@@ -104,15 +101,12 @@ namespace CrystiliumMod
 				   WorldGen.PlaceObject(XvalueMid - 4, YvalueMid - 1, mod.TileType<Crystal>());
 				   WorldGen.PlaceObject(XvalueMid + 7, YvalueMid - 1, mod.TileType<Crystal>());
 				   WorldGen.PlaceObject(XvalueMid + 6, YvalueMid - 1, 93, false, 5);
-
 			   }
 		   }));
 		}
 
 		public override void PostWorldGen()
 		{
-
-
 			for (int i = 1; i < Main.rand.Next(4, 6); i++)
 			{
 				int[] itemsToPlaceInGlassChestsSecondary = new int[] { mod.ItemType<Items.CrystalBottle>(), mod.ItemType<Items.ShinyGemstone>(), mod.ItemType<Items.RadiantPrism>(), mod.ItemType<Items.GeodeItem>(), 73 };
@@ -153,6 +147,7 @@ namespace CrystiliumMod
 				}
 			}
 		}
+
 		public override void ResetNearbyTileEffects()
 		{
 			CrystalPlayer modPlayer = Main.player[Main.myPlayer].GetModPlayer<CrystalPlayer>(mod);

@@ -1,10 +1,6 @@
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ModLoader;
-using Terraria.ID;
-using System;
-using System.IO;
 
 namespace CrystiliumMod.Projectiles
 {
@@ -39,6 +35,7 @@ namespace CrystiliumMod.Projectiles
 				}
 			}
 		}
+
 		public override void Kill(int timeLeft)
 		{
 			Main.PlaySound(2, (int)projectile.position.X, (int)projectile.position.Y, 27);

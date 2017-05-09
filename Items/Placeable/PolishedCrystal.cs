@@ -1,4 +1,3 @@
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -21,6 +20,7 @@ namespace CrystiliumMod.Items.Placeable
 			item.createTile = mod.TileType("PolishedCrystal");
 			ItemID.Sets.ExtractinatorMode[item.type] = item.type;
 		}
+
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);

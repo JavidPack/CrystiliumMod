@@ -29,6 +29,7 @@ namespace CrystiliumMod.Tiles
 			g = 0.75f;
 			b = 1.25f;
 		}
+
 		public override bool KillSound(int i, int j)
 		{
 			Main.PlaySound(2, i * 16, j * 16, 27);

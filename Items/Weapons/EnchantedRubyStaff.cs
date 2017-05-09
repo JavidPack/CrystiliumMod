@@ -1,6 +1,5 @@
-using Terraria;
-using System;
 using Microsoft.Xna.Framework;
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -27,10 +26,11 @@ namespace CrystiliumMod.Items.Weapons
 			item.value = 30000;
 			item.rare = 3;
 			item.shoot = mod.ProjectileType<Projectiles.FireGem>(); //What the item shoots, retains an int value | *
-			item.shootSpeed = 2f; //How fast the projectile fires   
+			item.shootSpeed = 2f; //How fast the projectile fires
 			item.mana = 20;
 			item.autoReuse = false; //Whether it automatically uses the item again after its done being used/animated
 		}
+
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);
@@ -41,6 +41,7 @@ namespace CrystiliumMod.Items.Weapons
 			recipe.SetResult(this, 1);
 			recipe.AddRecipe();
 		}
+
 		public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
 		{
 			//float SdirX = (Main.MouseWorld.X - player.position.X) * 8.5f;

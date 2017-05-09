@@ -1,8 +1,7 @@
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Microsoft.Xna.Framework;
-using CrystiliumMod.Projectiles;
 
 namespace CrystiliumMod.Items.Weapons
 {
@@ -32,9 +31,11 @@ namespace CrystiliumMod.Items.Weapons
 				case (0):
 					Projectile.NewProjectile(position.X, position.Y, speedX, speedY, mod.ProjectileType<Projectiles.RPC>(), damage, knockBack, player.whoAmI);
 					break;
+
 				case (1):
 					Projectile.NewProjectile(position.X, position.Y, speedX, speedY, mod.ProjectileType<Projectiles.RPC>(), damage * 2, knockBack, player.whoAmI, 0, 1);
 					break;
+
 				case (2):
 					Projectile.NewProjectile(position.X, position.Y, speedX * 2, speedY * 2, mod.ProjectileType<Projectiles.RPC>(), damage, knockBack, player.whoAmI, 0, 2);
 					break;

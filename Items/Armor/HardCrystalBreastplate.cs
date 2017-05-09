@@ -36,6 +36,7 @@ namespace CrystiliumMod.Items.Armor
 			player.minionDamage *= 1.08f;
 			player.maxMinions += 1;
 		}
+
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);
