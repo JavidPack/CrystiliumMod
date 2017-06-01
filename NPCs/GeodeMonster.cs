@@ -24,7 +24,7 @@ namespace CrystiliumMod.NPCs
 			npc.aiStyle = NPCID.GoblinPeon;
 			Main.npcFrameCount[npc.type] = 8;
 			aiType = NPCID.GoblinPeon;
-			animationType = 415;
+			animationType = NPCID.SolarDrakomire;
 		}
 
 		public override float CanSpawn(NPCSpawnInfo spawnInfo)

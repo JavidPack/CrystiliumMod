@@ -35,7 +35,7 @@ namespace CrystiliumMod.Tiles
 			TileObjectData.addTile(Type);
 			AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTorch);
 			AddMapEntry(new Color(200, 200, 200), "Torch");
-			dustType = mod.DustType("Sparkle");
+			dustType = mod.DustType<Dusts.Sparkle>();
 			disableSmartCursor = true;
 			adjTiles = new int[] { TileID.Torches };
 			torch = true;

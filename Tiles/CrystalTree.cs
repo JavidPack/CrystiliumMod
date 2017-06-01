@@ -9,7 +9,7 @@ namespace CrystiliumMod.Tiles
 		{
 			get
 			{
-				return ModLoader.GetMod("CrystiliumMod");
+				return CrystiliumMod.instance;
 			}
 		}
 
@@ -20,7 +20,7 @@ namespace CrystiliumMod.Tiles
 
 		public override int CreateDust()
 		{
-			return mod.DustType("CrystalDust");
+			return mod.DustType<Dusts.CrystalDust>();
 		}
 
 		public override int GrowthFXGore()

@@ -17,7 +17,7 @@ namespace CrystiliumMod.Tiles
 			Main.tileMergeDirt[Type] = true;
 			Main.tileBlockLight[Type] = true;
 			Main.tileLighted[Type] = false;
-			dustType = mod.DustType("Sparkle");
+			dustType = mod.DustType<Dusts.Sparkle>();
 			drop = mod.ItemType<Items.Placeable.GlowingCrystal>();
 			AddMapEntry(new Color(200, 200, 200));
 

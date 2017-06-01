@@ -19,7 +19,7 @@ namespace CrystiliumMod.Items.Placeable
 			item.useStyle = 1;
 			item.consumable = true;
 			item.value = 500;
-			item.createTile = mod.TileType("CrystalWoodWorkbench");
+			item.createTile = mod.TileType<Tiles.CrystalWoodWorkbench>();
 		}
 
 		public override void AddRecipes()

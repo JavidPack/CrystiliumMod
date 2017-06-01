@@ -12,7 +12,7 @@ namespace CrystiliumMod.Items.Weapons
 			item.CloneDefaults(ItemID.QueenSpiderStaff); //only here for values we haven't defined ourselves yet
 			item.name = "Prism's Eye";
 			item.damage = 105;  //placeholder damage :3
-			item.mana = 40;   //somehow I think this might be too much...? -thegamemaster1234
+			item.mana = 40;	//somehow I think this might be too much...? -thegamemaster1234
 			item.width = 40;
 			item.height = 40;
 			item.value = 80000;

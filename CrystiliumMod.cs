@@ -6,8 +6,11 @@ namespace CrystiliumMod
 {
 	public class CrystiliumMod : Mod
 	{
+		internal static CrystiliumMod instance;
+
 		public CrystiliumMod()
 		{
+			instance = this;
 		}
 
 		public override void AddRecipes()

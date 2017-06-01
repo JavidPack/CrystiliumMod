@@ -31,7 +31,7 @@ namespace CrystiliumMod.Tiles
 			TileObjectData.newTile.AnchorBottom = new AnchorData(AnchorType.SolidTile | AnchorType.SolidWithTop | AnchorType.SolidSide, TileObjectData.newTile.Width, 0);
 			TileObjectData.addTile(Type);
 			AddMapEntry(new Color(200, 200, 200), "Crystal Chest", MapChestName);
-			dustType = mod.DustType("Sparkle");
+			dustType = mod.DustType<Dusts.Sparkle>();
 			disableSmartCursor = true;
 			adjTiles = new int[] { TileID.Containers };
 			chest = "Crystal Chest";
@@ -100,7 +100,7 @@ namespace CrystiliumMod.Tiles
 					Chest.Unlock(i - 1, j - 1);
 					Chest.Unlock(i, j - 1);
 					Chest.Unlock(i - 1, j);
-					/*     if (player.inventory[num66].stack <= 0)
+					/*	  if (player.inventory[num66].stack <= 0)
 						 {
 							 player.inventory[num66] = new Item();
 						 } */

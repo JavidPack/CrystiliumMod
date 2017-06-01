@@ -20,9 +20,9 @@ namespace CrystiliumMod.NPCs
 			npc.value = 20000f;
 			npc.knockBackResist = .30f;
 			npc.aiStyle = 87;
-			Main.npcFrameCount[npc.type] = Main.npcFrameCount[475];
+			Main.npcFrameCount[npc.type] = Main.npcFrameCount[NPCID.BigMimicHallow];
 			aiType = NPCID.Zombie;
-			animationType = 475;
+			animationType = NPCID.BigMimicHallow;
 		}
 
 		public override float CanSpawn(NPCSpawnInfo spawnInfo)

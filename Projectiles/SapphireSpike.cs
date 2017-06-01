@@ -34,9 +34,9 @@ namespace CrystiliumMod.Projectiles
 			}
 		}
 
-		/*   public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
-		   {
-			   target.AddBuff(Terraria.ID.BuffID.Chilled, 300);
-		   }*/
+		/*	public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+			{
+				target.AddBuff(Terraria.ID.BuffID.Chilled, 300);
+			}*/
 	}
 }

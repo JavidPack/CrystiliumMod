@@ -21,7 +21,7 @@ namespace CrystiliumMod.Projectiles
 				projectile.velocity.Y += projectile.ai[0];
 				if (Main.rand.Next(3) == 0)
 				{
-					Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, mod.DustType("Sparkle"), projectile.velocity.X * 0.5f, projectile.velocity.Y * 0.5f);
+					Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, mod.DustType<Dusts.Sparkle>(), projectile.velocity.X * 0.5f, projectile.velocity.Y * 0.5f);
 				}
 			} */
 

@@ -36,12 +36,12 @@ namespace CrystiliumMod.Tiles
 			num = fail ? 1 : 3;
 		}
 
-		//      public override void ModifyLight(int i, int j, ref float r, ref float g, ref float b)
-		//      {
-		//         r = 3.45f;
-		//          g = 0.75f;
-		//         b = 4.5f;
-		//      }
+		//		public override void ModifyLight(int i, int j, ref float r, ref float g, ref float b)
+		//		{
+		//			r = 3.45f;
+		//			 g = 0.75f;
+		//			b = 4.5f;
+		//		}
 
 		public override void KillMultiTile(int i, int j, int frameX, int frameY)
 		{

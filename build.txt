@@ -1,9 +1,9 @@
-author = Graydee & The dev team
-version = 11.2
+author = Graydee, The dev team, Jopojelly
+version = 11.3
 displayName = Crystilium
 homepage = http://forums.terraria.org/index.php?threads/crystilium-mod.44558/
 hideCode = false
 hideResources = false
-includeSource = true
-buildIgnore = *.csproj, *.user, obj\*, bin\*, .vs\*
+includeSource = false
+buildIgnore = *.csproj, *.user, obj\*, bin\*, .vs\*, .git\*, .gitignore, *.sln, Sprite Gallery\*
 includePDB = true

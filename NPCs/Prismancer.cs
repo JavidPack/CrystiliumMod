@@ -40,7 +40,7 @@ namespace CrystiliumMod.NPCs
 				//spawn shard gores (6 of them, 3 of each)
 				for (int i = 0; i < 3; i++)
 				{
-					Dust.NewDust(npc.position, npc.width, npc.height, mod.DustType("Sparkle"), (float)Main.rand.Next(-3, 3), (float)Main.rand.Next(-3, 3), 0);
+					Dust.NewDust(npc.position, npc.width, npc.height, mod.DustType<Dusts.Sparkle>(), (float)Main.rand.Next(-3, 3), (float)Main.rand.Next(-3, 3), 0);
 				}
 			}
 		}

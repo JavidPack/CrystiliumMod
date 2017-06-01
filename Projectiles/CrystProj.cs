@@ -27,7 +27,7 @@ namespace CrystiliumMod.Projectiles
 			Main.PlaySound(2, (int)projectile.position.X, (int)projectile.position.Y, 27);
 			for (int k = 0; k < 15; k++)
 			{
-				Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, mod.DustType("Sparkle"), projectile.oldVelocity.X * 0.5f, projectile.oldVelocity.Y * 0.5f);
+				Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, mod.DustType<Dusts.Sparkle>(), projectile.oldVelocity.X * 0.5f, projectile.oldVelocity.Y * 0.5f);
 			}
 		}
 
@@ -35,7 +35,7 @@ namespace CrystiliumMod.Projectiles
 		{
 			if (Main.rand.Next(5) == 0)
 			{
-				Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, mod.DustType("Sparkle"), projectile.velocity.X * 0.5f, projectile.velocity.Y * 0.5f);
+				Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, mod.DustType<Dusts.Sparkle>(), projectile.velocity.X * 0.5f, projectile.velocity.Y * 0.5f);
 			}
 			projectile.rotation += 0.1f;
 			//Making player variable "p" set as the projectile's owner
@@ -47,8 +47,8 @@ namespace CrystiliumMod.Projectiles
 			double dist = 140; //Distance away from the player
 
 			/*Position the projectile based on where the player is, the Sin/Cos of the angle times the /
-    		/distance for the desired distance away from the player minus the projectile's width   /
-    		/and height divided by two so the center of the projectile is at the right place.     */
+	 		/distance for the desired distance away from the player minus the projectile's width	/
+	 		/and height divided by two so the center of the projectile is at the right place.	  */
 			projectile.position.X = player.Center.X - (int)(Math.Cos(rad) * dist) - projectile.width / 2;
 			projectile.position.Y = player.Center.Y - (int)(Math.Sin(rad) * dist) - projectile.height / 2;
 

@@ -24,7 +24,7 @@ namespace CrystiliumMod.Tiles
 			TileObjectData.newTile.CoordinateHeights = new int[] { 16, 18 };
 			TileObjectData.newTile.CoordinateWidth = 16;
 			TileObjectData.newTile.CoordinatePadding = 2;
-			TileObjectData.newTile.AnchorValidTiles = new int[] { mod.TileType("CrystalBlock") };
+			TileObjectData.newTile.AnchorValidTiles = new int[] { mod.TileType<Tiles.CrystalBlock>() };
 			TileObjectData.newTile.StyleHorizontal = true;
 			TileObjectData.newTile.DrawFlipHorizontal = true;
 			TileObjectData.newTile.WaterPlacement = LiquidPlacement.Allowed;
@@ -33,7 +33,7 @@ namespace CrystiliumMod.Tiles
 			TileObjectData.addTile(Type);
 			sapling = true;
 			AddMapEntry(new Color(200, 200, 200), "Sapling");
-			dustType = mod.DustType("Sparkle");
+			dustType = mod.DustType<Dusts.Sparkle>();
 			adjTiles = new int[] { TileID.Saplings };
 		}
 
@@ -44,6 +44,7 @@ namespace CrystiliumMod.Tiles
 
 		public override void RandomUpdate(int i, int j)
 		{
+			// TODO is this too often?
 			bool isPlayerNear = WorldGen.PlayerLOS(i, j);
 			bool success = WorldGen.GrowTree(i, j);
 			if (success && isPlayerNear)

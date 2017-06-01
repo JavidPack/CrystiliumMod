@@ -13,7 +13,7 @@ namespace CrystiliumMod.Tiles
 			Main.tileBlockLight[Type] = true;
 			this.minPick = 65;
 			Main.tileLighted[Type] = false;
-			dustType = mod.DustType("Sparkle");
+			dustType = mod.DustType<Dusts.Sparkle>();
 			drop = mod.ItemType<Items.Placeable.RadiantOre>();
 			AddMapEntry(new Color(255, 93, 245));
 		}

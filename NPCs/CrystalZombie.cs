@@ -28,7 +28,7 @@ namespace CrystiliumMod.NPCs
 
 		public override float CanSpawn(NPCSpawnInfo spawnInfo)
 		{
-			return Main.tile[(int)(spawnInfo.spawnTileX), (int)(spawnInfo.spawnTileY)].type == mod.TileType("CrystalBlock") ? 8f : 0f;
+			return Main.tile[(int)(spawnInfo.spawnTileX), (int)(spawnInfo.spawnTileY)].type == mod.TileType<Tiles.CrystalBlock>() ? 8f : 0f;
 		}
 
 		public override void HitEffect(int hitDirection, double damage)

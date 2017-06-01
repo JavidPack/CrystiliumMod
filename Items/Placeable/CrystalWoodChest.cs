@@ -18,7 +18,7 @@ namespace CrystiliumMod.Items.Placeable
 			item.useStyle = 1;
 			item.consumable = true;
 			item.value = 500;
-			item.createTile = mod.TileType("CrystalWoodChest");
+			item.createTile = mod.TileType<Tiles.CrystalWoodChest>();
 		}
 
 		public override void AddRecipes()

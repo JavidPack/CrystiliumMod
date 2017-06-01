@@ -77,7 +77,7 @@ namespace CrystiliumMod.NPCs
 			{
 				for (int i = 0; i < 20; i++)
 				{
-					Dust.NewDust(npc.position, npc.width - (Main.rand.Next(npc.width)), npc.height - (Main.rand.Next(npc.height)), mod.DustType("CrystalDust"), (float)Main.rand.Next(-5, 5), (float)Main.rand.Next(-5, 5), 0);
+					Dust.NewDust(npc.position, npc.width - (Main.rand.Next(npc.width)), npc.height - (Main.rand.Next(npc.height)), mod.DustType<Dusts.CrystalDust>(), (float)Main.rand.Next(-5, 5), (float)Main.rand.Next(-5, 5), 0);
 				}
 				do
 				{  //Keep teleporting if too close to player
@@ -86,7 +86,7 @@ namespace CrystiliumMod.NPCs
 				} while (npc.Distance(Main.player[npc.target].position) < 40);
 				for (int i = 0; i < 20; i++)
 				{
-					Dust.NewDust(npc.position, npc.width - (Main.rand.Next(npc.width)), npc.height - (Main.rand.Next(npc.height)), mod.DustType("CrystalDust"), (float)Main.rand.Next(-5, 5), (float)Main.rand.Next(-5, 5), 0);
+					Dust.NewDust(npc.position, npc.width - (Main.rand.Next(npc.width)), npc.height - (Main.rand.Next(npc.height)), mod.DustType<Dusts.CrystalDust>(), (float)Main.rand.Next(-5, 5), (float)Main.rand.Next(-5, 5), 0);
 				}
 			}
 		}

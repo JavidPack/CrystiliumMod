@@ -14,7 +14,7 @@ namespace CrystiliumMod.Tiles
 			this.minPick = 999;
 			Main.tileLighted[Type] = false;
 			SetModTree(new CrystalTree());
-			dustType = mod.DustType("Sparkle");
+			dustType = mod.DustType<Dusts.Sparkle>();
 			soundType = 27;
 			soundStyle = 2;
 			drop = mod.ItemType<Items.Placeable.CrystalBlock>();

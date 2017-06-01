@@ -25,7 +25,7 @@ namespace CrystiliumMod.Projectiles
 				projectile.velocity.Y += projectile.ai[0];
 				if (Main.rand.Next(3) == 0)
 				{
-					Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, mod.DustType("Sparkle"), projectile.velocity.X * 0.5f, projectile.velocity.Y * 0.5f);
+					Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, mod.DustType<Dusts.Sparkle>(), projectile.velocity.X * 0.5f, projectile.velocity.Y * 0.5f);
 				}
 			} */
 
@@ -59,7 +59,7 @@ namespace CrystiliumMod.Projectiles
 			Main.PlaySound(2, (int)projectile.position.X, (int)projectile.position.Y, 27);
 			for (int k = 0; k < 5; k++)
 			{
-				Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, mod.DustType("Sparkle"), projectile.oldVelocity.X * 0.5f, projectile.oldVelocity.Y * 0.5f);
+				Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, mod.DustType<Dusts.Sparkle>(), projectile.oldVelocity.X * 0.5f, projectile.oldVelocity.Y * 0.5f);
 			}
 			for (int h = 0; h < 4; h++)
 			{

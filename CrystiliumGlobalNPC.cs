@@ -4,7 +4,7 @@ using Terraria.ModLoader;
 
 namespace CrystiliumMod
 {
-	public class LootMods : GlobalNPC
+	public class CrystiliumGlobalNPC : GlobalNPC
 	{
 		public override void NPCLoot(NPC npc)
 		{

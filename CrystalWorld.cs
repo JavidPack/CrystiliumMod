@@ -21,95 +21,109 @@ namespace CrystiliumMod
 				return;
 			}
 			tasks.Insert(ShiniesIndex + 1, new PassLegacy("CrystalBiomeGen", delegate (GenerationProgress progress)
-		   {
-			   progress.Message = "Polishing crystals";
+			{
+				progress.Message = "Polishing crystals";
+				// 4200 1200
+				// 8400 2400
+				// 3 in small
+				// 6 large
+				for (int i = 0; i < (int)Main.maxTilesX / 1400; i++)
+				{
+					int Xvalue = WorldGen.genRand.Next(50, Main.maxTilesX - 700);
+					int Yvalue = WorldGen.genRand.Next((int)WorldGen.rockLayer - 200, Main.maxTilesY - 700);
+					int XvalueHigh = Xvalue + 800;
+					int YvalueHigh = Yvalue + 800;
+					int XvalueMid = Xvalue + 400;
+					int YvalueMid = Yvalue + 400;
 
-			   for (int i = 0; i < (int)Main.maxTilesX / 900; i++)
-			   {
-				   int Xvalue = WorldGen.genRand.Next(50, Main.maxTilesX - 700);
-				   int Yvalue = WorldGen.genRand.Next((int)WorldGen.rockLayer - 200, Main.maxTilesY - 700);
-				   int XvalueHigh = Xvalue + 800;
-				   int YvalueHigh = Yvalue + 800;
-				   int XvalueMid = Xvalue + 400;
-				   int YvalueMid = Yvalue + 400;
+					WorldGen.TileRunner(XvalueMid, YvalueMid, (double)WorldGen.genRand.Next(300, 300), 1, mod.TileType<Tiles.CrystalBlock>(), false, 0f, 0f, true, true); //c = x, d = y
+																																										  /*		for (int A = Xvalue; A < XvalueHigh; A++)
+																																												  {
+																																													  for (int B = Yvalue; B < YvalueHigh; B++)
+																																													  {
+																																														  if (Main.tile[A,B] != null)
+																																														  {
+																																															  if (Main.tile[A,B].type ==  mod.TileType<Tiles.CrystalBlock>()) // A = x, B = y.
+																																															  {
+																																																  WorldGen.KillWall(A, B);
+																																																  WorldGen.PlaceWall(A, B, mod.WallType("CrystalWall"));
+																																															  }
+																																														  }
+																																													  }
+																																												  }*/
 
-				   WorldGen.TileRunner(XvalueMid, YvalueMid, (double)WorldGen.genRand.Next(300, 300), 1, mod.TileType<Tiles.CrystalBlock>(), false, 0f, 0f, true, true); //c = x, d = y
-																																										 /*		for (int A = Xvalue; A < XvalueHigh; A++)
-																																												 {
-																																													 for (int B = Yvalue; B < YvalueHigh; B++)
-																																													 {
-																																														 if (Main.tile[A,B] != null)
-																																														 {
-																																															 if (Main.tile[A,B].type ==  mod.TileType<Tiles.CrystalBlock>()) // A = x, B = y.
-																																															 {
-																																																 WorldGen.KillWall(A, B);
-																																																 WorldGen.PlaceWall(A, B, mod.WallType("CrystalWall"));
-																																															 }
-																																														 }
-																																													 }
-																																												 }*/
-
-				   WorldGen.digTunnel(Xvalue + 400, Yvalue + 400, 0, 0, WorldGen.genRand.Next(15, 18), WorldGen.genRand.Next(14, 17), false);
-				   for (int C = 0; C < 400; C++)
-				   {
-					   WorldGen.PlaceChest(Xvalue + WorldGen.genRand.Next(350, 450), Yvalue + WorldGen.genRand.Next(350, 450), (ushort)mod.TileType<Tiles.CrystalChest>(), false, 2);
-				   }
-				   for (int C = 0; C < 40; C++)
-				   {
-					   int E = Xvalue + WorldGen.genRand.Next(340, 460);
-					   int F = Yvalue + WorldGen.genRand.Next(340, 460);
-					   WorldGen.PlaceTile(E, F, mod.TileType<GlowingCrystal2>());
-				   }
-				   for (int C = 0; C < 35; C++)
-				   {
-					   int E = Xvalue + WorldGen.genRand.Next(340, 460);
-					   int F = Yvalue + WorldGen.genRand.Next(340, 460);
-					   if (Main.tile[E, F] != null)
-					   {
-						   WorldGen.PlaceTile(E, F, mod.TileType<GlowingCrystal>());
-					   }
-				   }
-				   for (int Ore = 0; Ore < 650; Ore++)
-				   {
-					   int Xore = XvalueMid + Main.rand.Next(-300, 300);
-					   int Yore = YvalueMid + Main.rand.Next(-300, 300);
-					   if (Main.tile[Xore, Yore].type == mod.TileType<CrystalBlock>()) // A = x, B = y.
-					   {
-						   WorldGen.TileRunner(Xore, Yore, (double)WorldGen.genRand.Next(3, 6), WorldGen.genRand.Next(3, 6), mod.TileType<RadiantOre>(), false, 0f, 0f, false, true);
-					   }
-				   }
-				   for (int X1 = -4; X1 < 10; X1++)
-				   {
-					   for (int Y1 = 0; Y1 < 7; Y1++)
-					   {
-						   WorldGen.KillTile(XvalueMid + X1, YvalueMid - Y1);
-						   WorldGen.PlaceTile(XvalueMid + X1, YvalueMid, mod.TileType<FountainBlock>());
-					   }
-				   }
-				   for (int X1 = -2; X1 < 8; X1++)
-				   {
-					   WorldGen.PlaceTile(XvalueMid + X1, YvalueMid + 1, mod.TileType<CrystalBlock>());
-				   }
-				   for (int X1 = -1; X1 < 7; X1++)
-				   {
-					   WorldGen.PlaceTile(XvalueMid + X1, YvalueMid + 2, mod.TileType<CrystalBlock>());
-				   }
-				   WorldGen.PlaceObject(XvalueMid, YvalueMid - 1, mod.TileType<Fountain>());
-				   WorldGen.PlaceObject(XvalueMid, YvalueMid - 6, mod.TileType<Fountain>());
-				   WorldGen.PlaceObject(XvalueMid + 1, YvalueMid - 6, mod.TileType<Fountain>());
-				   WorldGen.PlaceObject(XvalueMid - 1, YvalueMid - 1, TileID.Lamps, false, 5); // Style 5 Lamp is FrozenLamp
-				   WorldGen.PlaceObject(XvalueMid - 4, YvalueMid - 1, mod.TileType<Crystal>());
-				   WorldGen.PlaceObject(XvalueMid + 7, YvalueMid - 1, mod.TileType<Crystal>());
-				   WorldGen.PlaceObject(XvalueMid + 6, YvalueMid - 1, TileID.Lamps, false, 5);
-			   }
-		   }));
+					WorldGen.digTunnel(Xvalue + 400, Yvalue + 400, 0, 0, WorldGen.genRand.Next(15, 18), WorldGen.genRand.Next(14, 17), false);
+					for (int C = 0; C < 400; C++)
+					{
+						WorldGen.PlaceChest(Xvalue + WorldGen.genRand.Next(350, 450), Yvalue + WorldGen.genRand.Next(350, 450), (ushort)mod.TileType<Tiles.CrystalChest>(), false, 2);
+					}
+					for (int C = 0; C < 40; C++)
+					{
+						int E = Xvalue + WorldGen.genRand.Next(340, 460);
+						int F = Yvalue + WorldGen.genRand.Next(340, 460);
+						WorldGen.PlaceTile(E, F, mod.TileType<GlowingCrystal2>());
+					}
+					for (int C = 0; C < 35; C++)
+					{
+						int E = Xvalue + WorldGen.genRand.Next(340, 460);
+						int F = Yvalue + WorldGen.genRand.Next(340, 460);
+						if (Main.tile[E, F] != null)
+						{
+							WorldGen.PlaceTile(E, F, mod.TileType<GlowingCrystal>());
+						}
+					}
+					for (int trees = 0; trees < 50000; trees++)
+					{
+						int E = Xvalue + WorldGen.genRand.Next(340, 460);
+						int F = Yvalue + WorldGen.genRand.Next(340, 460);
+						Tile tile = Framing.GetTileSafely(E, F);
+						if (tile.type == mod.TileType<CrystalBlock>() || tile.type == mod.TileType<FountainBlock>())
+						{
+							WorldGen.GrowTree(E, F);
+						}
+					}
+					for (int Ore = 0; Ore < 650; Ore++)
+					{
+						int Xore = XvalueMid + Main.rand.Next(-300, 300);
+						int Yore = YvalueMid + Main.rand.Next(-300, 300);
+						if (Main.tile[Xore, Yore].type == mod.TileType<CrystalBlock>()) // A = x, B = y.
+						{
+							WorldGen.TileRunner(Xore, Yore, (double)WorldGen.genRand.Next(3, 6), WorldGen.genRand.Next(3, 6), mod.TileType<RadiantOre>(), false, 0f, 0f, false, true);
+						}
+					}
+					for (int X1 = -4; X1 < 10; X1++)
+					{
+						for (int Y1 = 0; Y1 < 7; Y1++)
+						{
+							WorldGen.KillTile(XvalueMid + X1, YvalueMid - Y1);
+							WorldGen.PlaceTile(XvalueMid + X1, YvalueMid, mod.TileType<FountainBlock>());
+						}
+					}
+					for (int X1 = -2; X1 < 8; X1++)
+					{
+						WorldGen.PlaceTile(XvalueMid + X1, YvalueMid + 1, mod.TileType<CrystalBlock>());
+					}
+					for (int X1 = -1; X1 < 7; X1++)
+					{
+						WorldGen.PlaceTile(XvalueMid + X1, YvalueMid + 2, mod.TileType<CrystalBlock>());
+					}
+					WorldGen.PlaceObject(XvalueMid, YvalueMid - 1, mod.TileType<Fountain>());
+					WorldGen.PlaceObject(XvalueMid, YvalueMid - 6, mod.TileType<Fountain>());
+					WorldGen.PlaceObject(XvalueMid + 1, YvalueMid - 6, mod.TileType<Fountain>());
+					WorldGen.PlaceObject(XvalueMid - 1, YvalueMid - 1, TileID.Lamps, false, 5); // Style 5 Lamp is FrozenLamp
+					WorldGen.PlaceObject(XvalueMid - 4, YvalueMid - 1, mod.TileType<Crystal>());
+					WorldGen.PlaceObject(XvalueMid + 7, YvalueMid - 1, mod.TileType<Crystal>());
+					WorldGen.PlaceObject(XvalueMid + 6, YvalueMid - 1, TileID.Lamps, false, 5);
+				}
+			}));
 		}
 
 		// TODO, this is ugly code, overwriting the first choice.
 		public override void PostWorldGen()
 		{
-			int upperLimit = Main.rand.Next(4, 6);
-			for (int i = 1; i < upperLimit; i++)
+			// place 3 or 4 items in each crystal chest
+			int upperLimit = Main.rand.Next(3, 5);
+			for (int i = 0; i < upperLimit; i++)
 			{
 				int[] itemsToPlaceInGlassChestsSecondary = new int[] { mod.ItemType<Items.CrystalBottle>(), mod.ItemType<Items.ShinyGemstone>(), mod.ItemType<Items.RadiantPrism>(), mod.ItemType<Items.GeodeItem>(), ItemID.GoldCoin };
 				int itemsToPlaceInGlassChestsSecondaryChoice = 0;
@@ -132,6 +146,7 @@ namespace CrystiliumMod
 					}
 				}
 			}
+			// is this suppose to be an additional item?
 			int[] itemsToPlaceInGlassChests = new int[] { mod.ItemType<Items.Weapons.CrystalStaff>(), mod.ItemType<Items.Weapons.CrystalEdge>(), mod.ItemType<Items.Weapons.GemFury>(), mod.ItemType<Items.Weapons.Geode>(), mod.ItemType<Items.Weapons.PrismCast>(), mod.ItemType<Items.Weapons.Glowstrike>(), mod.ItemType<Items.Weapons.Sharpoon>() };
 			int itemsToPlaceInGlassChestsChoice = 0;
 			for (int chestIndex = 0; chestIndex < 1000; chestIndex++)

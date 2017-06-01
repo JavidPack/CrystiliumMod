@@ -18,7 +18,7 @@ namespace CrystiliumMod.Items.Placeable
 			item.useTime = 10;
 			item.useStyle = 1;
 			item.consumable = true;
-			item.createTile = mod.TileType("RadiantOre");
+			item.createTile = mod.TileType<Tiles.RadiantOre>();
 			ItemID.Sets.ExtractinatorMode[item.type] = item.type;
 		}
 	}

@@ -41,7 +41,7 @@ namespace CrystiliumMod.Projectiles
 				projectile.frame = (projectile.frame + 1) % 8;
 			}
 			//CONFIG INFO
-			int range = 50;   //How many tiles away the projectile targets NPCs
+			int range = 50;	//How many tiles away the projectile targets NPCs
 							  //int targetingMax = 20; //how many frames allowed to target nearest instead of shooting
 							  //float shootVelocity = 16f; //magnitude of the shoot vector (speed of arrows shot)
 

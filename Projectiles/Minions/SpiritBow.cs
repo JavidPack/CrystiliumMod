@@ -44,7 +44,7 @@ namespace CrystiliumMod.Projectiles.Minions
 		public override void AI()
 		{
 			//CONFIG INFO
-			int range = 50;   //How many tiles away the projectile targets NPCs
+			int range = 50;	//How many tiles away the projectile targets NPCs
 			float rotSpeed = (float)(Math.PI / 10); //speed of rotation (in radians per frame)
 			int animSpeed = 2;  //how many game frames per frame :P note: firing anims are twice as fast currently
 			int targetingMax = 20; //how many frames allowed to target nearest instead of shooting
@@ -168,7 +168,7 @@ namespace CrystiliumMod.Projectiles.Minions
 			{
 				for (int i = 0; i < 15; i++)
 				{
-					Dust.NewDust(projectile.position, projectile.width, projectile.height, mod.DustType("Sparkle"), (float)Main.rand.Next(-3, 3), (float)Main.rand.Next(-3, 3), 0);
+					Dust.NewDust(projectile.position, projectile.width, projectile.height, mod.DustType<Dusts.Sparkle>(), (float)Main.rand.Next(-3, 3), (float)Main.rand.Next(-3, 3), 0);
 				}
 			}
 		}
@@ -178,7 +178,7 @@ namespace CrystiliumMod.Projectiles.Minions
 			Main.PlaySound(2, projectile.Center, 27);
 			for (int i = 0; i < 15; i++)
 			{
-				Dust.NewDust(projectile.position, projectile.width, projectile.height, mod.DustType("Sparkle"), (float)Main.rand.Next(-3, 3), (float)Main.rand.Next(-3, 3), 0);
+				Dust.NewDust(projectile.position, projectile.width, projectile.height, mod.DustType<Dusts.Sparkle>(), (float)Main.rand.Next(-3, 3), (float)Main.rand.Next(-3, 3), 0);
 			}
 		}
 	}

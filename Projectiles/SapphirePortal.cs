@@ -71,9 +71,9 @@ namespace CrystiliumMod.Projectiles //We need this to basically indicate the fol
 
 		//public override bool OnTileCollide(Vector2 oldVelocity)
 		//{
-		//    projectile.velocity.X = 0f;
-		//    projectile.velocity.Y = 0f;
-		//    return false;
+		//	 projectile.velocity.X = 0f;
+		//	 projectile.velocity.Y = 0f;
+		//	 return false;
 		//}
 	}
 }

@@ -18,7 +18,7 @@ namespace CrystiliumMod.Items.Placeable
 			item.useStyle = 1;
 			item.consumable = true;
 			item.value = 500;
-			item.createTile = mod.TileType("KingTrophy");
+			item.createTile = mod.TileType<Tiles.KingTrophy>();
 		}
 	}
 }

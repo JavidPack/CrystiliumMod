@@ -40,14 +40,10 @@ namespace CrystiliumMod.NPCs
 			Player player = Main.LocalPlayer;
 			if (type == NPCID.Cyborg)
 			{
-				for (int i = 0; i <= 50; i++)
+				if (player.HasItem(mod.ItemType<Items.Weapons.Shatterocket>()))
 				{
-					if (player.inventory[i].type == mod.ItemType<Items.Weapons.Shatterocket>())
-					{
-						shop.item[nextSlot].SetDefaults(mod.ItemType<Items.RPC>());
-						nextSlot++;
-						break;
-					}
+					shop.item[nextSlot].SetDefaults(mod.ItemType<Items.RPC>());
+					nextSlot++;
 				}
 			}
 		}

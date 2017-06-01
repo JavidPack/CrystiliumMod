@@ -22,8 +22,8 @@ namespace CrystiliumMod.NPCs
 			npc.DeathSound = SoundID.NPCDeath6;
 			npc.value = 300f;
 			npc.knockBackResist = 0.5f;
-			Main.npcFrameCount[npc.type] = Main.npcFrameCount[110];
-			animationType = 110;
+			Main.npcFrameCount[npc.type] = Main.npcFrameCount[NPCID.SkeletonArcher];
+			animationType = NPCID.SkeletonArcher;
 		}
 
 		public override float CanSpawn(NPCSpawnInfo spawnInfo)
