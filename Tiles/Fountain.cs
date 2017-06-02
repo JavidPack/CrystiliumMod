@@ -83,6 +83,7 @@ namespace CrystiliumMod.Tiles
 			//check if player has a Cryptic Crystal
 			if (Main.LocalPlayer.HasItem(mod.ItemType<Items.CrypticCrystal>()))
 			{
+				// TODO, someone said this didn't work. Migrate to Main.LocalPlayer.ConsumeItem() and check MP code.
 				//now to search for it
 				Item[] inventory = Main.LocalPlayer.inventory;
 				for (int k = 0; k < inventory.Length; k++)

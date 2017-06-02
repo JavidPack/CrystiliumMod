@@ -17,7 +17,7 @@ namespace CrystiliumMod.Items.Placeable
 			item.useTime = 7;
 			item.useStyle = 1;
 			item.consumable = true;
-			item.createWall = mod.WallType("CrystalWoodWall");
+			item.createWall = mod.WallType<Walls.CrystalWoodWall>();
 		}
 
 		public override void AddRecipes()
