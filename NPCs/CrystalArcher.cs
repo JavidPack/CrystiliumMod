@@ -9,10 +9,14 @@ namespace CrystiliumMod.NPCs
 {
 	public class CrystalArcher : ModNPC
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Crystal Archer");
+			Main.npcFrameCount[npc.type] = Main.npcFrameCount[NPCID.SkeletonArcher];
+		}
+
 		public override void SetDefaults()
 		{
-			npc.name = "Crystal Archer";
-			npc.displayName = "Crystal Archer";
 			npc.width = 30;
 			npc.height = 50;
 			npc.damage = 3;
@@ -22,11 +26,10 @@ namespace CrystiliumMod.NPCs
 			npc.DeathSound = SoundID.NPCDeath6;
 			npc.value = 300f;
 			npc.knockBackResist = 0.5f;
-			Main.npcFrameCount[npc.type] = Main.npcFrameCount[NPCID.SkeletonArcher];
 			animationType = NPCID.SkeletonArcher;
 		}
 
-		public override float CanSpawn(NPCSpawnInfo spawnInfo)
+		public override float SpawnChance(NPCSpawnInfo spawnInfo)
 		{
 			return Main.tile[(int)(spawnInfo.spawnTileX), (int)(spawnInfo.spawnTileY)].type == mod.TileType<Tiles.CrystalBlock>() ? 10f : 0f;
 		}

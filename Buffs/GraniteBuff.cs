@@ -7,8 +7,8 @@ namespace CrystiliumMod.Buffs
 	{
 		public override void SetDefaults()
 		{
-			Main.buffName[Type] = "Granite Skin";
-			Main.buffTip[Type] = "Hard as a rock";
+			DisplayName.SetDefault("Granite Skin");
+			Description.SetDefault("Hard as a rock");
 			Main.debuff[Type] = false;
 			Main.pvpBuff[Type] = true;
 			longerExpertDebuff = false;

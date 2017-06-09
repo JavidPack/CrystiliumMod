@@ -5,11 +5,15 @@ namespace CrystiliumMod.Items.Weapons
 {
 	public class QuartzSpear : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Quartz Spear");
+			Tooltip.SetDefault("'Object class - Keter'");
+		}
+
 		public override void SetDefaults()
 		{
-			item.name = "Quartz Spear";
 			item.damage = 25;
-			item.toolTip = "'Object class - Keter'";
 			item.melee = true;
 			item.width = 38;
 			item.height = 38;

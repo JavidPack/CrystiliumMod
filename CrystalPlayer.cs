@@ -130,13 +130,13 @@ namespace CrystiliumMod
 
 		public override bool CustomBiomesMatch(Player other)
 		{
-			CrystalPlayer modOther = other.GetModPlayer<CrystalPlayer>(mod);
+			CrystalPlayer modOther = other.GetModPlayer<CrystalPlayer>();
 			return ZoneCrystal == modOther.ZoneCrystal;
 		}
 
 		public override void CopyCustomBiomesTo(Player other)
 		{
-			CrystalPlayer modOther = other.GetModPlayer<CrystalPlayer>(mod);
+			CrystalPlayer modOther = other.GetModPlayer<CrystalPlayer>();
 			modOther.ZoneCrystal = ZoneCrystal;
 		}
 

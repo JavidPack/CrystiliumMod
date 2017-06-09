@@ -5,9 +5,13 @@ namespace CrystiliumMod.Items.Weapons
 {
 	public class CrystiliumBow : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Crystilium Bow");
+		}
+
 		public override void SetDefaults()
 		{
-			item.name = "Crystilium Bow";
 			item.damage = 53;
 			item.ranged = true;
 			item.width = 40;

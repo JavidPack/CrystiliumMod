@@ -5,9 +5,14 @@ namespace CrystiliumMod.Items
 {
 	public class TwilightPotion : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Twilight Potion");
+			Tooltip.SetDefault("+7% damage boost at night");
+		}
+
 		public override void SetDefaults()
 		{
-			item.name = "Twilight Potion";
 			item.UseSound = SoundID.Item3;
 			item.useStyle = 2;
 			item.useTurn = true;
@@ -17,7 +22,6 @@ namespace CrystiliumMod.Items
 			item.consumable = true;
 			item.width = 12;
 			item.height = 30;
-			item.toolTip = "+7% damage boost at night";
 			item.value = 3000;
 			item.rare = 0;
 			item.buffType = mod.BuffType<Buffs.Twilight>();

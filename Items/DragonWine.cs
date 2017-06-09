@@ -6,9 +6,14 @@ namespace CrystiliumMod.Items
 {
 	public class DragonWine : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Dragon Potion");
+			Tooltip.SetDefault("Quadruples your damage for 10 seconds, but you lose 200 hp on use");
+		}
+
 		public override void SetDefaults()
 		{
-			item.name = "Dragon Potion";
 			item.UseSound = SoundID.Item3;
 			item.useStyle = 2;
 			item.useTurn = true;
@@ -16,7 +21,6 @@ namespace CrystiliumMod.Items
 			item.useTime = 20;
 			item.maxStack = 30;
 			item.consumable = true;
-			item.toolTip = "Quadruples your damage for 10 seconds, but you lose 200 hp on use";
 			item.value = 3500;
 			item.rare = 0;
 			item.buffTime = 600;

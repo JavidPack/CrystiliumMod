@@ -6,11 +6,15 @@ namespace CrystiliumMod.Items
 {
 	public class CrypticCrystal : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Cryptic Crystal");
+			Tooltip.SetDefault("Use at the heart of the Crystal"
+				+ "\n'Boast of thy Treasures, and Dragons will come...'");
+		}
+
 		public override void SetDefaults()
 		{
-			item.name = "Cryptic Crystal";
-			item.toolTip = "Use at the heart of the Crystal";
-			item.toolTip2 = "'Boast of thy Treasures, and Dragons will come...'"; //placeholder cool tip
 			item.consumable = true;
 			item.rare = 7;
 		}

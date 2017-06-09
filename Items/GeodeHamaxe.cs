@@ -7,9 +7,13 @@ namespace CrystiliumMod.Items
 {
 	public class GeodeHamaxe : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Geode Hamaxe");
+		}
+
 		public override void SetDefaults()
 		{
-			item.name = "Geode Hamaxe";
 			item.damage = 25;
 			item.melee = true;
 			item.width = 40;

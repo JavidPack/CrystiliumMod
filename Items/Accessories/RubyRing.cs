@@ -6,12 +6,16 @@ namespace CrystiliumMod.Items.Accessories
 {
 	public class RubyRing : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Ruby Ring");
+			Tooltip.SetDefault("Your melee weapon flickers with heat");
+		}
+
 		public override void SetDefaults()
 		{
-			item.name = "Ruby Ring";
 			item.width = 40;
 			item.height = 40;
-			item.toolTip = "Your melee weapon flickers with heat";
 			item.value = Item.sellPrice(0, 0, 85, 0);
 			item.rare = 1;
 			item.accessory = true;

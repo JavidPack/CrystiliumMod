@@ -16,10 +16,14 @@ namespace CrystiliumMod.NPCs.Bosses
 		private int timer3 = 0;
 		private int timer4 = 0;
 
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Crystal King");
+			Main.npcFrameCount[npc.type] = 8;
+		}
+
 		public override void SetDefaults()
 		{
-			npc.name = "Crystal King";
-			npc.displayName = "Crystal King";
 			npc.aiStyle = -1;
 			npc.width = 184;
 			npc.height = 170;
@@ -31,7 +35,6 @@ namespace CrystiliumMod.NPCs.Bosses
 			npc.value = 60000f;
 			bossBag = mod.ItemType<Items.CrystalBag>();
 			npc.knockBackResist = 0f;
-			Main.npcFrameCount[npc.type] = 8;
 			music = mod.GetSoundSlot(SoundType.Music, "Sounds/Music/CrystalKing");
 			npc.lavaImmune = true;
 			npc.noTileCollide = true;

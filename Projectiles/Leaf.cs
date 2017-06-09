@@ -8,7 +8,6 @@ namespace CrystiliumMod.Projectiles
 	{
 		public override void SetDefaults()
 		{
-			projectile.name = "Leaf";
 			projectile.width = 18;
 			projectile.height = 30;
 			projectile.damage = 10;

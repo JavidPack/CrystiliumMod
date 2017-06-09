@@ -5,20 +5,19 @@ using Terraria.ModLoader;
 
 namespace CrystiliumMod.Items.Armor
 {
+	[AutoloadEquip(EquipType.Legs)]
 	public class HardCrystalLeggings : ModItem
 	{
-		public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
+		public override void SetStaticDefaults()
 		{
-			equips.Add(EquipType.Legs);
-			return true;
+			DisplayName.SetDefault("Hard Crystal Leggings");
+			Tooltip.SetDefault("Increases maximum minions by 2");
 		}
 
 		public override void SetDefaults()
 		{
-			item.name = "Hard Crystal Leggings";
 			item.width = 18;
 			item.height = 18;
-			item.toolTip = "Increases maximum minions by 2";
 			item.value = 30000;
 			item.rare = 5;
 			item.defense = 7;

@@ -9,10 +9,14 @@ namespace CrystiliumMod.NPCs.Bosses
 {
 	public class CrystalCultist : ModNPC
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Crystal Cultist");
+			Main.npcFrameCount[npc.type] = 7;
+		}
+
 		public override void SetDefaults()
 		{
-			npc.name = "Crystal Cultist";
-			npc.displayName = "Crystal Cultist";
 			npc.damage = 25;
 			npc.noTileCollide = true;
 			npc.defense = 30;
@@ -25,7 +29,6 @@ namespace CrystiliumMod.NPCs.Bosses
 			npc.noGravity = true;
 			npc.value = 60f;
 			npc.knockBackResist = 0f;
-			Main.npcFrameCount[npc.type] = 7;
 		}
 
 		public override void HitEffect(int hitDirection, double damage)

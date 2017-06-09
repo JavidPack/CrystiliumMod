@@ -7,14 +7,18 @@ namespace CrystiliumMod.Items.Weapons
 {
 	public class CrystalEdge : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Crystal Edge");
+			Tooltip.SetDefault("'Drenched in holy water'");
+		}
+
 		public override void SetDefaults()
 		{
-			item.name = "Crystal Edge";
 			item.damage = 26;
 			item.melee = true;
 			item.width = 40;
 			item.height = 40;
-			item.toolTip = "'Drenched in holy water'";
 			item.useTime = 30;
 			item.useAnimation = 30;
 			item.useStyle = 1;

@@ -7,16 +7,16 @@ namespace CrystiliumMod.Projectiles
 {
 	public class CrystalGrenadeProj : ModProjectile
 	{
-		public override bool Autoload(ref string name, ref string texture)
+		public override string Texture => "CrystiliumMod/Items/Weapons/CrystalGrenade";
+
+		public override void SetStaticDefaults()
 		{
-			texture = "CrystiliumMod/Items/Weapons/CrystalGrenade";
-			return true;
+			DisplayName.SetDefault("Crystal Grenade");
 		}
 
 		public override void SetDefaults()
 		{
 			projectile.CloneDefaults(ProjectileID.Grenade);
-			projectile.name = "Crystal Grenade";
 			projectile.timeLeft = 120;
 			projectile.width = 26;
 			projectile.height = 28;

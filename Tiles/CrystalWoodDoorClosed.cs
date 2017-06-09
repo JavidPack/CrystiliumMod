@@ -35,7 +35,9 @@ namespace CrystiliumMod.Tiles
 			TileObjectData.addAlternate(0);
 			TileObjectData.addTile(Type);
 			AddToArray(ref TileID.Sets.RoomNeeds.CountsAsDoor);
-			AddMapEntry(new Color(250, 140, 250), "CrystalWood Door");
+			ModTranslation name = CreateMapEntryName();
+			name.SetDefault("CrystalWood Door");
+			AddMapEntry(new Color(250, 140, 250), name);
 			dustType = mod.DustType("CrystalDust");
 			disableSmartCursor = true;
 			adjTiles = new int[] { TileID.ClosedDoor };

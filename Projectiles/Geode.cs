@@ -10,7 +10,6 @@ namespace CrystiliumMod.Projectiles
 		public override void SetDefaults()
 		{
 			projectile.CloneDefaults(ProjectileID.WoodYoyo);
-			projectile.name = "Geode";
 			projectile.penetrate = 2;
 			projectile.timeLeft = 600;
 		}

@@ -7,10 +7,11 @@ namespace CrystiliumMod.Projectiles.TrueGems
 {
 	public class TerraGemProj : ModProjectile
 	{
-		public override bool Autoload(ref string name, ref string texture)
+		public override string Texture => "CrystiliumMod/Projectiles/TrueGems/TrueGem1";
+
+		public override void SetStaticDefaults()
 		{
-			texture = "CrystiliumMod/Projectiles/TrueGems/TrueGem1";
-			return true;
+			DisplayName.SetDefault("True gem");
 		}
 
 		public override void SetDefaults()
@@ -21,7 +22,6 @@ namespace CrystiliumMod.Projectiles.TrueGems
 			projectile.width = 28;
 			projectile.height = 28;
 			projectile.friendly = true;
-			projectile.name = "True gem";
 			projectile.damage = 10;
 			projectile.light = 0.5f;
 		}

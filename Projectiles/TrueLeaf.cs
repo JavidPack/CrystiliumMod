@@ -7,6 +7,12 @@ namespace CrystiliumMod.Projectiles
 {
 	public class TrueLeaf : ModProjectile
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("TrueLeaf");
+			Main.projFrames[projectile.type] = 5;
+		}
+
 		public override void SetDefaults()
 		{
 			projectile.hostile = false;
@@ -14,9 +20,7 @@ namespace CrystiliumMod.Projectiles
 			projectile.width = 24;
 			projectile.height = 16;
 			projectile.friendly = true;
-			projectile.name = "TrueLeaf";
 			projectile.damage = 10;
-			Main.projFrames[projectile.type] = 5;
 			projectile.light = 0.5f;
 		}
 

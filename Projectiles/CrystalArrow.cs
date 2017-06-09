@@ -10,7 +10,6 @@ namespace CrystiliumMod.Projectiles
 		public override void SetDefaults()
 		{
 			projectile.CloneDefaults(82);
-			projectile.name = "Crystal Arrow";
 			projectile.damage = 10;
 		}
 

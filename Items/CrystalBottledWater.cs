@@ -4,13 +4,17 @@ namespace CrystiliumMod.Items
 {
 	public class CrystalBottleWater : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Crystal Water Bottle");
+			Tooltip.SetDefault("The water glows a strange hue");
+		}
+
 		public override void SetDefaults()
 		{
-			item.name = "Crystal Water Bottle";
 			item.width = 20;
 			item.height = 20;
 			item.maxStack = 30;
-			AddTooltip("The water glows a strange hue");
 			item.value = 2500;
 			item.rare = 3;
 		}

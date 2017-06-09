@@ -19,7 +19,9 @@ namespace CrystiliumMod.Tiles
 			TileObjectData.newTile.CoordinateHeights = new int[] { 18 };
 			TileObjectData.addTile(Type);
 			AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTable);
-			AddMapEntry(new Color(250, 140, 250), "Crystal Wood Workbench");
+			ModTranslation name = CreateMapEntryName();
+			name.SetDefault("Crystal Wood Workbench");
+			AddMapEntry(new Color(250, 140, 250), name);
 			dustType = mod.DustType("CrystalDust");
 			disableSmartCursor = true;
 			adjTiles = new int[] { TileID.WorkBenches };

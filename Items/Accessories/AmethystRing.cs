@@ -6,9 +6,13 @@ namespace CrystiliumMod.Items.Accessories
 {
 	public class AmethystRing : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Amethyst Ring");
+		}
+
 		public override void SetDefaults()
 		{
-			item.name = "Amethyst Ring";
 			item.width = 40;
 			item.height = 40;
 			item.value = Item.sellPrice(0, 0, 15, 0);

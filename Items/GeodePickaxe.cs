@@ -5,9 +5,13 @@ namespace CrystiliumMod.Items
 {
 	public class GeodePickaxe : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Geode Pickaxe");
+		}
+
 		public override void SetDefaults()
 		{
-			item.name = "Geode Pickaxe";
 			item.damage = 30;
 			item.melee = true;
 			item.width = 40;

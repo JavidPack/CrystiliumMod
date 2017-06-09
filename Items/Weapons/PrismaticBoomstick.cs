@@ -7,14 +7,18 @@ namespace CrystiliumMod.Items.Weapons
 {
 	public class PrismaticBoomstick : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Prismatic Boomstick");
+			Tooltip.SetDefault("Launches rainbow beams");
+		}
+
 		public override void SetDefaults()
 		{
-			item.name = "Prismatic Boomstick";
 			item.damage = 47;
 			item.ranged = true;
 			item.width = 40;
 			item.height = 20;
-			item.toolTip = "Launches rainbow beams";
 			item.useTime = 32;
 			item.useAnimation = 32;
 			item.useStyle = 5;

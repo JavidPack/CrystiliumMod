@@ -6,9 +6,14 @@ namespace CrystiliumMod.Projectiles
 {
 	public class StardustDiamond : ModProjectile
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("StardustDiamond");
+			Main.projFrames[projectile.type] = 8;
+		}
+
 		public override void SetDefaults()
 		{
-			projectile.name = "StardustDiamond";
 			projectile.width = 48;
 			projectile.height = 58;
 			projectile.timeLeft = 1500;
@@ -20,7 +25,6 @@ namespace CrystiliumMod.Projectiles
 			projectile.minion = true;
 			projectile.light = 0.75f;
 			projectile.minionSlots = 0;
-			Main.projFrames[projectile.type] = 8;
 		}
 
 		//How the projectile works

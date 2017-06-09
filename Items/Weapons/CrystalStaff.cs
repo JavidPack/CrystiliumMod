@@ -6,19 +6,23 @@ namespace CrystiliumMod.Items.Weapons
 {
 	public class CrystalStaff : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Crystal Staff");
+			Tooltip.SetDefault("Summons a giant crystal");
+			Item.staff[item.type] = true; //this makes the useStyle animate as a staff instead of as a gun
+		}
+
 		public override void SetDefaults()
 		{
-			item.name = "Crystal Staff";
 			item.damage = 21;
 			item.magic = true;
 			item.mana = 20;
 			item.width = 40;
 			item.height = 40;
-			item.toolTip = "Summons a giant crystal";
 			item.useTime = 61;
 			item.useAnimation = 61;
 			item.useStyle = 5;
-			Item.staff[item.type] = true; //this makes the useStyle animate as a staff instead of as a gun
 			item.noMelee = true;
 			item.knockBack = 5;
 			item.value = 30000;

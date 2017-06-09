@@ -4,13 +4,17 @@ namespace CrystiliumMod.Items.Placeable
 {
 	public class CrystalWoodWall : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Crystal Wood Wall");
+			Tooltip.SetDefault("This is a crystal wood wall.");
+		}
+
 		public override void SetDefaults()
 		{
-			item.name = "Crystal Wood Wall";
 			item.width = 12;
 			item.height = 12;
 			item.maxStack = 999;
-			AddTooltip("This is a crystal wood wall.");
 			item.useTurn = true;
 			item.autoReuse = true;
 			item.useAnimation = 15;

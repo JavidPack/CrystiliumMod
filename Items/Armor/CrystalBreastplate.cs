@@ -4,21 +4,20 @@ using Terraria.ModLoader;
 
 namespace CrystiliumMod.Items.Armor
 {
+	[AutoloadEquip(EquipType.Body)]
 	public class CrystalBreastplate : ModItem
 	{
-		public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
+		public override void SetStaticDefaults()
 		{
-			equips.Add(EquipType.Body);
-			return true;
+			DisplayName.SetDefault("Crystal Breastplate");
+			Tooltip.SetDefault("10% increased magic and summon damage"
+				+ "\nIncreases maximum minions");
 		}
 
 		public override void SetDefaults()
 		{
-			item.name = "Crystal Breastplate";
 			item.width = 18;
 			item.height = 18;
-			item.toolTip = "10% increased magic and summon damage";
-			item.toolTip2 = "Increases maximum minions";
 			item.value = 20000;
 			item.rare = 3;
 			item.defense = 3;

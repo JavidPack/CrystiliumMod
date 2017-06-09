@@ -6,9 +6,15 @@ namespace CrystiliumMod.Projectiles
 {
 	public class AmberBlade : ModProjectile
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Amber Blade");
+			ProjectileID.Sets.TrailCacheLength[projectile.type] = 9;
+			ProjectileID.Sets.TrailingMode[projectile.type] = 0;
+		}
+
 		public override void SetDefaults()
 		{
-			projectile.name = "Amber Blade";
 			projectile.tileCollide = false;
 			projectile.penetrate = 600;
 			projectile.hostile = false;
@@ -17,8 +23,6 @@ namespace CrystiliumMod.Projectiles
 			projectile.timeLeft = 120;
 			projectile.extraUpdates = 1;
 			projectile.light = 1;
-			ProjectileID.Sets.TrailCacheLength[projectile.type] = 9;
-			ProjectileID.Sets.TrailingMode[projectile.type] = 0;
 		}
 
 		/* public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)

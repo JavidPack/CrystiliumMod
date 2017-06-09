@@ -6,9 +6,14 @@ namespace CrystiliumMod.Projectiles //We need this to basically indicate the fol
 {
 	public class PrismSlug : ModProjectile
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Prism Bolt");
+			Main.projFrames[projectile.type] = 7;
+		}
+
 		public override void SetDefaults()
 		{
-			projectile.name = "Prism Bolt"; //Name of the projectile, only shows this if you get killed by it
 			projectile.width = 8;
 			projectile.height = 48;
 			projectile.timeLeft = 600; //The amount of time the projectile is alive for
@@ -17,7 +22,6 @@ namespace CrystiliumMod.Projectiles //We need this to basically indicate the fol
 			projectile.hostile = false; //Tells the game whether it is hostile to players or not
 			projectile.light = 0.75f;
 			projectile.ignoreWater = true; //Tells the game whether or not projectile will be affected by water
-			Main.projFrames[projectile.type] = 7;
 		}
 
 		public override bool OnTileCollide(Vector2 oldVelocity)

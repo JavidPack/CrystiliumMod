@@ -5,9 +5,14 @@ namespace CrystiliumMod.Items.Placeable
 {
 	public class CrystalWood : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Crystal Wood");
+			ItemID.Sets.ExtractinatorMode[item.type] = item.type;
+		}
+
 		public override void SetDefaults()
 		{
-			item.name = "Crystal Wood";
 			item.width = 12;
 			item.height = 12;
 			item.maxStack = 999;
@@ -18,7 +23,6 @@ namespace CrystiliumMod.Items.Placeable
 			item.useStyle = 1;
 			item.consumable = true;
 			item.createTile = mod.TileType<Tiles.CrystalWood>();
-			ItemID.Sets.ExtractinatorMode[item.type] = item.type;
 		}
 	}
 }

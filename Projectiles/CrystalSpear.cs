@@ -6,9 +6,14 @@ namespace CrystiliumMod.Projectiles
 {
 	public class CrystalSpear : ModProjectile
 	{
+		public override void SetStaticDefaults()
+		{
+			ProjectileID.Sets.TrailCacheLength[projectile.type] = 9;
+			ProjectileID.Sets.TrailingMode[projectile.type] = 0;
+		}
+
 		public override void SetDefaults()
 		{
-			projectile.name = "Crystal Spear";
 			projectile.aiStyle = 113;
 			projectile.friendly = true;
 			projectile.thrown = true;
@@ -17,8 +22,6 @@ namespace CrystiliumMod.Projectiles
 			projectile.alpha = 255;
 			projectile.extraUpdates = 1;
 			projectile.light = 0;
-			ProjectileID.Sets.TrailCacheLength[projectile.type] = 9;
-			ProjectileID.Sets.TrailingMode[projectile.type] = 0;
 			aiType = ProjectileID.ThrowingKnife;
 		}
 

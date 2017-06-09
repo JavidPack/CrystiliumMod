@@ -25,7 +25,9 @@ namespace CrystiliumMod.Tiles
 			TileObjectData.addAlternate(1); //facing right will use the second texture style
 			TileObjectData.addTile(Type);
 			AddToArray(ref TileID.Sets.RoomNeeds.CountsAsChair);
-			AddMapEntry(new Color(250, 140, 250), "CrystalWood Chair");
+			ModTranslation name = CreateMapEntryName();
+			name.SetDefault("CrystalWood Chair");
+			AddMapEntry(new Color(250, 140, 250), name);
 			dustType = mod.DustType("CrystalDust");
 			disableSmartCursor = true;
 			adjTiles = new int[] { TileID.Chairs };

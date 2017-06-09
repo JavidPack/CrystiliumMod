@@ -11,18 +11,22 @@ namespace CrystiliumMod.Items.Weapons
 		private float DistY = 0f;
 		private float DistX = 0f;
 
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("True Topaz Staff");
+			Tooltip.SetDefault("'A storm of a billion grains'");
+			Item.staff[item.type] = true;
+		}
+
 		public override void SetDefaults()
 		{
-			item.name = "True Topaz Staff";
 			item.damage = 43; //The damage
 			item.magic = true; //Whether or not it is a magic weapon
 			item.width = 54; //Item width
 			item.height = 54; //Item height
 			item.maxStack = 1; //How many of this item you can stack
-			item.toolTip = "'A storm of a billion grains'"; //The item’s tooltip
 			item.useTime = 3; //How long it takes for the item to be used
 			item.useAnimation = 60; //How long the animation of the item takes
-			Item.staff[item.type] = true;
 			item.knockBack = 0f; //How much knockback the item produces
 			item.noMelee = true; //Whether the weapon should do melee damage or not
 			item.useStyle = 5; //How the weapon is held, 5 is the gun hold style

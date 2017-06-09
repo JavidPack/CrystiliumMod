@@ -9,14 +9,18 @@ namespace CrystiliumMod.Items.Weapons
 	{
 		private Vector2 newVect;
 
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Royal Shredder");
+			Tooltip.SetDefault("'Crush your enemies'");
+		}
+
 		public override void SetDefaults()
 		{
-			item.name = "Royal Shredder";
 			item.damage = 54;
 			item.ranged = true;
 			item.width = 40;
 			item.height = 20;
-			item.toolTip = "'Crush your enemies'";
 			item.useTime = 6;
 			item.useAnimation = 6;
 			item.useStyle = 5;

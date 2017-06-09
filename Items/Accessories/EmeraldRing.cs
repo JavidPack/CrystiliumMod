@@ -6,12 +6,16 @@ namespace CrystiliumMod.Items.Accessories
 {
 	public class EmeraldRing : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Emerald Ring");
+			Tooltip.SetDefault("5% increased damage");
+		}
+
 		public override void SetDefaults()
 		{
-			item.name = "Emerald Ring";
 			item.width = 40;
 			item.height = 40;
-			item.toolTip = "5% increased damage";
 			item.value = Item.sellPrice(0, 0, 70, 0);
 			item.rare = 1;
 			item.accessory = true;

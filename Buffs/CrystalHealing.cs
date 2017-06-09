@@ -7,8 +7,8 @@ namespace CrystiliumMod.Buffs
 	{
 		public override void SetDefaults()
 		{
-			Main.buffName[Type] = "Crystal Healing";
-			Main.buffTip[Type] = "I feel refreshed!";
+			DisplayName.SetDefault("Crystal Healing");
+			Description.SetDefault("I feel refreshed!");
 			Main.debuff[Type] = false;
 			Main.pvpBuff[Type] = true;
 			longerExpertDebuff = false;

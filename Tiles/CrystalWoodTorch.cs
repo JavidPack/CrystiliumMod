@@ -34,7 +34,9 @@ namespace CrystiliumMod.Tiles
 			TileObjectData.addAlternate(0);
 			TileObjectData.addTile(Type);
 			AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTorch);
-			AddMapEntry(new Color(250, 140, 250), "Torch");
+			ModTranslation name = CreateMapEntryName();
+			name.SetDefault("Torch");
+			AddMapEntry(new Color(250, 140, 250), name);
 			drop = mod.ItemType<Items.Placeable.CrystalWoodTorch>();
 			disableSmartCursor = true;
 			adjTiles = new int[] { TileID.Torches };

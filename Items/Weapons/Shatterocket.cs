@@ -7,16 +7,20 @@ namespace CrystiliumMod.Items.Weapons
 {
 	public class Shatterocket : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Shatterocket");
+			Tooltip.SetDefault("Uses RPCs as ammo"
+				+ "\nFires dual volleys of varied shots");
+		}
+
 		public override void SetDefaults()
 		{
 			item.CloneDefaults(ItemID.ElectrosphereLauncher); //grabs values we're not bothering to change yet
-			item.name = "Shatterocket";
 			item.damage = 76;
 			item.ranged = true;
 			item.value = 100000;
 			item.rare = 7;
-			item.toolTip = "Uses RPCs as ammo";
-			item.toolTip2 = "Fires dual volleys of varied shots";
 			item.autoReuse = true;
 			item.useTime = 10;
 			item.useAnimation = 20;

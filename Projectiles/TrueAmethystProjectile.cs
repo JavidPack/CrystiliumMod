@@ -5,9 +5,13 @@ namespace CrystiliumMod.Projectiles
 {
 	public class TrueAmethystProjectile : ModProjectile
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("TrueAmethystProjectile");
+		}
+
 		public override void SetDefaults()
 		{
-			projectile.name = "TrueAmethystProjectile";
 			projectile.penetrate = 3;
 			projectile.width = 24;
 			projectile.height = 26;

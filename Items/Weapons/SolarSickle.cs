@@ -7,14 +7,18 @@ namespace CrystiliumMod.Items.Weapons
 {
 	public class SolarSickle : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Solar Crystal Sickle");
+			Tooltip.SetDefault("'Shines with the ember of sunset'");
+		}
+
 		public override void SetDefaults()
 		{
-			item.name = "Solar Crystal Sickle";
 			item.damage = 166;
 			item.melee = true;
 			item.width = 40;
 			item.height = 40;
-			item.toolTip = "'Shines with the ember of sunset'";
 			item.useTime = 13;
 			item.useAnimation = 13;
 			item.useStyle = 1;

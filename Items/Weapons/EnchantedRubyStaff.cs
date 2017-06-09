@@ -7,18 +7,22 @@ namespace CrystiliumMod.Items.Weapons
 {
 	public class EnchantedRubyStaff : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Enchanted Ruby Staff");
+			Tooltip.SetDefault("'Feel the fire'");
+			Item.staff[item.type] = true;
+		}
+
 		public override void SetDefaults()
 		{
-			item.name = "Enchanted Ruby Staff";
 			item.damage = 19; //The damage
 			item.magic = true; //Whether or not it is a magic weapon
 			item.width = 54; //Item width
 			item.height = 54; //Item height
 			item.maxStack = 1; //How many of this item you can stack
-			item.toolTip = "'Feel the fire'"; //The item’s tooltip
 			item.useTime = 45; //How long it takes for the item to be used
 			item.useAnimation = 45; //How long the animation of the item takes
-			Item.staff[item.type] = true;
 			item.knockBack = 7f; //How much knockback the item produces
 			item.UseSound = SoundID.Item30; //The soundeffect played when used
 			item.noMelee = true; //Whether the weapon should do melee damage or not

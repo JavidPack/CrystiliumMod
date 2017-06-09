@@ -5,12 +5,16 @@ namespace CrystiliumMod.Items.Weapons
 {
 	public class Slamborite : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Slamborite");
+			Tooltip.SetDefault("Drops gemstones");
+		}
+
 		public override void SetDefaults()
 		{
-			item.name = "Slamborite";
 			item.width = 30;
 			item.height = 10;
-			item.toolTip = "Drops gemstones";
 			item.value = 100000;
 			item.rare = 7;
 

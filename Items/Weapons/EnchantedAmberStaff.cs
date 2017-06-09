@@ -9,19 +9,23 @@ namespace CrystiliumMod.Items.Weapons
 {
 	public class EnchantedAmberStaff : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Enchanted Amber Staff");
+			Tooltip.SetDefault("Creates sharp daggers");
+			Item.staff[item.type] = true; //this makes the useStyle animate as a staff instead of as a gun
+		}
+
 		public override void SetDefaults()
 		{
-			item.name = "Enchanted Amber Staff";
 			item.damage = 17;
 			item.magic = true;
 			item.mana = 9;
 			item.width = 40;
 			item.height = 40;
-			item.toolTip = "Creates sharp daggers";
 			item.useTime = 20;
 			item.useAnimation = 20;
 			item.useStyle = 5;
-			Item.staff[item.type] = true; //this makes the useStyle animate as a staff instead of as a gun
 			item.noMelee = true;
 			item.knockBack = 5;
 			item.value = 30000;

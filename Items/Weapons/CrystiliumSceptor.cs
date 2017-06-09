@@ -8,19 +8,23 @@ namespace CrystiliumMod.Items.Weapons
 {
 	public class CrystiliumSceptor : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Crystilium Scepter");
+			Tooltip.SetDefault("Launches 5 bolts");
+			Item.staff[item.type] = true; //this makes the useStyle animate as a staff instead of as a gun
+		}
+
 		public override void SetDefaults()
 		{
-			item.name = "Crystilium Scepter";
 			item.damage = 67;
 			item.magic = true;
 			item.mana = 25;
 			item.width = 40;
 			item.height = 40;
-			item.toolTip = "launches 5 bolts.";
 			item.useTime = 12;
 			item.useAnimation = 60;
 			item.useStyle = 5;
-			Item.staff[item.type] = true; //this makes the useStyle animate as a staff instead of as a gun
 			item.noMelee = true;
 			item.knockBack = 5;
 			item.value = 80000;

@@ -9,18 +9,22 @@ namespace CrystiliumMod.Items.Weapons
 {
 	public class TrueAmberStaff : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("True Amber Staff");
+			Tooltip.SetDefault("'Blades of Cleopatra'");
+			Item.staff[item.type] = true;
+		}
+
 		public override void SetDefaults()
 		{
-			item.name = "True Amber Staff";
 			item.damage = 73; //The damage
 			item.magic = true; //Whether or not it is a magic weapon
 			item.width = 54; //Item width
 			item.height = 54; //Item height
 			item.maxStack = 1; //How many of this item you can stack
-			item.toolTip = "'Blades of Cleopatra'"; //The item’s tooltip
 			item.useTime = 25; //How long it takes for the item to be used
 			item.useAnimation = 25; //How long the animation of the item takes
-			Item.staff[item.type] = true;
 			item.knockBack = 7f; //How much knockback the item produces
 			item.noMelee = true; //Whether the weapon should do melee damage or not
 			item.useStyle = 5; //How the weapon is held, 5 is the gun hold style

@@ -5,12 +5,15 @@ namespace CrystiliumMod.Items.Weapons
 {
 	public class CrystalGrenade : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Crystal Grenade");
+		}
+
 		public override void SetDefaults()
 		{
 			item.CloneDefaults(ItemID.Grenade);
-			item.name = "Crystal Grenade";
 			item.damage = 35;
-			item.toolTip = "";
 			item.useTime = 60;
 			item.value = 1000;
 			item.useAnimation = 60;

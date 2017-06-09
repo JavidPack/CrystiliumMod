@@ -7,8 +7,8 @@ namespace CrystiliumMod.Buffs
 	{
 		public override void SetDefaults()
 		{
-			Main.buffName[Type] = "Dragon Fury";
-			Main.buffTip[Type] = "'RYUUGAWA GA TEKI WO KURAU'";
+			DisplayName.SetDefault("Dragon Fury");
+			Description.SetDefault("'RYUUGAWA GA TEKI WO KURAU'");
 			Main.debuff[Type] = false;
 			Main.pvpBuff[Type] = true;
 			longerExpertDebuff = false;

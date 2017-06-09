@@ -57,8 +57,10 @@ namespace CrystiliumMod.Tiles
 			TileObjectData.addTile(Type);
 			AddToArray(ref TileID.Sets.RoomNeeds.CountsAsDoor);
 			TileID.Sets.HousingWalls[Type] = true; //needed for non-solid blocks to count as walls
-			AddMapEntry(new Color(250, 140, 250), "CrystalWood Door");
-			dustType = mod.DustType("CrystalDust");
+			ModTranslation name = CreateMapEntryName();
+			name.SetDefault("CrystalWood Door");
+			AddMapEntry(new Color(250, 140, 250), name);
+			dustType = mod.DustType<Dusts.CrystalDust>();
 			disableSmartCursor = true;
 			adjTiles = new int[] { TileID.OpenDoor };
 			closeDoorID = mod.TileType<Tiles.CrystalWoodDoorClosed>();

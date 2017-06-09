@@ -7,18 +7,22 @@ namespace CrystiliumMod.Items.Weapons
 {
 	public class VortexCrystalGauntlet : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Vortex Crystal Gauntlet");
+			Tooltip.SetDefault("'A shiny swirl consumes your arm'");
+			Item.staff[item.type] = true;
+		}
+
 		public override void SetDefaults()
 		{
-			item.name = "Vortex Crystal Gauntlet";
 			item.damage = 110; //The damage
 			item.ranged = true;
 			item.width = 60; //Item width
 			item.height = 60; //Item height
 			item.maxStack = 1; //How many of this item you can stack
-			item.toolTip = "'A shiny swirl consumes your arm'"; //The item’s tooltip
 			item.useTime = 50; //How long it takes for the item to be used
 			item.useAnimation = 50; //How long the animation of the item takes
-			Item.staff[item.type] = true;
 			item.knockBack = 7f; //How much knockback the item produces
 			item.UseSound = SoundID.Item30; //The soundeffect played when used
 			item.noMelee = true; //Whether the weapon should do melee damage or not

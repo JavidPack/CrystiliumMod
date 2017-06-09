@@ -7,8 +7,8 @@ namespace CrystiliumMod.Buffs
 	{
 		public override void SetDefaults()
 		{
-			Main.buffName[Type] = "Throwing Boost";
-			Main.buffTip[Type] = "+10% throwing damage";
+			DisplayName.SetDefault("Throwing Boost");
+			Description.SetDefault("+10% throwing damage");
 			Main.debuff[Type] = false;
 			Main.pvpBuff[Type] = true;
 			longerExpertDebuff = false;

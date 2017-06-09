@@ -4,9 +4,13 @@ namespace CrystiliumMod.Items.Placeable
 {
 	public class CrystalChest : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Crystal Chest");
+		}
+
 		public override void SetDefaults()
 		{
-			item.name = "Crystal Chest";
 			item.width = 26;
 			item.height = 22;
 			item.maxStack = 99;

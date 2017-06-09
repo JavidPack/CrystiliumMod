@@ -7,7 +7,7 @@ namespace CrystiliumMod.Backgrounds
 	{
 		public override bool ChooseBgStyle()
 		{
-			return Main.LocalPlayer.GetModPlayer<CrystalPlayer>(mod).ZoneCrystal;
+			return Main.LocalPlayer.GetModPlayer<CrystalPlayer>().ZoneCrystal;
 		}
 
 		public override void FillTextureArray(int[] textureSlots)

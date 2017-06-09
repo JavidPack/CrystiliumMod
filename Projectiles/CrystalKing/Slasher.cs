@@ -5,9 +5,14 @@ namespace CrystiliumMod.Projectiles.CrystalKing
 {
 	public class Slasher : ModProjectile
 	{
+		public override void SetStaticDefaults()
+		{
+			ProjectileID.Sets.TrailCacheLength[projectile.type] = 9;
+			ProjectileID.Sets.TrailingMode[projectile.type] = 0;
+		}
+
 		public override void SetDefaults()
 		{
-			projectile.name = "Slasher";
 			projectile.tileCollide = false;
 			projectile.penetrate = 600;
 			projectile.hostile = true;
@@ -17,8 +22,6 @@ namespace CrystiliumMod.Projectiles.CrystalKing
 			projectile.light = 2;
 			projectile.width = 48;
 			projectile.height = 48;
-			ProjectileID.Sets.TrailCacheLength[projectile.type] = 9;
-			ProjectileID.Sets.TrailingMode[projectile.type] = 0;
 		}
 
 		public override void AI()

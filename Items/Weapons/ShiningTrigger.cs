@@ -5,14 +5,18 @@ namespace CrystiliumMod.Items.Weapons
 {
 	public class ShiningTrigger : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Shining Trigger");
+			Tooltip.SetDefault("High damage, low velocity");
+		}
+
 		public override void SetDefaults()
 		{
-			item.name = "Shining Trigger";
 			item.damage = 251;
 			item.ranged = true;
 			item.width = 40;
 			item.height = 20;
-			item.toolTip = "High damage, low velocity";
 			item.useTime = 65;
 			item.useAnimation = 65;
 			item.useStyle = 5;

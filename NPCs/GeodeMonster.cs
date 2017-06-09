@@ -7,10 +7,14 @@ namespace CrystiliumMod.NPCs
 {
 	public class GeodeMonster : ModNPC
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Geode Mutant");
+			Main.npcFrameCount[npc.type] = 8;
+		}
+
 		public override void SetDefaults()
 		{
-			npc.name = "Geode Mutant";
-			npc.displayName = "Geode Mutant";
 			npc.damage = 54;
 			npc.defense = 18;
 			npc.height = 56;
@@ -22,12 +26,11 @@ namespace CrystiliumMod.NPCs
 			npc.value = 550f;
 			npc.knockBackResist = 0.75f;
 			npc.aiStyle = NPCID.GoblinPeon;
-			Main.npcFrameCount[npc.type] = 8;
 			aiType = NPCID.GoblinPeon;
 			animationType = NPCID.SolarDrakomire;
 		}
 
-		public override float CanSpawn(NPCSpawnInfo spawnInfo)
+		public override float SpawnChance(NPCSpawnInfo spawnInfo)
 		{
 			if (Main.hardMode) //restrict spawning to Hardmode
 				return Main.tile[(int)(spawnInfo.spawnTileX), (int)(spawnInfo.spawnTileY)].type == mod.TileType<Tiles.CrystalBlock>() ? 13f : 0f;

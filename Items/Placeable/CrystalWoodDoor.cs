@@ -5,9 +5,13 @@ namespace CrystiliumMod.Items.Placeable
 {
 	public class CrystalWoodDoor : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Crystal Wood Door");
+		}
+
 		public override void SetDefaults()
 		{
-			item.name = "Crysta lWood Door";
 			item.width = 14;
 			item.height = 28;
 			item.maxStack = 99;

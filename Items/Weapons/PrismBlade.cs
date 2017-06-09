@@ -6,14 +6,18 @@ namespace CrystiliumMod.Items.Weapons
 {
 	public class PrismBlade : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Prism Blade");
+			Tooltip.SetDefault("Consumes life.");
+		}
+
 		public override void SetDefaults()
 		{
-			item.name = "Prism Blade";
 			item.damage = 277;
 			item.melee = true;
 			item.width = 40;
 			item.height = 40;
-			item.toolTip = "Consumes life.";
 			item.useTime = 25;
 			item.useAnimation = 25;
 			item.useStyle = 1;

@@ -6,10 +6,14 @@ namespace CrystiliumMod.NPCs
 {
 	public class CrystalMimic : ModNPC
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Crystal Mimic");
+			Main.npcFrameCount[npc.type] = Main.npcFrameCount[NPCID.BigMimicHallow];
+		}
+
 		public override void SetDefaults()
 		{
-			npc.name = "Crystal Mimic";
-			npc.displayName = "Crystal Mimic";
 			npc.width = 17;
 			npc.height = 21;
 			npc.damage = 49;
@@ -20,12 +24,11 @@ namespace CrystiliumMod.NPCs
 			npc.value = 20000f;
 			npc.knockBackResist = .30f;
 			npc.aiStyle = 87;
-			Main.npcFrameCount[npc.type] = Main.npcFrameCount[NPCID.BigMimicHallow];
 			aiType = NPCID.Zombie;
 			animationType = NPCID.BigMimicHallow;
 		}
 
-		public override float CanSpawn(NPCSpawnInfo spawnInfo)
+		public override float SpawnChance(NPCSpawnInfo spawnInfo)
 		{
 			//only spawn in hardmode AND after any mech boss
 			if (Main.hardMode && NPC.downedMechBossAny)

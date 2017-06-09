@@ -8,19 +8,23 @@ namespace CrystiliumMod.Items.Weapons
 {
 	public class TerraStaff : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Ultimate Gem Staff");
+			Tooltip.SetDefault("'Ultimate gemstone power'");
+			Item.staff[item.type] = true; //this makes the useStyle animate as a staff instead of as a gun
+		}
+
 		public override void SetDefaults()
 		{
-			item.name = "Terra Staff";
 			item.damage = 96;
 			item.magic = true;
 			item.mana = 3;
 			item.width = 40;
 			item.height = 40;
-			item.toolTip = "'Ultimate gemstone power'";
 			item.useTime = 22;
 			item.useAnimation = 22;
 			item.useStyle = 5;
-			Item.staff[item.type] = true; //this makes the useStyle animate as a staff instead of as a gun
 			item.noMelee = true;
 			item.knockBack = 5;
 			item.value = 100000;

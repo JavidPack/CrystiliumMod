@@ -8,7 +8,6 @@ namespace CrystiliumMod.Projectiles
 	{
 		public override void SetDefaults()
 		{
-			projectile.name = "Nebula Shard";
 			projectile.width = 14;
 			projectile.height = 36;
 			projectile.friendly = true;

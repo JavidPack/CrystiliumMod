@@ -7,6 +7,12 @@ namespace CrystiliumMod.Projectiles
 {
 	public class CrystalFire : ModProjectile
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Crystal Fire");
+			Main.projFrames[projectile.type] = 4;
+		}
+
 		public override void SetDefaults()
 		{
 			projectile.CloneDefaults(82);
@@ -16,9 +22,7 @@ namespace CrystiliumMod.Projectiles
 			projectile.light = 0.5f;
 			projectile.height = 28;
 			projectile.friendly = true;
-			projectile.name = "Crystal Fire";
 			projectile.damage = 10;
-			Main.projFrames[projectile.type] = 4;
 		}
 
 		public override bool OnTileCollide(Vector2 oldVelocity)

@@ -9,9 +9,13 @@ namespace CrystiliumMod.Projectiles
 		public float mouseX;
 		private bool start = true;
 
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Block Riser");
+		}
+
 		public override void SetDefaults()
 		{
-			projectile.name = ""; //Name of the projectile, only shows this if you get killed by it
 			projectile.width = 10; //Set the hitbox width
 			projectile.height = 10; //Set the hitbox height
 			projectile.timeLeft = 1000; //The amount of time the projectile is alive for

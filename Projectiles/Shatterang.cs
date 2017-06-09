@@ -6,9 +6,13 @@ namespace CrystiliumMod.Projectiles
 {
 	public class ShatterangProj : ModProjectile
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Shatterang");
+		}
+
 		public override void SetDefaults()
 		{
-			projectile.name = "Shatterang";
 			projectile.width = 30;
 			projectile.height = 30;
 			projectile.aiStyle = 3;

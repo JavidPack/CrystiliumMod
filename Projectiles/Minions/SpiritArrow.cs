@@ -10,7 +10,6 @@ namespace CrystiliumMod.Projectiles.Minions
 		public override void SetDefaults()
 		{
 			projectile.CloneDefaults(ProjectileID.WoodenArrowFriendly);
-			projectile.name = "Spirit Arrow";
 			projectile.width = 10;
 			projectile.penetrate = 5;
 			projectile.height = 20;

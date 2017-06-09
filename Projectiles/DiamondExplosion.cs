@@ -5,6 +5,12 @@ namespace CrystiliumMod.Projectiles
 {
 	public class DiamondExplosion : ModProjectile
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Diamond Explosion");
+			Main.projFrames[projectile.type] = 7;
+		}
+
 		public override void SetDefaults()
 		{
 			projectile.friendly = true;
@@ -12,8 +18,6 @@ namespace CrystiliumMod.Projectiles
 			projectile.penetrate = 1000;
 			projectile.tileCollide = false;
 			projectile.timeLeft = 40;
-			projectile.name = "DiamondExplosion";
-			Main.projFrames[projectile.type] = 7;
 		}
 
 		public override void AI()

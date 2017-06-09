@@ -6,9 +6,14 @@ namespace CrystiliumMod.Projectiles //We need this to basically indicate the fol
 {
 	public class SapphirePortal : ModProjectile
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Sapphire Portal");
+			Main.projFrames[projectile.type] = 2;
+		}
+
 		public override void SetDefaults()
 		{
-			projectile.name = "Sapphire Portal"; //Name of the projectile, only shows this if you get killed by it
 			projectile.width = 60; //Set the hitbox width
 			projectile.height = 60; //Set the hitbox height
 			projectile.timeLeft = 1300; //The amount of time the projectile is alive for
@@ -18,7 +23,6 @@ namespace CrystiliumMod.Projectiles //We need this to basically indicate the fol
 			projectile.hostile = false; //Tells the game whether it is hostile to players or not
 			projectile.tileCollide = false; //Tells the game whether or not it can collide with a tile
 			projectile.ignoreWater = true; //Tells the game whether or not projectile will be affected by water
-			Main.projFrames[projectile.type] = 2;
 		}
 
 		//How the projectile works

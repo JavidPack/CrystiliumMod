@@ -5,20 +5,19 @@ using Terraria.ModLoader;
 
 namespace CrystiliumMod.Items.Armor
 {
+	[AutoloadEquip(EquipType.Legs)]
 	public class CrystiliumGreaves : ModItem
 	{
-		public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
+		public override void SetStaticDefaults()
 		{
-			equips.Add(EquipType.Legs);
-			return true;
+			DisplayName.SetDefault("Crystilium Greaves");
+			Tooltip.SetDefault("+9% magic crit chance");
 		}
 
 		public override void SetDefaults()
 		{
-			item.name = "Crystilium Greaves";
 			item.width = 18;
 			item.height = 18;
-			item.toolTip = "+9% magic crit chance";
 			item.value = 100000;
 			item.rare = 8;
 			item.defense = 12;

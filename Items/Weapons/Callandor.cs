@@ -7,15 +7,19 @@ namespace CrystiliumMod.Items.Weapons
 {
 	public class Callandor : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Callandor");
+			Tooltip.SetDefault("'I DID get this off of a Schmo'");
+		}
+
 		public override void SetDefaults()
 		{
-			item.name = "Callandor";
 			item.width = 36;
 			item.height = 36;
 			item.useAnimation = 25;
 			item.useTime = 15;
 			item.useStyle = 5;
-			item.toolTip = "'I DID get this off of a Schmo'";
 			item.noUseGraphic = true;
 			item.channel = true;
 			item.noMelee = true;

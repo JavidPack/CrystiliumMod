@@ -4,11 +4,15 @@ namespace CrystiliumMod.Items.Placeable
 {
 	public class BootlegFountain : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Bootleg Crystal Fountain");
+			Tooltip.SetDefault("'Looks the same, but is illegal in 48 states'");
+		}
+
 		public override void SetDefaults()
 		{
-			item.name = "Bootleg Crystal Fountain";
 			item.width = 26;
-			AddTooltip("'Looks the same, but is illegal in 48 states'");
 			item.height = 22;
 			item.maxStack = 99;
 			item.useTurn = true;

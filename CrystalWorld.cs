@@ -1,4 +1,5 @@
 using CrystiliumMod.Tiles;
+using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.GameContent.Generation;
@@ -11,9 +12,12 @@ namespace CrystiliumMod
 	public class CrystalWorld : ModWorld
 	{
 		public static int CrystalTiles = 0;
+		private static List<Point> BiomeCenters;
 
 		public override void ModifyWorldGenTasks(List<GenPass> tasks, ref float totalWeight)
 		{
+			BiomeCenters = new List<Point>();
+
 			int ShiniesIndex = tasks.FindIndex(genpass => genpass.Name.Equals("Shinies"));
 			if (ShiniesIndex == -1)
 			{
@@ -52,10 +56,43 @@ namespace CrystiliumMod
 																																													  }
 																																												  }*/
 
+
+					/*bool placeSuccessful = false;
+					Tile tileResult;
+					int x;
+					int y;
+					int maxTries = 10000;
+					int tries = 0;
+					int successes = 0;
+
 					WorldGen.digTunnel(Xvalue + 400, Yvalue + 400, 0, 0, WorldGen.genRand.Next(15, 18), WorldGen.genRand.Next(14, 17), false);
-					for (int C = 0; C < 400; C++)
+					while(tries < maxTries && successes < 5)
 					{
-						WorldGen.PlaceChest(Xvalue + WorldGen.genRand.Next(350, 450), Yvalue + WorldGen.genRand.Next(350, 450), (ushort)mod.TileType<Tiles.CrystalChest>(), false, 2);
+						x = Xvalue + WorldGen.genRand.Next(350, 450);
+						y = Yvalue + WorldGen.genRand.Next(350, 450);
+						WorldGen.PlaceChest(x, y, (ushort)mod.TileType<Tiles.CrystalChest>(), false, 2);
+						tileResult = Main.tile[x, y];
+						placeSuccessful = tileResult.active() && tileResult.type == mod.TileType<Tiles.CrystalChest>();
+						if (placeSuccessful) successes++;
+						tries++;
+					}*/
+
+					int x;
+					int y;
+					int maxTries = 20000;
+					int tries = 0;
+					int successes = 0;
+
+					WorldGen.digTunnel(Xvalue + 400, Yvalue + 400, 0, 0, WorldGen.genRand.Next(15, 18), WorldGen.genRand.Next(14, 17), false);
+					while (tries < maxTries && successes < 5)
+					{
+						x = Xvalue + WorldGen.genRand.Next(350, 450);
+						y = Yvalue + WorldGen.genRand.Next(350, 450);
+						if (WorldGen.PlaceChest(x, y, (ushort)mod.TileType<Tiles.CrystalChest>(), false, 2) != -1)
+						{
+							successes++;
+						}
+						tries++;
 					}
 					for (int C = 0; C < 40; C++)
 					{
@@ -91,29 +128,51 @@ namespace CrystiliumMod
 							WorldGen.TileRunner(Xore, Yore, (double)WorldGen.genRand.Next(3, 6), WorldGen.genRand.Next(3, 6), mod.TileType<RadiantOre>(), false, 0f, 0f, false, true);
 						}
 					}
-					for (int X1 = -4; X1 < 10; X1++)
+
+
+					BiomeCenters.Add(new Point(XvalueMid, YvalueMid));
+				}
+			}));
+
+			int LihzahrdAltarsIndex = tasks.FindIndex(genpass => genpass.Name.Equals("Lihzahrd Altars"));
+			if (LihzahrdAltarsIndex == -1)
+			{
+				// Lihzahrd Altars pass removed by some other mod.
+				return;
+			}
+			tasks.Insert(LihzahrdAltarsIndex, new PassLegacy("CrystalBiomeGenFountain", delegate (GenerationProgress progress)
+			{
+				progress.Message = "Polishing more crystals";
+
+				if (BiomeCenters != null)
+				{
+					foreach (var center in BiomeCenters)
 					{
-						for (int Y1 = 0; Y1 < 7; Y1++)
+						int XvalueMid = center.X;
+						int YvalueMid = center.Y;
+
+						for (int X1 = -4; X1 < 10; X1++)
 						{
-							WorldGen.KillTile(XvalueMid + X1, YvalueMid - Y1);
-							WorldGen.PlaceTile(XvalueMid + X1, YvalueMid, mod.TileType<FountainBlock>());
+							for (int Y1 = 0; Y1 < 7; Y1++)
+							{
+								WorldGen.KillTile(XvalueMid + X1, YvalueMid - Y1);
+							}
+							WorldGen.PlaceTile(XvalueMid + X1, YvalueMid, mod.TileType<FountainBlock>(), forced: true);
 						}
+						for (int X1 = -2; X1 < 8; X1++)
+						{
+							WorldGen.PlaceTile(XvalueMid + X1, YvalueMid + 1, mod.TileType<CrystalBlock>());
+						}
+						for (int X1 = -1; X1 < 7; X1++)
+						{
+							WorldGen.PlaceTile(XvalueMid + X1, YvalueMid + 2, mod.TileType<CrystalBlock>());
+						}
+						WorldGen.PlaceObject(XvalueMid, YvalueMid - 6, mod.TileType<Fountain>());
+						WorldGen.PlaceObject(XvalueMid - 1, YvalueMid - 1, TileID.Lamps, false, 5); // Style 5 Lamp is FrozenLamp
+						WorldGen.PlaceObject(XvalueMid - 4, YvalueMid - 1, mod.TileType<Crystal>());
+						WorldGen.PlaceObject(XvalueMid + 7, YvalueMid - 1, mod.TileType<Crystal>());
+						WorldGen.PlaceObject(XvalueMid + 6, YvalueMid - 1, TileID.Lamps, false, 5);
 					}
-					for (int X1 = -2; X1 < 8; X1++)
-					{
-						WorldGen.PlaceTile(XvalueMid + X1, YvalueMid + 1, mod.TileType<CrystalBlock>());
-					}
-					for (int X1 = -1; X1 < 7; X1++)
-					{
-						WorldGen.PlaceTile(XvalueMid + X1, YvalueMid + 2, mod.TileType<CrystalBlock>());
-					}
-					WorldGen.PlaceObject(XvalueMid, YvalueMid - 1, mod.TileType<Fountain>());
-					WorldGen.PlaceObject(XvalueMid, YvalueMid - 6, mod.TileType<Fountain>());
-					WorldGen.PlaceObject(XvalueMid + 1, YvalueMid - 6, mod.TileType<Fountain>());
-					WorldGen.PlaceObject(XvalueMid - 1, YvalueMid - 1, TileID.Lamps, false, 5); // Style 5 Lamp is FrozenLamp
-					WorldGen.PlaceObject(XvalueMid - 4, YvalueMid - 1, mod.TileType<Crystal>());
-					WorldGen.PlaceObject(XvalueMid + 7, YvalueMid - 1, mod.TileType<Crystal>());
-					WorldGen.PlaceObject(XvalueMid + 6, YvalueMid - 1, TileID.Lamps, false, 5);
 				}
 			}));
 		}
@@ -167,7 +226,7 @@ namespace CrystiliumMod
 
 		public override void ResetNearbyTileEffects()
 		{
-			CrystalPlayer modPlayer = Main.LocalPlayer.GetModPlayer<CrystalPlayer>(mod);
+			CrystalPlayer modPlayer = Main.LocalPlayer.GetModPlayer<CrystalPlayer>();
 			modPlayer.crystalFountain = false;
 			CrystalTiles = 0;
 		}

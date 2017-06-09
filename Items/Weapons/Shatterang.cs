@@ -6,9 +6,13 @@ namespace CrystiliumMod.Items.Weapons
 {
 	public class Shatterang : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Shatterang");
+		}
+
 		public override void SetDefaults()
 		{
-			item.name = "Shatterang";
 			item.damage = 90;
 			item.thrown = true;
 			item.width = 30;

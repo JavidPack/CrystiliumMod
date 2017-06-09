@@ -7,15 +7,19 @@ namespace CrystiliumMod.Items.Weapons
 {
 	public class Crystishae : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Crystoshet");
+			Tooltip.SetDefault("'The powers of three do not set out alone'");
+		}
+
 		public override void SetDefaults()
 		{
 			item.CloneDefaults(ItemID.ThornChakram);
-			item.name = "Crystoshet";
 			item.damage = 77;
 			item.thrown = true;
 			item.value = Item.sellPrice(0, 1, 0, 0);
 			item.rare = 6;
-			item.toolTip = "'The powers of three do not set out alone'";
 			item.shoot = mod.ProjectileType<Projectiles.Crystishae>();
 		}
 

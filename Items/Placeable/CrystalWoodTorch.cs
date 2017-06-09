@@ -7,13 +7,17 @@ namespace CrystiliumMod.Items.Placeable
 {
 	public class CrystalWoodTorch : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Crystal Wood Torch");
+			Tooltip.SetDefault("A crystal torch.");
+		}
+
 		public override void SetDefaults()
 		{
-			item.name = "Crystal Wood Torch";
 			item.width = 10;
 			item.height = 12;
 			item.maxStack = 99;
-			AddTooltip("A crystal torch.");
 			item.holdStyle = 1;
 			item.noWet = true;
 			item.useTurn = true;

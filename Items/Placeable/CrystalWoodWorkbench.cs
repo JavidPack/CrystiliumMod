@@ -5,13 +5,17 @@ namespace CrystiliumMod.Items.Placeable
 {
 	public class CrystalWoodWorkbench : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Crystal Wood Workbench");
+			Tooltip.SetDefault("A chest");
+		}
+
 		public override void SetDefaults()
 		{
-			item.name = "Crystal Wood Workbench";
 			item.width = 26;
 			item.height = 22;
 			item.maxStack = 99;
-			AddTooltip("A chest");
 			item.useTurn = true;
 			item.autoReuse = true;
 			item.useAnimation = 15;

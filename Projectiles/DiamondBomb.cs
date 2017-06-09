@@ -6,6 +6,11 @@ namespace CrystiliumMod.Projectiles
 {
 	public class DiamondBomb : ModProjectile
 	{
+		public override void SetStaticDefaults()
+		{
+			Main.projFrames[projectile.type] = 4;
+		}
+
 		public override void SetDefaults()
 		{
 			projectile.aiStyle = 14;
@@ -16,7 +21,6 @@ namespace CrystiliumMod.Projectiles
 			projectile.friendly = true;
 			projectile.alpha = 80;
 			projectile.light = 0.5f;
-			Main.projFrames[projectile.type] = 4;
 		}
 
 		public override void AI()

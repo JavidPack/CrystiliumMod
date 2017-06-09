@@ -7,10 +7,14 @@ namespace CrystiliumMod.NPCs
 {
 	public class CrystalZombie : ModNPC
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Crystal Zombie");
+			Main.npcFrameCount[npc.type] = Main.npcFrameCount[NPCID.Zombie];
+		}
+
 		public override void SetDefaults()
 		{
-			npc.name = "Crystal Zombie";
-			npc.displayName = "Crystal Zombie";
 			npc.width = 18;
 			npc.height = 40;
 			npc.damage = 21;
@@ -21,12 +25,11 @@ namespace CrystiliumMod.NPCs
 			npc.value = 300f;
 			npc.knockBackResist = 0.75f;
 			npc.aiStyle = 3;
-			Main.npcFrameCount[npc.type] = Main.npcFrameCount[NPCID.Zombie];
 			aiType = NPCID.Skeleton;
 			animationType = NPCID.Zombie;
 		}
 
-		public override float CanSpawn(NPCSpawnInfo spawnInfo)
+		public override float SpawnChance(NPCSpawnInfo spawnInfo)
 		{
 			return Main.tile[(int)(spawnInfo.spawnTileX), (int)(spawnInfo.spawnTileY)].type == mod.TileType<Tiles.CrystalBlock>() ? 8f : 0f;
 		}

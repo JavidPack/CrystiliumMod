@@ -6,13 +6,17 @@ namespace CrystiliumMod.Items
 {
 	public class CrystalBag : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Treasure Bag");
+			Tooltip.SetDefault("Right Click to open");
+		}
+
 		public override void SetDefaults()
 		{
-			item.name = "Treasure Bag";
 			item.width = 20;
 			item.maxStack = 30;
 			item.height = 20;
-			item.toolTip = "Right Click to open";
 			item.expert = true;
 			item.rare = -2;
 		}

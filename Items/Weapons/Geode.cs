@@ -5,14 +5,18 @@ namespace CrystiliumMod.Items.Weapons
 {
 	public class Geode : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Geode");
+			Tooltip.SetDefault("Very sharp when broken");
+		}
+
 		public override void SetDefaults()
 		{
 			item.CloneDefaults(ItemID.WoodYoyo);
-			item.name = "Geode";
 			item.damage = 22;
 			item.value = 30000;
 			item.rare = 3;
-			item.toolTip = "Very sharp when broken";
 			item.knockBack = 0;
 			item.channel = true;
 			item.useStyle = 5;

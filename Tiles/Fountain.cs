@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.Enums;
+using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
@@ -60,7 +61,7 @@ namespace CrystiliumMod.Tiles
 			{
 				Vector2 position = new Vector2((float)i, (float)j);
 
-				CrystalPlayer modPlayer = Main.player[Player.FindClosest(position, 50, 50)].GetModPlayer<CrystalPlayer>(mod);
+				CrystalPlayer modPlayer = Main.player[Player.FindClosest(position, 50, 50)].GetModPlayer<CrystalPlayer>();
 				modPlayer.crystalFountain = true;
 			}
 		}

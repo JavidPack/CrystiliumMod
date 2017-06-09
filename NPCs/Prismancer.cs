@@ -8,10 +8,14 @@ namespace CrystiliumMod.NPCs
 {
 	public class Prismancer : ModNPC
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Prismancer");
+			Main.npcFrameCount[npc.type] = 3;
+		}
+
 		public override void SetDefaults()
 		{
-			npc.name = "Prismancer";
-			npc.displayName = "Prismancer";
 			npc.width = 40;
 			npc.height = 54;
 			npc.damage = 62;
@@ -23,10 +27,9 @@ namespace CrystiliumMod.NPCs
 			npc.DeathSound = SoundID.NPCDeath6;
 			npc.value = 300f;
 			npc.knockBackResist = 0.5f;
-			Main.npcFrameCount[npc.type] = 3;
 		}
 
-		public override float CanSpawn(NPCSpawnInfo spawnInfo)
+		public override float SpawnChance(NPCSpawnInfo spawnInfo)
 		{
 			if (Main.hardMode) //restrict spawning to Hardmode
 				return Main.tile[(int)(spawnInfo.spawnTileX), (int)(spawnInfo.spawnTileY)].type == mod.TileType<Tiles.CrystalBlock>() ? 13f : 0f;

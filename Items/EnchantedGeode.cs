@@ -4,9 +4,13 @@ namespace CrystiliumMod.Items
 {
 	public class EnchantedGeode : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Enchanted Geode");
+		}
+
 		public override void SetDefaults()
 		{
-			item.name = "Enchanted Geode";
 			item.width = 20;
 			item.height = 20;
 			item.maxStack = 999;

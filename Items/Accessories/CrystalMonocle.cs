@@ -5,14 +5,18 @@ namespace CrystiliumMod.Items.Accessories
 {
 	public class CrystalMonocle : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Crystal Monocle");
+			Tooltip.SetDefault("+10% Magic and ranged damage and Crit chance"
+				+"\n+10% Magic and ranged critical strike chance"
+				+"\nColorful distortion");
+		}
+
 		public override void SetDefaults()
 		{
-			item.name = "Crystal Monocle";
 			item.width = 40;
 			item.height = 40;
-			item.toolTip = "+10% Magic and ranged damage and Crit chance";
-			item.toolTip2 = "+10% Magic and ranged critical strike chance";
-			item.toolTip2 = "'Colorful distortion'";
 			item.value = 30000;
 			item.rare = 3;
 			item.defense = 3;

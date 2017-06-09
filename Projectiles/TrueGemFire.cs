@@ -7,6 +7,12 @@ namespace CrystiliumMod.Projectiles
 {
 	public class TrueGemFire : ModProjectile
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("GemFire");
+			Main.projFrames[projectile.type] = 3;
+		}
+
 		public override void SetDefaults()
 		{
 			projectile.CloneDefaults(82);
@@ -15,9 +21,7 @@ namespace CrystiliumMod.Projectiles
 			projectile.width = 28;
 			projectile.height = 28;
 			projectile.friendly = true;
-			projectile.name = "GemFire";
 			projectile.damage = 10;
-			Main.projFrames[projectile.type] = 3;
 			projectile.light = 0.5f;
 		}
 

@@ -5,9 +5,14 @@ namespace CrystiliumMod.Items
 {
 	public class MarblePotion : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Marble Potion");
+			Tooltip.SetDefault("Lower defense, but faster speed");
+		}
+
 		public override void SetDefaults()
 		{
-			item.name = "Marble Potion";
 			item.UseSound = SoundID.Item3;
 			item.useStyle = 2;
 			item.useTurn = true;
@@ -17,7 +22,6 @@ namespace CrystiliumMod.Items
 			item.consumable = true;
 			item.width = 12;
 			item.height = 30;
-			item.toolTip = "Lower defense, but faster speed";
 			item.value = 3000;
 			item.rare = 0;
 			item.buffType = mod.BuffType<Buffs.MarbleBuff>();

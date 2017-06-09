@@ -7,6 +7,11 @@ namespace CrystiliumMod.Projectiles
 {
 	public class SandParticle : ModProjectile
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Sand Particle");
+		}
+
 		public override void SetDefaults()
 		{
 			projectile.hostile = false;
@@ -15,7 +20,6 @@ namespace CrystiliumMod.Projectiles
 			projectile.timeLeft = 60;
 			projectile.height = 10;
 			projectile.friendly = true;
-			projectile.name = "Sand Particle";
 			projectile.damage = 10;
 			projectile.light = 0.5f;
 		}

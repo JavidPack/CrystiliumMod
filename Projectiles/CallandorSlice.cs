@@ -11,17 +11,21 @@ namespace CrystiliumMod.Projectiles
 		private float DistX;
 		private float DistY;
 
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("CallandorSlice");
+			Main.projFrames[mod.ProjectileType<CallandorSlice>()] = 28;
+		}
+
 		public override void SetDefaults()
 		{
 			projectile.CloneDefaults(ProjectileID.Arkhalis);
-			projectile.name = "CallandorSlice";
 			projectile.width = 50;
 			projectile.height = 46;
 			projectile.friendly = true;
 			projectile.tileCollide = false;
 			projectile.melee = true;
 			projectile.penetrate = -1;
-			Main.projFrames[mod.ProjectileType<CallandorSlice>()] = 28;
 			projectile.aiStyle = 75;
 			aiType = 595;
 		}

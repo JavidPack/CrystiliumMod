@@ -7,10 +7,14 @@ namespace CrystiliumMod.NPCs
 {
 	public class CrystalElemental : ModNPC
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Crystal Elemental");
+			Main.npcFrameCount[npc.type] = Main.npcFrameCount[NPCID.Wraith];
+		}
+
 		public override void SetDefaults()
 		{
-			npc.name = "Crystal Elemental";
-			npc.displayName = "Crystal Elemental";
 			npc.width = 30;
 			npc.height = 50;
 			npc.damage = 21;
@@ -23,12 +27,11 @@ namespace CrystiliumMod.NPCs
 			npc.value = 300f;
 			npc.knockBackResist = 0.5f;
 			npc.aiStyle = 22;
-			Main.npcFrameCount[npc.type] = Main.npcFrameCount[NPCID.Wraith];
 			aiType = NPCID.Wraith;
 			animationType = NPCID.Wraith;
 		}
 
-		public override float CanSpawn(NPCSpawnInfo spawnInfo)
+		public override float SpawnChance(NPCSpawnInfo spawnInfo)
 		{
 			return Main.tile[(int)(spawnInfo.spawnTileX), (int)(spawnInfo.spawnTileY)].type == mod.TileType<Tiles.CrystalBlock>() ? 4f : 0f;
 		}

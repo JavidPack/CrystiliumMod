@@ -6,13 +6,17 @@ namespace CrystiliumMod.Projectiles
 {
 	public class FireGem : ModProjectile
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Fire Gem");
+			Main.projFrames[projectile.type] = 3;
+		}
+
 		public override void SetDefaults()
 		{
-			projectile.name = "FireGem";
 			projectile.timeLeft = 300;
 			projectile.friendly = true;
 			projectile.light = 0.5f;
-			Main.projFrames[projectile.type] = 3;
 		}
 
 		public override void AI()

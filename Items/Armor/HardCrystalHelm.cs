@@ -5,21 +5,20 @@ using Terraria.ModLoader;
 
 namespace CrystiliumMod.Items.Armor
 {
+	[AutoloadEquip(EquipType.Head)]
 	public class HardCrystalHelm : ModItem
 	{
-		public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
+		public override void SetStaticDefaults()
 		{
-			equips.Add(EquipType.Head);
-			return true;
+			DisplayName.SetDefault("Hard Crystal Helm");
+			Tooltip.SetDefault("6% increased magic and summon damage"
+				+ "\nIncreases maximum minions");
 		}
 
 		public override void SetDefaults()
 		{
-			item.name = "Hard Crystal Helm";
 			item.width = 18;
 			item.height = 18;
-			item.toolTip = "6% increased magic and summon damage";
-			item.toolTip2 = "Increases maximum minions";
 			item.value = 40000;
 			item.rare = 5;
 			item.defense = 7;

@@ -10,9 +10,13 @@ namespace CrystiliumMod.Projectiles
 	{
 		private int Gemstone;
 
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Slamborite");
+		}
+
 		public override void SetDefaults()
 		{
-			projectile.name = "Slamborite";
 			projectile.width = 28;
 			projectile.height = 28;
 			projectile.friendly = true;

@@ -7,18 +7,22 @@ namespace CrystiliumMod.Items.Weapons
 {
 	public class EnchantedSapphireStaff : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Enchanted Sapphire Staff");
+			Tooltip.SetDefault("'Colder than tundra'");
+			Item.staff[item.type] = true;
+		}
+
 		public override void SetDefaults()
 		{
-			item.name = "Enchanted Sapphire Staff";
 			item.damage = 20; //The damage
 			item.summon = true; //Whether or not it is a magic weapon
 			item.width = 60; //Item width
 			item.height = 60; //Item height
 			item.maxStack = 1; //How many of this item you can stack
-			item.toolTip = "'Colder than tundra'"; //The item’s tooltip
 			item.useTime = 50; //How long it takes for the item to be used
 			item.useAnimation = 50; //How long the animation of the item takes
-			Item.staff[item.type] = true;
 			item.knockBack = 7f; //How much knockback the item produces
 			item.UseSound = SoundID.Item30; //The soundeffect played when used
 			item.noMelee = true; //Whether the weapon should do melee damage or not

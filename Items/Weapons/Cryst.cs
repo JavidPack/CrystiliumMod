@@ -8,19 +8,23 @@ namespace CrystiliumMod.Items.Weapons
 {
 	public class Cryst : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Cryst");
+			Tooltip.SetDefault("Summons sharp crystals to orbit you");
+			Item.staff[item.type] = true; //this makes the useStyle animate as a staff instead of as a gun
+		}
+
 		public override void SetDefaults()
 		{
-			item.name = "Cryst";
 			item.damage = 67;
 			item.summon = true;
 			item.mana = 17;
 			item.width = 40;
 			item.height = 40;
-			item.toolTip = "Summons sharp crystals to orbit you";
 			item.useTime = 41;
 			item.useAnimation = 41;
 			item.useStyle = 1;
-			Item.staff[item.type] = true; //this makes the useStyle animate as a staff instead of as a gun
 			item.noMelee = true;
 			item.knockBack = 5;
 			item.value = 100000;

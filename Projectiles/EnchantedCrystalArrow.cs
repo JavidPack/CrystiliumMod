@@ -7,10 +7,14 @@ namespace CrystiliumMod.Projectiles
 {
 	public class EnchantedCrystalArrow : ModProjectile
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Enchanted Crystal Arrow");
+		}
+
 		public override void SetDefaults()
 		{
 			projectile.CloneDefaults(1);
-			projectile.name = "Enchanted Crystal Arrow";
 			projectile.damage = 10;
 		}
 

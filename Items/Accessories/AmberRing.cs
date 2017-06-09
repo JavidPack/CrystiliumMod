@@ -6,12 +6,16 @@ namespace CrystiliumMod.Items.Accessories
 {
 	public class AmberRing : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Amber Ring");
+			Tooltip.SetDefault("Slightly increases life regen");
+		}
+
 		public override void SetDefaults()
 		{
-			item.name = "Amber Ring";
 			item.width = 40;
 			item.height = 40;
-			item.toolTip = "Slightly increases life regen";
 			item.value = Item.sellPrice(0, 1, 0, 0);
 			item.rare = 2;
 			item.accessory = true;

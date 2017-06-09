@@ -7,10 +7,14 @@ namespace CrystiliumMod.Projectiles
 {
 	public class CrystalArrowPlayer : ModProjectile
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Crystal Arrow");
+		}
+
 		public override void SetDefaults()
 		{
 			projectile.CloneDefaults(1);
-			projectile.name = "Crystal Arrow";
 		}
 
 		public override bool OnTileCollide(Vector2 oldVelocity)

@@ -8,9 +8,14 @@ namespace CrystiliumMod.Projectiles.Minions
 {
 	public class SpiritBow : ModProjectile
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Spirit Bow");
+			Main.projFrames[projectile.type] = 9;
+		}
+
 		public override void SetDefaults()
 		{
-			projectile.name = "Spirit Bow";
 			projectile.width = 48;
 			projectile.height = 58;
 			projectile.timeLeft = 600;
@@ -21,7 +26,6 @@ namespace CrystiliumMod.Projectiles.Minions
 			projectile.ignoreWater = true;
 			projectile.minion = true;
 			projectile.minionSlots = 0;
-			Main.projFrames[projectile.type] = 9;
 		}
 
 		public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)

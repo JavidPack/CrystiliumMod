@@ -5,9 +5,14 @@ namespace CrystiliumMod.Items
 {
 	public class CrystalPotion : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Crystal Potion");
+			Tooltip.SetDefault("Makes shards of crystals damage nearby enemies.");
+		}
+
 		public override void SetDefaults()
 		{
-			item.name = "Crystal Potion";
 			item.UseSound = SoundID.Item3;
 			item.useStyle = 2;
 			item.useTurn = true;
@@ -15,7 +20,6 @@ namespace CrystiliumMod.Items
 			item.useTime = 17;
 			item.maxStack = 30;
 			item.consumable = true;
-			item.toolTip = "Makes shards of crystals damage nearby enemies.";
 			item.value = 3000;
 			item.rare = 0;
 			item.buffType = mod.BuffType<Buffs.CrystalLeak>();

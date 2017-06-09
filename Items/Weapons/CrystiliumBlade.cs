@@ -8,14 +8,18 @@ namespace CrystiliumMod.Items.Weapons
 {
 	public class CrystiliumBlade : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Crystilium Cleaver");
+			Tooltip.SetDefault("Launches crystal embers");
+		}
+
 		public override void SetDefaults()
 		{
-			item.name = "Crystilium Cleaver";
 			item.damage = 138;
 			item.melee = true;
 			item.width = 40;
 			item.height = 40;
-			item.toolTip = "Launches crystal embers";
 			item.useTime = 30;
 			item.useAnimation = 30;
 			item.useStyle = 1;

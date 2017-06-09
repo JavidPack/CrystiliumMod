@@ -5,20 +5,19 @@ using Terraria.ModLoader;
 
 namespace CrystiliumMod.Items.Armor
 {
+	[AutoloadEquip(EquipType.Body)]
 	public class CrystiliumBreastplate : ModItem
 	{
-		public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
+		public override void SetStaticDefaults()
 		{
-			equips.Add(EquipType.Body);
-			return true;
+			DisplayName.SetDefault("Crystilium Breastplate");
+			Tooltip.SetDefault("12% increased magic damage");
 		}
 
 		public override void SetDefaults()
 		{
-			item.name = "Crystilium Breastplate";
 			item.width = 18;
 			item.height = 18;
-			item.toolTip = "12% increased magic damage";
 			item.value = 200000;
 			item.rare = 8;
 			item.defense = 15;

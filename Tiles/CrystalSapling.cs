@@ -32,7 +32,9 @@ namespace CrystiliumMod.Tiles
 			TileObjectData.newTile.RandomStyleRange = 3;
 			TileObjectData.addTile(Type);
 			sapling = true;
-			AddMapEntry(new Color(200, 200, 200), "Sapling");
+			ModTranslation name = CreateMapEntryName();
+			name.SetDefault("Sapling");
+			AddMapEntry(new Color(200, 200, 200), name);
 			dustType = mod.DustType<Dusts.Sparkle>();
 			adjTiles = new int[] { TileID.Saplings };
 		}

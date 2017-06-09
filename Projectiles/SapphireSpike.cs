@@ -5,9 +5,13 @@ namespace CrystiliumMod.Projectiles
 {
 	public class SapphireSpike : ModProjectile
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Crystal Staff Spike");
+		}
+
 		public override void SetDefaults()
 		{
-			projectile.name = "Crystal Staff Spike"; //Name of the projectile, only shows this if you get killed by it
 			projectile.width = 18; //Set the hitbox width
 			projectile.height = 18; //Set the hitbox height
 			projectile.aiStyle = 45;

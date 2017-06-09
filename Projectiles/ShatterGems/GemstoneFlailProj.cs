@@ -8,11 +8,7 @@ namespace CrystiliumMod.Projectiles.ShatterGems
 {
 	public class GemstoneFlailProj : ModProjectile
 	{
-		public override bool Autoload(ref string name, ref string texture)
-		{
-			texture = "CrystiliumMod/Projectiles/ShatterGems/GemstoneFlail1";
-			return true;
-		}
+		public override string Texture => "CrystiliumMod/Projectiles/ShatterGems/GemstoneFlail1";
 
 		public override void SetDefaults()
 		{

@@ -7,10 +7,14 @@ namespace CrystiliumMod.NPCs
 {
 	public class CrystalSlime : ModNPC
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Crystal Slime");
+			Main.npcFrameCount[npc.type] = 2;
+		}
+
 		public override void SetDefaults()
 		{
-			npc.name = "Crystal Slime";
-			npc.displayName = "Crystal Slime";
 			npc.width = 30;
 			npc.height = 50;
 			npc.damage = 24;
@@ -21,12 +25,11 @@ namespace CrystiliumMod.NPCs
 			npc.value = 200f;
 			npc.knockBackResist = 0.5f;
 			npc.aiStyle = 1;
-			Main.npcFrameCount[npc.type] = 2;
 			aiType = 1;
 			animationType = NPCID.BlueSlime;
 		}
 
-		public override float CanSpawn(NPCSpawnInfo spawnInfo)
+		public override float SpawnChance(NPCSpawnInfo spawnInfo)
 		{
 			return Main.tile[(int)(spawnInfo.spawnTileX), (int)(spawnInfo.spawnTileY)].type == mod.TileType<Tiles.CrystalBlock>() ? 10f : 0f;
 		}

@@ -8,20 +8,20 @@ namespace CrystiliumMod.Projectiles
 {
 	public class RPC : ModProjectile
 	{
-		public override bool Autoload(ref string name, ref string texture)
+		public override string Texture => "CrystiliumMod/Projectiles/RPC1";
+
+		public override void SetStaticDefaults()
 		{
-			texture = "CrystiliumMod/Projectiles/RPC1";
-			return true;
+			DisplayName.SetDefault("Rocket Propelled Crystal");
+			Main.projFrames[projectile.type] = 4; //redundant, since using custom drawing anyway
 		}
 
 		public override void SetDefaults()
 		{
 			projectile.CloneDefaults(ProjectileID.RocketI);
-			projectile.name = "Rocket Propelled Crystal";
 			projectile.width = 14;
 			projectile.height = 22;
 			projectile.aiStyle = 34;  //rocket AI
-			Main.projFrames[projectile.type] = 4; //redundant, since using custom drawing anyway
 		}
 
 		//Handles custom drawing for the projectile. Simplifies things a lot. Who needs three separate RPCs anyway?

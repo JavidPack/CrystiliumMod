@@ -6,16 +6,16 @@ namespace CrystiliumMod.Projectiles
 {
 	public class Crystishae : ModProjectile
 	{
-		public override bool Autoload(ref string name, ref string texture)
+		public override string Texture => "CrystiliumMod/Items/Weapons/Crystishae";
+
+		public override void SetStaticDefaults()
 		{
-			texture = "CrystiliumMod/Items/Weapons/Crystishae";
-			return true;
+			DisplayName.SetDefault("Crystishae");
 		}
 
 		public override void SetDefaults()
 		{
 			projectile.CloneDefaults(ProjectileID.ThornChakram);
-			projectile.name = "Crystishae";
 		}
 
 		public override bool PreAI()

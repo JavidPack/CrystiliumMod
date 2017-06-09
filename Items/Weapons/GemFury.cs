@@ -8,14 +8,18 @@ namespace CrystiliumMod.Items.Weapons
 {
 	public class GemFury : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Gem Fury");
+			Tooltip.SetDefault("Converts arrows into crystal arrows");
+		}
+
 		public override void SetDefaults()
 		{
-			item.name = "Gem Fury";
 			item.damage = 21;
 			item.ranged = true;
 			item.width = 40;
 			item.height = 20;
-			item.toolTip = "Converts arrows into crystal arrows";
 			item.useTime = 30;
 			item.useAnimation = 30;
 			item.useStyle = 5;

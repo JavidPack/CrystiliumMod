@@ -9,7 +9,7 @@ namespace CrystiliumMod.NPCs
 	{
 		/*	public override void EditSpawnRate(Player player, ref int spawnRate, ref int maxSpawns)
 			{
-				if (player.GetModPlayer<CrystalPlayer>(mod).ZoneCrystal)
+				if (player.GetModPlayer<CrystalPlayer>().ZoneCrystal)
 				{
 					spawnRate = (int)(spawnRate * 0.65f);
 					maxSpawns = (int)(maxSpawns * 1.45f);
@@ -18,7 +18,7 @@ namespace CrystiliumMod.NPCs
 
 		public override void EditSpawnPool(IDictionary<int, float> pool, NPCSpawnInfo spawnInfo)
 		{
-			if (spawnInfo.player.GetModPlayer<CrystalPlayer>(mod).ZoneCrystal)
+			if (spawnInfo.player.GetModPlayer<CrystalPlayer>().ZoneCrystal)
 			{
 				pool.Clear(); //remove ALL spawns here
 				pool.Add(mod.NPCType<CrystalElemental>(), 4f); // a modded enemy

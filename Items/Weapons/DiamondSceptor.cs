@@ -8,19 +8,23 @@ namespace CrystiliumMod.Items.Weapons
 {
 	public class DiamondSceptor : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Diamond Scepter");
+			Tooltip.SetDefault("Launches an explosive diamond");
+			Item.staff[item.type] = true; //this makes the useStyle animate as a staff instead of as a gun
+		}
+
 		public override void SetDefaults()
 		{
-			item.name = "Diamond Scepter";
 			item.damage = 35;
 			item.magic = true;
 			item.mana = 15;
 			item.width = 40;
 			item.height = 40;
-			item.toolTip = "Launches an explosive diamond";
 			item.useTime = 30;
 			item.useAnimation = 30;
 			item.useStyle = 5;
-			Item.staff[item.type] = true; //this makes the useStyle animate as a staff instead of as a gun
 			item.noMelee = true;
 			item.knockBack = 5;
 			item.UseSound = SoundID.Item20;

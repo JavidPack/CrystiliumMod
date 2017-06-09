@@ -5,21 +5,20 @@ using Terraria.ModLoader;
 
 namespace CrystiliumMod.Items.Armor
 {
+	[AutoloadEquip(EquipType.Head)]
 	public class CrystiliumHelmet : ModItem
 	{
-		public override bool Autoload(ref string name, ref string texture, IList<EquipType> equips)
+		public override void SetStaticDefaults()
 		{
-			equips.Add(EquipType.Head);
-			return true;
+			DisplayName.SetDefault("Crystilium Helmet");
+			Tooltip.SetDefault("9% increased magic damage"
+				+ "\n+60 mana");
 		}
 
 		public override void SetDefaults()
 		{
-			item.name = "Crystilium Helmet";
 			item.width = 18;
 			item.height = 18;
-			item.toolTip = "9% increased magic damage";
-			item.toolTip2 = "+60 mana";
 			item.value = 150000;
 			item.rare = 8;
 			item.defense = 14;
@@ -39,7 +38,7 @@ namespace CrystiliumMod.Items.Armor
 		public override void UpdateArmorSet(Player player)
 		{
 			player.setBonus = "Consecutive hits give you more damage";
-			player.GetModPlayer<CrystalPlayer>(mod).crystalCharm = true;
+			player.GetModPlayer<CrystalPlayer>().crystalCharm = true;
 		}
 
 		public override void AddRecipes()

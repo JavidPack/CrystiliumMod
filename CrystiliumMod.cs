@@ -1,3 +1,4 @@
+using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -10,15 +11,17 @@ namespace CrystiliumMod
 
 		public CrystiliumMod()
 		{
+			// We need this for the worldgen chest fix.
+			if (ModLoader.version < new Version(0, 10, 0, 1))
+			{
+				throw new Exception("\nThis mod uses functionality only present in the latest tModLoader. Please update tModLoader to use this mod\n\n");
+			}
+
 			instance = this;
 		}
 
 		public override void AddRecipes()
 		{
-			ModRecipe recipe = new ModRecipe(this);
-			recipe.AddIngredient(ItemType<Items.CrystalBottle>());
-			recipe.needWater = true;
-			recipe.SetResult(ItemType<Items.CrystalBottleWater>());
 		}
 
 		public override void UpdateMusic(ref int music)

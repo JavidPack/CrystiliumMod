@@ -6,12 +6,16 @@ namespace CrystiliumMod.Items.Accessories
 {
 	public class SapphireRing : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Sapphire Ring");
+			Tooltip.SetDefault("5% increased melee speed");
+		}
+
 		public override void SetDefaults()
 		{
-			item.name = "Sapphire Ring";
 			item.width = 40;
 			item.height = 40;
-			item.toolTip = "5% increased melee speed";
 			item.value = Item.sellPrice(0, 0, 70, 0);
 			item.rare = 1;
 			item.accessory = true;

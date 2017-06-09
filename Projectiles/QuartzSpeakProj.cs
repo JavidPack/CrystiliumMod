@@ -6,9 +6,13 @@ namespace CrystiliumMod.Projectiles
 {
 	public class QuartzSpearProj : ModProjectile
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("QuartzSpearProj");
+		}
+
 		public override void SetDefaults()
 		{
-			projectile.name = "QuartzSpearProj";
 			projectile.width = 50;
 			projectile.height = 50;
 			projectile.scale = 1.1f;

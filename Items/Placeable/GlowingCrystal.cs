@@ -4,9 +4,13 @@ namespace CrystiliumMod.Items.Placeable
 {
 	public class GlowingCrystal : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Glowing Crystal");
+		}
+
 		public override void SetDefaults()
 		{
-			item.name = "Glowing Crystal";
 			item.width = 12;
 			item.height = 12;
 			item.maxStack = 999;

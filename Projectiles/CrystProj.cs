@@ -7,9 +7,15 @@ namespace CrystiliumMod.Projectiles
 {
 	public class CrystProj : ModProjectile
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Cryst");
+			ProjectileID.Sets.TrailCacheLength[projectile.type] = 9;
+			ProjectileID.Sets.TrailingMode[projectile.type] = 0;
+		}
+
 		public override void SetDefaults()
 		{
-			projectile.name = "Cryst";
 			projectile.penetrate = 600;
 			projectile.tileCollide = false;
 			projectile.hostile = false;
@@ -18,8 +24,6 @@ namespace CrystiliumMod.Projectiles
 			projectile.damage = 13;
 			projectile.extraUpdates = 1;
 			projectile.light = 2;
-			ProjectileID.Sets.TrailCacheLength[projectile.type] = 9;
-			ProjectileID.Sets.TrailingMode[projectile.type] = 0;
 		}
 
 		public override void Kill(int timeLeft)

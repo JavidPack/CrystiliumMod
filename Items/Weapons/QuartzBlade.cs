@@ -8,14 +8,18 @@ namespace CrystiliumMod.Items.Weapons
 {
 	public class QuartzBlade : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Quartz Blade");
+			Tooltip.SetDefault("Launches tridents");
+		}
+
 		public override void SetDefaults()
 		{
-			item.name = "Quartz Blade";
 			item.damage = 54;
 			item.melee = true;
 			item.width = 40;
 			item.height = 40;
-			item.toolTip = "Launches tridents";
 			item.useTime = 25;
 			item.useAnimation = 25;
 			item.useStyle = 1;

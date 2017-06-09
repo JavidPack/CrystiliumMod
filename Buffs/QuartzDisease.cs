@@ -8,8 +8,8 @@ namespace CrystiliumMod.Buffs
 	{
 		public override void SetDefaults()
 		{
-			Main.buffName[Type] = "Quartz Disease";
-			Main.buffTip[Type] = "'Keter.'";
+			DisplayName.SetDefault("Quartz Disease");
+			Description.SetDefault("'Keter.'");
 			Main.debuff[Type] = true;
 			Main.pvpBuff[Type] = true;
 			Main.buffNoSave[Type] = true;

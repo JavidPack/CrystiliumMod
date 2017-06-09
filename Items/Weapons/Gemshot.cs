@@ -7,14 +7,18 @@ namespace CrystiliumMod.Items.Weapons
 {
 	public class Gemshot : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Gemshot");
+			Tooltip.SetDefault("Converts arrows into enchanted crystal arrows");
+		}
+
 		public override void SetDefaults()
 		{
-			item.name = "Gemshot";
 			item.damage = 47;
 			item.ranged = true;
 			item.width = 40;
 			item.height = 20;
-			item.toolTip = "Converts arrows into enchanted crystal arrows";
 			item.useTime = 25;
 			item.useAnimation = 25;
 			item.useStyle = 5;

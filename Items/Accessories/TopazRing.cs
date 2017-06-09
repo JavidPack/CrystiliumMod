@@ -6,12 +6,16 @@ namespace CrystiliumMod.Items.Accessories
 {
 	public class TopazRing : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Topaz Ring");
+			Tooltip.SetDefault("5% increased movement speed");
+		}
+
 		public override void SetDefaults()
 		{
-			item.name = "Topaz Ring";
 			item.width = 40;
 			item.height = 40;
-			item.toolTip = "5% increased movement speed";
 			item.value = Item.sellPrice(0, 0, 30, 0);
 			item.rare = 1;
 			item.accessory = true;

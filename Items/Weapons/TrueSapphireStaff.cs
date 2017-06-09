@@ -7,18 +7,22 @@ namespace CrystiliumMod.Items.Weapons
 {
 	public class TrueSapphireStaff : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("True Sapphire Staff");
+			Tooltip.SetDefault("'Deadly storm'");
+			Item.staff[item.type] = true;
+		}
+
 		public override void SetDefaults()
 		{
-			item.name = "True Sapphire Staff";
 			item.damage = 40; //The damage
 			item.magic = true; //Whether or not it is a magic weapon
 			item.width = 54; //Item width
 			item.height = 54; //Item height
 			item.maxStack = 1; //How many of this item you can stack
-			item.toolTip = "'Deadly storm'"; //The item tooltip
 			item.useTime = 5; //How **** this **** takes for the item to be used -gamrguy: Really? Just really? -Graydee: It was movildima, not me
 			item.useAnimation = 5; //How long the animation of the item takes
-			Item.staff[item.type] = true;
 			item.knockBack = 1f; //How much knockback the item produces
 			item.noMelee = true; //Whether the weapon should do melee damage or not
 			item.useStyle = 5; //How the weapon is held, 5 is the gun hold style

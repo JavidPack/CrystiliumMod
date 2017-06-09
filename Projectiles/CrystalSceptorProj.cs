@@ -7,6 +7,11 @@ namespace CrystiliumMod.Projectiles
 {
 	public class CrystalSceptorProj : ModProjectile
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("GemFire");
+		}
+
 		public override void SetDefaults()
 		{
 			projectile.CloneDefaults(82);
@@ -16,7 +21,6 @@ namespace CrystiliumMod.Projectiles
 			projectile.penetrate = 3;
 			projectile.height = 28;
 			projectile.friendly = true;
-			projectile.name = "GemFire";
 			projectile.damage = 10;
 			projectile.light = 0.5f;
 		}

@@ -6,9 +6,13 @@ namespace CrystiliumMod.Items.Weapons
 {
 	public class CrystalSpear : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Crystal Spear");
+		}
+
 		public override void SetDefaults()
 		{
-			item.name = "Crystal Spear";
 			item.useStyle = 1;
 			item.noUseGraphic = true;
 			item.UseSound = SoundID.Item1;

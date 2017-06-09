@@ -5,9 +5,13 @@ namespace CrystiliumMod.Projectiles //We need this to basically indicate the fol
 {
 	public class VortexCrystal : ModProjectile
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Vortex crystal");
+		}
+
 		public override void SetDefaults()
 		{
-			projectile.name = "Vortex crystal"; //Name of the projectile, only shows this if you get killed by it
 			projectile.width = 13;
 			projectile.height = 46;
 			projectile.timeLeft = 100; //The amount of time the projectile is alive for

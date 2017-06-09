@@ -7,19 +7,23 @@ namespace CrystiliumMod.Items.Weapons
 {
 	public class TrueEmeraldStaff : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("True Emerald staff");
+			Tooltip.SetDefault("'Blow all your enemies away'");
+			Item.staff[item.type] = true; //this makes the useStyle animate as a staff instead of as a gun
+		}
+
 		public override void SetDefaults()
 		{
-			item.name = "True Emerald staff";
 			item.damage = 65;
 			item.magic = true;
 			item.mana = 9;
 			item.width = 40;
 			item.height = 40;
-			item.toolTip = "'Blow all your enemies away'";
 			item.useTime = 7;
 			item.useAnimation = 7;
 			item.useStyle = 5;
-			Item.staff[item.type] = true; //this makes the useStyle animate as a staff instead of as a gun
 			item.noMelee = true;
 			item.knockBack = 5;
 			item.value = 120000; //How much the item is worth

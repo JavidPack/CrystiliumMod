@@ -6,9 +6,14 @@ namespace CrystiliumMod.Projectiles //We need this to basically indicate the fol
 {
 	public class VortexPortal : ModProjectile
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Vortex Portal");
+			Main.projFrames[projectile.type] = 4;
+		}
+
 		public override void SetDefaults()
 		{
-			projectile.name = "Vortex Portal"; //Name of the projectile, only shows this if you get killed by it
 			projectile.width = 60; //Set the hitbox width
 			projectile.height = 60; //Set the hitbox height
 			projectile.timeLeft = 110; //The amount of time the projectile is alive for
@@ -18,7 +23,6 @@ namespace CrystiliumMod.Projectiles //We need this to basically indicate the fol
 			projectile.light = 0.75f;
 			projectile.tileCollide = false; //Tells the game whether or not it can collide with a tile
 			projectile.ignoreWater = true; //Tells the game whether or not projectile will be affected by water
-			Main.projFrames[projectile.type] = 4;
 		}
 
 		//How the projectile works

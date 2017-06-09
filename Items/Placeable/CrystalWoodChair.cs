@@ -5,9 +5,13 @@ namespace CrystiliumMod.Items.Placeable
 {
 	public class CrystalWoodChair : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Crystal Wood Chair");
+		}
+
 		public override void SetDefaults()
 		{
-			item.name = "Crystal Wood Chair";
 			item.width = 12;
 			item.height = 30;
 			item.maxStack = 99;

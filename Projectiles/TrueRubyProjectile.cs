@@ -7,14 +7,18 @@ namespace CrystiliumMod.Projectiles
 {
 	public class TrueRubyProjectile : ModProjectile
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("True Ruby Gem");
+			Main.projFrames[projectile.type] = 4;
+		}
+
 		public override void SetDefaults()
 		{
-			projectile.name = "True Ruby Gem";
 			projectile.friendly = true;
 			projectile.magic = true;
 			projectile.width = 14;
 			projectile.height = 26;
-			Main.projFrames[projectile.type] = 4;
 			projectile.timeLeft = 240; //Projectile lasts 4 seconds
 		}
 

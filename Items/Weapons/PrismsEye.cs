@@ -7,10 +7,15 @@ namespace CrystiliumMod.Items.Weapons
 {
 	public class PrismsEye : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Prism's Eye");
+			Tooltip.SetDefault("A spectral bow assists you");
+		}
+
 		public override void SetDefaults()
 		{
 			item.CloneDefaults(ItemID.QueenSpiderStaff); //only here for values we haven't defined ourselves yet
-			item.name = "Prism's Eye";
 			item.damage = 105;  //placeholder damage :3
 			item.mana = 40;	//somehow I think this might be too much...? -thegamemaster1234
 			item.width = 40;
@@ -19,7 +24,6 @@ namespace CrystiliumMod.Items.Weapons
 			item.rare = 8;
 			item.knockBack = 2.5f;
 			item.UseSound = SoundID.Item25;
-			item.toolTip = "A spectral bow assists you";
 			item.shoot = mod.ProjectileType<Projectiles.Minions.SpiritBow>();
 			item.shootSpeed = 0f;
 		}

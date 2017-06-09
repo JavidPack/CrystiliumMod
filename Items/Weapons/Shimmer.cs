@@ -7,14 +7,18 @@ namespace CrystiliumMod.Items.Weapons
 {
 	public class Shimmer : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Shimmer");
+			Tooltip.SetDefault("Rain lead on the enemy");
+		}
+
 		public override void SetDefaults()
 		{
-			item.name = "Shimmer";
 			item.damage = 47;
 			item.ranged = true;
 			item.width = 40;
 			item.height = 20;
-			item.toolTip = "Rain lead on the enemy";
 			item.useTime = 22;
 			item.useAnimation = 22;
 			item.useStyle = 5;

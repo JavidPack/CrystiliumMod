@@ -9,14 +9,18 @@ namespace CrystiliumMod.Items.Weapons
 	{
 		private Vector2 newVect;
 
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Sharp Shooter");
+			Tooltip.SetDefault("'Smooth as a crystal'");
+		}
+
 		public override void SetDefaults()
 		{
-			item.name = "Sharp Shooter";
 			item.damage = 26;
 			item.ranged = true;
 			item.width = 40;
 			item.height = 20;
-			item.toolTip = "'Smooth as a crystal'";
 			item.useTime = 48;
 			item.useAnimation = 48;
 			item.useStyle = 5;

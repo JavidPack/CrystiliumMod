@@ -5,9 +5,13 @@ namespace CrystiliumMod.Projectiles
 {
 	public class QuartzInfectant : ModProjectile
 	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Quartz Infectant");
+		}
+
 		public override void SetDefaults()
 		{
-			projectile.name = "Quartz Infectant";
 			projectile.width = 10;
 			projectile.height = 10;
 			projectile.damage = 38;// Main.rand.Next(1);

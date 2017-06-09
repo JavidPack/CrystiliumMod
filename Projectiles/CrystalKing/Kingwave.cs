@@ -7,7 +7,6 @@ namespace CrystiliumMod.Projectiles.CrystalKing
 	{
 		public override void SetDefaults()
 		{
-			projectile.name = "Kingwave";
 			projectile.penetrate = 600;
 			projectile.hostile = true;
 			projectile.damage = 15;
