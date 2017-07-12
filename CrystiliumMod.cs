@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -44,5 +45,25 @@ namespace CrystiliumMod
 				music = this.GetSoundSlot(SoundType.Music, "Sounds/Music/CrystallineFlows");
 			}
 		}
+
+		public override void HandlePacket(BinaryReader reader, int whoAmI)
+		{
+			CrystiliumModMessageType msgType = (CrystiliumModMessageType)reader.ReadByte();
+			switch (msgType)
+			{
+				case CrystiliumModMessageType.SpawnBossSpecial:
+					int dps = reader.ReadInt32();
+					NPC.SpawnOnPlayer(whoAmI, NPCType<NPCs.Bosses.CrystalKing>());
+					break;
+				default:
+					ErrorLogger.Log("CrystiliumMod: Unknown Message type: " + msgType);
+					break;
+			}
+		}
+	}
+
+	enum CrystiliumModMessageType : byte
+	{
+		SpawnBossSpecial,
 	}
 }

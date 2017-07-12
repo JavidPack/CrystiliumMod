@@ -93,7 +93,20 @@ namespace CrystiliumMod.Tiles
 					{
 						//consume it, and summon the Crystal King!
 						inventory[k].stack--;
-						NPC.SpawnOnPlayer(Main.myPlayer, mod.NPCType<NPCs.Bosses.CrystalKing>());
+						if (inventory[k].stack == 0)
+						{
+							inventory[k].TurnToAir();
+						}
+						if (Main.netMode == NetmodeID.MultiplayerClient)
+						{
+							ModPacket packet = mod.GetPacket();
+							packet.Write((byte)CrystiliumModMessageType.SpawnBossSpecial);
+							packet.Send();
+						}
+						else
+						{
+							NPC.SpawnOnPlayer(Main.myPlayer, mod.NPCType<NPCs.Bosses.CrystalKing>());
+						}
 
 						//and don't spam crystal kings if the player didn't ask for it :P
 						return;
