@@ -29,7 +29,9 @@ namespace CrystiliumMod.Tiles
 			TileObjectData.newTile.CoordinatePadding = 2;
 			TileObjectData.addTile(Type);
 			animationFrameHeight = 108;
-			AddMapEntry(new Color(200, 200, 200));
+			ModTranslation name = CreateMapEntryName();
+			name.SetDefault("Crystal Fountain");
+			AddMapEntry(new Color(200, 200, 200), name);
 		}
 
 		public override void NumDust(int i, int j, bool fail, ref int num)
@@ -59,9 +61,7 @@ namespace CrystiliumMod.Tiles
 		{
 			if (Vector2.Distance(Main.LocalPlayer.Center, new Vector2(i * 16, j * 16)) < 16 * 5)
 			{
-				Vector2 position = new Vector2((float)i, (float)j);
-
-				CrystalPlayer modPlayer = Main.player[Player.FindClosest(position, 50, 50)].GetModPlayer<CrystalPlayer>();
+				CrystalPlayer modPlayer = Main.LocalPlayer.GetModPlayer<CrystalPlayer>();
 				modPlayer.crystalFountain = true;
 			}
 		}

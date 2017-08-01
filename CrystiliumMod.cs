@@ -27,6 +27,7 @@ namespace CrystiliumMod
 
 		public override void UpdateMusic(ref int music)
 		{
+			if (Main.gameMenu) return;
 			Player player = Main.LocalPlayer;
 
 			//Don't override the songs in this list!

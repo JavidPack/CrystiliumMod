@@ -54,6 +54,7 @@ namespace CrystiliumMod.Tiles
 				top--;
 			}
 			int chest = Chest.FindChest(left, top);
+			// TODO Someone reported error here?
 			if (Main.chest[chest].name == "")
 			{
 				return name;

@@ -24,7 +24,7 @@ namespace CrystiliumMod.Items
 			ModRecipe recipe = new ModRecipe(mod);
 			recipe.AddIngredient(mod.ItemType<Items.CrystalBottle>());
 			recipe.AddTile(mod.TileType<Tiles.Fountain>());
-			recipe.SetResult(mod.ItemType<Items.CrystalBottleWater>()); // todo, what's up with the duplicate in the Mod class?
+			recipe.SetResult(mod.ItemType<Items.CrystalBottleWater>());
 			recipe.AddRecipe();
 		}
 	}
