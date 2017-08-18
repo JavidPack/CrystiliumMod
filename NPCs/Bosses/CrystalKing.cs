@@ -246,6 +246,12 @@ namespace CrystiliumMod.NPCs.Bosses
 				int Choice = ChoiceChooser;
 				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, Choice);
 			}
+			if (!CrystalWorld.downedCrystalKing)
+			{
+				CrystalWorld.downedCrystalKing = true;
+				if(Main.netMode == NetmodeID.Server)
+					NetMessage.SendData(MessageID.WorldData);
+			}
 		}
 	}
 }

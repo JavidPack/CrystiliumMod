@@ -1,10 +1,12 @@
 using CrystiliumMod.Tiles;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
+using System.IO;
 using Terraria;
 using Terraria.GameContent.Generation;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.ModLoader.IO;
 using Terraria.World.Generation;
 
 namespace CrystiliumMod
@@ -13,6 +15,46 @@ namespace CrystiliumMod
 	{
 		public static int CrystalTiles = 0;
 		private static List<Point> BiomeCenters;
+
+		// TODO, auto SendData using property?
+		public static bool downedCrystalKing = false;
+
+		public override void Initialize()
+		{
+			downedCrystalKing = false;
+		}
+
+		public override TagCompound Save()
+		{
+			var downed = new List<string>();
+			if (downedCrystalKing) downed.Add("crystalKing");
+
+			return new TagCompound {
+				{"downed", downed}
+			};
+		}
+
+		public override void Load(TagCompound tag)
+		{
+			if (tag.ContainsKey("downed"))
+			{
+				var downed = tag.GetList<string>("downed");
+				downedCrystalKing = downed.Contains("crystalKing");
+			}
+		}
+
+		public override void NetSend(BinaryWriter writer)
+		{
+			BitsByte flags = new BitsByte();
+			flags[0] = downedCrystalKing;
+			writer.Write(flags);
+		}
+
+		public override void NetReceive(BinaryReader reader)
+		{
+			BitsByte flags = reader.ReadByte();
+			downedCrystalKing = flags[0];
+		}
 
 		public override void ModifyWorldGenTasks(List<GenPass> tasks, ref float totalWeight)
 		{

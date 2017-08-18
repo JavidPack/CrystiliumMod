@@ -47,6 +47,15 @@ namespace CrystiliumMod
 			}
 		}
 
+		public override void PostSetupContent()
+		{
+			Mod bossChecklist = ModLoader.GetMod("BossChecklist");
+			if (bossChecklist != null)
+			{
+				bossChecklist.Call("AddBossWithInfo", "Crystal King", 11.8f, (Func<bool>)(() => CrystalWorld.downedCrystalKing), "Right click on a Crystal Fountain with a [i:" + ItemType<Items.CrypticCrystal>() + "] in your inventory");
+			}
+		}
+
 		public override void HandlePacket(BinaryReader reader, int whoAmI)
 		{
 			CrystiliumModMessageType msgType = (CrystiliumModMessageType)reader.ReadByte();
