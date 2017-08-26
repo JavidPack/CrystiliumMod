@@ -21,6 +21,11 @@ namespace CrystiliumMod
 			instance = this;
 		}
 
+		public override void Unload()
+		{
+			instance = null;
+		}
+
 		public override void AddRecipes()
 		{
 		}
