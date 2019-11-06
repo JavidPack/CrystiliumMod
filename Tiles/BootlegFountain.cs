@@ -20,7 +20,7 @@ namespace CrystiliumMod.Tiles
 			this.minPick = 15;
 			TileObjectData.newTile.Height = 6;
 			TileObjectData.newTile.Width = 6;
-			TileObjectData.newTile.Origin = new Point16(0, 0);
+			TileObjectData.newTile.Origin = new Point16(0, 0); // Todo: make less annoying.
 			TileObjectData.newTile.AnchorBottom = new AnchorData(AnchorType.SolidTile | AnchorType.SolidWithTop | AnchorType.SolidSide, TileObjectData.newTile.Width, 0);
 			TileObjectData.newTile.UsesCustomCanPlace = true;
 			TileObjectData.newTile.LavaDeath = false;

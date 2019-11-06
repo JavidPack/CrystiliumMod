@@ -1,5 +1,5 @@
 author = Graydee, The dev team, jopojelly
-version = 12.0
+version = 11.4
 displayName = Crystilium
 homepage = http://forums.terraria.org/index.php?threads/crystilium-mod.44558/
 hideCode = false
