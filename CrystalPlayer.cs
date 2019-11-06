@@ -3,6 +3,7 @@ using System;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ModLoader;
+using static Terraria.ModLoader.ModContent;
 using Microsoft.Xna.Framework.Graphics;
 using System.IO;
 
@@ -83,10 +84,10 @@ namespace CrystiliumMod
 			if (crystalCharm)
 			{
 				//add buff, update stacks
-				int buffIdx = player.FindBuffIndex(mod.BuffType<Buffs.CrystalCharm>());
+				int buffIdx = player.FindBuffIndex(BuffType<Buffs.CrystalCharm>());
 				if (buffIdx < 0)
 				{
-					player.AddBuff(mod.BuffType<Buffs.CrystalCharm>(), 120);
+					player.AddBuff(BuffType<Buffs.CrystalCharm>(), 120);
 					crystalCharmStacks = 1;
 					//1/3 chance to increase stack each hit
 				}
@@ -185,13 +186,13 @@ namespace CrystiliumMod
 		{
 			if (crystalFountain)
 			{
-				player.AddBuff(mod.BuffType<Buffs.CrystalHealing>(), 2);
+				player.AddBuff(BuffType<Buffs.CrystalHealing>(), 2);
 			}
 		}
 
 		public override void PostUpdateBuffs()
 		{
-			if (player.FindBuffIndex(mod.BuffType<Buffs.CrystalCharm>()) < 0)
+			if (player.FindBuffIndex(BuffType<Buffs.CrystalCharm>()) < 0)
 			{
 				crystalCharmStacks = 0;
 			}

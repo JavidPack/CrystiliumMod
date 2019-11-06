@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using static Terraria.ModLoader.ModContent;
 
 namespace CrystiliumMod.Items
 {
@@ -33,7 +34,7 @@ namespace CrystiliumMod.Items
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(mod.ItemType<EnchantedGeode>(), 10);
+			recipe.AddIngredient(ItemType<EnchantedGeode>(), 10);
 			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.SetResult(this);
 			recipe.AddRecipe();
@@ -43,7 +44,7 @@ namespace CrystiliumMod.Items
 		{
 			if (Main.rand.Next(10) == 0)
 			{
-				Dust.NewDust(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, mod.DustType<Dusts.Sparkle>());
+				Dust.NewDust(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, DustType<Dusts.Sparkle>());
 			}
 		}
 	}

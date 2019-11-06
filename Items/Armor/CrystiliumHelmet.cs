@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using static Terraria.ModLoader.ModContent;
 
 namespace CrystiliumMod.Items.Armor
 {
@@ -32,7 +33,7 @@ namespace CrystiliumMod.Items.Armor
 
 		public override bool IsArmorSet(Item head, Item body, Item legs)
 		{
-			return body.type == mod.ItemType<CrystalBreastplate>() && legs.type == mod.ItemType<CrystalLeggings>();
+			return body.type == ItemType<CrystalBreastplate>() && legs.type == ItemType<CrystalLeggings>();
 		}
 
 		public override void UpdateArmorSet(Player player)
@@ -44,7 +45,7 @@ namespace CrystiliumMod.Items.Armor
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(mod.ItemType<Items.CrystiliumBar>(), 15);
+			recipe.AddIngredient(ItemType<Items.CrystiliumBar>(), 15);
 			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.SetResult(this);
 			recipe.AddRecipe();

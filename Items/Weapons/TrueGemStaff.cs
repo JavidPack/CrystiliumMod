@@ -3,6 +3,7 @@ using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using static Terraria.ModLoader.ModContent;
 
 namespace CrystiliumMod.Items.Weapons
 {
@@ -31,21 +32,21 @@ namespace CrystiliumMod.Items.Weapons
 			item.rare = 3;
 			item.UseSound = SoundID.Item20;
 			item.autoReuse = true;
-			item.shoot = mod.ProjectileType<Projectiles.AmberDagger>();
+			item.shoot = ProjectileType<Projectiles.AmberDagger>();
 			item.shootSpeed = 8f;
 		}
 
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(mod.ItemType<EnchantedRubyStaff>());
-			recipe.AddIngredient(mod.ItemType<EnchantedAmberStaff>());
-			recipe.AddIngredient(mod.ItemType<EnchantedEmeraldStaff>());
-			recipe.AddIngredient(mod.ItemType<EnchantedDiamondStaff>());
-			recipe.AddIngredient(mod.ItemType<EnchantedSapphireStaff>());
-			recipe.AddIngredient(mod.ItemType<EnchantedTopazStaff>());
-			recipe.AddIngredient(mod.ItemType<EnchantedAmethystStaff>());
-			recipe.AddIngredient(mod.ItemType<ShinyGemstone>(), 10);
+			recipe.AddIngredient(ItemType<EnchantedRubyStaff>());
+			recipe.AddIngredient(ItemType<EnchantedAmberStaff>());
+			recipe.AddIngredient(ItemType<EnchantedEmeraldStaff>());
+			recipe.AddIngredient(ItemType<EnchantedDiamondStaff>());
+			recipe.AddIngredient(ItemType<EnchantedSapphireStaff>());
+			recipe.AddIngredient(ItemType<EnchantedTopazStaff>());
+			recipe.AddIngredient(ItemType<EnchantedAmethystStaff>());
+			recipe.AddIngredient(ItemType<ShinyGemstone>(), 10);
 			recipe.AddTile(TileID.Anvils);
 			recipe.SetResult(this);
 			recipe.AddRecipe();
@@ -56,7 +57,7 @@ namespace CrystiliumMod.Items.Weapons
 			//float SdirX = (Main.MouseWorld.X - player.position.X) * 8.5f;
 			//float SdirY = (Main.MouseWorld.Y - player.position.Y) * 8.5f;
 			float angle = (float)Math.Atan((float)Main.rand.Next(-12, 12));
-			Projectile.NewProjectile(position.X, position.Y, speedX + angle, speedY + Main.rand.Next(-1, 1), mod.ProjectileType<Projectiles.TrueGemFire>(), damage, knockBack, player.whoAmI, 0f, 0f);
+			Projectile.NewProjectile(position.X, position.Y, speedX + angle, speedY + Main.rand.Next(-1, 1), ProjectileType<Projectiles.TrueGemFire>(), damage, knockBack, player.whoAmI, 0f, 0f);
 			return false;
 		}
 	}

@@ -4,6 +4,7 @@ using Terraria.DataStructures;
 using Terraria.Enums;
 using Terraria.ID;
 using Terraria.ModLoader;
+using static Terraria.ModLoader.ModContent;
 using Terraria.ObjectData;
 
 namespace CrystiliumMod.Tiles
@@ -41,7 +42,7 @@ namespace CrystiliumMod.Tiles
 			dustType = mod.DustType("CrystalDust");
 			disableSmartCursor = true;
 			adjTiles = new int[] { TileID.ClosedDoor };
-			openDoorID = mod.TileType<CrystalWoodDoorOpen>();
+			openDoorID = TileType<CrystalWoodDoorOpen>();
 		}
 
 		public override void NumDust(int i, int j, bool fail, ref int num)
@@ -51,7 +52,7 @@ namespace CrystiliumMod.Tiles
 
 		public override void KillMultiTile(int i, int j, int frameX, int frameY)
 		{
-			Item.NewItem(i * 16, j * 16, 16, 48, mod.ItemType<Items.Placeable.CrystalWoodDoor>());
+			Item.NewItem(i * 16, j * 16, 16, 48, ItemType<Items.Placeable.CrystalWoodDoor>());
 		}
 	}
 }

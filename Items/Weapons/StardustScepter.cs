@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using static Terraria.ModLoader.ModContent;
 
 namespace CrystiliumMod.Items.Weapons
 {
@@ -24,7 +25,7 @@ namespace CrystiliumMod.Items.Weapons
 			item.rare = 10;
 			item.knockBack = 2.5f;
 			item.UseSound = SoundID.Item25;
-			item.shoot = mod.ProjectileType<Projectiles.StardustDiamond>();
+			item.shoot = ProjectileType<Projectiles.StardustDiamond>();
 			item.shootSpeed = 0f;
 		}
 
@@ -48,7 +49,7 @@ namespace CrystiliumMod.Items.Weapons
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(mod.ItemType<CrystiliumBar>(), 15);
+			recipe.AddIngredient(ItemType<CrystiliumBar>(), 15);
 			recipe.AddIngredient(ItemID.FragmentStardust, 15);
 			recipe.AddTile(TileID.LunarCraftingStation);
 			recipe.SetResult(this);

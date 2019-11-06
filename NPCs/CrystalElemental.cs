@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using static Terraria.ModLoader.ModContent;
 
 namespace CrystiliumMod.NPCs
 {
@@ -33,7 +34,7 @@ namespace CrystiliumMod.NPCs
 
 		public override float SpawnChance(NPCSpawnInfo spawnInfo)
 		{
-			return Main.tile[(int)(spawnInfo.spawnTileX), (int)(spawnInfo.spawnTileY)].type == mod.TileType<Tiles.CrystalBlock>() ? 4f : 0f;
+			return Main.tile[(int)(spawnInfo.spawnTileX), (int)(spawnInfo.spawnTileY)].type == TileType<Tiles.CrystalBlock>() ? 4f : 0f;
 		}
 
 		public override void HitEffect(int hitDirection, double damage)
@@ -55,7 +56,7 @@ namespace CrystiliumMod.NPCs
 		{
 			if (Main.rand.Next(2) == 0)
 			{
-				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType<Items.ShinyGemstone>());
+				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, ItemType<Items.ShinyGemstone>());
 			}
 		}
 
@@ -80,7 +81,7 @@ namespace CrystiliumMod.NPCs
 			{
 				for (int i = 0; i < 20; i++)
 				{
-					Dust.NewDust(npc.position, npc.width - (Main.rand.Next(npc.width)), npc.height - (Main.rand.Next(npc.height)), mod.DustType<Dusts.CrystalDust>(), (float)Main.rand.Next(-5, 5), (float)Main.rand.Next(-5, 5), 0);
+					Dust.NewDust(npc.position, npc.width - (Main.rand.Next(npc.width)), npc.height - (Main.rand.Next(npc.height)), DustType<Dusts.CrystalDust>(), (float)Main.rand.Next(-5, 5), (float)Main.rand.Next(-5, 5), 0);
 				}
 				do
 				{  //Keep teleporting if too close to player
@@ -89,7 +90,7 @@ namespace CrystiliumMod.NPCs
 				} while (npc.Distance(Main.player[npc.target].position) < 40);
 				for (int i = 0; i < 20; i++)
 				{
-					Dust.NewDust(npc.position, npc.width - (Main.rand.Next(npc.width)), npc.height - (Main.rand.Next(npc.height)), mod.DustType<Dusts.CrystalDust>(), (float)Main.rand.Next(-5, 5), (float)Main.rand.Next(-5, 5), 0);
+					Dust.NewDust(npc.position, npc.width - (Main.rand.Next(npc.width)), npc.height - (Main.rand.Next(npc.height)), DustType<Dusts.CrystalDust>(), (float)Main.rand.Next(-5, 5), (float)Main.rand.Next(-5, 5), 0);
 				}
 			}
 		}

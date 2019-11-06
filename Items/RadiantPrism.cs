@@ -2,6 +2,7 @@ using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
+using static Terraria.ModLoader.ModContent;
 
 namespace CrystiliumMod.Items
 {
@@ -26,7 +27,7 @@ namespace CrystiliumMod.Items
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(mod.ItemType<Placeable.RadiantOre>(), 3);
+			recipe.AddIngredient(ItemType<Placeable.RadiantOre>(), 3);
 			recipe.AddTile(TileID.Furnaces);
 			recipe.SetResult(this);
 			recipe.AddRecipe();

@@ -4,6 +4,7 @@ using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using static Terraria.ModLoader.ModContent;
 
 namespace CrystiliumMod.Items.Weapons
 {
@@ -32,7 +33,7 @@ namespace CrystiliumMod.Items.Weapons
 			item.rare = 3;
 			item.UseSound = SoundID.Item20;
 			item.autoReuse = true;
-			item.shoot = mod.ProjectileType<AmberDagger>();
+			item.shoot = ProjectileType<AmberDagger>();
 			item.shootSpeed = 8f;
 		}
 
@@ -41,7 +42,7 @@ namespace CrystiliumMod.Items.Weapons
 			ModRecipe recipe = new ModRecipe(mod);
 			recipe.AddIngredient(ItemID.Amber, 15);
 			recipe.AddIngredient(ItemID.AmberStaff);
-			recipe.AddIngredient(mod.ItemType<ShinyGemstone>(), 10);
+			recipe.AddIngredient(ItemType<ShinyGemstone>(), 10);
 			recipe.AddTile(TileID.Anvils);
 			recipe.SetResult(this);
 			recipe.AddRecipe();
@@ -52,11 +53,11 @@ namespace CrystiliumMod.Items.Weapons
 			//float SdirX = (Main.MouseWorld.X - player.position.X) * 8.5f;
 			//float SdirY = (Main.MouseWorld.Y - player.position.Y) * 8.5f;
 			float angle = (float)Math.Atan(12f);
-			Projectile.NewProjectile(position.X, position.Y, speedX, speedY, mod.ProjectileType<AmberDagger>(), damage, knockBack, player.whoAmI, 0f, 0f);
-			Projectile.NewProjectile(position.X, position.Y, speedX - 1, speedY - angle, mod.ProjectileType<AmberDagger>(), damage, knockBack, player.whoAmI, 0f, 0f);
-			Projectile.NewProjectile(position.X, position.Y, speedX + 1, speedY + angle, mod.ProjectileType<AmberDagger>(), damage, knockBack, player.whoAmI, 0f, 0f);
-			Projectile.NewProjectile(position.X, position.Y, speedX - 2, speedY - (2 * angle), mod.ProjectileType<AmberDagger>(), damage, knockBack, player.whoAmI, 0f, 0f);
-			Projectile.NewProjectile(position.X, position.Y, speedX + 2, speedY + (2 * angle), mod.ProjectileType<AmberDagger>(), damage, knockBack, player.whoAmI, 0f, 0f);
+			Projectile.NewProjectile(position.X, position.Y, speedX, speedY, ProjectileType<AmberDagger>(), damage, knockBack, player.whoAmI, 0f, 0f);
+			Projectile.NewProjectile(position.X, position.Y, speedX - 1, speedY - angle, ProjectileType<AmberDagger>(), damage, knockBack, player.whoAmI, 0f, 0f);
+			Projectile.NewProjectile(position.X, position.Y, speedX + 1, speedY + angle, ProjectileType<AmberDagger>(), damage, knockBack, player.whoAmI, 0f, 0f);
+			Projectile.NewProjectile(position.X, position.Y, speedX - 2, speedY - (2 * angle), ProjectileType<AmberDagger>(), damage, knockBack, player.whoAmI, 0f, 0f);
+			Projectile.NewProjectile(position.X, position.Y, speedX + 2, speedY + (2 * angle), ProjectileType<AmberDagger>(), damage, knockBack, player.whoAmI, 0f, 0f);
 			return false;
 		}
 	}

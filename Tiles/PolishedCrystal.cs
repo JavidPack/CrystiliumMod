@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
+using static Terraria.ModLoader.ModContent;
 
 namespace CrystiliumMod.Tiles
 {
@@ -12,8 +13,8 @@ namespace CrystiliumMod.Tiles
 			Main.tileMergeDirt[Type] = true;
 			Main.tileBlockLight[Type] = true;
 			Main.tileLighted[Type] = false;
-			dustType = mod.DustType<Dusts.Sparkle>();
-			drop = mod.ItemType<Items.Placeable.PolishedCrystal>();
+			dustType = DustType<Dusts.Sparkle>();
+			drop = ItemType<Items.Placeable.PolishedCrystal>();
 			AddMapEntry(new Color(19, 163, 189));
 		}
 

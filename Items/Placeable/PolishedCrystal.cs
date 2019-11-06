@@ -1,5 +1,6 @@
 using Terraria.ID;
 using Terraria.ModLoader;
+using static Terraria.ModLoader.ModContent;
 
 namespace CrystiliumMod.Items.Placeable
 {
@@ -22,13 +23,13 @@ namespace CrystiliumMod.Items.Placeable
 			item.useTime = 10;
 			item.useStyle = 1;
 			item.consumable = true;
-			item.createTile = mod.TileType<Tiles.PolishedCrystal>();
+			item.createTile = TileType<Tiles.PolishedCrystal>();
 		}
 
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(mod.ItemType<CrystalBlock>(), 2);
+			recipe.AddIngredient(ItemType<CrystalBlock>(), 2);
 			recipe.AddTile(TileID.Anvils);
 			recipe.SetResult(this);
 			recipe.AddRecipe();

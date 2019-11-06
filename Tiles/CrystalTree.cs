@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
+using static Terraria.ModLoader.ModContent;
 
 namespace CrystiliumMod.Tiles
 {
@@ -20,7 +21,7 @@ namespace CrystiliumMod.Tiles
 
 		public override int CreateDust()
 		{
-			return mod.DustType<Dusts.CrystalDust>();
+			return DustType<Dusts.CrystalDust>();
 		}
 
 		public override int GrowthFXGore()
@@ -30,7 +31,7 @@ namespace CrystiliumMod.Tiles
 
 		public override int DropWood()
 		{
-			return mod.ItemType<Items.Placeable.CrystalWood>();
+			return ItemType<Items.Placeable.CrystalWood>();
 		}
 
 		public override Texture2D GetTexture()

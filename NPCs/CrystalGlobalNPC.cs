@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using static Terraria.ModLoader.ModContent;
 
 namespace CrystiliumMod.NPCs
 {
@@ -21,16 +22,16 @@ namespace CrystiliumMod.NPCs
 			if (spawnInfo.player.GetModPlayer<CrystalPlayer>().ZoneCrystal)
 			{
 				pool.Clear(); //remove ALL spawns here
-				pool.Add(mod.NPCType<CrystalElemental>(), 4f); // a modded enemy
-				pool.Add(mod.NPCType<CrystalArcher>(), 10f); // a modded enemy
-				pool.Add(mod.NPCType<CrystalSlime>(), 10f); // a modded enemy
-				pool.Add(mod.NPCType<CrystalZombie>(), 8f); // a modded enemy
+				pool.Add(NPCType<CrystalElemental>(), 4f); // a modded enemy
+				pool.Add(NPCType<CrystalArcher>(), 10f); // a modded enemy
+				pool.Add(NPCType<CrystalSlime>(), 10f); // a modded enemy
+				pool.Add(NPCType<CrystalZombie>(), 8f); // a modded enemy
 
 				if (Main.hardMode)
 				{
-					pool.Add(mod.NPCType<CrystalMimic>(), 0.1f); // another modded enemy
-					pool.Add(mod.NPCType<GeodeMonster>(), 13f); // another modded enemy
-					pool.Add(mod.NPCType<Prismancer>(), 13f); // another modded enemy
+					pool.Add(NPCType<CrystalMimic>(), 0.1f); // another modded enemy
+					pool.Add(NPCType<GeodeMonster>(), 13f); // another modded enemy
+					pool.Add(NPCType<Prismancer>(), 13f); // another modded enemy
 				}
 			}
 		}
@@ -40,9 +41,9 @@ namespace CrystiliumMod.NPCs
 			Player player = Main.LocalPlayer;
 			if (type == NPCID.Cyborg)
 			{
-				if (player.HasItem(mod.ItemType<Items.Weapons.Shatterocket>()))
+				if (player.HasItem(ItemType<Items.Weapons.Shatterocket>()))
 				{
-					shop.item[nextSlot].SetDefaults(mod.ItemType<Items.RPC>());
+					shop.item[nextSlot].SetDefaults(ItemType<Items.RPC>());
 					nextSlot++;
 				}
 			}

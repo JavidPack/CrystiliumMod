@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using static Terraria.ModLoader.ModContent;
 
 namespace CrystiliumMod.NPCs
 {
@@ -33,7 +34,7 @@ namespace CrystiliumMod.NPCs
 		public override float SpawnChance(NPCSpawnInfo spawnInfo)
 		{
 			if (Main.hardMode) //restrict spawning to Hardmode
-				return Main.tile[(int)(spawnInfo.spawnTileX), (int)(spawnInfo.spawnTileY)].type == mod.TileType<Tiles.CrystalBlock>() ? 13f : 0f;
+				return Main.tile[(int)(spawnInfo.spawnTileX), (int)(spawnInfo.spawnTileY)].type == TileType<Tiles.CrystalBlock>() ? 13f : 0f;
 			return 0f;
 		}
 
@@ -58,7 +59,7 @@ namespace CrystiliumMod.NPCs
 		{
 			if (Main.rand.Next(2) == 0)
 			{
-				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType<Items.EnchantedGeode>());
+				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, ItemType<Items.EnchantedGeode>());
 			}
 		}
 

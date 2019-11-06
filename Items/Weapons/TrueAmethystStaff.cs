@@ -3,6 +3,7 @@ using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using static Terraria.ModLoader.ModContent;
 
 namespace CrystiliumMod.Items.Weapons
 {
@@ -29,7 +30,7 @@ namespace CrystiliumMod.Items.Weapons
 			item.useStyle = 5; //How the weapon is held, 5 is the gun hold style
 			item.value = 120000; //How much the item is worth
 			item.rare = 8; //The rarity of the item
-			item.shoot = mod.ProjectileType<Projectiles.TrueAmethystProjectile>(); //What the item shoots, retains an int value
+			item.shoot = ProjectileType<Projectiles.TrueAmethystProjectile>(); //What the item shoots, retains an int value
 			item.shootSpeed = 1f; //How fast the projectile fires
 			item.mana = 3;
 			item.autoReuse = true; //Whether it automatically uses the item again after it's done being used/animated
@@ -38,9 +39,9 @@ namespace CrystiliumMod.Items.Weapons
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(mod.ItemType<Items.CrystiliumBar>(), 15);
-			recipe.AddIngredient(mod.ItemType<Items.Weapons.EnchantedAmethystStaff>());
-			recipe.AddIngredient(mod.ItemType<Items.BrokenStaff>());
+			recipe.AddIngredient(ItemType<Items.CrystiliumBar>(), 15);
+			recipe.AddIngredient(ItemType<Items.Weapons.EnchantedAmethystStaff>());
+			recipe.AddIngredient(ItemType<Items.BrokenStaff>());
 			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.SetResult(this);
 			recipe.AddRecipe();

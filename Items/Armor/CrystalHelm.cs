@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Terraria;
 using Terraria.ModLoader;
+using static Terraria.ModLoader.ModContent;
 
 namespace CrystiliumMod.Items.Armor
 {
@@ -32,7 +33,7 @@ namespace CrystiliumMod.Items.Armor
 
 		public override bool IsArmorSet(Item head, Item body, Item legs)
 		{
-			return body.type == mod.ItemType<CrystalBreastplate>() && legs.type == mod.ItemType<CrystalLeggings>();
+			return body.type == ItemType<CrystalBreastplate>() && legs.type == ItemType<CrystalLeggings>();
 		}
 
 		public override void UpdateArmorSet(Player player)
@@ -40,15 +41,15 @@ namespace CrystiliumMod.Items.Armor
 			player.setBonus = "Walking leaves behind damaging crystals";
 			if (player.moveSpeed != 0)
 			{
-				player.AddBuff(mod.BuffType<Buffs.CrystalLeak>(), 2);
+				player.AddBuff(BuffType<Buffs.CrystalLeak>(), 2);
 			}
 		}
 
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(mod.ItemType<Items.RadiantPrism>(), 10);
-			recipe.AddIngredient(mod.ItemType<Items.ShinyGemstone>(), 15);
+			recipe.AddIngredient(ItemType<Items.RadiantPrism>(), 10);
+			recipe.AddIngredient(ItemType<Items.ShinyGemstone>(), 15);
 			recipe.AddTile(Terraria.ID.TileID.Anvils);
 			recipe.SetResult(this);
 			recipe.AddRecipe();

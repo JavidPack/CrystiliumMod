@@ -3,6 +3,7 @@ using Terraria;
 using Terraria.DataStructures;
 using Terraria.Enums;
 using Terraria.ModLoader;
+using static Terraria.ModLoader.ModContent;
 using Terraria.ObjectData;
 
 namespace CrystiliumMod.Tiles
@@ -50,8 +51,7 @@ namespace CrystiliumMod.Tiles
 
 		public override void AnimateTile(ref int frame, ref int frameCounter)
 		{
-			frame = (frame + 1) % 6;
-			frameCounter = 0;
+			frame = Main.tileFrame[TileType<Fountain>()];
 		}
 	}
 }

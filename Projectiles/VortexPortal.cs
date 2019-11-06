@@ -1,6 +1,7 @@
 using System;
 using Terraria;
 using Terraria.ModLoader;
+using static Terraria.ModLoader.ModContent;
 
 namespace CrystiliumMod.Projectiles //We need this to basically indicate the folder where it is to be read from, so you the texture will load correctly
 {
@@ -63,7 +64,7 @@ namespace CrystiliumMod.Projectiles //We need this to basically indicate the fol
 					float velX = dirX * factor;
 					float velY = dirY * factor;
 					Main.PlaySound(2, (int)projectile.position.X, (int)projectile.position.Y, 13);
-					Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, velX, velY, mod.ProjectileType<VortexCrystal>(), projectile.damage + 1, 0, projectile.owner);
+					Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, velX, velY, ProjectileType<VortexCrystal>(), projectile.damage + 1, 0, projectile.owner);
 				}
 			}
 		}

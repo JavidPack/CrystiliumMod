@@ -1,5 +1,6 @@
 using Terraria.ID;
 using Terraria.ModLoader;
+using static Terraria.ModLoader.ModContent;
 
 namespace CrystiliumMod.Items.Weapons
 {
@@ -25,7 +26,7 @@ namespace CrystiliumMod.Items.Weapons
 			item.knockBack = 7.5F;
 			item.damage = 85;
 			item.noUseGraphic = true; // Do not use the item graphic when using the item (we just want the ball to spawn).
-			item.shoot = mod.ProjectileType<Projectiles.SlamboriteProj>();
+			item.shoot = ProjectileType<Projectiles.SlamboriteProj>();
 			item.shootSpeed = 15.1F;
 			item.UseSound = SoundID.Item1;
 			item.melee = true; // Deals melee damage.

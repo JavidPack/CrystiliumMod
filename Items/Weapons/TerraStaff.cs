@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using static Terraria.ModLoader.ModContent;
 
 namespace CrystiliumMod.Items.Weapons
 {
@@ -31,20 +32,20 @@ namespace CrystiliumMod.Items.Weapons
 			item.rare = 8;
 			item.UseSound = SoundID.Item20;
 			item.autoReuse = true;
-			item.shoot = mod.ProjectileType<AmberDagger>();
+			item.shoot = ProjectileType<AmberDagger>();
 			item.shootSpeed = 10f;
 		}
 
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(mod.ItemType<TrueRubyStaff>());
-			recipe.AddIngredient(mod.ItemType<TrueEmeraldStaff>());
-			recipe.AddIngredient(mod.ItemType<TrueDiamondStaff>());
-			recipe.AddIngredient(mod.ItemType<TrueSapphireStaff>());
-			recipe.AddIngredient(mod.ItemType<TrueAmethystStaff>());
-			recipe.AddIngredient(mod.ItemType<TrueTopazStaff>());
-			recipe.AddIngredient(mod.ItemType<TrueAmberStaff>());
+			recipe.AddIngredient(ItemType<TrueRubyStaff>());
+			recipe.AddIngredient(ItemType<TrueEmeraldStaff>());
+			recipe.AddIngredient(ItemType<TrueDiamondStaff>());
+			recipe.AddIngredient(ItemType<TrueSapphireStaff>());
+			recipe.AddIngredient(ItemType<TrueAmethystStaff>());
+			recipe.AddIngredient(ItemType<TrueTopazStaff>());
+			recipe.AddIngredient(ItemType<TrueAmberStaff>());
 			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.SetResult(this);
 			recipe.AddRecipe();
@@ -56,14 +57,14 @@ namespace CrystiliumMod.Items.Weapons
 			Vector2 newVect = origVect.RotatedBy(System.Math.PI / (Main.rand.Next(20) + 8));
 
 			//create the first two projectiles
-			Projectile.NewProjectile(position.X, position.Y, speedX, speedY, mod.ProjectileType<Projectiles.TrueGems.TerraGemProj>(), damage, knockBack, player.whoAmI, 0f, 1f);
-			Projectile.NewProjectile(position.X, position.Y, newVect.X, newVect.Y, mod.ProjectileType<Projectiles.TrueGems.TerraGemProj>(), damage, knockBack, player.whoAmI, 0f, 2f);
+			Projectile.NewProjectile(position.X, position.Y, speedX, speedY, ProjectileType<Projectiles.TrueGems.TerraGemProj>(), damage, knockBack, player.whoAmI, 0f, 1f);
+			Projectile.NewProjectile(position.X, position.Y, newVect.X, newVect.Y, ProjectileType<Projectiles.TrueGems.TerraGemProj>(), damage, knockBack, player.whoAmI, 0f, 2f);
 
 			//generate the remaining projectiles
 			for (int i = 3; i <= 7; i++)
 			{
 				Vector2 randVect2 = origVect.RotatedBy(-System.Math.PI / (Main.rand.Next(20) + 8));
-				Projectile.NewProjectile(position.X, position.Y, randVect2.X, randVect2.Y, mod.ProjectileType<Projectiles.TrueGems.TerraGemProj>(), damage, knockBack, player.whoAmI, 0f, i);
+				Projectile.NewProjectile(position.X, position.Y, randVect2.X, randVect2.Y, ProjectileType<Projectiles.TrueGems.TerraGemProj>(), damage, knockBack, player.whoAmI, 0f, i);
 			}
 			return false;
 		}

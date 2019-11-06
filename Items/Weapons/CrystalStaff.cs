@@ -1,6 +1,7 @@
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using static Terraria.ModLoader.ModContent;
 
 namespace CrystiliumMod.Items.Weapons
 {
@@ -29,7 +30,7 @@ namespace CrystiliumMod.Items.Weapons
 			item.rare = 3;
 			item.UseSound = SoundID.Item20;
 			item.autoReuse = true;
-			item.shoot = mod.ProjectileType<Projectiles.CrystalBomb>();
+			item.shoot = ProjectileType<Projectiles.CrystalBomb>();
 			item.shootSpeed = 8f;
 		}
 	}

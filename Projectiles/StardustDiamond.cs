@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
+using static Terraria.ModLoader.ModContent;
 
 namespace CrystiliumMod.Projectiles
 {
@@ -77,7 +78,7 @@ namespace CrystiliumMod.Projectiles
 			{
 				//spawn the arrow centered on the bow (this code aligns the centers :3)
 				Vector2 vel = projectile.DirectionTo(target.Center);
-				int proj = Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, vel.X * 10, vel.Y * 10, mod.ProjectileType<StardustCrystal>(), projectile.damage, projectile.knockBack, projectile.owner);
+				int proj = Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, vel.X * 10, vel.Y * 10, ProjectileType<StardustCrystal>(), projectile.damage, projectile.knockBack, projectile.owner);
 				Projectile newProj = Main.projectile[proj];
 				newProj.position += projectile.Center - newProj.Center;
 

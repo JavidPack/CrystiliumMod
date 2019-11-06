@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using static Terraria.ModLoader.ModContent;
 
 namespace CrystiliumMod.Items.Placeable
 {
@@ -26,7 +27,7 @@ namespace CrystiliumMod.Items.Placeable
 			item.useTime = 10;
 			item.useStyle = 1;
 			item.consumable = true;
-			item.createTile = mod.TileType<Tiles.CrystalWoodTorch>();
+			item.createTile = TileType<Tiles.CrystalWoodTorch>();
 			item.flame = true;
 			item.value = 50;
 		}
@@ -35,7 +36,7 @@ namespace CrystiliumMod.Items.Placeable
 		{
 			if (Main.rand.Next(player.itemAnimation > 0 ? 40 : 80) == 0)
 			{
-				Dust.NewDust(new Vector2(player.itemLocation.X + 16f * player.direction, player.itemLocation.Y - 14f * player.gravDir), 4, 4, mod.DustType<Dusts.Sparkle>());
+				Dust.NewDust(new Vector2(player.itemLocation.X + 16f * player.direction, player.itemLocation.Y - 14f * player.gravDir), 4, 4, DustType<Dusts.Sparkle>());
 			}
 			Vector2 position = player.RotatedRelativePoint(new Vector2(player.itemLocation.X + 12f * player.direction + player.velocity.X, player.itemLocation.Y - 14f + player.velocity.Y), true);
 			Lighting.AddLight(position, 1f, 1f, 1f);
@@ -58,7 +59,7 @@ namespace CrystiliumMod.Items.Placeable
 		{
 			ModRecipe recipe = new ModRecipe(mod);
 			recipe.AddIngredient(ItemID.Torch, 3);
-			recipe.AddIngredient(mod.ItemType<CrystalWood>());
+			recipe.AddIngredient(ItemType<CrystalWood>());
 			recipe.SetResult(this, 3);
 			recipe.AddRecipe();
 		}

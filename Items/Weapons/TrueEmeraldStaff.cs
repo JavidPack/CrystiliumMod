@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using static Terraria.ModLoader.ModContent;
 
 namespace CrystiliumMod.Items.Weapons
 {
@@ -30,16 +31,16 @@ namespace CrystiliumMod.Items.Weapons
 			item.rare = 8; //The rarity of the item
 			item.UseSound = SoundID.Item20;
 			item.autoReuse = true;
-			item.shoot = mod.ProjectileType<Projectiles.AmberDagger>();
+			item.shoot = ProjectileType<Projectiles.AmberDagger>();
 			item.shootSpeed = 8f;
 		}
 
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(mod.ItemType<Items.CrystiliumBar>(), 15);
-			recipe.AddIngredient(mod.ItemType<Items.Weapons.EnchantedEmeraldStaff>());
-			recipe.AddIngredient(mod.ItemType<Items.BrokenStaff>());
+			recipe.AddIngredient(ItemType<Items.CrystiliumBar>(), 15);
+			recipe.AddIngredient(ItemType<Items.Weapons.EnchantedEmeraldStaff>());
+			recipe.AddIngredient(ItemType<Items.BrokenStaff>());
 			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.SetResult(this);
 			recipe.AddRecipe();
@@ -47,7 +48,7 @@ namespace CrystiliumMod.Items.Weapons
 
 		public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
 		{
-			Projectile.NewProjectile(position.X, position.Y, speedX + Main.rand.Next(-3, 3), speedY + Main.rand.Next(-3, 3), mod.ProjectileType<Projectiles.TrueLeaf>(), damage, knockBack, player.whoAmI, 0f, 0f);
+			Projectile.NewProjectile(position.X, position.Y, speedX + Main.rand.Next(-3, 3), speedY + Main.rand.Next(-3, 3), ProjectileType<Projectiles.TrueLeaf>(), damage, knockBack, player.whoAmI, 0f, 0f);
 			return false;
 		}
 	}

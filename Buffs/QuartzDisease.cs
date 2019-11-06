@@ -1,6 +1,7 @@
 using CrystiliumMod.Projectiles;
 using Terraria;
 using Terraria.ModLoader;
+using static Terraria.ModLoader.ModContent;
 
 namespace CrystiliumMod.Buffs
 {
@@ -26,9 +27,9 @@ namespace CrystiliumMod.Buffs
 				int random = Main.rand.Next(2);
 				if (random == 0)
 				{
-					Projectile.NewProjectile((npc.Center.X - 100) + Main.rand.Next(200), (npc.Center.Y - 100) + Main.rand.Next(200), 0f, 0f, mod.ProjectileType<QuartzInfectant>(), 24/* this is damage */, 0, Main.myPlayer);
-					Projectile.NewProjectile((npc.Center.X - 100) + Main.rand.Next(200), (npc.Center.Y - 100) + Main.rand.Next(200), 0f, 0f, mod.ProjectileType<QuartzInfectant>(), 24/* this is damage */, 0, Main.myPlayer);
-					Projectile.NewProjectile((npc.Center.X - 100) + Main.rand.Next(200), (npc.Center.Y - 100) + Main.rand.Next(200), 0f, 0f, mod.ProjectileType<QuartzInfectant>(), 24/* this is damage */, 0, Main.myPlayer);
+					Projectile.NewProjectile((npc.Center.X - 100) + Main.rand.Next(200), (npc.Center.Y - 100) + Main.rand.Next(200), 0f, 0f, ProjectileType<QuartzInfectant>(), 24/* this is damage */, 0, Main.myPlayer);
+					Projectile.NewProjectile((npc.Center.X - 100) + Main.rand.Next(200), (npc.Center.Y - 100) + Main.rand.Next(200), 0f, 0f, ProjectileType<QuartzInfectant>(), 24/* this is damage */, 0, Main.myPlayer);
+					Projectile.NewProjectile((npc.Center.X - 100) + Main.rand.Next(200), (npc.Center.Y - 100) + Main.rand.Next(200), 0f, 0f, ProjectileType<QuartzInfectant>(), 24/* this is damage */, 0, Main.myPlayer);
 				}
 			}
 		}

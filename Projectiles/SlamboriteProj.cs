@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
 using Terraria.ModLoader;
+using static Terraria.ModLoader.ModContent;
 
 namespace CrystiliumMod.Projectiles
 {
@@ -28,15 +29,15 @@ namespace CrystiliumMod.Projectiles
 
 		// Now this is where the chain magic happens. You don't have to try to figure this whole thing out.
 		// Just make sure that you edit the first line (which starts with 'Texture2D texture') correctly.
-		public override bool PreDraw(Microsoft.Xna.Framework.Graphics.SpriteBatch spriteBatch, Color lightColor)
+		public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
 		{
 			// So set the correct path here to load the chain texture. 'YourModName' is of course the name of your mod.
 			// Then into the Projectiles folder and take the texture that is called 'CustomFlailBall_Chain'.
-			Texture2D texture = ModLoader.GetTexture("CrystiliumMod/Projectiles/SlamboriteChain");
+			Texture2D texture = ModContent.GetTexture("CrystiliumMod/Projectiles/SlamboriteChain");
 
 			Vector2 position = projectile.Center;
 			Vector2 mountedCenter = Main.player[projectile.owner].MountedCenter;
-			Microsoft.Xna.Framework.Rectangle? sourceRectangle = new Microsoft.Xna.Framework.Rectangle?();
+			Rectangle? sourceRectangle = new Microsoft.Xna.Framework.Rectangle?();
 			Vector2 origin = new Vector2((float)texture.Width * 0.5f, (float)texture.Height * 0.5f);
 			float num1 = (float)texture.Height;
 			Vector2 vector2_4 = mountedCenter - position;
@@ -58,7 +59,7 @@ namespace CrystiliumMod.Projectiles
 					vector2_1.Normalize();
 					position += vector2_1 * num1;
 					vector2_4 = mountedCenter - position;
-					Microsoft.Xna.Framework.Color color2 = Lighting.GetColor((int)position.X / 16, (int)((double)position.Y / 16.0));
+					Color color2 = Lighting.GetColor((int)position.X / 16, (int)((double)position.Y / 16.0));
 					color2 = projectile.GetAlpha(color2);
 					Main.spriteBatch.Draw(texture, position - Main.screenPosition, sourceRectangle, color2, rotation, origin, 1.35f, SpriteEffects.None, 0.0f);
 				}
@@ -76,7 +77,7 @@ namespace CrystiliumMod.Projectiles
 				float rand = Main.rand.NextFloat() * 6.283f;
 				vel = vel.RotatedBy(rand);
 				vel *= 5f;
-				Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y + 20, vel.X, vel.Y, mod.ProjectileType<ShatterGems.GemstoneFlailProj>(), projectile.damage - (projectile.damage / 3), 0, projectile.owner, 0, Main.rand.Next(1, 8));
+				Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y + 20, vel.X, vel.Y, ProjectileType<ShatterGems.GemstoneFlailProj>(), projectile.damage - (projectile.damage / 3), 0, projectile.owner, 0, Main.rand.Next(1, 8));
 			}
 		}
 	}

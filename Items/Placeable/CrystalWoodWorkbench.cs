@@ -1,5 +1,6 @@
 using Terraria.ID;
 using Terraria.ModLoader;
+using static Terraria.ModLoader.ModContent;
 
 namespace CrystiliumMod.Items.Placeable
 {
@@ -23,13 +24,13 @@ namespace CrystiliumMod.Items.Placeable
 			item.useStyle = 1;
 			item.consumable = true;
 			item.value = 500;
-			item.createTile = mod.TileType<Tiles.CrystalWoodWorkbench>();
+			item.createTile = TileType<Tiles.CrystalWoodWorkbench>();
 		}
 
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(mod.ItemType<CrystalWood>(), 10);
+			recipe.AddIngredient(ItemType<CrystalWood>(), 10);
 			recipe.AddTile(TileID.WorkBenches);
 			recipe.SetResult(this);
 			recipe.AddRecipe();

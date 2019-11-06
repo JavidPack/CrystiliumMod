@@ -3,6 +3,7 @@ using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using static Terraria.ModLoader.ModContent;
 
 namespace CrystiliumMod.NPCs
 {
@@ -32,7 +33,7 @@ namespace CrystiliumMod.NPCs
 		public override float SpawnChance(NPCSpawnInfo spawnInfo)
 		{
 			if (Main.hardMode) //restrict spawning to Hardmode
-				return Main.tile[(int)(spawnInfo.spawnTileX), (int)(spawnInfo.spawnTileY)].type == mod.TileType<Tiles.CrystalBlock>() ? 13f : 0f;
+				return Main.tile[(int)(spawnInfo.spawnTileX), (int)(spawnInfo.spawnTileY)].type == TileType<Tiles.CrystalBlock>() ? 13f : 0f;
 			return 0f;
 		}
 
@@ -43,7 +44,7 @@ namespace CrystiliumMod.NPCs
 				//spawn shard gores (6 of them, 3 of each)
 				for (int i = 0; i < 3; i++)
 				{
-					Dust.NewDust(npc.position, npc.width, npc.height, mod.DustType<Dusts.Sparkle>(), (float)Main.rand.Next(-3, 3), (float)Main.rand.Next(-3, 3), 0);
+					Dust.NewDust(npc.position, npc.width, npc.height, DustType<Dusts.Sparkle>(), (float)Main.rand.Next(-3, 3), (float)Main.rand.Next(-3, 3), 0);
 				}
 			}
 		}
@@ -52,7 +53,7 @@ namespace CrystiliumMod.NPCs
 		{
 			if (Main.rand.Next(2) == 0)
 			{
-				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType<Items.EnchantedGeode>());
+				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, ItemType<Items.EnchantedGeode>());
 			}
 		}
 
@@ -86,11 +87,11 @@ namespace CrystiliumMod.NPCs
 			{
 				if (Main.player[npc.target].Center.Y <= npc.Center.Y)
 				{
-					Projectile.NewProjectile(npc.Center.X, npc.Center.Y, 0 - (TrajectoryX * 7), 0 - (TrajectoryY * 7), mod.ProjectileType<Projectiles.CrystalKing.CultistFire>(), 40, 0f, npc.target);
+					Projectile.NewProjectile(npc.Center.X, npc.Center.Y, 0 - (TrajectoryX * 7), 0 - (TrajectoryY * 7), ProjectileType<Projectiles.CrystalKing.CultistFire>(), 40, 0f, npc.target);
 				}
 				else if (Main.player[npc.target].Center.Y > npc.Center.Y)
 				{
-					Projectile.NewProjectile(npc.Center.X, npc.Center.Y, (TrajectoryX * 7), TrajectoryY * 7, mod.ProjectileType<Projectiles.CrystalKing.CultistFire>(), 40, 0f, npc.target);
+					Projectile.NewProjectile(npc.Center.X, npc.Center.Y, (TrajectoryX * 7), TrajectoryY * 7, ProjectileType<Projectiles.CrystalKing.CultistFire>(), 40, 0f, npc.target);
 				}
 			}
 

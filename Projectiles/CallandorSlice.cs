@@ -3,6 +3,7 @@ using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using static Terraria.ModLoader.ModContent;
 
 namespace CrystiliumMod.Projectiles
 {
@@ -14,7 +15,7 @@ namespace CrystiliumMod.Projectiles
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("CallandorSlice");
-			Main.projFrames[mod.ProjectileType<CallandorSlice>()] = 28;
+			Main.projFrames[ProjectileType<CallandorSlice>()] = 28;
 		}
 
 		public override void SetDefaults()
@@ -71,7 +72,7 @@ namespace CrystiliumMod.Projectiles
 		//	 Player player = Main.player[projectile.owner];
 		//	 float num = 1.57079637f;
 		//	 Vector2 vector = player.RotatedRelativePoint(player.MountedCenter, true);
-		//	 if (projectile.type == mod.ProjectileType<CallandorSlice>())
+		//	 if (projectile.type == ProjectileType<CallandorSlice>())
 		//	 {
 		//		  num = 0f;
 		//		  if (projectile.spriteDirection == -1)

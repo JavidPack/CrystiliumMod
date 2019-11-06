@@ -6,6 +6,7 @@ using Terraria.Enums;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
+using static Terraria.ModLoader.ModContent;
 using Terraria.ObjectData;
 
 namespace CrystiliumMod.Tiles
@@ -38,7 +39,7 @@ namespace CrystiliumMod.Tiles
 			disableSmartCursor = true;
 			adjTiles = new int[] { TileID.Containers };
 			chest = "CrystalWood Chest";
-			chestDrop = mod.ItemType<Items.Placeable.CrystalWoodChest>();
+			chestDrop = ItemType<Items.Placeable.CrystalWoodChest>();
 		}
 
 		public string MapChestName(string name, int i, int j)
@@ -173,7 +174,7 @@ namespace CrystiliumMod.Tiles
 				player.showItemIconText = Main.chest[chest].name.Length > 0 ? Main.chest[chest].name : "CrystalWood Chest";
 				if (player.showItemIconText == "CrystalWood Chest")
 				{
-					player.showItemIcon2 = mod.ItemType<Items.Placeable.CrystalWoodChest>();
+					player.showItemIcon2 = ItemType<Items.Placeable.CrystalWoodChest>();
 					player.showItemIconText = "";
 				}
 			}

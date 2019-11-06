@@ -1,5 +1,6 @@
 using Terraria;
 using Terraria.ModLoader;
+using static Terraria.ModLoader.ModContent;
 
 namespace CrystiliumMod.Projectiles
 {
@@ -30,7 +31,7 @@ namespace CrystiliumMod.Projectiles
 
 		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
 		{
-			target.AddBuff(mod.BuffType<Buffs.QuartzDisease>(), 500);
+			target.AddBuff(BuffType<Buffs.QuartzDisease>(), 500);
 		}
 	}
 }

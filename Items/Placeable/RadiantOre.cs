@@ -1,5 +1,6 @@
 using Terraria.ID;
 using Terraria.ModLoader;
+using static Terraria.ModLoader.ModContent;
 
 namespace CrystiliumMod.Items.Placeable
 {
@@ -23,7 +24,7 @@ namespace CrystiliumMod.Items.Placeable
 			item.useTime = 10;
 			item.useStyle = 1;
 			item.consumable = true;
-			item.createTile = mod.TileType<Tiles.RadiantOre>();
+			item.createTile = TileType<Tiles.RadiantOre>();
 		}
 	}
 }

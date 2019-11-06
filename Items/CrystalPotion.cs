@@ -1,5 +1,6 @@
 using Terraria.ID;
 using Terraria.ModLoader;
+using static Terraria.ModLoader.ModContent;
 
 namespace CrystiliumMod.Items
 {
@@ -22,7 +23,7 @@ namespace CrystiliumMod.Items
 			item.consumable = true;
 			item.value = 3000;
 			item.rare = 0;
-			item.buffType = mod.BuffType<Buffs.CrystalLeak>();
+			item.buffType = BuffType<Buffs.CrystalLeak>();
 			item.buffTime = 10000;
 			return;
 		}
@@ -30,8 +31,8 @@ namespace CrystiliumMod.Items
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(mod.ItemType<CrystalBottleWater>());
-			recipe.AddIngredient(mod.ItemType<ShinyGemstone>());
+			recipe.AddIngredient(ItemType<CrystalBottleWater>());
+			recipe.AddIngredient(ItemType<ShinyGemstone>());
 			recipe.AddIngredient(ItemID.Moonglow);
 			recipe.AddIngredient(ItemID.Diamond);
 			recipe.AddTile(TileID.Bottles);

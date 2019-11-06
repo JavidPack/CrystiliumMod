@@ -2,6 +2,7 @@ using CrystiliumMod.Projectiles;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
+using static Terraria.ModLoader.ModContent;
 
 namespace CrystiliumMod.Items.Weapons
 {
@@ -28,7 +29,7 @@ namespace CrystiliumMod.Items.Weapons
 			item.autoReuse = false;
 			item.noMelee = true;
 			item.melee = true;
-			item.shoot = mod.ProjectileType<CallandorSlice>();
+			item.shoot = ProjectileType<CallandorSlice>();
 			item.shootSpeed = 15f;
 			item.value = 100000;
 			item.rare = 7;
@@ -36,7 +37,7 @@ namespace CrystiliumMod.Items.Weapons
 
 		public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
 		{
-			int p = Projectile.NewProjectile(position.X, position.Y, speedX, speedY, mod.ProjectileType<CallandorSlice>(), damage, knockBack, player.whoAmI);
+			int p = Projectile.NewProjectile(position.X, position.Y, speedX, speedY, ProjectileType<CallandorSlice>(), damage, knockBack, player.whoAmI);
 			Main.projectile[p].scale = 1f;
 			return false;
 		}

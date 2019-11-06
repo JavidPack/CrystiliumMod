@@ -1,6 +1,7 @@
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using static Terraria.ModLoader.ModContent;
 
 namespace CrystiliumMod.Items
 {
@@ -29,7 +30,7 @@ namespace CrystiliumMod.Items
 			ModRecipe recipe = new ModRecipe(mod);
 			recipe.AddIngredient(ItemID.Ectoplasm, 10);
 			recipe.AddIngredient(ItemID.CrystalShard, 10);
-			recipe.AddIngredient(mod.ItemType<EnchantedGeode>(), 5);
+			recipe.AddIngredient(ItemType<EnchantedGeode>(), 5);
 			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.SetResult(this);
 			recipe.AddRecipe();

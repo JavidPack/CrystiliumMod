@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using static Terraria.ModLoader.ModContent;
 
 namespace CrystiliumMod.Items.Weapons
 {
@@ -24,8 +25,8 @@ namespace CrystiliumMod.Items.Weapons
 			item.autoReuse = true;
 			item.useTime = 10;
 			item.useAnimation = 20;
-			item.shoot = mod.ProjectileType<Projectiles.RPC>();
-			item.useAmmo = mod.ItemType<RPC>();
+			item.shoot = ProjectileType<Projectiles.RPC>();
+			item.useAmmo = ItemType<RPC>();
 		}
 
 		public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
@@ -33,15 +34,15 @@ namespace CrystiliumMod.Items.Weapons
 			switch (Main.rand.Next(3))
 			{
 				case (0):
-					Projectile.NewProjectile(position.X, position.Y, speedX, speedY, mod.ProjectileType<Projectiles.RPC>(), damage, knockBack, player.whoAmI);
+					Projectile.NewProjectile(position.X, position.Y, speedX, speedY, ProjectileType<Projectiles.RPC>(), damage, knockBack, player.whoAmI);
 					break;
 
 				case (1):
-					Projectile.NewProjectile(position.X, position.Y, speedX, speedY, mod.ProjectileType<Projectiles.RPC>(), damage * 2, knockBack, player.whoAmI, 0, 1);
+					Projectile.NewProjectile(position.X, position.Y, speedX, speedY, ProjectileType<Projectiles.RPC>(), damage * 2, knockBack, player.whoAmI, 0, 1);
 					break;
 
 				case (2):
-					Projectile.NewProjectile(position.X, position.Y, speedX * 2, speedY * 2, mod.ProjectileType<Projectiles.RPC>(), damage, knockBack, player.whoAmI, 0, 2);
+					Projectile.NewProjectile(position.X, position.Y, speedX * 2, speedY * 2, ProjectileType<Projectiles.RPC>(), damage, knockBack, player.whoAmI, 0, 2);
 					break;
 			}
 			return false;

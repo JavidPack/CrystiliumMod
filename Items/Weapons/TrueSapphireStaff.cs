@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using static Terraria.ModLoader.ModContent;
 
 namespace CrystiliumMod.Items.Weapons
 {
@@ -37,9 +38,9 @@ namespace CrystiliumMod.Items.Weapons
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(mod.ItemType<Items.CrystiliumBar>(), 15);
-			recipe.AddIngredient(mod.ItemType<Items.Weapons.EnchantedSapphireStaff>());
-			recipe.AddIngredient(mod.ItemType<Items.BrokenStaff>());
+			recipe.AddIngredient(ItemType<Items.CrystiliumBar>(), 15);
+			recipe.AddIngredient(ItemType<Items.Weapons.EnchantedSapphireStaff>());
+			recipe.AddIngredient(ItemType<Items.BrokenStaff>());
 			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.SetResult(this);
 			recipe.AddRecipe();
@@ -50,8 +51,8 @@ namespace CrystiliumMod.Items.Weapons
 			if (Main.myPlayer == player.whoAmI)
 			{
 				Vector2 mouse = Main.MouseWorld;
-				Projectile.NewProjectile(mouse.X + Main.rand.Next(-80, 80), player.Center.Y - 350 + Main.rand.Next(-50, 50), 0, 20, mod.ProjectileType<Projectiles.SapphireDroplet>(), damage, knockBack, player.whoAmI);
-				Projectile.NewProjectile(mouse.X + Main.rand.Next(-80, 80), player.Center.Y - 350 + Main.rand.Next(-50, 50), 0, 20, mod.ProjectileType<Projectiles.SapphireDroplet>(), damage, knockBack, player.whoAmI);
+				Projectile.NewProjectile(mouse.X + Main.rand.Next(-80, 80), player.Center.Y - 350 + Main.rand.Next(-50, 50), 0, 20, ProjectileType<Projectiles.SapphireDroplet>(), damage, knockBack, player.whoAmI);
+				Projectile.NewProjectile(mouse.X + Main.rand.Next(-80, 80), player.Center.Y - 350 + Main.rand.Next(-50, 50), 0, 20, ProjectileType<Projectiles.SapphireDroplet>(), damage, knockBack, player.whoAmI);
 			}
 			return false;
 		}

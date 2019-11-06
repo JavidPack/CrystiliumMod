@@ -6,6 +6,7 @@ using Terraria.Enums;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
+using static Terraria.ModLoader.ModContent;
 using Terraria.ObjectData;
 
 namespace CrystiliumMod.Tiles
@@ -34,7 +35,10 @@ namespace CrystiliumMod.Tiles
 			ModTranslation name = CreateMapEntryName();
 			name.SetDefault("Crystal Chest");
 			AddMapEntry(new Color(124, 83, 166), name, MapChestName);
-			dustType = mod.DustType<Dusts.Sparkle>();
+			name = CreateMapEntryName(Name + "_Locked");
+			name.SetDefault("Locked Crystal Chest");
+			AddMapEntry(new Color(124, 83, 166), name, MapChestName);
+			dustType = DustType<Dusts.Sparkle>();
 			disableSmartCursor = true;
 			adjTiles = new int[] { TileID.Containers };
 			chest = "Crystal Chest";
@@ -54,8 +58,10 @@ namespace CrystiliumMod.Tiles
 				top--;
 			}
 			int chest = Chest.FindChest(left, top);
-			// TODO Someone reported error here?
-			if (Main.chest[chest].name == "")
+			if (chest < 0) {
+				return Language.GetTextValue("LegacyChestType.0");
+			}
+			else if (Main.chest[chest].name == "")
 			{
 				return name;
 			}
@@ -63,6 +69,21 @@ namespace CrystiliumMod.Tiles
 			{
 				return name + ": " + Main.chest[chest].name;
 			}
+		}
+
+		public override ushort GetMapOption(int i, int j) {
+			int style = Main.tile[i, j].frameX / 36;
+			// MapOption don't match up with styles, since 0 and 2 were used.
+			return (ushort)(style == 0 ? 0 : 1);
+		}
+
+		public override bool HasSmartInteract() => true;
+
+		public override bool IsLockedChest(int i, int j) => Main.tile[i, j].frameX / 36 == 2;
+
+		public override bool UnlockChest(int i, int j, ref short frameXAdjustment, ref int dustType, ref bool manual) {
+			frameXAdjustment = -72;
+			return true;
 		}
 
 		public override void NumDust(int i, int j, bool fail, ref int num)
@@ -88,99 +109,89 @@ namespace CrystiliumMod.Tiles
 
 		public override void KillMultiTile(int i, int j, int frameX, int frameY)
 		{
-			Item.NewItem(i * 16, j * 16, 32, 32, mod.ItemType<Items.Placeable.CrystalChest>());
+			Item.NewItem(i * 16, j * 16, 32, 32, ItemType<Items.Placeable.CrystalChest>());
 			Chest.DestroyChest(i, j);
 		}
 
-		public override void RightClick(int i, int j)
+		public override bool NewRightClick(int i, int j)
 		{
 			Player player = Main.LocalPlayer;
-			for (int num66 = 0; num66 < 58; num66++)
-			{
-				if (player.inventory[num66].type == mod.ItemType<Items.CrystalKey>() && player.inventory[num66].stack > 0)
-				{
-					/* player.inventory[num66].stack--; */
-					Chest.Unlock(i, j);
-					Chest.Unlock(i - 1, j - 1);
-					Chest.Unlock(i, j - 1);
-					Chest.Unlock(i - 1, j);
-					/*	  if (player.inventory[num66].stack <= 0)
-						 {
-							 player.inventory[num66] = new Item();
-						 } */
-				}
-			}
-
 			Tile tile = Main.tile[i, j];
-			if (tile.frameX != 72 && tile.frameX != 90)
+			Main.mouseRightRelease = false;
+			int left = i;
+			int top = j;
+			if (tile.frameX % 36 != 0)
 			{
-				Main.mouseRightRelease = false;
-				int left = i;
-				int top = j;
-				if (tile.frameX % 36 != 0)
+				left--;
+			}
+			if (tile.frameY != 0)
+			{
+				top--;
+			}
+			if (player.sign >= 0)
+			{
+				Main.PlaySound(SoundID.MenuClose);
+				player.sign = -1;
+				Main.editSign = false;
+				Main.npcChatText = "";
+			}
+			if (Main.editChest)
+			{
+				Main.PlaySound(SoundID.MenuTick);
+				Main.editChest = false;
+				Main.npcChatText = "";
+			}
+			if (player.editedChestName)
+			{
+				NetMessage.SendData(33, -1, -1, NetworkText.FromLiteral(Main.chest[player.chest].name), player.chest, 1f, 0f, 0f, 0, 0, 0);
+				player.editedChestName = false;
+			}
+			bool isLocked = IsLockedChest(left, top);
+			if (Main.netMode == 1 && !isLocked)
+			{
+				if (left == player.chestX && top == player.chestY && player.chest >= 0)
 				{
-					left--;
-				}
-				if (tile.frameY != 0)
-				{
-					top--;
-				}
-				if (player.sign >= 0)
-				{
-					Main.PlaySound(11, -1, -1, 1);
-					player.sign = -1;
-					Main.editSign = false;
-					Main.npcChatText = "";
-				}
-				if (Main.editChest)
-				{
-					Main.PlaySound(12, -1, -1, 1);
-					Main.editChest = false;
-					Main.npcChatText = "";
-				}
-				if (player.editedChestName)
-				{
-					NetMessage.SendData(33, -1, -1, NetworkText.FromLiteral(Main.chest[player.chest].name), player.chest, 1f, 0f, 0f, 0, 0, 0);
-					player.editedChestName = false;
-				}
-				if (Main.netMode == 1)
-				{
-					if (left == player.chestX && top == player.chestY && player.chest >= 0)
-					{
-						player.chest = -1;
-						Recipe.FindRecipes();
-						Main.PlaySound(11, -1, -1, 1);
-					}
-					else
-					{
-						NetMessage.SendData(31, -1, -1, null, left, (float)top, 0f, 0f, 0, 0, 0);
-						Main.stackSplit = 600;
-					}
+					player.chest = -1;
+					Recipe.FindRecipes();
+					Main.PlaySound(SoundID.MenuClose);
 				}
 				else
 				{
-					int chest = Chest.FindChest(left, top);
-					if (chest >= 0)
-					{
-						Main.stackSplit = 600;
-						if (chest == player.chest)
-						{
-							player.chest = -1;
-							Main.PlaySound(11, -1, -1, 1);
+					NetMessage.SendData(31, -1, -1, null, left, (float)top, 0f, 0f, 0, 0, 0);
+					Main.stackSplit = 600;
+				}
+			}
+			else
+			{
+				if (isLocked) {
+					int key = ItemType<Items.CrystalKey>();
+					if (player.ConsumeItem(key) && Chest.Unlock(left, top)) {
+						if (Main.netMode == 1) {
+							NetMessage.SendData(MessageID.Unlock, -1, -1, null, player.whoAmI, 1f, (float)left, (float)top);
 						}
-						else
-						{
+					}
+				}
+				else {
+					int chest = Chest.FindChest(left, top);
+					if (chest >= 0) {
+						Main.stackSplit = 600;
+						if (chest == player.chest) {
+							player.chest = -1;
+							Main.PlaySound(SoundID.MenuClose);
+						}
+						else {
 							player.chest = chest;
 							Main.playerInventory = true;
 							Main.recBigList = false;
 							player.chestX = left;
 							player.chestY = top;
-							Main.PlaySound(player.chest < 0 ? 10 : 12, -1, -1, 1);
+							Main.PlaySound(player.chest < 0 ? SoundID.MenuOpen : SoundID.MenuTick);
 						}
 						Recipe.FindRecipes();
 					}
 				}
 			}
+			return true;
 		}
 
 		public override void MouseOver(int i, int j)
@@ -201,22 +212,17 @@ namespace CrystiliumMod.Tiles
 			player.showItemIcon2 = -1;
 			if (chest < 0)
 			{
-				player.showItemIconText = Lang.chestType[0].Value;
+				player.showItemIconText = Language.GetTextValue("LegacyChestType.0");
 			}
 			else
 			{
 				player.showItemIconText = Main.chest[chest].name.Length > 0 ? Main.chest[chest].name : "Crystal Chest";
 				if (player.showItemIconText == "Crystal Chest")
 				{
-					if (tile.frameX == 72 || tile.frameX == 90)
-					{
-						player.showItemIcon2 = mod.ItemType<Items.CrystalKey>();
-						player.showItemIconText = "";
-					}
-					else
-					{
-						player.showItemIcon2 = mod.ItemType<Items.Placeable.CrystalChest>();
-					}
+					player.showItemIcon2 = ItemType<Items.Placeable.CrystalChest>();
+					if (Main.tile[left, top].frameX / 36 == 2)
+						player.showItemIcon2 = ItemType<Items.CrystalKey>();
+					player.showItemIconText = "";
 				}
 			}
 			player.noThrow = 2;

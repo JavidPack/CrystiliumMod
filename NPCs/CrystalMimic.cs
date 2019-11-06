@@ -1,6 +1,7 @@
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using static Terraria.ModLoader.ModContent;
 
 namespace CrystiliumMod.NPCs
 {
@@ -32,16 +33,16 @@ namespace CrystiliumMod.NPCs
 		{
 			//only spawn in hardmode AND after any mech boss
 			if (Main.hardMode && NPC.downedMechBossAny)
-				return Main.tile[(int)(spawnInfo.spawnTileX), (int)(spawnInfo.spawnTileY)].type == mod.TileType<Tiles.CrystalBlock>() ? 3f : 0f;
+				return Main.tile[(int)(spawnInfo.spawnTileX), (int)(spawnInfo.spawnTileY)].type == TileType<Tiles.CrystalBlock>() ? 3f : 0f;
 			return 0f;
 		}
 
 		public override void NPCLoot()
 		{
 			//TODO, this use to reference an item called CrystalCharm, was it suppose to be CrystiliumHelmet? Also, old commented out code had GEM but didn't have PrismaticBoomstick or "CrystalCharm"/CrystiliumHelmet
-			int[] lootTable = { mod.ItemType<Items.Accessories.CrystalMonocle>(), mod.ItemType<Items.Weapons.PrismBlade>(), mod.ItemType<Items.Weapons.Gemshot>(),
-				mod.ItemType<Items.Weapons.Crystishae>(), mod.ItemType<Items.Weapons.QuartzBlade>(), mod.ItemType<Items.Weapons.DiamondSceptor>(),
-				mod.ItemType<Items.Weapons.ManaDrainer>(), mod.ItemType<Items.Armor.CrystiliumHelmet>(), mod.ItemType<Items.Weapons.PrismaticBoomstick>()};
+			int[] lootTable = { ItemType<Items.Accessories.CrystalMonocle>(), ItemType<Items.Weapons.PrismBlade>(), ItemType<Items.Weapons.Gemshot>(),
+				ItemType<Items.Weapons.Crystishae>(), ItemType<Items.Weapons.QuartzBlade>(), ItemType<Items.Weapons.DiamondSceptor>(),
+				ItemType<Items.Weapons.ManaDrainer>(), ItemType<Items.Armor.CrystiliumHelmet>(), ItemType<Items.Weapons.PrismaticBoomstick>()};
 			int loot = lootTable[Main.rand.Next(lootTable.Length)];
 			Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, loot);
 		}

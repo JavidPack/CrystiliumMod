@@ -1,5 +1,6 @@
 using Terraria.ID;
 using Terraria.ModLoader;
+using static Terraria.ModLoader.ModContent;
 
 namespace CrystiliumMod.Items.Placeable
 {
@@ -21,13 +22,13 @@ namespace CrystiliumMod.Items.Placeable
 			item.useTime = 7;
 			item.useStyle = 1;
 			item.consumable = true;
-			item.createWall = mod.WallType<Walls.CrystalWall>();
+			item.createWall = WallType<Walls.CrystalWall>();
 		}
 
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(mod.ItemType<CrystalBlock>());
+			recipe.AddIngredient(ItemType<CrystalBlock>());
 			recipe.AddTile(TileID.WorkBenches);
 			recipe.SetResult(this, 4);
 			recipe.AddRecipe();

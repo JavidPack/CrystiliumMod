@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using static Terraria.ModLoader.ModContent;
 
 namespace CrystiliumMod.Items.Weapons
 {
@@ -29,7 +30,7 @@ namespace CrystiliumMod.Items.Weapons
 			item.useStyle = 5; //How the weapon is held, 5 is the gun hold style
 			item.value = 30000;
 			item.rare = 3;
-			item.shoot = mod.ProjectileType<Projectiles.VortexPortal>(); //What the item shoots, retains an int value | *
+			item.shoot = ProjectileType<Projectiles.VortexPortal>(); //What the item shoots, retains an int value | *
 			item.shootSpeed = 0f; //How fast the projectile fires
 			item.autoReuse = false; //Whether it automatically uses the item again after its done being used/animated
 		}
@@ -38,8 +39,8 @@ namespace CrystiliumMod.Items.Weapons
 		{
 			ModRecipe recipe = new ModRecipe(mod);
 			recipe.AddIngredient(ItemID.FragmentVortex, 10);
-			recipe.AddIngredient(mod.ItemType<CrystiliumBar>(), 15);
-			recipe.AddIngredient(mod.ItemType<CrystiliumBar>(), 15);
+			recipe.AddIngredient(ItemType<CrystiliumBar>(), 15);
+			recipe.AddIngredient(ItemType<CrystiliumBar>(), 15);
 			recipe.AddTile(TileID.LunarCraftingStation);
 			recipe.SetResult(this);
 			recipe.AddRecipe();

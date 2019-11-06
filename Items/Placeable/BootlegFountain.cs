@@ -1,4 +1,5 @@
 using Terraria.ModLoader;
+using static Terraria.ModLoader.ModContent;
 
 namespace CrystiliumMod.Items.Placeable
 {
@@ -22,14 +23,14 @@ namespace CrystiliumMod.Items.Placeable
 			item.useStyle = 1;
 			item.consumable = true;
 			item.value = 500;
-			item.createTile = mod.TileType<Tiles.BootlegFountain>();
+			item.createTile = TileType<Tiles.BootlegFountain>();
 		}
 
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(mod.ItemType<ShinyGemstone>(), 15);
-			recipe.AddIngredient(mod.ItemType<RadiantPrism>(), 10);
+			recipe.AddIngredient(ItemType<ShinyGemstone>(), 15);
+			recipe.AddIngredient(ItemType<RadiantPrism>(), 10);
 			recipe.SetResult(this);
 			recipe.AddRecipe();
 		}

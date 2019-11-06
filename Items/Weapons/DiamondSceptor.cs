@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using static Terraria.ModLoader.ModContent;
 
 namespace CrystiliumMod.Items.Weapons
 {
@@ -29,7 +30,7 @@ namespace CrystiliumMod.Items.Weapons
 			item.knockBack = 5;
 			item.UseSound = SoundID.Item20;
 			item.autoReuse = false;
-			item.shoot = mod.ProjectileType<Projectiles.AmberDagger>();
+			item.shoot = ProjectileType<Projectiles.AmberDagger>();
 			item.shootSpeed = 8f;
 			item.value = Item.sellPrice(0, 1, 0, 0);
 			item.rare = 6;
@@ -41,14 +42,14 @@ namespace CrystiliumMod.Items.Weapons
 			Vector2 newVect = origVect.RotatedBy(System.Math.PI / (Main.rand.Next(30) + 13));
 
 			//create the first two projectiles
-			Projectile.NewProjectile(position.X, position.Y, speedX, speedY, mod.ProjectileType<DiamondBomb>(), damage, knockBack, item.owner, 0f, 1f);
-			Projectile.NewProjectile(position.X, position.Y, newVect.X, newVect.Y, mod.ProjectileType<DiamondBomb>(), damage, knockBack, item.owner, 0f, 2f);
+			Projectile.NewProjectile(position.X, position.Y, speedX, speedY, ProjectileType<DiamondBomb>(), damage, knockBack, item.owner, 0f, 1f);
+			Projectile.NewProjectile(position.X, position.Y, newVect.X, newVect.Y, ProjectileType<DiamondBomb>(), damage, knockBack, item.owner, 0f, 2f);
 
 			//generate the remaining projectiles
 			for (int i = 3; i <= 2; i++)
 			{
 				Vector2 randVect2 = origVect.RotatedBy(-System.Math.PI / (Main.rand.Next(30) + 13));
-				Projectile.NewProjectile(position.X, position.Y, randVect2.X, randVect2.Y, mod.ProjectileType<DiamondBomb>(), damage, knockBack, item.owner, 0f, i);
+				Projectile.NewProjectile(position.X, position.Y, randVect2.X, randVect2.Y, ProjectileType<DiamondBomb>(), damage, knockBack, item.owner, 0f, i);
 			}
 			return false;
 		}

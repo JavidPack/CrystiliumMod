@@ -1,6 +1,7 @@
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using static Terraria.ModLoader.ModContent;
 
 namespace CrystiliumMod.Items.Weapons
 {
@@ -21,7 +22,7 @@ namespace CrystiliumMod.Items.Weapons
 			item.noMelee = true;
 			item.consumable = true;
 			item.maxStack = 999;
-			item.shoot = mod.ProjectileType<Projectiles.CrystalSpear>();
+			item.shoot = ProjectileType<Projectiles.CrystalSpear>();
 			item.useAnimation = 21;
 			item.useTime = 21;
 			item.shootSpeed = 8.5f;
@@ -38,8 +39,8 @@ namespace CrystiliumMod.Items.Weapons
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(mod.ItemType<RadiantPrism>());
-			recipe.AddIngredient(mod.ItemType<ShinyGemstone>());
+			recipe.AddIngredient(ItemType<RadiantPrism>());
+			recipe.AddIngredient(ItemType<ShinyGemstone>());
 			recipe.AddIngredient(ItemID.Wood, 2);
 			recipe.AddTile(TileID.Anvils);
 			recipe.SetResult(this, 10);

@@ -3,6 +3,7 @@ using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using static Terraria.ModLoader.ModContent;
 
 namespace CrystiliumMod.Items.Weapons
 {
@@ -31,7 +32,7 @@ namespace CrystiliumMod.Items.Weapons
 			item.rare = 8;
 			item.UseSound = SoundID.Item20;
 			item.autoReuse = true;
-			item.shoot = mod.ProjectileType<Projectiles.AmberDagger>();
+			item.shoot = ProjectileType<Projectiles.AmberDagger>();
 			item.shootSpeed = 8f;
 		}
 
@@ -40,7 +41,7 @@ namespace CrystiliumMod.Items.Weapons
 			//float SdirX = (Main.MouseWorld.X - player.position.X) * 9.5f;
 			//float SdirY = (Main.MouseWorld.Y - player.position.Y) * 9.5f;
 			float angle = (float)Math.Atan((float)Main.rand.Next(-12, 12));
-			Projectile.NewProjectile(position.X, position.Y, speedX + angle, speedY + Main.rand.Next(-1, 1), mod.ProjectileType<Projectiles.CrystalSceptorProj>(), damage, knockBack, player.whoAmI, 0f, 0f);
+			Projectile.NewProjectile(position.X, position.Y, speedX + angle, speedY + Main.rand.Next(-1, 1), ProjectileType<Projectiles.CrystalSceptorProj>(), damage, knockBack, player.whoAmI, 0f, 0f);
 			return false;
 		}
 	}

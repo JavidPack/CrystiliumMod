@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Terraria.ModLoader;
+using static Terraria.ModLoader.ModContent;
 
 namespace CrystiliumMod.Items.Armor
 {

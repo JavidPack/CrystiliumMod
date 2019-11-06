@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using static Terraria.ModLoader.ModContent;
 
 namespace CrystiliumMod.Items.Weapons
 {
@@ -27,7 +28,7 @@ namespace CrystiliumMod.Items.Weapons
 			item.value = 80000;
 			item.rare = 8;
 			item.UseSound = SoundID.Item1;
-			item.shoot = mod.ProjectileType<QuartzTrident>();
+			item.shoot = ProjectileType<QuartzTrident>();
 			item.shootSpeed = 6f;
 			item.autoReuse = true;
 		}
@@ -40,9 +41,9 @@ namespace CrystiliumMod.Items.Weapons
 			Vector2 newVect2 = origVect.RotatedBy(-System.Math.PI / 20);
 
 			//create three Crystishae projectiles
-			Projectile.NewProjectile(player.Center.X, player.Center.Y - 20, speedX, speedY, mod.ProjectileType<QuartzTrident>(), damage, knockBack, item.owner, 0, 0);
-			Projectile.NewProjectile(player.Center.X, player.Center.Y - 20, newVect.X, newVect.Y, mod.ProjectileType<QuartzTrident>(), damage, knockBack, item.owner, 0, 0);
-			Projectile.NewProjectile(player.Center.X, player.Center.Y - 20, newVect2.X, newVect2.Y, mod.ProjectileType<QuartzTrident>(), damage, knockBack, item.owner, 0, 0);
+			Projectile.NewProjectile(player.Center.X, player.Center.Y - 20, speedX, speedY, ProjectileType<QuartzTrident>(), damage, knockBack, item.owner, 0, 0);
+			Projectile.NewProjectile(player.Center.X, player.Center.Y - 20, newVect.X, newVect.Y, ProjectileType<QuartzTrident>(), damage, knockBack, item.owner, 0, 0);
+			Projectile.NewProjectile(player.Center.X, player.Center.Y - 20, newVect2.X, newVect2.Y, ProjectileType<QuartzTrident>(), damage, knockBack, item.owner, 0, 0);
 			return false;
 		}
 

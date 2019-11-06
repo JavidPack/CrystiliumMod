@@ -1,5 +1,6 @@
 using Terraria.ID;
 using Terraria.ModLoader;
+using static Terraria.ModLoader.ModContent;
 
 namespace CrystiliumMod.Items.Weapons
 {
@@ -22,7 +23,7 @@ namespace CrystiliumMod.Items.Weapons
 			item.useStyle = 5;
 			item.useAnimation = 25;
 			item.useTime = 25;
-			item.shoot = mod.ProjectileType<Projectiles.Geode>();
+			item.shoot = ProjectileType<Projectiles.Geode>();
 		}
 	}
 }

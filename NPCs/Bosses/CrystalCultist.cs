@@ -4,6 +4,7 @@ using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using static Terraria.ModLoader.ModContent;
 
 namespace CrystiliumMod.NPCs.Bosses
 {
@@ -52,7 +53,7 @@ namespace CrystiliumMod.NPCs.Bosses
 			bool CKActive = false;
 			foreach (NPC npc in Main.npc)
 			{
-				if (npc.active && npc.type == mod.NPCType<CrystalKing>())
+				if (npc.active && npc.type == NPCType<CrystalKing>())
 				{
 					CKActive = true;
 					break;
@@ -80,11 +81,11 @@ namespace CrystiliumMod.NPCs.Bosses
 			{
 				if (Main.player[npc.target].Center.Y <= npc.Center.Y)
 				{
-					Projectile.NewProjectile(npc.Center.X, npc.Center.Y, 0 - (TrajectoryX * 7), 0 - (TrajectoryY * 7), mod.ProjectileType<Slasher>(), 40, 0f, npc.target);
+					Projectile.NewProjectile(npc.Center.X, npc.Center.Y, 0 - (TrajectoryX * 7), 0 - (TrajectoryY * 7), ProjectileType<Slasher>(), 40, 0f, npc.target);
 				}
 				else if (Main.player[npc.target].Center.Y > npc.Center.Y)
 				{
-					Projectile.NewProjectile(npc.Center.X, npc.Center.Y, (TrajectoryX * 7), TrajectoryY * 7, mod.ProjectileType<Slasher>(), 40, 0f, npc.target);
+					Projectile.NewProjectile(npc.Center.X, npc.Center.Y, (TrajectoryX * 7), TrajectoryY * 7, ProjectileType<Slasher>(), 40, 0f, npc.target);
 				}
 			}
 			Vector3 RGB = new Vector3(2.0f, 0.75f, 1.5f);

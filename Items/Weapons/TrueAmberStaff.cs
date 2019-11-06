@@ -4,6 +4,7 @@ using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using static Terraria.ModLoader.ModContent;
 
 namespace CrystiliumMod.Items.Weapons
 {
@@ -39,9 +40,9 @@ namespace CrystiliumMod.Items.Weapons
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(mod.ItemType<Items.CrystiliumBar>(), 15);
-			recipe.AddIngredient(mod.ItemType<Items.Weapons.EnchantedAmberStaff>());
-			recipe.AddIngredient(mod.ItemType<Items.BrokenStaff>());
+			recipe.AddIngredient(ItemType<Items.CrystiliumBar>(), 15);
+			recipe.AddIngredient(ItemType<Items.Weapons.EnchantedAmberStaff>());
+			recipe.AddIngredient(ItemType<Items.BrokenStaff>());
 			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.SetResult(this);
 			recipe.AddRecipe();
@@ -72,38 +73,38 @@ namespace CrystiliumMod.Items.Weapons
 			float TrijectoryY4 = (float)(Math.Cos(Angle4));
 			if (Ydis1 >= 0)
 			{
-				Projectile.NewProjectile(player.Center.X + 45, player.Center.Y + 45, 0 - (TrijectoryX1 * 9), 0 - (TrijectoryY1 * 9), mod.ProjectileType<AmberBlade>(), damage, knockBack, player.whoAmI);
+				Projectile.NewProjectile(player.Center.X + 45, player.Center.Y + 45, 0 - (TrijectoryX1 * 9), 0 - (TrijectoryY1 * 9), ProjectileType<AmberBlade>(), damage, knockBack, player.whoAmI);
 			}
 			else
 			{
-				Projectile.NewProjectile(player.Center.X + 45, player.Center.Y + 45, TrijectoryX1 * 9, TrijectoryY1 * 9, mod.ProjectileType<AmberBlade>(), damage, knockBack, player.whoAmI);
+				Projectile.NewProjectile(player.Center.X + 45, player.Center.Y + 45, TrijectoryX1 * 9, TrijectoryY1 * 9, ProjectileType<AmberBlade>(), damage, knockBack, player.whoAmI);
 			}
 
 			if (Ydis2 >= 0)
 			{
-				Projectile.NewProjectile(player.Center.X - 45, player.Center.Y + 45, 0 - (TrijectoryX2 * 9), 0 - (TrijectoryY2 * 9), mod.ProjectileType<AmberBlade>(), damage, knockBack, player.whoAmI);
+				Projectile.NewProjectile(player.Center.X - 45, player.Center.Y + 45, 0 - (TrijectoryX2 * 9), 0 - (TrijectoryY2 * 9), ProjectileType<AmberBlade>(), damage, knockBack, player.whoAmI);
 			}
 			else
 			{
-				Projectile.NewProjectile(player.Center.X - 45, player.Center.Y + 45, TrijectoryX2 * 9, TrijectoryY2 * 9, mod.ProjectileType<AmberBlade>(), damage, knockBack, player.whoAmI);
+				Projectile.NewProjectile(player.Center.X - 45, player.Center.Y + 45, TrijectoryX2 * 9, TrijectoryY2 * 9, ProjectileType<AmberBlade>(), damage, knockBack, player.whoAmI);
 			}
 
 			if (Ydis3 >= 0)
 			{
-				Projectile.NewProjectile(player.Center.X + 45, player.Center.Y - 45, 0 - (TrijectoryX3 * 9), 0 - (TrijectoryY3 * 9), mod.ProjectileType<AmberBlade>(), damage, knockBack, player.whoAmI);
+				Projectile.NewProjectile(player.Center.X + 45, player.Center.Y - 45, 0 - (TrijectoryX3 * 9), 0 - (TrijectoryY3 * 9), ProjectileType<AmberBlade>(), damage, knockBack, player.whoAmI);
 			}
 			else
 			{
-				Projectile.NewProjectile(player.Center.X + 45, player.Center.Y - 45, TrijectoryX3 * 9, TrijectoryY3 * 9, mod.ProjectileType<AmberBlade>(), damage, knockBack, player.whoAmI);
+				Projectile.NewProjectile(player.Center.X + 45, player.Center.Y - 45, TrijectoryX3 * 9, TrijectoryY3 * 9, ProjectileType<AmberBlade>(), damage, knockBack, player.whoAmI);
 			}
 
 			if (Ydis4 >= 0)
 			{
-				Projectile.NewProjectile(player.Center.X - 45, player.Center.Y - 45, 0 - (TrijectoryX4 * 9), 0 - (TrijectoryY4 * 9), mod.ProjectileType<AmberBlade>(), damage, knockBack, player.whoAmI);
+				Projectile.NewProjectile(player.Center.X - 45, player.Center.Y - 45, 0 - (TrijectoryX4 * 9), 0 - (TrijectoryY4 * 9), ProjectileType<AmberBlade>(), damage, knockBack, player.whoAmI);
 			}
 			else
 			{
-				Projectile.NewProjectile(player.Center.X - 45, player.Center.Y - 45, TrijectoryX4 * 9, TrijectoryY4 * 9, mod.ProjectileType<AmberBlade>(), damage, knockBack, player.whoAmI);
+				Projectile.NewProjectile(player.Center.X - 45, player.Center.Y - 45, TrijectoryX4 * 9, TrijectoryY4 * 9, ProjectileType<AmberBlade>(), damage, knockBack, player.whoAmI);
 			}
 			return false;
 		}

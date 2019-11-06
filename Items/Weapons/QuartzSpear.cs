@@ -1,5 +1,6 @@
 using Terraria.ID;
 using Terraria.ModLoader;
+using static Terraria.ModLoader.ModContent;
 
 namespace CrystiliumMod.Items.Weapons
 {
@@ -29,7 +30,7 @@ namespace CrystiliumMod.Items.Weapons
 			item.useStyle = 5;
 			item.value = 100000;
 			item.rare = 7;
-			item.shoot = mod.ProjectileType<Projectiles.QuartzSpearProj>();  //put your Spear projectile name
+			item.shoot = ProjectileType<Projectiles.QuartzSpearProj>();  //put your Spear projectile name
 			item.shootSpeed = 5f;
 		}
 	}

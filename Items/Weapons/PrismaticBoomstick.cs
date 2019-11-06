@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using static Terraria.ModLoader.ModContent;
 
 namespace CrystiliumMod.Items.Weapons
 {
@@ -28,7 +29,7 @@ namespace CrystiliumMod.Items.Weapons
 			item.rare = 7;
 			item.UseSound = SoundID.Item11;
 			item.autoReuse = true;
-			item.shoot = mod.ProjectileType<Projectiles.PrismSlug>(); //idk why but all the guns in the vanilla source have this
+			item.shoot = ProjectileType<Projectiles.PrismSlug>(); //idk why but all the guns in the vanilla source have this
 			item.shootSpeed = 8f;
 		}
 

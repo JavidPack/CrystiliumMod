@@ -5,6 +5,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using static Terraria.ModLoader.ModContent;
 using Terraria.Utilities;
 
 namespace CrystiliumMod.NPCs.Bosses
@@ -33,7 +34,7 @@ namespace CrystiliumMod.NPCs.Bosses
 			npc.HitSound = SoundID.NPCHit5;
 			npc.DeathSound = SoundID.NPCDeath6;
 			npc.value = 60000f;
-			bossBag = mod.ItemType<Items.CrystalBag>();
+			bossBag = ItemType<Items.CrystalBag>();
 			npc.knockBackResist = 0f;
 			music = mod.GetSoundSlot(SoundType.Music, "Sounds/Music/CrystalKing");
 			npc.lavaImmune = true;
@@ -56,6 +57,8 @@ namespace CrystiliumMod.NPCs.Bosses
 
 		public override void AI()
 		{
+			// TODO: Huge multiplayer syncing issues.
+
 			npc.TargetClosest(true);
 			npc.spriteDirection = npc.direction;
 			Player player = Main.player[npc.target];
@@ -113,7 +116,7 @@ namespace CrystiliumMod.NPCs.Bosses
 				npc.velocity.X = 0;
 				if (Main.rand.Next(70) == 0)
 				{
-					NPC.NewNPC((int)npc.position.X, (int)npc.position.Y, mod.NPCType<CrystalCultist>());
+					NPC.NewNPC((int)npc.position.X, (int)npc.position.Y, NPCType<CrystalCultist>());
 				}
 			}
 
@@ -127,7 +130,7 @@ namespace CrystiliumMod.NPCs.Bosses
 			{
 				Vector2 direction = Main.player[npc.target].Center - npc.Center;
 				direction.Normalize();
-				Projectile.NewProjectile(npc.Center.X, npc.Center.Y, direction.X * 10f, direction.Y * 10f, mod.ProjectileType<Slasher>(), 50, 1, Main.myPlayer, 0, 0);
+				Projectile.NewProjectile(npc.Center.X, npc.Center.Y, direction.X * 10f, direction.Y * 10f, ProjectileType<Slasher>(), 50, 1, Main.myPlayer, 0, 0);
 				timer2 = 0;
 			}
 
@@ -143,7 +146,7 @@ namespace CrystiliumMod.NPCs.Bosses
 				{
 					float A = (float)Main.rand.Next(-150, 150) * 0.01f;
 					float B = (float)Main.rand.Next(-150, 150) * 0.01f;
-					Projectile.NewProjectile(npc.Center.X, npc.Center.Y, direction.X + A, direction.Y + B, mod.ProjectileType<CultistFire>(), 60, 1, Main.myPlayer, 0, 0);
+					Projectile.NewProjectile(npc.Center.X, npc.Center.Y, direction.X + A, direction.Y + B, ProjectileType<CultistFire>(), 60, 1, Main.myPlayer, 0, 0);
 				}
 			}
 
@@ -153,11 +156,11 @@ namespace CrystiliumMod.NPCs.Bosses
 				direction.Normalize();
 				Vector2 newVect = direction.RotatedBy(System.Math.PI / 13);
 				Vector2 newVect2 = direction.RotatedBy(-System.Math.PI / 13);
-				Projectile.NewProjectile(npc.Center.X, npc.Center.Y, direction.X * 20f, direction.Y * 20f, mod.ProjectileType<Kingwave>(), 55, 1, Main.myPlayer, 0, 0);
+				Projectile.NewProjectile(npc.Center.X, npc.Center.Y, direction.X * 20f, direction.Y * 20f, ProjectileType<Kingwave>(), 55, 1, Main.myPlayer, 0, 0);
 				if (npc.life <= 46500)
 				{
-					Projectile.NewProjectile(npc.Center.X, npc.Center.Y, newVect.X * 20f, newVect.Y * 20f, mod.ProjectileType<Kingwave>(), 55, 1, Main.myPlayer, 0, 0);
-					Projectile.NewProjectile(npc.Center.X, npc.Center.Y, newVect2.X * 20f, newVect2.Y * 20f, mod.ProjectileType<Kingwave>(), 55, 1, Main.myPlayer, 0, 0);
+					Projectile.NewProjectile(npc.Center.X, npc.Center.Y, newVect.X * 20f, newVect.Y * 20f, ProjectileType<Kingwave>(), 55, 1, Main.myPlayer, 0, 0);
+					Projectile.NewProjectile(npc.Center.X, npc.Center.Y, newVect2.X * 20f, newVect2.Y * 20f, ProjectileType<Kingwave>(), 55, 1, Main.myPlayer, 0, 0);
 				}
 				timer4 = 0;
 			}
@@ -168,11 +171,11 @@ namespace CrystiliumMod.NPCs.Bosses
 				direction.Normalize();
 				Vector2 newVect = direction.RotatedBy(System.Math.PI / 20);
 				Vector2 newVect2 = direction.RotatedBy(-System.Math.PI / 20);
-				Projectile.NewProjectile(npc.Center.X, npc.Center.Y, direction.X * 20f, direction.Y * 20f, mod.ProjectileType<Projectiles.CrystalKing.Kingwave>(), 50, 1, Main.myPlayer, 0, 0);
+				Projectile.NewProjectile(npc.Center.X, npc.Center.Y, direction.X * 20f, direction.Y * 20f, ProjectileType<Projectiles.CrystalKing.Kingwave>(), 50, 1, Main.myPlayer, 0, 0);
 				if (npc.life <= 23250)
 				{
-					Projectile.NewProjectile(npc.Center.X, npc.Center.Y, newVect.X * 20f, newVect.Y * 20f, mod.ProjectileType<Kingwave>(), 50, 1, Main.myPlayer, 0, 0);
-					Projectile.NewProjectile(npc.Center.X, npc.Center.Y, newVect2.X * 20f, newVect2.Y * 20f, mod.ProjectileType<Kingwave>(), 50, 1, Main.myPlayer, 0, 0);
+					Projectile.NewProjectile(npc.Center.X, npc.Center.Y, newVect.X * 20f, newVect.Y * 20f, ProjectileType<Kingwave>(), 50, 1, Main.myPlayer, 0, 0);
+					Projectile.NewProjectile(npc.Center.X, npc.Center.Y, newVect2.X * 20f, newVect2.Y * 20f, ProjectileType<Kingwave>(), 50, 1, Main.myPlayer, 0, 0);
 				}
 
 				timer4 = 0;
@@ -220,7 +223,7 @@ namespace CrystiliumMod.NPCs.Bosses
 		{
 			if (Main.rand.Next(10) == 0)
 			{
-				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType<Items.Placeable.KingTrophy>());
+				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, ItemType<Items.Placeable.KingTrophy>());
 			}
 			if (Main.expertMode)
 			{
@@ -230,19 +233,19 @@ namespace CrystiliumMod.NPCs.Bosses
 			{
 				if (Main.rand.Next(10) == 0)
 				{
-					Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType<Items.Armor.CrystalMask>());
+					Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, ItemType<Items.Armor.CrystalMask>());
 				}
-				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType<Items.CrystiliumBar>(), Main.rand.Next(13, 20));
+				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, ItemType<Items.CrystiliumBar>(), Main.rand.Next(13, 20));
 
 				var ChoiceChooser = new WeightedRandom<int>();
-				ChoiceChooser.Add(mod.ItemType<Cryst>());
-				ChoiceChooser.Add(mod.ItemType<Callandor>());
-				ChoiceChooser.Add(mod.ItemType<QuartzSpear>());
-				ChoiceChooser.Add(mod.ItemType<ShiningTrigger>());
-				ChoiceChooser.Add(mod.ItemType<Slamborite>());
-				ChoiceChooser.Add(mod.ItemType<Shimmer>());
-				ChoiceChooser.Add(mod.ItemType<Shatterocket>());
-				ChoiceChooser.Add(mod.ItemType<RoyalShredder>());
+				ChoiceChooser.Add(ItemType<Cryst>());
+				ChoiceChooser.Add(ItemType<Callandor>());
+				ChoiceChooser.Add(ItemType<QuartzSpear>());
+				ChoiceChooser.Add(ItemType<ShiningTrigger>());
+				ChoiceChooser.Add(ItemType<Slamborite>());
+				ChoiceChooser.Add(ItemType<Shimmer>());
+				ChoiceChooser.Add(ItemType<Shatterocket>());
+				ChoiceChooser.Add(ItemType<RoyalShredder>());
 				int Choice = ChoiceChooser;
 				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, Choice);
 			}

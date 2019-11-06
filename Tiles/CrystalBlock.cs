@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
+using static Terraria.ModLoader.ModContent;
 
 namespace CrystiliumMod.Tiles
 {
@@ -13,10 +14,10 @@ namespace CrystiliumMod.Tiles
 			Main.tileBlockLight[Type] = true;
 			Main.tileLighted[Type] = false;
 			SetModTree(new CrystalTree());
-			dustType = mod.DustType<Dusts.Sparkle>();
+			dustType = DustType<Dusts.Sparkle>();
 			soundType = 27;
 			soundStyle = 2;
-			drop = mod.ItemType<Items.Placeable.CrystalBlock>();
+			drop = ItemType<Items.Placeable.CrystalBlock>();
 			AddMapEntry(new Color(19, 163, 189));
 		}
 
@@ -40,13 +41,13 @@ namespace CrystiliumMod.Tiles
 				{
 					if (Main.rand.Next(5) == 0)
 					{
-						WorldGen.PlaceObject(i - 1, j - 1, mod.TileType<Crystal>());
-						NetMessage.SendObjectPlacment(-1, i - 1, j - 1, mod.TileType<Crystal>(), 0, 0, -1, -1);
+						WorldGen.PlaceObject(i - 1, j - 1, TileType<Crystal>());
+						NetMessage.SendObjectPlacment(-1, i - 1, j - 1, TileType<Crystal>(), 0, 0, -1, -1);
 					}
 					else
 					{
-						WorldGen.PlaceObject(i, j - 1, mod.TileType<CrystalSapling>());
-						NetMessage.SendObjectPlacment(-1, i, j - 1, mod.TileType<CrystalSapling>(), 0, 0, -1, -1);
+						WorldGen.PlaceObject(i, j - 1, TileType<CrystalSapling>());
+						NetMessage.SendObjectPlacment(-1, i, j - 1, TileType<CrystalSapling>(), 0, 0, -1, -1);
 					}
 				}
 			}
@@ -55,7 +56,7 @@ namespace CrystiliumMod.Tiles
 		public override int SaplingGrowthType(ref int style)
 		{
 			style = 0;
-			return mod.TileType<CrystalSapling>();
+			return TileType<CrystalSapling>();
 		}
 
 		public override bool KillSound(int i, int j)

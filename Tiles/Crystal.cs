@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
+using static Terraria.ModLoader.ModContent;
 using Terraria.ObjectData;
 
 namespace CrystiliumMod.Tiles
@@ -17,8 +18,8 @@ namespace CrystiliumMod.Tiles
 			Main.tileMergeDirt[Type] = true;
 			Main.tileBlockLight[Type] = true;
 			Main.tileLighted[Type] = false;
-			dustType = mod.DustType<Dusts.Sparkle>();
-			drop = mod.ItemType<Items.Placeable.GlowingCrystal>();
+			dustType = DustType<Dusts.Sparkle>();
+			drop = ItemType<Items.Placeable.GlowingCrystal>();
 			AddMapEntry(new Color(200, 200, 200));
 
 			TileObjectData.newTile.CoordinateHeights = new int[]
@@ -38,7 +39,7 @@ namespace CrystiliumMod.Tiles
 		public override int SaplingGrowthType(ref int style)
 		{
 			style = 0;
-			return mod.TileType<CrystalSapling>();
+			return TileType<CrystalSapling>();
 		}
 
 		public override void ModifyLight(int i, int j, ref float r, ref float g, ref float b)

@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
+using static Terraria.ModLoader.ModContent;
 
 namespace CrystiliumMod.Projectiles
 {
@@ -65,7 +66,7 @@ namespace CrystiliumMod.Projectiles
 				Dust.NewDust(projectile.position, projectile.width, projectile.height, 206, projectile.oldVelocity.X * 0.5f, projectile.oldVelocity.Y * 0.5f);
 			}
 			Main.PlaySound(2, (int)projectile.position.X, (int)projectile.position.Y, 27);
-			Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, 0, 0, mod.ProjectileType<DiamondExplosion>(), projectile.damage, 0, Main.myPlayer);
+			Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, 0, 0, ProjectileType<DiamondExplosion>(), projectile.damage, 0, Main.myPlayer);
 		}
 
 		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)

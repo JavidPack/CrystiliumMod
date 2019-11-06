@@ -2,6 +2,7 @@ using CrystiliumMod.Projectiles;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using static Terraria.ModLoader.ModContent;
 
 namespace CrystiliumMod.Items.Weapons
 {
@@ -29,7 +30,7 @@ namespace CrystiliumMod.Items.Weapons
 			item.useStyle = 5; //How the weapon is held, 5 is the gun hold style
 			item.value = 30000;
 			item.rare = 3;
-			item.shoot = mod.ProjectileType<BouncyTopaz>(); //What the item shoots, retains an int value | *
+			item.shoot = ProjectileType<BouncyTopaz>(); //What the item shoots, retains an int value | *
 			item.shootSpeed = 6f; //How fast the projectile fires
 			item.mana = 20;
 			item.autoReuse = true; //Whether it automatically uses the item again after its done being used/animated
@@ -40,7 +41,7 @@ namespace CrystiliumMod.Items.Weapons
 			ModRecipe recipe = new ModRecipe(mod);
 			recipe.AddIngredient(ItemID.TopazStaff);
 			recipe.AddIngredient(ItemID.Topaz, 15);
-			recipe.AddIngredient(mod.ItemType<ShinyGemstone>(), 10);
+			recipe.AddIngredient(ItemType<ShinyGemstone>(), 10);
 			recipe.AddTile(TileID.Anvils);
 			recipe.SetResult(this);
 			recipe.AddRecipe();

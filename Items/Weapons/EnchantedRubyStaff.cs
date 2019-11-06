@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using static Terraria.ModLoader.ModContent;
 
 namespace CrystiliumMod.Items.Weapons
 {
@@ -29,7 +30,7 @@ namespace CrystiliumMod.Items.Weapons
 			item.useStyle = 5; //How the weapon is held, 5 is the gun hold style
 			item.value = 30000;
 			item.rare = 3;
-			item.shoot = mod.ProjectileType<Projectiles.FireGem>(); //What the item shoots, retains an int value | *
+			item.shoot = ProjectileType<Projectiles.FireGem>(); //What the item shoots, retains an int value | *
 			item.shootSpeed = 2f; //How fast the projectile fires
 			item.mana = 20;
 			item.autoReuse = false; //Whether it automatically uses the item again after its done being used/animated
@@ -40,7 +41,7 @@ namespace CrystiliumMod.Items.Weapons
 			ModRecipe recipe = new ModRecipe(mod);
 			recipe.AddIngredient(ItemID.RubyStaff);
 			recipe.AddIngredient(ItemID.Ruby, 15);
-			recipe.AddIngredient(mod.ItemType<ShinyGemstone>(), 10);
+			recipe.AddIngredient(ItemType<ShinyGemstone>(), 10);
 			recipe.AddTile(TileID.Anvils);
 			recipe.SetResult(this);
 			recipe.AddRecipe();
@@ -51,7 +52,7 @@ namespace CrystiliumMod.Items.Weapons
 			//float SdirX = (Main.MouseWorld.X - player.position.X) * 8.5f;
 			//float SdirY = (Main.MouseWorld.Y - player.position.Y) * 8.5f;
 			//float angle = (float)Math.Atan(12f);
-			Projectile.NewProjectile(position.X - player.width / 2, position.Y - player.height / 2, speedX, speedY, mod.ProjectileType<Projectiles.FireGem>(), damage, knockBack, player.whoAmI, 0f, 0f);
+			Projectile.NewProjectile(position.X - player.width / 2, position.Y - player.height / 2, speedX, speedY, ProjectileType<Projectiles.FireGem>(), damage, knockBack, player.whoAmI, 0f, 0f);
 			return false;
 		}
 	}

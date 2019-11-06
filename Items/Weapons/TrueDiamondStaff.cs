@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using static Terraria.ModLoader.ModContent;
 
 namespace CrystiliumMod.Items.Weapons
 {
@@ -37,9 +38,9 @@ namespace CrystiliumMod.Items.Weapons
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(mod.ItemType<Items.CrystiliumBar>(), 15);
-			recipe.AddIngredient(mod.ItemType<Items.Weapons.EnchantedDiamondStaff>());
-			recipe.AddIngredient(mod.ItemType<Items.BrokenStaff>());
+			recipe.AddIngredient(ItemType<Items.CrystiliumBar>(), 15);
+			recipe.AddIngredient(ItemType<Items.Weapons.EnchantedDiamondStaff>());
+			recipe.AddIngredient(ItemType<Items.BrokenStaff>());
 			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.SetResult(this);
 			recipe.AddRecipe();

@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
 using Terraria.ModLoader;
+using static Terraria.ModLoader.ModContent;
 
 namespace CrystiliumMod.Projectiles.Minions
 {
@@ -145,7 +146,7 @@ namespace CrystiliumMod.Projectiles.Minions
 				{
 					//spawn the arrow centered on the bow (this code aligns the centers :3)
 					Vector2 vel = new Vector2(shootVelocity, 0f).RotatedBy(projectile.rotation);
-					int proj = Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, vel.X, vel.Y, mod.ProjectileType<SpiritArrow>(), projectile.damage, projectile.knockBack, projectile.owner);
+					int proj = Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, vel.X, vel.Y, ProjectileType<SpiritArrow>(), projectile.damage, projectile.knockBack, projectile.owner);
 					Projectile newProj = Main.projectile[proj];
 					newProj.position += projectile.Center - newProj.Center;
 
@@ -172,7 +173,7 @@ namespace CrystiliumMod.Projectiles.Minions
 			{
 				for (int i = 0; i < 15; i++)
 				{
-					Dust.NewDust(projectile.position, projectile.width, projectile.height, mod.DustType<Dusts.Sparkle>(), (float)Main.rand.Next(-3, 3), (float)Main.rand.Next(-3, 3), 0);
+					Dust.NewDust(projectile.position, projectile.width, projectile.height, DustType<Dusts.Sparkle>(), (float)Main.rand.Next(-3, 3), (float)Main.rand.Next(-3, 3), 0);
 				}
 			}
 		}
@@ -182,7 +183,7 @@ namespace CrystiliumMod.Projectiles.Minions
 			Main.PlaySound(2, projectile.Center, 27);
 			for (int i = 0; i < 15; i++)
 			{
-				Dust.NewDust(projectile.position, projectile.width, projectile.height, mod.DustType<Dusts.Sparkle>(), (float)Main.rand.Next(-3, 3), (float)Main.rand.Next(-3, 3), 0);
+				Dust.NewDust(projectile.position, projectile.width, projectile.height, DustType<Dusts.Sparkle>(), (float)Main.rand.Next(-3, 3), (float)Main.rand.Next(-3, 3), 0);
 			}
 		}
 	}

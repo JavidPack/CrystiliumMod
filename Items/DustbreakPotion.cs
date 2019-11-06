@@ -1,5 +1,6 @@
 using Terraria.ID;
 using Terraria.ModLoader;
+using static Terraria.ModLoader.ModContent;
 
 namespace CrystiliumMod.Items
 {
@@ -24,7 +25,7 @@ namespace CrystiliumMod.Items
 			item.height = 30;
 			item.value = 3000;
 			item.rare = 0;
-			item.buffType = mod.BuffType<Buffs.Dustbreak>();
+			item.buffType = BuffType<Buffs.Dustbreak>();
 			item.buffTime = 10000;
 			return;
 		}
@@ -32,8 +33,8 @@ namespace CrystiliumMod.Items
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(mod.ItemType<CrystalBottleWater>());
-			recipe.AddIngredient(mod.ItemType<RadiantPrism>());
+			recipe.AddIngredient(ItemType<CrystalBottleWater>());
+			recipe.AddIngredient(ItemType<RadiantPrism>());
 			recipe.AddIngredient(ItemID.GoldOre);
 			recipe.AddIngredient(ItemID.Amber);
 			recipe.AddIngredient(ItemID.Blinkroot);

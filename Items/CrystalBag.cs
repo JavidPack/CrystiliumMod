@@ -1,5 +1,6 @@
 using Terraria;
 using Terraria.ModLoader;
+using static Terraria.ModLoader.ModContent;
 using Terraria.Utilities;
 
 namespace CrystiliumMod.Items
@@ -30,20 +31,20 @@ namespace CrystiliumMod.Items
 		{
 			if (Main.rand.Next(10) == 0)
 			{
-				player.QuickSpawnItem(mod.ItemType<Armor.CrystalMask>());
+				player.QuickSpawnItem(ItemType<Armor.CrystalMask>());
 			}
-			player.QuickSpawnItem(mod.ItemType<Accessories.CrystalJewel>());
-			player.QuickSpawnItem(mod.ItemType<CrystiliumBar>(), Main.rand.Next(13, 20));
+			player.QuickSpawnItem(ItemType<Accessories.CrystalJewel>());
+			player.QuickSpawnItem(ItemType<CrystiliumBar>(), Main.rand.Next(13, 20));
 
 			var ChoiceChooser = new WeightedRandom<int>();
-			ChoiceChooser.Add(mod.ItemType<Weapons.Cryst>());
-			ChoiceChooser.Add(mod.ItemType<Weapons.Callandor>());
-			ChoiceChooser.Add(mod.ItemType<Weapons.QuartzSpear>());
-			ChoiceChooser.Add(mod.ItemType<Weapons.ShiningTrigger>());
-			ChoiceChooser.Add(mod.ItemType<Weapons.Slamborite>());
-			ChoiceChooser.Add(mod.ItemType<Weapons.Shimmer>());
-			ChoiceChooser.Add(mod.ItemType<Weapons.Shatterocket>());
-			ChoiceChooser.Add(mod.ItemType<Weapons.RoyalShredder>());
+			ChoiceChooser.Add(ItemType<Weapons.Cryst>());
+			ChoiceChooser.Add(ItemType<Weapons.Callandor>());
+			ChoiceChooser.Add(ItemType<Weapons.QuartzSpear>());
+			ChoiceChooser.Add(ItemType<Weapons.ShiningTrigger>());
+			ChoiceChooser.Add(ItemType<Weapons.Slamborite>());
+			ChoiceChooser.Add(ItemType<Weapons.Shimmer>());
+			ChoiceChooser.Add(ItemType<Weapons.Shatterocket>());
+			ChoiceChooser.Add(ItemType<Weapons.RoyalShredder>());
 			int Choice = ChoiceChooser;
 			player.QuickSpawnItem(Choice);
 		}

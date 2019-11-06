@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using static Terraria.ModLoader.ModContent;
 
 namespace CrystiliumMod.Items.Weapons
 {
@@ -27,7 +28,7 @@ namespace CrystiliumMod.Items.Weapons
 			item.value = 80000;
 			item.rare = 8;
 			item.UseSound = SoundID.Item1;
-			item.shoot = mod.ProjectileType<CrystiliumBladeProj>();
+			item.shoot = ProjectileType<CrystiliumBladeProj>();
 			item.shootSpeed = 6f;
 			item.autoReuse = true;
 		}
@@ -42,11 +43,11 @@ namespace CrystiliumMod.Items.Weapons
 			Vector2 newVect4 = origVect.RotatedBy(-System.Math.PI / Main.rand.Next(8, 12));
 
 			//create projectiles
-			Projectile.NewProjectile(position.X, position.Y - 20, speedX + ((float)Main.rand.Next(-300, 300) / 100), speedY + ((float)Main.rand.Next(-300, 300) / 100), mod.ProjectileType<CrystiliumBladeProj>(), damage / 3, knockBack, player.whoAmI, 0, 0);
-			Projectile.NewProjectile(position.X, position.Y - 20, newVect.X + ((float)Main.rand.Next(-300, 300) / 100), newVect.Y + ((float)Main.rand.Next(-300, 300) / 100), mod.ProjectileType<CrystiliumBladeProj>(), damage / 3, knockBack, player.whoAmI, 0, 0);
-			Projectile.NewProjectile(position.X, position.Y - 20, newVect2.X + ((float)Main.rand.Next(-300, 300) / 100), newVect2.Y + ((float)Main.rand.Next(-300, 300) / 100), mod.ProjectileType<CrystiliumBladeProj>(), damage / 3, knockBack, player.whoAmI, 0, 0);
-			Projectile.NewProjectile(position.X, position.Y - 20, newVect3.X + ((float)Main.rand.Next(-300, 300) / 100), newVect3.Y + ((float)Main.rand.Next(-300, 300) / 100), mod.ProjectileType<CrystiliumBladeProj>(), damage / 3, knockBack, player.whoAmI, 0, 0);
-			Projectile.NewProjectile(position.X, position.Y - 20, newVect4.X + ((float)Main.rand.Next(-300, 300) / 100), newVect4.Y + ((float)Main.rand.Next(-300, 300) / 100), mod.ProjectileType<CrystiliumBladeProj>(), damage / 3, knockBack, player.whoAmI, 0, 0);
+			Projectile.NewProjectile(position.X, position.Y - 20, speedX + ((float)Main.rand.Next(-300, 300) / 100), speedY + ((float)Main.rand.Next(-300, 300) / 100), ProjectileType<CrystiliumBladeProj>(), damage / 3, knockBack, player.whoAmI, 0, 0);
+			Projectile.NewProjectile(position.X, position.Y - 20, newVect.X + ((float)Main.rand.Next(-300, 300) / 100), newVect.Y + ((float)Main.rand.Next(-300, 300) / 100), ProjectileType<CrystiliumBladeProj>(), damage / 3, knockBack, player.whoAmI, 0, 0);
+			Projectile.NewProjectile(position.X, position.Y - 20, newVect2.X + ((float)Main.rand.Next(-300, 300) / 100), newVect2.Y + ((float)Main.rand.Next(-300, 300) / 100), ProjectileType<CrystiliumBladeProj>(), damage / 3, knockBack, player.whoAmI, 0, 0);
+			Projectile.NewProjectile(position.X, position.Y - 20, newVect3.X + ((float)Main.rand.Next(-300, 300) / 100), newVect3.Y + ((float)Main.rand.Next(-300, 300) / 100), ProjectileType<CrystiliumBladeProj>(), damage / 3, knockBack, player.whoAmI, 0, 0);
+			Projectile.NewProjectile(position.X, position.Y - 20, newVect4.X + ((float)Main.rand.Next(-300, 300) / 100), newVect4.Y + ((float)Main.rand.Next(-300, 300) / 100), ProjectileType<CrystiliumBladeProj>(), damage / 3, knockBack, player.whoAmI, 0, 0);
 			return false;
 		}
 
@@ -65,7 +66,7 @@ namespace CrystiliumMod.Items.Weapons
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(mod.ItemType<CrystiliumBar>(), 19);
+			recipe.AddIngredient(ItemType<CrystiliumBar>(), 19);
 			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.SetResult(this);
 			recipe.AddRecipe();

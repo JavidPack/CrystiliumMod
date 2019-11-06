@@ -3,6 +3,7 @@ using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using static Terraria.ModLoader.ModContent;
 
 namespace CrystiliumMod.Items.Weapons
 {
@@ -31,7 +32,7 @@ namespace CrystiliumMod.Items.Weapons
 			item.rare = 3;
 			item.UseSound = SoundID.Item20;
 			item.autoReuse = true;
-			item.shoot = mod.ProjectileType<Projectiles.Leaf>();
+			item.shoot = ProjectileType<Projectiles.Leaf>();
 			item.shootSpeed = 1f;
 		}
 
@@ -43,7 +44,7 @@ namespace CrystiliumMod.Items.Weapons
 			double randomAngle = baseAngle + (Main.rand.NextFloat() - 0.5f) * spread;
 			speedX = baseSpeed * (float)Math.Sin(randomAngle);
 			speedY = baseSpeed * (float)Math.Cos(randomAngle);
-			Projectile.NewProjectile(position.X, position.Y, speedX - 0.5f, speedY - 0.5f, mod.ProjectileType<Projectiles.Leaf>(), damage, knockBack, player.whoAmI);
+			Projectile.NewProjectile(position.X, position.Y, speedX - 0.5f, speedY - 0.5f, ProjectileType<Projectiles.Leaf>(), damage, knockBack, player.whoAmI);
 			return true;
 		}
 
@@ -52,7 +53,7 @@ namespace CrystiliumMod.Items.Weapons
 			ModRecipe recipe = new ModRecipe(mod);
 			recipe.AddIngredient(ItemID.EmeraldStaff);
 			recipe.AddIngredient(ItemID.Emerald, 15);
-			recipe.AddIngredient(mod.ItemType<ShinyGemstone>(), 10);
+			recipe.AddIngredient(ItemType<ShinyGemstone>(), 10);
 			recipe.AddTile(TileID.Anvils);
 			recipe.SetResult(this);
 			recipe.AddRecipe();

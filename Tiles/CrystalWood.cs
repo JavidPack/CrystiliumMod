@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
+using static Terraria.ModLoader.ModContent;
 
 namespace CrystiliumMod.Tiles
 {
@@ -13,10 +14,10 @@ namespace CrystiliumMod.Tiles
 			Main.tileBlockLight[Type] = true;
 			Main.tileLighted[Type] = false;
 			SetModTree(new CrystalTree());
-			dustType = mod.DustType<Dusts.Sparkle>();
+			dustType = DustType<Dusts.Sparkle>();
 			soundType = 27;
 			soundStyle = 2;
-			drop = mod.ItemType<Items.Placeable.CrystalWood>();
+			drop = ItemType<Items.Placeable.CrystalWood>();
 			AddMapEntry(new Color(19, 163, 189));
 		}
 

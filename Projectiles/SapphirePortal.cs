@@ -1,6 +1,7 @@
 using System;
 using Terraria;
 using Terraria.ModLoader;
+using static Terraria.ModLoader.ModContent;
 
 namespace CrystiliumMod.Projectiles //We need this to basically indicate the folder where it is to be read from, so you the texture will load correctly
 {
@@ -68,7 +69,7 @@ namespace CrystiliumMod.Projectiles //We need this to basically indicate the fol
 
 					float velX = dirX * factor;
 					float velY = dirY * factor;
-					Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, velX, velY, mod.ProjectileType<SapphireSpike>(), projectile.damage + 4, 0, Main.myPlayer);
+					Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, velX, velY, ProjectileType<SapphireSpike>(), projectile.damage + 4, 0, Main.myPlayer);
 				}
 			}
 		}

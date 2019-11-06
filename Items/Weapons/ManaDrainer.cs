@@ -1,6 +1,7 @@
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using static Terraria.ModLoader.ModContent;
 
 namespace CrystiliumMod.Items.Weapons
 {
@@ -29,7 +30,7 @@ namespace CrystiliumMod.Items.Weapons
 			item.value = Item.sellPrice(0, 1, 0, 0);
 			item.rare = 6;
 			item.mana = 20;
-			item.shoot = mod.ProjectileType<Projectiles.ManaBeam>();
+			item.shoot = ProjectileType<Projectiles.ManaBeam>();
 			item.shootSpeed = 16f;
 			item.autoReuse = true;
 		}

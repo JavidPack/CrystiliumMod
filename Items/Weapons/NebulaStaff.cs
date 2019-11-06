@@ -1,6 +1,7 @@
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using static Terraria.ModLoader.ModContent;
 
 namespace CrystiliumMod.Items.Weapons
 {
@@ -27,7 +28,7 @@ namespace CrystiliumMod.Items.Weapons
 			item.useStyle = 5; //How the weapon is held, 5 is the gun hold style
 			item.value = 120000; //How much the item is worth
 			item.rare = 8; //The rarity of the item
-			item.shoot = mod.ProjectileType<Projectiles.NebulaShard>(); //What the item shoots, retains an int value
+			item.shoot = ProjectileType<Projectiles.NebulaShard>(); //What the item shoots, retains an int value
 			item.shootSpeed = 4f; //How fast the projectile fires
 			item.mana = 14;
 			item.channel = true;
@@ -37,7 +38,7 @@ namespace CrystiliumMod.Items.Weapons
 		{
 			ModRecipe recipe = new ModRecipe(mod);
 			recipe.AddIngredient(ItemID.FragmentNebula, 10);
-			recipe.AddIngredient(mod.ItemType<CrystiliumBar>(), 15);
+			recipe.AddIngredient(ItemType<CrystiliumBar>(), 15);
 			recipe.AddTile(TileID.LunarCraftingStation);
 			recipe.SetResult(this);
 			recipe.AddRecipe();

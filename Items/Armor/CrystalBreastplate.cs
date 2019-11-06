@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Terraria;
 using Terraria.ModLoader;
+using static Terraria.ModLoader.ModContent;
 
 namespace CrystiliumMod.Items.Armor
 {
@@ -33,8 +34,8 @@ namespace CrystiliumMod.Items.Armor
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(mod.ItemType<Items.RadiantPrism>(), 15);
-			recipe.AddIngredient(mod.ItemType<Items.ShinyGemstone>(), 25);
+			recipe.AddIngredient(ItemType<Items.RadiantPrism>(), 15);
+			recipe.AddIngredient(ItemType<Items.ShinyGemstone>(), 25);
 			recipe.AddTile(Terraria.ID.TileID.Anvils);
 			recipe.SetResult(this);
 			recipe.AddRecipe();

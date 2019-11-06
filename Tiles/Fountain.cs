@@ -4,6 +4,7 @@ using Terraria.DataStructures;
 using Terraria.Enums;
 using Terraria.ID;
 using Terraria.ModLoader;
+using static Terraria.ModLoader.ModContent;
 using Terraria.ObjectData;
 
 namespace CrystiliumMod.Tiles
@@ -53,8 +54,10 @@ namespace CrystiliumMod.Tiles
 
 		public override void AnimateTile(ref int frame, ref int frameCounter)
 		{
-			frame = (frame + 1) % 6;
-			frameCounter = 0;
+			if (++frameCounter >= 5) {
+				frameCounter = 0;
+				frame = ++frame % 6;
+			}
 		}
 
 		public override void NearbyEffects(int i, int j, bool closer)
@@ -70,49 +73,27 @@ namespace CrystiliumMod.Tiles
 		{
 			//shows the Cryptic Crystal icon while mousing over this tile
 			Main.LocalPlayer.showItemIcon = true;
-			Main.LocalPlayer.showItemIcon2 = mod.ItemType<Items.CrypticCrystal>();
+			Main.LocalPlayer.showItemIcon2 = ItemType<Items.CrypticCrystal>();
 		}
 
-		public override void RightClick(int i, int j)
+		public override bool NewRightClick(int i, int j)
 		{
 			//don't bother if there's already a Crystal King in the world
-			for (int x = 0; x < Main.npc.Length; x++)
-			{
-				if (Main.npc[x].active && Main.npc[x].type == mod.NPCType<NPCs.Bosses.CrystalKing>()) return;
-			}
+			if(NPC.AnyNPCs(NPCType<NPCs.Bosses.CrystalKing>()))
+				return true;
 
 			//check if player has a Cryptic Crystal
-			if (Main.LocalPlayer.HasItem(mod.ItemType<Items.CrypticCrystal>()))
-			{
-				// TODO, someone said this didn't work. Migrate to Main.LocalPlayer.ConsumeItem() and check MP code.
-				//now to search for it
-				Item[] inventory = Main.LocalPlayer.inventory;
-				for (int k = 0; k < inventory.Length; k++)
-				{
-					if (inventory[k].type == mod.ItemType<Items.CrypticCrystal>())
-					{
-						//consume it, and summon the Crystal King!
-						inventory[k].stack--;
-						if (inventory[k].stack == 0)
-						{
-							inventory[k].TurnToAir();
-						}
-						if (Main.netMode == NetmodeID.MultiplayerClient)
-						{
-							ModPacket packet = mod.GetPacket();
-							packet.Write((byte)CrystiliumModMessageType.SpawnBossSpecial);
-							packet.Send();
-						}
-						else
-						{
-							NPC.SpawnOnPlayer(Main.myPlayer, mod.NPCType<NPCs.Bosses.CrystalKing>());
-						}
-
-						//and don't spam crystal kings if the player didn't ask for it :P
-						return;
-					}
+			if (Main.LocalPlayer.ConsumeItem(ItemType<Items.CrypticCrystal>())) {
+				if (Main.netMode == NetmodeID.MultiplayerClient) {
+					ModPacket packet = mod.GetPacket();
+					packet.Write((byte)CrystiliumModMessageType.SpawnBossSpecial);
+					packet.Send();
+				}
+				else {
+					NPC.SpawnOnPlayer(Main.myPlayer, NPCType<NPCs.Bosses.CrystalKing>());
 				}
 			}
+			return true;
 		}
 	}
 }

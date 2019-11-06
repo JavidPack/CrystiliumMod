@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using static Terraria.ModLoader.ModContent;
 
 namespace CrystiliumMod.Items.Armor
 {
@@ -35,7 +36,7 @@ namespace CrystiliumMod.Items.Armor
 		{
 			ModRecipe recipe = new ModRecipe(mod);
 			recipe.AddIngredient(ItemID.CrystalShard, 20);
-			recipe.AddIngredient(mod.ItemType<Items.EnchantedGeode>(), 15);
+			recipe.AddIngredient(ItemType<Items.EnchantedGeode>(), 15);
 			recipe.AddTile(Terraria.ID.TileID.Anvils);
 			recipe.SetResult(this);
 			recipe.AddRecipe();

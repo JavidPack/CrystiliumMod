@@ -1,6 +1,7 @@
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using static Terraria.ModLoader.ModContent;
 
 namespace CrystiliumMod.Items.Weapons
 {
@@ -25,7 +26,7 @@ namespace CrystiliumMod.Items.Weapons
 			item.value = 80000;
 			item.rare = 8;
 			item.shootSpeed = 16f;
-			item.shoot = mod.ProjectileType<Projectiles.ShatterangProj>();
+			item.shoot = ProjectileType<Projectiles.ShatterangProj>();
 			item.UseSound = SoundID.Item1;
 			item.autoReuse = true;
 		}
@@ -45,7 +46,7 @@ namespace CrystiliumMod.Items.Weapons
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(mod.ItemType<CrystiliumBar>(), 15);
+			recipe.AddIngredient(ItemType<CrystiliumBar>(), 15);
 			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.SetResult(this);
 			recipe.AddRecipe();

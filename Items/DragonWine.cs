@@ -1,6 +1,7 @@
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using static Terraria.ModLoader.ModContent;
 
 namespace CrystiliumMod.Items
 {
@@ -30,7 +31,7 @@ namespace CrystiliumMod.Items
 		public override bool UseItem(Player player)
 		{
 			player.statLife -= 200;
-			player.AddBuff(mod.BuffType<Buffs.DragonFury>(), 600);
+			player.AddBuff(BuffType<Buffs.DragonFury>(), 600);
 			if (player.statLife <= 0)
 			{
 				//Main.player[item.owner].KillMe(9999, 1, true, " couldn't take the heat"/*" sacrificed too much"*/);
@@ -41,7 +42,7 @@ namespace CrystiliumMod.Items
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(mod.ItemType<CrystalBottleWater>());
+			recipe.AddIngredient(ItemType<CrystalBottleWater>());
 			recipe.AddIngredient(ItemID.TissueSample);
 			recipe.AddIngredient(ItemID.Deathweed);
 			recipe.AddIngredient(ItemID.Ichor);

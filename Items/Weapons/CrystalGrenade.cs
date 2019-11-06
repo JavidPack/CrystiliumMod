@@ -1,5 +1,6 @@
 using Terraria.ID;
 using Terraria.ModLoader;
+using static Terraria.ModLoader.ModContent;
 
 namespace CrystiliumMod.Items.Weapons
 {
@@ -18,14 +19,14 @@ namespace CrystiliumMod.Items.Weapons
 			item.value = 1000;
 			item.useAnimation = 60;
 			item.rare = 3;
-			item.shoot = mod.ProjectileType<Projectiles.CrystalGrenadeProj>();
+			item.shoot = ProjectileType<Projectiles.CrystalGrenadeProj>();
 		}
 
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);
 			recipe.AddIngredient(ItemID.Grenade, 5);
-			recipe.AddIngredient(mod.ItemType<ShinyGemstone>());
+			recipe.AddIngredient(ItemType<ShinyGemstone>());
 			recipe.SetResult(this, 5);
 			recipe.AddRecipe();
 		}

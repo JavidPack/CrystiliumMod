@@ -5,6 +5,7 @@ using Terraria.DataStructures;
 using Terraria.Enums;
 using Terraria.ID;
 using Terraria.ModLoader;
+using static Terraria.ModLoader.ModContent;
 using Terraria.ObjectData;
 
 namespace CrystiliumMod.Tiles
@@ -24,7 +25,7 @@ namespace CrystiliumMod.Tiles
 			TileObjectData.newTile.CoordinateHeights = new int[] { 16, 18 };
 			TileObjectData.newTile.CoordinateWidth = 16;
 			TileObjectData.newTile.CoordinatePadding = 2;
-			TileObjectData.newTile.AnchorValidTiles = new int[] { mod.TileType<Tiles.CrystalBlock>() };
+			TileObjectData.newTile.AnchorValidTiles = new int[] { TileType<Tiles.CrystalBlock>() };
 			TileObjectData.newTile.StyleHorizontal = true;
 			TileObjectData.newTile.DrawFlipHorizontal = true;
 			TileObjectData.newTile.WaterPlacement = LiquidPlacement.Allowed;
@@ -35,7 +36,7 @@ namespace CrystiliumMod.Tiles
 			ModTranslation name = CreateMapEntryName();
 			name.SetDefault("Sapling");
 			AddMapEntry(new Color(200, 200, 200), name);
-			dustType = mod.DustType<Dusts.Sparkle>();
+			dustType = DustType<Dusts.Sparkle>();
 			adjTiles = new int[] { TileID.Saplings };
 		}
 

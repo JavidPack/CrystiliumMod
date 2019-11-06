@@ -1,4 +1,5 @@
 using Terraria.ModLoader;
+using static Terraria.ModLoader.ModContent;
 
 namespace CrystiliumMod.Items
 {
@@ -22,9 +23,9 @@ namespace CrystiliumMod.Items
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(mod.ItemType<Items.CrystalBottle>());
-			recipe.AddTile(mod.TileType<Tiles.Fountain>());
-			recipe.SetResult(mod.ItemType<Items.CrystalBottleWater>());
+			recipe.AddIngredient(ItemType<Items.CrystalBottle>());
+			recipe.AddTile(TileType<Tiles.Fountain>());
+			recipe.SetResult(ItemType<Items.CrystalBottleWater>());
 			recipe.AddRecipe();
 		}
 	}

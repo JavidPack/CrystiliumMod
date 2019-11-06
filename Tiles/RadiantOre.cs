@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
+using static Terraria.ModLoader.ModContent;
 
 namespace CrystiliumMod.Tiles
 {
@@ -13,8 +14,8 @@ namespace CrystiliumMod.Tiles
 			Main.tileBlockLight[Type] = true;
 			this.minPick = 65;
 			Main.tileLighted[Type] = false;
-			dustType = mod.DustType<Dusts.Sparkle>();
-			drop = mod.ItemType<Items.Placeable.RadiantOre>();
+			dustType = DustType<Dusts.Sparkle>();
+			drop = ItemType<Items.Placeable.RadiantOre>();
 			AddMapEntry(new Color(255, 93, 245));
 		}
 

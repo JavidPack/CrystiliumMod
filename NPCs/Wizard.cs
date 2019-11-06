@@ -1,6 +1,7 @@
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using static Terraria.ModLoader.ModContent;
 
 namespace CrystiliumMod.NPCs
 {
@@ -10,7 +11,7 @@ namespace CrystiliumMod.NPCs
 		{
 			if (type == NPCID.Wizard)
 			{
-				shop.item[nextSlot].SetDefaults(mod.ItemType<Items.CrystalBottle>());
+				shop.item[nextSlot].SetDefaults(ItemType<Items.CrystalBottle>());
 				nextSlot++;
 			}
 		}

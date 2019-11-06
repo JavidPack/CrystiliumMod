@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using static Terraria.ModLoader.ModContent;
 
 namespace CrystiliumMod.Items.Weapons
 {
@@ -20,7 +21,7 @@ namespace CrystiliumMod.Items.Weapons
 			item.thrown = true;
 			item.value = Item.sellPrice(0, 1, 0, 0);
 			item.rare = 6;
-			item.shoot = mod.ProjectileType<Projectiles.Crystishae>();
+			item.shoot = ProjectileType<Projectiles.Crystishae>();
 		}
 
 		public override bool CanUseItem(Player player)

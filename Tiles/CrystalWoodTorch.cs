@@ -5,6 +5,7 @@ using Terraria.DataStructures;
 using Terraria.Enums;
 using Terraria.ID;
 using Terraria.ModLoader;
+using static Terraria.ModLoader.ModContent;
 using Terraria.ObjectData;
 
 namespace CrystiliumMod.Tiles
@@ -37,7 +38,7 @@ namespace CrystiliumMod.Tiles
 			ModTranslation name = CreateMapEntryName();
 			name.SetDefault("Torch");
 			AddMapEntry(new Color(250, 140, 250), name);
-			drop = mod.ItemType<Items.Placeable.CrystalWoodTorch>();
+			drop = ItemType<Items.Placeable.CrystalWoodTorch>();
 			disableSmartCursor = true;
 			adjTiles = new int[] { TileID.Torches };
 			torch = true;
