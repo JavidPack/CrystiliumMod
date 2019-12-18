@@ -10,6 +10,7 @@ using Terraria.Utilities;
 
 namespace CrystiliumMod.NPCs.Bosses
 {
+	[AutoloadBossHead]
 	public class CrystalKing : ModNPC
 	{
 		private int timer = 0;
