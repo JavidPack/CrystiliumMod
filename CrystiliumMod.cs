@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using Terraria;
 using Terraria.ModLoader;
+using static Terraria.ModLoader.ModContent;
 
 namespace CrystiliumMod
 {
