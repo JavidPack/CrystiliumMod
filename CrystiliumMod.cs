@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.IO;
 using Terraria;
 using Terraria.ID;
@@ -27,14 +28,17 @@ namespace CrystiliumMod
 			instance = null;
 		}
 
-		public override void Close() {
+		public override void Close()
+		{
 			// Fix a tModLoader bug.
 			var slots = new int[] {
 				GetSoundSlot(SoundType.Music, "Sounds/Music/CrystalKing"),
 				GetSoundSlot(SoundType.Music, "Sounds/Music/CrystallineFlows")
 			};
-			foreach (var slot in slots) {
-				if (Main.music[slot].IsPlaying) {
+			foreach (var slot in slots)
+			{
+				if (Main.music[slot].IsPlaying)
+				{
 					Main.music[slot].Stop(Microsoft.Xna.Framework.Audio.AudioStopOptions.Immediate);
 				}
 			}
@@ -46,8 +50,10 @@ namespace CrystiliumMod
 		{
 		}
 
-		public override void UpdateMusic(ref int music, ref MusicPriority priority) {
-			if (Main.myPlayer == -1 || Main.gameMenu || !Main.LocalPlayer.active) {
+		public override void UpdateMusic(ref int music, ref MusicPriority priority)
+		{
+			if (Main.myPlayer == -1 || Main.gameMenu || !Main.LocalPlayer.active)
+			{
 				return;
 			}
 			Player player = Main.LocalPlayer;
@@ -66,7 +72,19 @@ namespace CrystiliumMod
 			Mod bossChecklist = ModLoader.GetMod("BossChecklist");
 			if (bossChecklist != null)
 			{
-				bossChecklist.Call("AddBossWithInfo", "Crystal King", 11.8f, (Func<bool>)(() => CrystalWorld.downedCrystalKing), "Right click on a Crystal Fountain with a [i:" + ModContent.ItemType<Items.CrypticCrystal>() + "] in your inventory");
+				bossChecklist.Call(
+				"AddBoss",
+				11.8f,
+				ModContent.NPCType<NPCs.Bosses.CrystalKing>(),
+				this,
+				"Crystal King",
+				(Func<bool>)(() => CrystalWorld.downedCrystalKing),
+				ModContent.ItemType<Items.CrypticCrystal>(),
+				new List<int> { ModContent.ItemType<Items.Placeable.KingTrophy>(), ModContent.ItemType<Items.Armor.CrystalMask>() },
+				new List<int> { ModContent.ItemType<Items.Accessories.CrystalJewel>(), ModContent.ItemType<Items.CrystiliumBar>(), ModContent.ItemType<Items.Weapons.Cryst>(), ModContent.ItemType<Items.Weapons.Callandor>(), ModContent.ItemType<Items.Weapons.QuartzSpear>(), ModContent.ItemType<Items.Weapons.ShiningTrigger>(), ModContent.ItemType<Items.Weapons.Slamborite>(), ModContent.ItemType<Items.Weapons.Shimmer>(), ModContent.ItemType<Items.Weapons.Shatterocket>(), ModContent.ItemType<Items.Weapons.RoyalShredder>() },
+				"Right click on a Crystal Fountain with a [i:" + ModContent.ItemType<Items.CrypticCrystal>() + "] in your inventory",
+				"",
+				"CrystiliumMod/NPCs/Bosses/CrystalKingBossLog");
 			}
 		}
 
