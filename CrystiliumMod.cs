@@ -35,9 +35,9 @@ namespace CrystiliumMod
 				GetSoundSlot(SoundType.Music, "Sounds/Music/CrystalKing"),
 				GetSoundSlot(SoundType.Music, "Sounds/Music/CrystallineFlows")
 			};
-			foreach (var slot in slots)
+			foreach (var slot in slots) // Other mods crashing during loading can leave Main.music in a weird state.
 			{
-				if (Main.music[slot].IsPlaying)
+				if (Main.music.IndexInRange(slot) && Main.music[slot]?.IsPlaying == true)
 				{
 					Main.music[slot].Stop(Microsoft.Xna.Framework.Audio.AudioStopOptions.Immediate);
 				}
