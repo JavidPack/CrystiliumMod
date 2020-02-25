@@ -8,6 +8,10 @@ namespace CrystiliumMod.Projectiles.Minions
 {
 	public class SpiritArrow : ModProjectile
 	{
+		public override void SetStaticDefaults()
+		{
+			ProjectileID.Sets.MinionShot[projectile.type] = true;
+		}
 		public override void SetDefaults()
 		{
 			projectile.CloneDefaults(ProjectileID.WoodenArrowFriendly);
