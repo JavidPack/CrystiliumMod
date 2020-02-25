@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
 
@@ -13,6 +14,7 @@ namespace CrystiliumMod.Projectiles.Minions
 		{
 			DisplayName.SetDefault("Spirit Bow");
 			Main.projFrames[projectile.type] = 9;
+			ProjectileID.Sets.MinionTargettingFeature[projectile.type] = true;
 		}
 
 		public override void SetDefaults()
@@ -26,7 +28,8 @@ namespace CrystiliumMod.Projectiles.Minions
 			projectile.tileCollide = false;
 			projectile.ignoreWater = true;
 			projectile.minion = true;
-			projectile.minionSlots = 0;
+			projectile.sentry = true;
+			projectile.timeLeft = Projectile.SentryLifeTime;
 		}
 
 		public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
@@ -44,6 +47,7 @@ namespace CrystiliumMod.Projectiles.Minions
 			return false;
 		}
 
+		NPC target;
 		//How the projectile works
 		//AI ARRAY INFO: 0 - NUFFIN  |  1 - TARGET
 		public override void AI()
@@ -55,53 +59,14 @@ namespace CrystiliumMod.Projectiles.Minions
 			int targetingMax = 20; //how many frames allowed to target nearest instead of shooting
 			float shootVelocity = 16f; //magnitude of the shoot vector (speed of arrows shot)
 
-			//TARGET NEAREST NPC WITHIN RANGE
-			float lowestDist = float.MaxValue;
-			foreach (NPC npc in Main.npc)
-			{
-				//if npc is a valid target (active, not friendly, and not a critter)
-				if (npc.active && !npc.friendly && npc.catchItem == 0)
-				{
-					//if npc is within 50 blocks
-					float dist = projectile.Distance(npc.Center);
-					if (dist / 16 < range)
-					{
-						//if npc is closer than closest found npc
-						if (dist < lowestDist)
-						{
-							lowestDist = dist;
+			Player player = Main.player[projectile.owner];
+			player.UpdateMaxTurrets();
 
-							//target this npc
-							projectile.ai[1] = npc.whoAmI;
-						}
-					}
-				}
-			}
-
-			//ROTATE BOW TOWARDS TARGET
-			NPC target = (Main.npc[(int)projectile.ai[1]] ?? new NPC()); //our target
-			if (target.active && projectile.Distance(target.Center) / 16 < range)
+			if (ClosestNPC(ref target, range*16, projectile.Center, false, player.MinionAttackTargetNPC))
 			{
 				Vector2 dirToTarget = projectile.DirectionTo(target.Center);
 				float rotToTarget = dirToTarget.ToRotation();
-
-				//handle clockwise rotation
-				if (projectile.rotation > rotToTarget)
-				{
-					//don't jitter
-					if (projectile.rotation - rotToTarget < rotSpeed) projectile.rotation = rotToTarget;
-					//rotate normally
-					else projectile.rotation -= rotSpeed;
-				}
-
-				//handling counter-clockwise rotation
-				else
-				{
-					//don't jitter
-					if (rotToTarget - projectile.rotation < rotSpeed) projectile.rotation = rotToTarget;
-					//rotate normally
-					else projectile.rotation += rotSpeed;
-				}
+				projectile.rotation = SlowRotation(projectile.rotation, rotToTarget, rotSpeed);
 			}
 
 			//ANIMATION HANDLING
@@ -119,7 +84,7 @@ namespace CrystiliumMod.Projectiles.Minions
 			else if (projectile.frame == 5)
 			{
 				//do nuffin... until target in range
-				if (target.active && projectile.Distance(target.Center) / 16 < range)
+				if (target != null && target.active && projectile.Distance(target.Center) / 16 < range)
 				{
 					projectile.frameCounter++;
 					//proceed if rotated in the right direction
@@ -169,7 +134,7 @@ namespace CrystiliumMod.Projectiles.Minions
 					projectile.frameCounter = 0;
 				}
 			}
-			if (projectile.timeLeft == 600)
+			if (projectile.timeLeft == Projectile.SentryLifeTime)
 			{
 				for (int i = 0; i < 15; i++)
 				{
@@ -185,6 +150,68 @@ namespace CrystiliumMod.Projectiles.Minions
 			{
 				Dust.NewDust(projectile.position, projectile.width, projectile.height, DustType<Dusts.Sparkle>(), (float)Main.rand.Next(-3, 3), (float)Main.rand.Next(-3, 3), 0);
 			}
+		}
+
+		//I ported these two methods straight from Qwerty's Bosses and Items
+		static float SlowRotation(float currentRotation, float targetAngle, float speed)
+		{
+			int f = 1; //this is used to switch rotation direction
+			float actDirection = new Vector2((float)Math.Cos(currentRotation), (float)Math.Sin(currentRotation)).ToRotation();
+			targetAngle = new Vector2((float)Math.Cos(targetAngle), (float)Math.Sin(targetAngle)).ToRotation();
+
+			//this makes f 1 or -1 to rotate the shorter distance
+			if (Math.Abs(actDirection - targetAngle) > Math.PI)
+			{
+				f = -1;
+			}
+			else
+			{
+				f = 1;
+			}
+
+			if (actDirection <= targetAngle + speed * 2 && actDirection >= targetAngle - speed * 2)
+			{
+				actDirection = targetAngle;
+			}
+			else if (actDirection <= targetAngle)
+			{
+				actDirection += (speed) * f;
+			}
+			else if (actDirection >= targetAngle)
+			{
+				actDirection -= (speed) * f;
+			}
+			actDirection = new Vector2((float)Math.Cos(actDirection), (float)Math.Sin(actDirection)).ToRotation();
+
+			return actDirection;
+		}
+		static bool ClosestNPC(ref NPC target, float maxDistance, Vector2 position, bool ignoreTiles = false, int overrideTarget = -1)
+		{
+			bool foundTarget = false;
+			if (overrideTarget != -1)
+			{
+				if ((Main.npc[overrideTarget].Center - position).Length() < maxDistance)
+				{
+					target = Main.npc[overrideTarget];
+					return true;
+				}
+
+			}
+			for (int k = 0; k < Main.npc.Length; k++)
+			{
+				NPC possibleTarget = Main.npc[k];
+				float distance = (possibleTarget.Center - position).Length();
+				if (distance < maxDistance && possibleTarget.active && possibleTarget.chaseable && !possibleTarget.dontTakeDamage && !possibleTarget.friendly && possibleTarget.lifeMax > 5 && !possibleTarget.immortal && (Collision.CanHit(position, 0, 0, possibleTarget.Center, 0, 0) || ignoreTiles))
+				{
+					target = Main.npc[k];
+					foundTarget = true;
+
+
+					maxDistance = (target.Center - position).Length();
+				}
+
+			}
+			return foundTarget;
 		}
 	}
 }
