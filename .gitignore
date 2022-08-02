@@ -1,5 +1,7 @@
-bin
+bin/
 obj
 *.user
 App.config
 .vs/
+.idea/
+.vscode/
