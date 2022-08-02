@@ -1,13 +1,15 @@
-using CrystiliumMod.Tiles;
 using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using CrystiliumMod.Content.Items;
+using CrystiliumMod.Content.Items.Weapons;
+using CrystiliumMod.Content.Tiles;
 using Terraria;
 using Terraria.GameContent.Generation;
 using Terraria.ID;
+using Terraria.IO;
 using Terraria.ModLoader;
-using static Terraria.ModLoader.ModContent;
 using Terraria.ModLoader.IO;
 using Terraria.WorldBuilding;
 
@@ -28,12 +30,12 @@ namespace CrystiliumMod
 
 		public override void SaveWorldData(TagCompound tag)/* tModPorter Suggestion: Edit tag parameter instead of returning new TagCompound */
 		{
-			var downed = new List<string>();
-			if (downedCrystalKing) downed.Add("crystalKing");
-
-			return new TagCompound {
-				{"downed", downed}
-			};
+			List<string> downed = new();
+			
+			if (downedCrystalKing) 
+				downed.Add("crystalKing");
+			
+			tag.Add(nameof(downed), downed);
 		}
 
 		public override void LoadWorldData(TagCompound tag)
@@ -47,8 +49,10 @@ namespace CrystiliumMod
 
 		public override void NetSend(BinaryWriter writer)
 		{
-			BitsByte flags = new BitsByte();
-			flags[0] = downedCrystalKing;
+			BitsByte flags = new()
+			{
+				[0] = downedCrystalKing
+			};
 			writer.Write(flags);
 		}
 
@@ -68,7 +72,7 @@ namespace CrystiliumMod
 				// Shinies pass removed by some other mod.
 				return;
 			}
-			tasks.Insert(ShiniesIndex + 1, new PassLegacy("CrystalBiomeGen", delegate (GenerationProgress progress)
+			tasks.Insert(ShiniesIndex + 1, new PassLegacy("CrystalBiomeGen", delegate(GenerationProgress progress, GameConfiguration config)
 			{
 				progress.Message = "Polishing crystals";
 				// 4200 1200
@@ -84,21 +88,23 @@ namespace CrystiliumMod
 					int XvalueMid = Xvalue + 400;
 					int YvalueMid = Yvalue + 400;
 
-					WorldGen.TileRunner(XvalueMid, YvalueMid, (double)WorldGen.genRand.Next(300, 300), 1, TileType<Tiles.CrystalBlock>(), false, 0f, 0f, true, true); //c = x, d = y
-																																										  /*		for (int A = Xvalue; A < XvalueHigh; A++)
-																																												  {
-																																													  for (int B = Yvalue; B < YvalueHigh; B++)
-																																													  {
-																																														  if (Main.tile[A,B] != null)
-																																														  {
-																																															  if (Main.tile[A,B].type ==  TileType<Tiles.CrystalBlock>()) // A = x, B = y.
-																																															  {
-																																																  WorldGen.KillWall(A, B);
-																																																  WorldGen.PlaceWall(A, B, mod.WallType("CrystalWall"));
-																																															  }
-																																														  }
-																																													  }
-																																												  }*/
+					WorldGen.TileRunner(XvalueMid, YvalueMid, (double)WorldGen.genRand.Next(300, 300), 1, ModContent.TileType<CrystalBlock>(), false, 0f, 0f, true, true); //c = x, d = y
+					/*
+					 for (int A = Xvalue; A < XvalueHigh; A++)
+					 {
+				  	 	for (int B = Yvalue; B < YvalueHigh; B++)
+				  	 	{
+					 		  if (Main.tile[A,B] != null)
+					 		  {
+					 			  if (Main.tile[A,B].type ==  TileType<Tiles.CrystalBlock>()) // A = x, B = y.
+					 			  {
+					 				  WorldGen.KillWall(A, B);
+					 				  WorldGen.PlaceWall(A, B, mod.WallType("CrystalWall"));
+					 			  }
+					 		  }
+				  	 	}
+					 }
+					 */
 
 
 					/*bool placeSuccessful = false;
@@ -132,7 +138,7 @@ namespace CrystiliumMod
 					{
 						x = Xvalue + WorldGen.genRand.Next(350, 450);
 						y = Yvalue + WorldGen.genRand.Next(350, 450);
-						if (WorldGen.PlaceChest(x, y, (ushort)TileType<Tiles.CrystalChest>(), false, 2) != -1)
+						if (WorldGen.PlaceChest(x, y, (ushort) ModContent.TileType<CrystalChest>(), false, 2) != -1)
 						{
 							successes++;
 						}
@@ -142,7 +148,7 @@ namespace CrystiliumMod
 					{
 						int E = Xvalue + WorldGen.genRand.Next(340, 460);
 						int F = Yvalue + WorldGen.genRand.Next(340, 460);
-						WorldGen.PlaceTile(E, F, TileType<GlowingCrystal2>());
+						WorldGen.PlaceTile(E, F, ModContent.TileType<GlowingCrystal2>());
 					}
 					for (int C = 0; C < 35; C++)
 					{
@@ -150,7 +156,7 @@ namespace CrystiliumMod
 						int F = Yvalue + WorldGen.genRand.Next(340, 460);
 						if (Main.tile[E, F] != null)
 						{
-							WorldGen.PlaceTile(E, F, TileType<GlowingCrystal>());
+							WorldGen.PlaceTile(E, F, ModContent.TileType<GlowingCrystal>());
 						}
 					}
 					for (int trees = 0; trees < 50000; trees++)
@@ -158,7 +164,7 @@ namespace CrystiliumMod
 						int E = Xvalue + WorldGen.genRand.Next(340, 460);
 						int F = Yvalue + WorldGen.genRand.Next(340, 460);
 						Tile tile = Framing.GetTileSafely(E, F);
-						if (tile.TileType == TileType<CrystalBlock>() || tile.TileType == TileType<FountainBlock>())
+						if (tile.TileType == ModContent.TileType<CrystalBlock>() || tile.TileType == ModContent.TileType<FountainBlock>())
 						{
 							WorldGen.GrowTree(E, F);
 						}
@@ -167,9 +173,9 @@ namespace CrystiliumMod
 					{
 						int Xore = XvalueMid + Main.rand.Next(-300, 300);
 						int Yore = YvalueMid + Main.rand.Next(-300, 300);
-						if (Main.tile[Xore, Yore].TileType == TileType<CrystalBlock>()) // A = x, B = y.
+						if (Main.tile[Xore, Yore].TileType == ModContent.TileType<CrystalBlock>()) // A = x, B = y.
 						{
-							WorldGen.TileRunner(Xore, Yore, (double)WorldGen.genRand.Next(3, 6), WorldGen.genRand.Next(3, 6), TileType<RadiantOre>(), false, 0f, 0f, false, true);
+							WorldGen.TileRunner(Xore, Yore, (double)WorldGen.genRand.Next(3, 6), WorldGen.genRand.Next(3, 6), ModContent.TileType<RadiantOre>(), false, 0f, 0f, false, true);
 						}
 					}
 
@@ -184,7 +190,7 @@ namespace CrystiliumMod
 				// Lihzahrd Altars pass removed by some other mod.
 				return;
 			}
-			tasks.Insert(LihzahrdAltarsIndex, new PassLegacy("CrystalBiomeGenFountain", delegate (GenerationProgress progress)
+			tasks.Insert(LihzahrdAltarsIndex, new PassLegacy("CrystalBiomeGenFountain", delegate (GenerationProgress progress, GameConfiguration config)
 			{
 				progress.Message = "Polishing more crystals";
 
@@ -201,20 +207,20 @@ namespace CrystiliumMod
 							{
 								WorldGen.KillTile(XvalueMid + X1, YvalueMid - Y1);
 							}
-							WorldGen.PlaceTile(XvalueMid + X1, YvalueMid, TileType<FountainBlock>(), forced: true);
+							WorldGen.PlaceTile(XvalueMid + X1, YvalueMid, ModContent.TileType<FountainBlock>(), forced: true);
 						}
 						for (int X1 = -2; X1 < 8; X1++)
 						{
-							WorldGen.PlaceTile(XvalueMid + X1, YvalueMid + 1, TileType<CrystalBlock>());
+							WorldGen.PlaceTile(XvalueMid + X1, YvalueMid + 1, ModContent.TileType<CrystalBlock>());
 						}
 						for (int X1 = -1; X1 < 7; X1++)
 						{
-							WorldGen.PlaceTile(XvalueMid + X1, YvalueMid + 2, TileType<CrystalBlock>());
+							WorldGen.PlaceTile(XvalueMid + X1, YvalueMid + 2, ModContent.TileType<CrystalBlock>());
 						}
-						WorldGen.PlaceObject(XvalueMid, YvalueMid - 6, TileType<Fountain>());
+						WorldGen.PlaceObject(XvalueMid, YvalueMid - 6, ModContent.TileType<Fountain>());
 						WorldGen.PlaceObject(XvalueMid - 1, YvalueMid - 1, TileID.Lamps, false, 5); // Style 5 Lamp is FrozenLamp
-						WorldGen.PlaceObject(XvalueMid - 4, YvalueMid - 1, TileType<Crystal>());
-						WorldGen.PlaceObject(XvalueMid + 7, YvalueMid - 1, TileType<Crystal>());
+						WorldGen.PlaceObject(XvalueMid - 4, YvalueMid - 1, ModContent.TileType<Crystal>());
+						WorldGen.PlaceObject(XvalueMid + 7, YvalueMid - 1, ModContent.TileType<Crystal>());
 						WorldGen.PlaceObject(XvalueMid + 6, YvalueMid - 1, TileID.Lamps, false, 5);
 					}
 				}
@@ -228,12 +234,16 @@ namespace CrystiliumMod
 			int upperLimit = Main.rand.Next(3, 5);
 			for (int i = 0; i < upperLimit; i++)
 			{
-				int[] itemsToPlaceInGlassChestsSecondary = new int[] { ItemType<Items.CrystalBottle>(), ItemType<Items.ShinyGemstone>(), ItemType<Items.RadiantPrism>(), ItemType<Items.GeodeItem>(), ItemID.GoldCoin };
+				int[] itemsToPlaceInGlassChestsSecondary = new int[] {
+					ModContent.ItemType<CrystalBottle>(),
+					ModContent.ItemType<ShinyGemstone>(),
+					ModContent.ItemType<RadiantPrism>(),
+					ModContent.ItemType<GeodeItem>(), ItemID.GoldCoin };
 				int itemsToPlaceInGlassChestsSecondaryChoice = 0;
 				for (int chestIndex = 0; chestIndex < 1000; chestIndex++)
 				{
 					Chest chest = Main.chest[chestIndex];
-					if (chest != null && Main.tile[chest.x, chest.y].TileType == TileType<CrystalChest>())
+					if (chest != null && Main.tile[chest.x, chest.y].TileType == ModContent.TileType<CrystalChest>())
 					{
 						for (int inventoryIndex = 0; inventoryIndex < 40; inventoryIndex++)
 						{
@@ -250,12 +260,19 @@ namespace CrystiliumMod
 				}
 			}
 			// is this suppose to be an additional item?
-			int[] itemsToPlaceInGlassChests = new int[] { ItemType<Items.Weapons.CrystalStaff>(), ItemType<Items.Weapons.CrystalEdge>(), ItemType<Items.Weapons.GemFury>(), ItemType<Items.Weapons.Geode>(), ItemType<Items.Weapons.PrismCast>(), ItemType<Items.Weapons.Glowstrike>(), ItemType<Items.Weapons.Sharpoon>() };
+			int[] itemsToPlaceInGlassChests = new int[] {
+				ModContent.ItemType<CrystalStaff>(),
+				ModContent.ItemType<CrystalEdge>(),
+				ModContent.ItemType<GemFury>(),
+				ModContent.ItemType<Geode>(),
+				ModContent.ItemType<PrismCast>(),
+				ModContent.ItemType<Glowstrike>(),
+				ModContent.ItemType<Sharpoon>() };
 			int itemsToPlaceInGlassChestsChoice = 0;
 			for (int chestIndex = 0; chestIndex < 1000; chestIndex++)
 			{
 				Chest chest = Main.chest[chestIndex];
-				if (chest != null && Main.tile[chest.x, chest.y].TileType/*.frameX == 47 * 36*/ == TileType<CrystalChest>()) // if glass chest
+				if (chest != null && Main.tile[chest.x, chest.y].TileType/*.frameX == 47 * 36*/ == ModContent.TileType<CrystalChest>()) // if glass chest
 				{
 					for (int inventoryIndex = 0; inventoryIndex < 40; inventoryIndex++)
 					{
@@ -277,7 +294,7 @@ namespace CrystiliumMod
 
 		public override void TileCountsAvailable(ReadOnlySpan<int> tileCounts)
 		{
-			CrystalTiles = tileCounts[TileType<CrystalBlock>()];
+			CrystalTiles = tileCounts[ModContent.TileType<CrystalBlock>()];
 		}
 	}
 }

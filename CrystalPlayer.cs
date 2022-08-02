@@ -5,9 +5,9 @@ using Terraria.Audio;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
-using static Terraria.ModLoader.ModContent;
 using Microsoft.Xna.Framework.Graphics;
 using System.IO;
+using CrystiliumMod.Content.Buffs;
 
 namespace CrystiliumMod
 {
@@ -20,9 +20,6 @@ namespace CrystiliumMod
 		public float defenseEffect = -1f;
 		public bool crystalCharm = false;
 		public int crystalCharmStacks = 0;
-
-		// TODO, need to sync this data?
-		public bool ZoneCrystal = false;
 
 		public bool crystalFountain = false;
 
@@ -43,11 +40,12 @@ namespace CrystiliumMod
 				SoundEngine.PlaySound(SoundID.Item27, Player.position);
 				for (int h = 0; h < 20; h++)
 				{
-					Vector2 vel = new Vector2(0, -1);
+					Vector2 vel = new(0, -1);
 					float rand = Main.rand.NextFloat() * 6.283f;
 					vel = vel.RotatedBy(rand);
 					vel *= 5f;
-					Projectile.NewProjectile(Player.Center.X, Player.Center.Y, vel.X, vel.Y, Mod.Find<ModProjectile>("Shatter" + (1 + Main.rand.Next(0, 3))).Type, 20, 0, Player.whoAmI);
+					// TODO: We need to track the item reposible for toggling CrystalAcc somehow.
+					Projectile.NewProjectile(Player.GetSource_Misc("CrystiliumMod:CrystalAcc"), Player.Center.X, Player.Center.Y, vel.X, vel.Y, Mod.Find<ModProjectile>("Shatter" + (1 + Main.rand.Next(0, 3))).Type, 20, 0, Player.whoAmI);
 				}
 			}
 		}
@@ -86,10 +84,10 @@ namespace CrystiliumMod
 			if (crystalCharm)
 			{
 				//add buff, update stacks
-				int buffIdx = Player.FindBuffIndex(BuffType<Buffs.CrystalCharm>());
+				int buffIdx = Player.FindBuffIndex(ModContent.BuffType<CrystalCharm>());
 				if (buffIdx < 0)
 				{
-					Player.AddBuff(BuffType<Buffs.CrystalCharm>(), 120);
+					Player.AddBuff(ModContent.BuffType<CrystalCharm>(), 120);
 					crystalCharmStacks = 1;
 					//1/3 chance to increase stack each hit
 				}
@@ -114,46 +112,6 @@ namespace CrystiliumMod
 		public override void OnHitNPCWithProj(Projectile proj, NPC target, int damage, float knockback, bool crit)
 		{
 			UpdateCharmBuff(target);
-		}
-
-		public override void UpdateBiomes()
-		{
-			ZoneCrystal = (CrystalWorld.CrystalTiles > 400);
-		}
-
-		// TODO, need MapBackgroundImage
-		public override Texture2D GetMapBackgroundImage()
-		{
-			if (ZoneCrystal)
-			{
-				//return mod.GetTexture("CrystalBiomeMapBackground");
-			}
-			return base.GetMapBackgroundImage();
-		}
-
-		public override bool CustomBiomesMatch(Player other)
-		{
-			CrystalPlayer modOther = other.GetModPlayer<CrystalPlayer>();
-			return ZoneCrystal == modOther.ZoneCrystal;
-		}
-
-		public override void CopyCustomBiomesTo(Player other)
-		{
-			CrystalPlayer modOther = other.GetModPlayer<CrystalPlayer>();
-			modOther.ZoneCrystal = ZoneCrystal;
-		}
-
-		public override void SendCustomBiomes(BinaryWriter writer)
-		{
-			BitsByte flags = new BitsByte();
-			flags[0] = ZoneCrystal;
-			writer.Write(flags);
-		}
-
-		public override void ReceiveCustomBiomes(BinaryReader reader)
-		{
-			BitsByte flags = reader.ReadByte();
-			ZoneCrystal = flags[0];
 		}
 
 		public override bool PreHurt(bool pvp, bool quiet, ref int damage, ref int hitDirection, ref bool crit, ref bool customDamage, ref bool playSound, ref bool genGore, ref PlayerDeathReason damageSource, ref int cooldownCounter)
@@ -187,13 +145,13 @@ namespace CrystiliumMod
 		{
 			if (crystalFountain)
 			{
-				Player.AddBuff(BuffType<Buffs.CrystalHealing>(), 2);
+				Player.AddBuff(ModContent.BuffType<CrystalHealing>(), 2);
 			}
 		}
 
 		public override void PostUpdateBuffs()
 		{
-			if (Player.FindBuffIndex(BuffType<Buffs.CrystalCharm>()) < 0)
+			if (Player.FindBuffIndex(ModContent.BuffType<CrystalCharm>()) < 0)
 			{
 				crystalCharmStacks = 0;
 			}
