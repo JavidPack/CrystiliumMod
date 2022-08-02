@@ -10,7 +10,7 @@ namespace CrystiliumMod.Tiles
 {
 	public class CrystalWoodChair : ModTile
 	{
-		public override void SetDefaults()
+		public override void SetStaticDefaults()
 		{
 			Main.tileFrameImportant[Type] = true;
 			Main.tileNoAttach[Type] = true;
@@ -29,9 +29,9 @@ namespace CrystiliumMod.Tiles
 			ModTranslation name = CreateMapEntryName();
 			name.SetDefault("CrystalWood Chair");
 			AddMapEntry(new Color(250, 140, 250), name);
-			dustType = mod.DustType("CrystalDust");
-			disableSmartCursor = true;
-			adjTiles = new int[] { TileID.Chairs };
+			DustType = Mod.Find<ModDust>("CrystalDust").Type;
+			disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
+			AdjTiles = new int[] { TileID.Chairs };
 		}
 
 		public override void NumDust(int i, int j, bool fail, ref int num)

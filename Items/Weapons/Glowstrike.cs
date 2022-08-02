@@ -12,27 +12,27 @@ namespace CrystiliumMod.Items.Weapons
 		{
 			DisplayName.SetDefault("Glowstrike");
 			Tooltip.SetDefault("Summons a deadly fireball");
-			Item.staff[item.type] = true; //this makes the useStyle animate as a staff instead of as a gun
+			Item.staff[Item.type] = true; //this makes the useStyle animate as a staff instead of as a gun
 		}
 
 		public override void SetDefaults()
 		{
-			item.damage = 26;
-			item.magic = true;
-			item.mana = 12;
-			item.width = 40;
-			item.height = 40;
-			item.useTime = 20;
-			item.useAnimation = 20;
-			item.useStyle = 5;
-			item.noMelee = true;
-			item.knockBack = 5;
-			item.value = 30000;
-			item.rare = 3;
-			item.UseSound = SoundID.Item20;
-			item.autoReuse = true;
-			item.shoot = ProjectileType<CrystalFire>();
-			item.shootSpeed = 20f;
+			Item.damage = 26;
+			Item.DamageType = DamageClass.Magic;
+			Item.mana = 12;
+			Item.width = 40;
+			Item.height = 40;
+			Item.useTime = 20;
+			Item.useAnimation = 20;
+			Item.useStyle = 5;
+			Item.noMelee = true;
+			Item.knockBack = 5;
+			Item.value = 30000;
+			Item.rare = 3;
+			Item.UseSound = SoundID.Item20;
+			Item.autoReuse = true;
+			Item.shoot = ProjectileType<CrystalFire>();
+			Item.shootSpeed = 20f;
 		}
 	}
 }

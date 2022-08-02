@@ -9,29 +9,29 @@ namespace CrystiliumMod.Projectiles
 	{
 		public override void SetStaticDefaults()
 		{
-			ProjectileID.Sets.TrailCacheLength[projectile.type] = 5;
-			ProjectileID.Sets.TrailingMode[projectile.type] = 0;
+			ProjectileID.Sets.TrailCacheLength[Projectile.type] = 5;
+			ProjectileID.Sets.TrailingMode[Projectile.type] = 0;
 		}
 
 		public override void SetDefaults()
 		{
-			projectile.width = 16;
-			projectile.height = 32;
-			projectile.aiStyle = 1;
-			projectile.friendly = true;
-			projectile.magic = true;
-			projectile.penetrate = 1;
-			projectile.ignoreWater = true;
-			projectile.timeLeft = 25;
-			projectile.alpha = 255;
-			projectile.light = 0.5f;
-			projectile.extraUpdates = 1;
-			aiType = ProjectileID.Bullet;
+			Projectile.width = 16;
+			Projectile.height = 32;
+			Projectile.aiStyle = 1;
+			Projectile.friendly = true;
+			Projectile.DamageType = DamageClass.Magic;
+			Projectile.penetrate = 1;
+			Projectile.ignoreWater = true;
+			Projectile.timeLeft = 25;
+			Projectile.alpha = 255;
+			Projectile.light = 0.5f;
+			Projectile.extraUpdates = 1;
+			AIType = ProjectileID.Bullet;
 		}
 
 		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
 		{
-			Main.player[projectile.owner].statMana += 40;
+			Main.player[Projectile.owner].statMana += 40;
 		}
 	}
 }

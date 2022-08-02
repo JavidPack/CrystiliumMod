@@ -24,7 +24,7 @@ namespace CrystiliumMod.Tiles
 			return DustType<Dusts.CrystalDust>();
 		}
 
-		public override int GrowthFXGore()
+		public override int TreeLeaf()
 		{
 			return mod.GetGoreSlot("Gores/CrystalTreeFX");
 		}

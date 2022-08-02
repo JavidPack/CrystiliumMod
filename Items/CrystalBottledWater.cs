@@ -1,3 +1,4 @@
+using Terraria;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
 
@@ -13,20 +14,19 @@ namespace CrystiliumMod.Items
 
 		public override void SetDefaults()
 		{
-			item.width = 20;
-			item.height = 20;
-			item.maxStack = 30;
-			item.value = 2500;
-			item.rare = 3;
+			Item.width = 20;
+			Item.height = 20;
+			Item.maxStack = 30;
+			Item.value = 2500;
+			Item.rare = 3;
 		}
 
 		public override void AddRecipes()
 		{
-			ModRecipe recipe = new ModRecipe(mod);
+			Recipe recipe = Recipe.Create(ItemType<Items.CrystalBottleWater>());
 			recipe.AddIngredient(ItemType<Items.CrystalBottle>());
 			recipe.AddTile(TileType<Tiles.Fountain>());
-			recipe.SetResult(ItemType<Items.CrystalBottleWater>());
-			recipe.AddRecipe();
+			recipe.Register();
 		}
 	}
 }

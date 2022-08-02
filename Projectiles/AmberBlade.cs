@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
@@ -10,20 +11,20 @@ namespace CrystiliumMod.Projectiles
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Amber Blade");
-			ProjectileID.Sets.TrailCacheLength[projectile.type] = 9;
-			ProjectileID.Sets.TrailingMode[projectile.type] = 0;
+			ProjectileID.Sets.TrailCacheLength[Projectile.type] = 9;
+			ProjectileID.Sets.TrailingMode[Projectile.type] = 0;
 		}
 
 		public override void SetDefaults()
 		{
-			projectile.tileCollide = false;
-			projectile.penetrate = 600;
-			projectile.hostile = false;
-			projectile.friendly = true;
-			projectile.damage = 12;
-			projectile.timeLeft = 120;
-			projectile.extraUpdates = 1;
-			projectile.light = 1;
+			Projectile.tileCollide = false;
+			Projectile.penetrate = 600;
+			Projectile.hostile = false;
+			Projectile.friendly = true;
+			Projectile.damage = 12;
+			Projectile.timeLeft = 120;
+			Projectile.extraUpdates = 1;
+			Projectile.light = 1;
 		}
 
 		/* public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
@@ -35,8 +36,8 @@ namespace CrystiliumMod.Projectiles
 		{
 			if (Main.rand.Next(3) == 0)
 			{
-				Dust.NewDust(projectile.position, projectile.width, projectile.height, 6);
-				projectile.rotation += 0.3f;
+				Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, 6);
+				Projectile.rotation += 0.3f;
 			}
 		}
 
@@ -44,9 +45,9 @@ namespace CrystiliumMod.Projectiles
 		{
 			for (int i = 0; i < 5; i++)
 			{
-				Dust.NewDust(projectile.position, projectile.width, projectile.height, 6);
+				Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, 6);
 			}
-			Main.PlaySound(0, (int)projectile.position.X, (int)projectile.position.Y);
+			SoundEngine.PlaySound(SoundID.Dig, Projectile.position);
 		}
 
 		//public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)

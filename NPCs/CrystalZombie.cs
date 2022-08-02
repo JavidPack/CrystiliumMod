@@ -11,50 +11,50 @@ namespace CrystiliumMod.NPCs
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Crystal Zombie");
-			Main.npcFrameCount[npc.type] = Main.npcFrameCount[NPCID.Zombie];
+			Main.npcFrameCount[NPC.type] = Main.npcFrameCount[NPCID.Zombie];
 		}
 
 		public override void SetDefaults()
 		{
-			npc.width = 18;
-			npc.height = 40;
-			npc.damage = 21;
-			npc.defense = 12;
-			npc.lifeMax = 120;
-			npc.HitSound = SoundID.NPCHit5;
-			npc.DeathSound = SoundID.NPCDeath6;
-			npc.value = 300f;
-			npc.knockBackResist = 0.75f;
-			npc.aiStyle = 3;
-			aiType = NPCID.Skeleton;
-			animationType = NPCID.Zombie;
+			NPC.width = 18;
+			NPC.height = 40;
+			NPC.damage = 21;
+			NPC.defense = 12;
+			NPC.lifeMax = 120;
+			NPC.HitSound = SoundID.NPCHit5;
+			NPC.DeathSound = SoundID.NPCDeath6;
+			NPC.value = 300f;
+			NPC.knockBackResist = 0.75f;
+			NPC.aiStyle = 3;
+			AIType = NPCID.Skeleton;
+			AnimationType = NPCID.Zombie;
 		}
 
 		public override float SpawnChance(NPCSpawnInfo spawnInfo)
 		{
-			return Main.tile[(int)(spawnInfo.spawnTileX), (int)(spawnInfo.spawnTileY)].type == TileType<Tiles.CrystalBlock>() ? 8f : 0f;
+			return Main.tile[(int)(spawnInfo.SpawnTileX), (int)(spawnInfo.SpawnTileY)].TileType == TileType<Tiles.CrystalBlock>() ? 8f : 0f;
 		}
 
 		public override void HitEffect(int hitDirection, double damage)
 		{
-			if (npc.life <= 0)
+			if (NPC.life <= 0)
 			{
 				//spawn initial set
 				for (int i = 1; i <= 3; i++)
 				{
-					Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/Crystal_Zombie_Gore_" + i));
+					Gore.NewGore(NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/Crystal_Zombie_Gore_" + i));
 				}
 				//spawn a couple extra bits
-				Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/Crystal_Zombie_Gore_1"));
-				Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/Crystal_Zombie_Gore_1"));
+				Gore.NewGore(NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/Crystal_Zombie_Gore_1"));
+				Gore.NewGore(NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/Crystal_Zombie_Gore_1"));
 			}
 		}
 
-		public override void NPCLoot()
+		public override void OnKill()
 		{
 			if (Main.rand.Next(2) == 0)
 			{
-				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, ItemType<Items.ShinyGemstone>());
+				Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ItemType<Items.ShinyGemstone>());
 			}
 		}
 
@@ -73,7 +73,7 @@ namespace CrystiliumMod.NPCs
 			{
 				multiplier = 1.5f;
 			}
-			Lighting.AddLight(npc.position, RGB.X, RGB.Y, RGB.Z);
+			Lighting.AddLight(NPC.position, RGB.X, RGB.Y, RGB.Z);
 			if (Main.rand.Next(150) == 0)
 			{
 				for (int h = 0; h < 3; h++)
@@ -82,7 +82,7 @@ namespace CrystiliumMod.NPCs
 					float rand = Main.rand.NextFloat() * 6.283f;
 					vel = vel.RotatedBy(rand);
 					vel *= 5f;
-					Projectile.NewProjectile(npc.Center.X, npc.Center.Y + 20, vel.X, vel.Y, mod.ProjectileType("ShatterEnemy" + (1 + Main.rand.Next(0, 3))), 18, 0, Main.myPlayer);
+					Projectile.NewProjectile(NPC.Center.X, NPC.Center.Y + 20, vel.X, vel.Y, Mod.Find<ModProjectile>("ShatterEnemy" + (1 + Main.rand.Next(0, 3))).Type, 18, 0, Main.myPlayer);
 				}
 			}
 		}

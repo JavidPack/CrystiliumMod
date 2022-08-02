@@ -13,7 +13,7 @@ namespace CrystiliumMod.Projectiles
 			{
 				projectile.hostile = false;
 				projectile.friendly = true;
-				projectile.magic = true;
+				projectile.DamageType = DamageClass.Magic;
 				projectile.penetrate = 1000;
 				if ((projectile.knockBack >= .45f && projectile.knockBack < .5f) && projectile.oldVelocity != projectile.velocity && Main.rand.Next(0, 4) == 0)
 				{

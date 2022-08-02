@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
@@ -9,21 +10,21 @@ namespace CrystiliumMod.Projectiles
 	{
 		public override void SetStaticDefaults()
 		{
-			ProjectileID.Sets.TrailCacheLength[projectile.type] = 9;
-			ProjectileID.Sets.TrailingMode[projectile.type] = 0;
+			ProjectileID.Sets.TrailCacheLength[Projectile.type] = 9;
+			ProjectileID.Sets.TrailingMode[Projectile.type] = 0;
 		}
 
 		public override void SetDefaults()
 		{
-			projectile.aiStyle = 113;
-			projectile.friendly = true;
-			projectile.thrown = true;
-			projectile.penetrate = 5;
-			projectile.timeLeft = 600;
-			projectile.alpha = 255;
-			projectile.extraUpdates = 1;
-			projectile.light = 0;
-			aiType = ProjectileID.ThrowingKnife;
+			Projectile.aiStyle = 113;
+			Projectile.friendly = true;
+			Projectile.DamageType = DamageClass.Throwing;
+			Projectile.penetrate = 5;
+			Projectile.timeLeft = 600;
+			Projectile.alpha = 255;
+			Projectile.extraUpdates = 1;
+			Projectile.light = 0;
+			AIType = ProjectileID.ThrowingKnife;
 		}
 
 		/* public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
@@ -35,9 +36,9 @@ namespace CrystiliumMod.Projectiles
 		{
 			for (int i = 0; i < 5; i++)
 			{
-				Dust.NewDust(projectile.position, projectile.width, projectile.height, DustType<Dusts.Sparkle>());
+				Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustType<Dusts.Sparkle>());
 			}
-			Main.PlaySound(0, (int)projectile.position.X, (int)projectile.position.Y);
+			SoundEngine.PlaySound(SoundID.Dig, Projectile.position);
 		}
 
 		//public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)

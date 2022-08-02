@@ -10,14 +10,14 @@ namespace CrystiliumMod.Projectiles
 	{
 		public override void SetDefaults()
 		{
-			projectile.CloneDefaults(ProjectileID.WoodYoyo);
-			projectile.penetrate = 2;
-			projectile.timeLeft = 600;
+			Projectile.CloneDefaults(ProjectileID.WoodYoyo);
+			Projectile.penetrate = 2;
+			Projectile.timeLeft = 600;
 		}
 
 		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
 		{
-			if (projectile.penetrate <= 1)
+			if (Projectile.penetrate <= 1)
 			{
 				for (int h = 0; h < 15; h++)
 				{
@@ -25,7 +25,7 @@ namespace CrystiliumMod.Projectiles
 					float rand = Main.rand.NextFloat() * 6.283f;
 					vel = vel.RotatedBy(rand);
 					vel *= 5f;
-					Projectile.NewProjectile((projectile.Center.X - 30) + Main.rand.Next(60), (projectile.Center.Y - 30) + Main.rand.Next(60), vel.X, vel.Y, mod.ProjectileType("Shatter" + (1 + Main.rand.Next(0, 3))), projectile.damage - 8, 0, Main.myPlayer);
+					Projectile.NewProjectile((Projectile.Center.X - 30) + Main.rand.Next(60), (Projectile.Center.Y - 30) + Main.rand.Next(60), vel.X, vel.Y, Mod.Find<ModProjectile>("Shatter" + (1 + Main.rand.Next(0, 3))).Type, Projectile.damage - 8, 0, Main.myPlayer);
 				}
 			}
 		}

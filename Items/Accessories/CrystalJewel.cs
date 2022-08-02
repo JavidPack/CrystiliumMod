@@ -14,13 +14,13 @@ namespace CrystiliumMod.Items.Accessories
 
 		public override void SetDefaults()
 		{
-			item.width = 40;
-			item.height = 40;
-			item.expert = true;
-			item.value = 100000;
-			item.rare = 3;
-			item.defense = 3;
-			item.accessory = true;
+			Item.width = 40;
+			Item.height = 40;
+			Item.expert = true;
+			Item.value = 100000;
+			Item.rare = 3;
+			Item.defense = 3;
+			Item.accessory = true;
 		}
 
 		public override void UpdateEquip(Player player)

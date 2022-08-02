@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
+using Terraria.Audio;
 using Terraria.DataStructures;
 using Terraria.Enums;
 using Terraria.ID;
@@ -13,7 +14,7 @@ namespace CrystiliumMod.Tiles
 {
 	public class CrystalWoodChest : ModTile
 	{
-		public override void SetDefaults()
+		public override void SetStaticDefaults()
 		{
 			Main.tileSpelunker[Type] = true;
 			Main.tileContainer[Type] = true;
@@ -21,11 +22,11 @@ namespace CrystiliumMod.Tiles
 			Main.tileShine[Type] = 1200;
 			Main.tileFrameImportant[Type] = true;
 			Main.tileNoAttach[Type] = true;
-			Main.tileValue[Type] = 500;
+			Main.tileOreFinderPriority[Type] = 500;
 			TileObjectData.newTile.CopyFrom(TileObjectData.Style2x2);
 			TileObjectData.newTile.Origin = new Point16(0, 1);
 			TileObjectData.newTile.CoordinateHeights = new int[] { 16, 18 };
-			TileObjectData.newTile.HookCheck = new PlacementHook(new Func<int, int, int, int, int, int>(Chest.FindEmptyChest), -1, 0, true);
+			TileObjectData.newTile.HookCheckIfCanPlace = new PlacementHook(new Func<int, int, int, int, int, int>(Chest.FindEmptyChest), -1, 0, true);
 			TileObjectData.newTile.HookPostPlaceMyPlayer = new PlacementHook(new Func<int, int, int, int, int, int>(Chest.AfterPlacement_Hook), -1, 0, false);
 			TileObjectData.newTile.AnchorInvalidTiles = new int[] { 127 };
 			TileObjectData.newTile.StyleHorizontal = true;
@@ -35,11 +36,11 @@ namespace CrystiliumMod.Tiles
 			ModTranslation name = CreateMapEntryName();
 			name.SetDefault("CrystalWood Chest");
 			AddMapEntry(new Color(250, 140, 250), name, MapChestName);
-			dustType = mod.DustType("CrystalDust");
-			disableSmartCursor = true;
-			adjTiles = new int[] { TileID.Containers };
-			chest = "CrystalWood Chest";
-			chestDrop = ItemType<Items.Placeable.CrystalWoodChest>();
+			DustType = Mod.Find<ModDust>("CrystalDust").Type;
+			disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
+			AdjTiles = new int[] { TileID.Containers };
+			chest/* tModPorter Note: Removed. Use ContainerName.SetDefault() and TileID.Sets.BasicChest instead */ = "CrystalWood Chest";
+			ChestDrop = ItemType<Items.Placeable.CrystalWoodChest>();
 		}
 
 		public string MapChestName(string name, int i, int j)
@@ -47,11 +48,11 @@ namespace CrystiliumMod.Tiles
 			int left = i;
 			int top = j;
 			Tile tile = Main.tile[i, j];
-			if (tile.frameX % 36 != 0)
+			if (tile.TileFrameX % 36 != 0)
 			{
 				left--;
 			}
-			if (tile.frameY != 0)
+			if (tile.TileFrameY != 0)
 			{
 				top--;
 			}
@@ -73,7 +74,7 @@ namespace CrystiliumMod.Tiles
 
 		public override void KillMultiTile(int i, int j, int frameX, int frameY)
 		{
-			Item.NewItem(i * 16, j * 16, 32, 32, chestDrop);
+			Item.NewItem(i * 16, j * 16, 32, 32, ChestDrop);
 			Chest.DestroyChest(i, j);
 		}
 
@@ -84,24 +85,24 @@ namespace CrystiliumMod.Tiles
 			Main.mouseRightRelease = false;
 			int left = i;
 			int top = j;
-			if (tile.frameX % 36 != 0)
+			if (tile.TileFrameX % 36 != 0)
 			{
 				left--;
 			}
-			if (tile.frameY != 0)
+			if (tile.TileFrameY != 0)
 			{
 				top--;
 			}
 			if (player.sign >= 0)
 			{
-				Main.PlaySound(11, -1, -1, 1);
+				SoundEngine.PlaySound(SoundID.MenuClose);
 				player.sign = -1;
 				Main.editSign = false;
 				Main.npcChatText = "";
 			}
 			if (Main.editChest)
 			{
-				Main.PlaySound(12, -1, -1, 1);
+				SoundEngine.PlaySound(SoundID.MenuTick);
 				Main.editChest = false;
 				Main.npcChatText = "";
 			}
@@ -116,7 +117,7 @@ namespace CrystiliumMod.Tiles
 				{
 					player.chest = -1;
 					Recipe.FindRecipes();
-					Main.PlaySound(11, -1, -1, 1);
+					SoundEngine.PlaySound(SoundID.MenuClose);
 				}
 				else
 				{
@@ -133,7 +134,7 @@ namespace CrystiliumMod.Tiles
 					if (chest == player.chest)
 					{
 						player.chest = -1;
-						Main.PlaySound(11, -1, -1, 1);
+						SoundEngine.PlaySound(SoundID.MenuClose);
 					}
 					else
 					{
@@ -142,7 +143,7 @@ namespace CrystiliumMod.Tiles
 						Main.recBigList = false;
 						player.chestX = left;
 						player.chestY = top;
-						Main.PlaySound(player.chest < 0 ? 10 : 12, -1, -1, 1);
+						SoundEngine.PlaySound(player.chest < 0 ? 10 : 12, -1, -1, 1);
 					}
 					Recipe.FindRecipes();
 				}
@@ -155,41 +156,41 @@ namespace CrystiliumMod.Tiles
 			Tile tile = Main.tile[i, j];
 			int left = i;
 			int top = j;
-			if (tile.frameX % 36 != 0)
+			if (tile.TileFrameX % 36 != 0)
 			{
 				left--;
 			}
-			if (tile.frameY != 0)
+			if (tile.TileFrameY != 0)
 			{
 				top--;
 			}
 			int chest = Chest.FindChest(left, top);
-			player.showItemIcon2 = -1;
+			player.cursorItemIconID = -1;
 			if (chest < 0)
 			{
-				player.showItemIconText = Lang.chestType[0].Value;
+				player.cursorItemIconText = Lang.chestType[0].Value;
 			}
 			else
 			{
-				player.showItemIconText = Main.chest[chest].name.Length > 0 ? Main.chest[chest].name : "CrystalWood Chest";
-				if (player.showItemIconText == "CrystalWood Chest")
+				player.cursorItemIconText = Main.chest[chest].name.Length > 0 ? Main.chest[chest].name : "CrystalWood Chest";
+				if (player.cursorItemIconText == "CrystalWood Chest")
 				{
-					player.showItemIcon2 = ItemType<Items.Placeable.CrystalWoodChest>();
-					player.showItemIconText = "";
+					player.cursorItemIconID = ItemType<Items.Placeable.CrystalWoodChest>();
+					player.cursorItemIconText = "";
 				}
 			}
 			player.noThrow = 2;
-			player.showItemIcon = true;
+			player.cursorItemIconEnabled = true;
 		}
 
 		public override void MouseOverFar(int i, int j)
 		{
 			MouseOver(i, j);
 			Player player = Main.LocalPlayer;
-			if (player.showItemIconText == "")
+			if (player.cursorItemIconText == "")
 			{
-				player.showItemIcon = false;
-				player.showItemIcon2 = 0;
+				player.cursorItemIconEnabled = false;
+				player.cursorItemIconID = 0;
 			}
 		}
 	}

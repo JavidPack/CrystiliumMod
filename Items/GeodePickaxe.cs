@@ -1,3 +1,4 @@
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
@@ -13,28 +14,27 @@ namespace CrystiliumMod.Items
 
 		public override void SetDefaults()
 		{
-			item.damage = 30;
-			item.melee = true;
-			item.width = 40;
-			item.height = 40;
-			item.useTime = 13;
-			item.useAnimation = 13;
-			item.pick = 150;
-			item.useStyle = 1;
-			item.knockBack = 6;
-			item.value = 20000;
-			item.rare = 4;
-			item.UseSound = SoundID.Item1;
-			item.autoReuse = true;
+			Item.damage = 30;
+			Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+			Item.width = 40;
+			Item.height = 40;
+			Item.useTime = 13;
+			Item.useAnimation = 13;
+			Item.pick = 150;
+			Item.useStyle = 1;
+			Item.knockBack = 6;
+			Item.value = 20000;
+			Item.rare = 4;
+			Item.UseSound = SoundID.Item1;
+			Item.autoReuse = true;
 		}
 
 		public override void AddRecipes()
 		{
-			ModRecipe recipe = new ModRecipe(mod);
+			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemType<EnchantedGeode>(), 12);
 			recipe.AddTile(TileID.MythrilAnvil);
-			recipe.SetResult(this);
-			recipe.AddRecipe();
+			recipe.Register();
 		}
 	}
 }

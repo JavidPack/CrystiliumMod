@@ -13,37 +13,37 @@ namespace CrystiliumMod.NPCs.Bosses
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Crystal Cultist");
-			Main.npcFrameCount[npc.type] = 7;
+			Main.npcFrameCount[NPC.type] = 7;
 		}
 
 		public override void SetDefaults()
 		{
-			npc.damage = 25;
-			npc.noTileCollide = true;
-			npc.defense = 30;
-			npc.boss = false;
-			npc.height = 54;
-			npc.width = 35;
-			npc.lifeMax = 1200;
-			npc.HitSound = SoundID.NPCHit5;
-			npc.DeathSound = SoundID.NPCDeath6;
-			npc.noGravity = true;
-			npc.value = 60f;
-			npc.knockBackResist = 0f;
+			NPC.damage = 25;
+			NPC.noTileCollide = true;
+			NPC.defense = 30;
+			NPC.boss = false;
+			NPC.height = 54;
+			NPC.width = 35;
+			NPC.lifeMax = 1200;
+			NPC.HitSound = SoundID.NPCHit5;
+			NPC.DeathSound = SoundID.NPCDeath6;
+			NPC.noGravity = true;
+			NPC.value = 60f;
+			NPC.knockBackResist = 0f;
 		}
 
 		public override void HitEffect(int hitDirection, double damage)
 		{
 			//Putting gores in HitEffect prevents gores when scripting NPC death (setting life to 0)
-			if (npc.life <= 0)
+			if (NPC.life <= 0)
 			{
 				//spawn initial set
 				for (int i = 1; i <= 3; i++)
 				{
-					Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/Crystal_Cultist_Gore_" + i));
+					Gore.NewGore(NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/Crystal_Cultist_Gore_" + i));
 				}
 				//spawn the remaining arm
-				Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/Crystal_Cultist_Gore_1"));
+				Gore.NewGore(NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/Crystal_Cultist_Gore_1"));
 			}
 		}
 
@@ -61,31 +61,31 @@ namespace CrystiliumMod.NPCs.Bosses
 			}
 			if (!CKActive)
 			{
-				npc.active = false;
+				NPC.active = false;
 			}
 
-			npc.ai[0]++;
-			if (npc.ai[0] % 8 == 0)
+			NPC.ai[0]++;
+			if (NPC.ai[0] % 8 == 0)
 			{
-				npc.frame.Y = (int)(npc.height * npc.frameCounter);
-				npc.frameCounter = (npc.frameCounter + 1) % 5;
+				NPC.frame.Y = (int)(NPC.height * NPC.frameCounter);
+				NPC.frameCounter = (NPC.frameCounter + 1) % 5;
 			}
 
-			npc.TargetClosest();
-			float Xdis = Main.player[npc.target].Center.X - npc.Center.X;  // change myplayer to nearest player in full version
-			float Ydis = Main.player[npc.target].Center.Y - npc.Center.Y; // change myplayer to nearest player in full version
+			NPC.TargetClosest();
+			float Xdis = Main.player[NPC.target].Center.X - NPC.Center.X;  // change myplayer to nearest player in full version
+			float Ydis = Main.player[NPC.target].Center.Y - NPC.Center.Y; // change myplayer to nearest player in full version
 			float Angle = (float)Math.Atan(Xdis / Ydis);
 			float TrajectoryX = (float)(Math.Sin(Angle));
 			float TrajectoryY = (float)(Math.Cos(Angle));
 			if (Main.rand.Next(250) == 0)
 			{
-				if (Main.player[npc.target].Center.Y <= npc.Center.Y)
+				if (Main.player[NPC.target].Center.Y <= NPC.Center.Y)
 				{
-					Projectile.NewProjectile(npc.Center.X, npc.Center.Y, 0 - (TrajectoryX * 7), 0 - (TrajectoryY * 7), ProjectileType<Slasher>(), 40, 0f, npc.target);
+					Projectile.NewProjectile(NPC.Center.X, NPC.Center.Y, 0 - (TrajectoryX * 7), 0 - (TrajectoryY * 7), ProjectileType<Slasher>(), 40, 0f, NPC.target);
 				}
-				else if (Main.player[npc.target].Center.Y > npc.Center.Y)
+				else if (Main.player[NPC.target].Center.Y > NPC.Center.Y)
 				{
-					Projectile.NewProjectile(npc.Center.X, npc.Center.Y, (TrajectoryX * 7), TrajectoryY * 7, ProjectileType<Slasher>(), 40, 0f, npc.target);
+					Projectile.NewProjectile(NPC.Center.X, NPC.Center.Y, (TrajectoryX * 7), TrajectoryY * 7, ProjectileType<Slasher>(), 40, 0f, NPC.target);
 				}
 			}
 			Vector3 RGB = new Vector3(2.0f, 0.75f, 1.5f);
@@ -101,14 +101,14 @@ namespace CrystiliumMod.NPCs.Bosses
 			{
 				multiplier = 1.5f;
 			}
-			Lighting.AddLight(npc.position, RGB.X, RGB.Y, RGB.Z);
+			Lighting.AddLight(NPC.position, RGB.X, RGB.Y, RGB.Z);
 			if (Main.rand.Next(160) == 5)
 			{
 				do
 				{  //Keep teleporting if too close to player
-					npc.position.X = (Main.player[npc.target].position.X - 500) + Main.rand.Next(1000);
-					npc.position.Y = (Main.player[npc.target].position.Y - 500) + Main.rand.Next(1000);
-				} while (npc.Distance(Main.player[npc.target].position) < 40);
+					NPC.position.X = (Main.player[NPC.target].position.X - 500) + Main.rand.Next(1000);
+					NPC.position.Y = (Main.player[NPC.target].position.Y - 500) + Main.rand.Next(1000);
+				} while (NPC.Distance(Main.player[NPC.target].position) < 40);
 			}
 		}
 	}

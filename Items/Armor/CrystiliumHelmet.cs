@@ -18,16 +18,16 @@ namespace CrystiliumMod.Items.Armor
 
 		public override void SetDefaults()
 		{
-			item.width = 18;
-			item.height = 18;
-			item.value = 150000;
-			item.rare = 8;
-			item.defense = 14;
+			Item.width = 18;
+			Item.height = 18;
+			Item.value = 150000;
+			Item.rare = 8;
+			Item.defense = 14;
 		}
 
 		public override void UpdateEquip(Player player)
 		{
-			player.magicDamage *= 1.09f;
+			player.GetDamage(DamageClass.Magic) *= 1.09f;
 			player.statManaMax2 += 60;
 		}
 
@@ -44,11 +44,10 @@ namespace CrystiliumMod.Items.Armor
 
 		public override void AddRecipes()
 		{
-			ModRecipe recipe = new ModRecipe(mod);
+			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemType<Items.CrystiliumBar>(), 15);
 			recipe.AddTile(TileID.MythrilAnvil);
-			recipe.SetResult(this);
-			recipe.AddRecipe();
+			recipe.Register();
 		}
 	}
 }

@@ -16,20 +16,20 @@ namespace CrystiliumMod.Items.Placeable
 
 		public override void SetDefaults()
 		{
-			item.width = 10;
-			item.height = 12;
-			item.maxStack = 99;
-			item.holdStyle = 1;
-			item.noWet = true;
-			item.useTurn = true;
-			item.autoReuse = true;
-			item.useAnimation = 15;
-			item.useTime = 10;
-			item.useStyle = 1;
-			item.consumable = true;
-			item.createTile = TileType<Tiles.CrystalWoodTorch>();
-			item.flame = true;
-			item.value = 50;
+			Item.width = 10;
+			Item.height = 12;
+			Item.maxStack = 99;
+			Item.holdStyle = 1;
+			Item.noWet = true;
+			Item.useTurn = true;
+			Item.autoReuse = true;
+			Item.useAnimation = 15;
+			Item.useTime = 10;
+			Item.useStyle = 1;
+			Item.consumable = true;
+			Item.createTile = TileType<Tiles.CrystalWoodTorch>();
+			Item.flame = true;
+			Item.value = 50;
 		}
 
 		public override void HoldItem(Player player)
@@ -44,9 +44,9 @@ namespace CrystiliumMod.Items.Placeable
 
 		public override void PostUpdate()
 		{
-			if (!item.wet)
+			if (!Item.wet)
 			{
-				Lighting.AddLight((int)((item.position.X + item.width / 2) / 16f), (int)((item.position.Y + item.height / 2) / 16f), 1f, 1f, 1f);
+				Lighting.AddLight((int)((Item.position.X + Item.width / 2) / 16f), (int)((Item.position.Y + Item.height / 2) / 16f), 1f, 1f, 1f);
 			}
 		}
 
@@ -57,11 +57,10 @@ namespace CrystiliumMod.Items.Placeable
 
 		public override void AddRecipes()
 		{
-			ModRecipe recipe = new ModRecipe(mod);
+			Recipe recipe = CreateRecipe(3);
 			recipe.AddIngredient(ItemID.Torch, 3);
 			recipe.AddIngredient(ItemType<CrystalWood>());
-			recipe.SetResult(this, 3);
-			recipe.AddRecipe();
+			recipe.Register();
 		}
 	}
 }

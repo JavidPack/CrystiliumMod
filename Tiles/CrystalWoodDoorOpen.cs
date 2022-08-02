@@ -11,7 +11,7 @@ namespace CrystiliumMod.Tiles
 {
 	public class CrystalWoodDoorOpen : ModTile
 	{
-		public override void SetDefaults()
+		public override void SetStaticDefaults()
 		{
 			Main.tileFrameImportant[Type] = true;
 			Main.tileSolid[Type] = false;
@@ -61,10 +61,10 @@ namespace CrystiliumMod.Tiles
 			ModTranslation name = CreateMapEntryName();
 			name.SetDefault("CrystalWood Door");
 			AddMapEntry(new Color(250, 140, 250), name);
-			dustType = DustType<Dusts.CrystalDust>();
-			disableSmartCursor = true;
-			adjTiles = new int[] { TileID.OpenDoor };
-			closeDoorID = TileType<Tiles.CrystalWoodDoorClosed>();
+			DustType = DustType<Dusts.CrystalDust>();
+			disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
+			AdjTiles = new int[] { TileID.OpenDoor };
+			CloseDoorID = TileType<Tiles.CrystalWoodDoorClosed>();
 		}
 
 		public override void NumDust(int i, int j, bool fail, ref int num)

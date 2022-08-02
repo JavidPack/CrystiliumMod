@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
@@ -12,42 +13,41 @@ namespace CrystiliumMod.Items.Weapons
 		{
 			DisplayName.SetDefault("Enchanted Sapphire Staff");
 			Tooltip.SetDefault("'Colder than tundra'");
-			Item.staff[item.type] = true;
+			Item.staff[Item.type] = true;
 		}
 
 		public override void SetDefaults()
 		{
-			item.damage = 20; //The damage
-			item.summon = true; //Whether or not it is a magic weapon
-			item.width = 60; //Item width
-			item.height = 60; //Item height
-			item.maxStack = 1; //How many of this item you can stack
-			item.useTime = 50; //How long it takes for the item to be used
-			item.useAnimation = 50; //How long the animation of the item takes
-			item.knockBack = 7f; //How much knockback the item produces
-			item.UseSound = SoundID.Item30; //The soundeffect played when used
-			item.noMelee = true; //Whether the weapon should do melee damage or not
-			item.useStyle = 5; //How the weapon is held, 5 is the gun hold style
-			item.value = 30000;
-			item.rare = 3;
-			item.shoot = ProjectileType<Projectiles.SapphirePortal>(); //What the item shoots, retains an int value | *
-			item.shootSpeed = 1f; //How fast the projectile fires
-			item.mana = 80;
-			item.autoReuse = false; //Whether it automatically uses the item again after its done being used/animated
+			Item.damage = 20; //The damage
+			Item.DamageType = DamageClass.Summon; //Whether or not it is a magic weapon
+			Item.width = 60; //Item width
+			Item.height = 60; //Item height
+			Item.maxStack = 1; //How many of this item you can stack
+			Item.useTime = 50; //How long it takes for the item to be used
+			Item.useAnimation = 50; //How long the animation of the item takes
+			Item.knockBack = 7f; //How much knockback the item produces
+			Item.UseSound = SoundID.Item30; //The soundeffect played when used
+			Item.noMelee = true; //Whether the weapon should do melee damage or not
+			Item.useStyle = 5; //How the weapon is held, 5 is the gun hold style
+			Item.value = 30000;
+			Item.rare = 3;
+			Item.shoot = ProjectileType<Projectiles.SapphirePortal>(); //What the item shoots, retains an int value | *
+			Item.shootSpeed = 1f; //How fast the projectile fires
+			Item.mana = 80;
+			Item.autoReuse = false; //Whether it automatically uses the item again after its done being used/animated
 		}
 
 		public override void AddRecipes()
 		{
-			ModRecipe recipe = new ModRecipe(mod);
+			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.SapphireStaff);
 			recipe.AddIngredient(ItemID.Sapphire, 15);
 			recipe.AddIngredient(ItemType<ShinyGemstone>(), 10);
 			recipe.AddTile(TileID.Anvils);
-			recipe.SetResult(this);
-			recipe.AddRecipe();
+			recipe.Register();
 		}
 
-		public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack) //This lets you modify the firing of the item
+		public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback) //This lets you modify the firing of the item
 		{
 			player.channel = true;
 			//Vector2 mouse = new Vector2(Main.mouseX,Main.mouseY) + Main.screenPosition;
@@ -55,7 +55,7 @@ namespace CrystiliumMod.Items.Weapons
 			for (int i = 0; i < Main.projectile.Length; i++)
 			{
 				Projectile p = Main.projectile[i];
-				if (p.active && p.type == item.shoot && p.owner == player.whoAmI)
+				if (p.active && p.type == Item.shoot && p.owner == player.whoAmI)
 				{
 					p.active = false;
 				}

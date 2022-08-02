@@ -12,17 +12,17 @@ namespace CrystiliumMod.Items
 
 		public override void SetDefaults()
 		{
-			item.width = 20;
-			item.height = 20;
-			item.maxStack = 999;
-			item.useTurn = true;
-			item.autoReuse = true;
-			item.useAnimation = 15;
-			item.useTime = 10;
-			item.useStyle = 1;
-			item.consumable = true;
-			item.value = 7000;
-			item.rare = 5;
+			Item.width = 20;
+			Item.height = 20;
+			Item.maxStack = 999;
+			Item.useTurn = true;
+			Item.autoReuse = true;
+			Item.useAnimation = 15;
+			Item.useTime = 10;
+			Item.useStyle = 1;
+			Item.consumable = true;
+			Item.value = 7000;
+			Item.rare = 5;
 		}
 	}
 }

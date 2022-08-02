@@ -14,50 +14,50 @@ namespace CrystiliumMod.Projectiles
 
 		public override void SetDefaults()
 		{
-			projectile.width = 50;
-			projectile.height = 50;
-			projectile.scale = 1.1f;
-			projectile.aiStyle = 19;
-			projectile.friendly = true;
-			projectile.hostile = false;
-			projectile.tileCollide = false;
-			projectile.penetrate = -1;
-			projectile.ownerHitCheck = true;
-			projectile.melee = true;
-			projectile.timeLeft = 90;
-			projectile.hide = true;
+			Projectile.width = 50;
+			Projectile.height = 50;
+			Projectile.scale = 1.1f;
+			Projectile.aiStyle = 19;
+			Projectile.friendly = true;
+			Projectile.hostile = false;
+			Projectile.tileCollide = false;
+			Projectile.penetrate = -1;
+			Projectile.ownerHitCheck = true;
+			Projectile.DamageType = DamageClass.Melee;
+			Projectile.timeLeft = 90;
+			Projectile.hide = true;
 		}
 
 		public override void AI()
 		{
-			Main.player[projectile.owner].direction = projectile.direction;
-			Main.player[projectile.owner].heldProj = projectile.whoAmI;
-			Main.player[projectile.owner].itemTime = Main.player[projectile.owner].itemAnimation;
-			projectile.position.X = Main.player[projectile.owner].position.X + (float)(Main.player[projectile.owner].width / 2) - (float)(projectile.width / 2);
-			projectile.position.Y = Main.player[projectile.owner].position.Y + (float)(Main.player[projectile.owner].height / 2) - (float)(projectile.height / 2);
-			projectile.position += projectile.velocity * projectile.ai[0]; if (projectile.ai[0] == 0f)
+			Main.player[Projectile.owner].direction = Projectile.direction;
+			Main.player[Projectile.owner].heldProj = Projectile.whoAmI;
+			Main.player[Projectile.owner].itemTime = Main.player[Projectile.owner].itemAnimation;
+			Projectile.position.X = Main.player[Projectile.owner].position.X + (float)(Main.player[Projectile.owner].width / 2) - (float)(Projectile.width / 2);
+			Projectile.position.Y = Main.player[Projectile.owner].position.Y + (float)(Main.player[Projectile.owner].height / 2) - (float)(Projectile.height / 2);
+			Projectile.position += Projectile.velocity * Projectile.ai[0]; if (Projectile.ai[0] == 0f)
 			{
-				projectile.ai[0] = 3f;
-				projectile.netUpdate = true;
+				Projectile.ai[0] = 3f;
+				Projectile.netUpdate = true;
 			}
-			if (Main.player[projectile.owner].itemAnimation < Main.player[projectile.owner].itemAnimationMax / 3)
+			if (Main.player[Projectile.owner].itemAnimation < Main.player[Projectile.owner].itemAnimationMax / 3)
 			{
-				projectile.ai[0] -= 1.1f;
+				Projectile.ai[0] -= 1.1f;
 			}
 			else
 			{
-				projectile.ai[0] += 0.95f;
+				Projectile.ai[0] += 0.95f;
 			}
 
-			if (Main.player[projectile.owner].itemAnimation == 0)
+			if (Main.player[Projectile.owner].itemAnimation == 0)
 			{
-				projectile.Kill();
+				Projectile.Kill();
 			}
 
-			projectile.rotation = (float)Math.Atan2((double)projectile.velocity.Y, (double)projectile.velocity.X) + 2.355f;
-			if (projectile.spriteDirection == -1)
+			Projectile.rotation = (float)Math.Atan2((double)Projectile.velocity.Y, (double)Projectile.velocity.X) + 2.355f;
+			if (Projectile.spriteDirection == -1)
 			{
-				projectile.rotation -= 1.57f;
+				Projectile.rotation -= 1.57f;
 			}
 		}
 

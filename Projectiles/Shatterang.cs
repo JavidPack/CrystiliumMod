@@ -14,16 +14,16 @@ namespace CrystiliumMod.Projectiles
 
 		public override void SetDefaults()
 		{
-			projectile.width = 30;
-			projectile.height = 30;
-			projectile.aiStyle = 3;
-			projectile.friendly = true;
-			projectile.ranged = true;
-			projectile.magic = false;
-			projectile.penetrate = 10;
-			projectile.timeLeft = 600;
-			projectile.light = 0.5f;
-			projectile.extraUpdates = 1;
+			Projectile.width = 30;
+			Projectile.height = 30;
+			Projectile.aiStyle = 3;
+			Projectile.friendly = true;
+			Projectile.DamageType = DamageClass.Ranged;
+			Projectile.magic = false/* tModPorter Suggestion: Remove. See Item.DamageType */;
+			Projectile.penetrate = 10;
+			Projectile.timeLeft = 600;
+			Projectile.light = 0.5f;
+			Projectile.extraUpdates = 1;
 		}
 
 		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
@@ -34,7 +34,7 @@ namespace CrystiliumMod.Projectiles
 				float rand = Main.rand.NextFloat() * 6.283f;
 				vel = vel.RotatedBy(rand);
 				vel *= 5f;
-				Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y + 20, vel.X, vel.Y, mod.ProjectileType("Shatter" + (1 + Main.rand.Next(0, 3))), projectile.damage / 3, 0, Main.myPlayer);
+				Projectile.NewProjectile(Projectile.Center.X, Projectile.Center.Y + 20, vel.X, vel.Y, Mod.Find<ModProjectile>("Shatter" + (1 + Main.rand.Next(0, 3))).Type, Projectile.damage / 3, 0, Main.myPlayer);
 			}
 		}
 	}

@@ -9,25 +9,25 @@ namespace CrystiliumMod.Projectiles
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Diamond Explosion");
-			Main.projFrames[projectile.type] = 7;
+			Main.projFrames[Projectile.type] = 7;
 		}
 
 		public override void SetDefaults()
 		{
-			projectile.friendly = true;
-			projectile.magic = true;
-			projectile.penetrate = 1000;
-			projectile.tileCollide = false;
-			projectile.timeLeft = 40;
+			Projectile.friendly = true;
+			Projectile.DamageType = DamageClass.Magic;
+			Projectile.penetrate = 1000;
+			Projectile.tileCollide = false;
+			Projectile.timeLeft = 40;
 		}
 
 		public override void AI()
 		{
-			projectile.frameCounter++;
-			if (projectile.frameCounter >= 5)
+			Projectile.frameCounter++;
+			if (Projectile.frameCounter >= 5)
 			{
-				projectile.frameCounter = 0;
-				projectile.frame = (projectile.frame + 1);
+				Projectile.frameCounter = 0;
+				Projectile.frame = (Projectile.frame + 1);
 			}
 		}
 	}

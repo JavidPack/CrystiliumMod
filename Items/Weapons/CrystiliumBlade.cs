@@ -1,6 +1,7 @@
 using CrystiliumMod.Projectiles;
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
@@ -17,23 +18,23 @@ namespace CrystiliumMod.Items.Weapons
 
 		public override void SetDefaults()
 		{
-			item.damage = 138;
-			item.melee = true;
-			item.width = 40;
-			item.height = 40;
-			item.useTime = 30;
-			item.useAnimation = 30;
-			item.useStyle = 1;
-			item.knockBack = 6;
-			item.value = 80000;
-			item.rare = 8;
-			item.UseSound = SoundID.Item1;
-			item.shoot = ProjectileType<CrystiliumBladeProj>();
-			item.shootSpeed = 6f;
-			item.autoReuse = true;
+			Item.damage = 138;
+			Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+			Item.width = 40;
+			Item.height = 40;
+			Item.useTime = 30;
+			Item.useAnimation = 30;
+			Item.useStyle = 1;
+			Item.knockBack = 6;
+			Item.value = 80000;
+			Item.rare = 8;
+			Item.UseSound = SoundID.Item1;
+			Item.shoot = ProjectileType<CrystiliumBladeProj>();
+			Item.shootSpeed = 6f;
+			Item.autoReuse = true;
 		}
 
-		public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+		public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
 		{
 			//create velocity vectors for the projectiles
 			Vector2 origVect = new Vector2(speedX, speedY);
@@ -65,11 +66,10 @@ namespace CrystiliumMod.Items.Weapons
 
 		public override void AddRecipes()
 		{
-			ModRecipe recipe = new ModRecipe(mod);
+			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemType<CrystiliumBar>(), 19);
 			recipe.AddTile(TileID.MythrilAnvil);
-			recipe.SetResult(this);
-			recipe.AddRecipe();
+			recipe.Register();
 		}
 	}
 }

@@ -14,24 +14,24 @@ namespace CrystiliumMod.Items.Weapons
 
 		public override void SetDefaults()
 		{
-			item.damage = 25;
-			item.melee = true;
-			item.width = 38;
-			item.height = 38;
-			item.scale = 1.1f;
-			item.maxStack = 1;
-			item.useTime = 30;
-			item.useAnimation = 30;
-			item.knockBack = 4f;
-			item.UseSound = SoundID.Item1;
-			item.noMelee = true;
-			item.noUseGraphic = true;
-			item.useTurn = true;
-			item.useStyle = 5;
-			item.value = 100000;
-			item.rare = 7;
-			item.shoot = ProjectileType<Projectiles.QuartzSpearProj>();  //put your Spear projectile name
-			item.shootSpeed = 5f;
+			Item.damage = 25;
+			Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+			Item.width = 38;
+			Item.height = 38;
+			Item.scale = 1.1f;
+			Item.maxStack = 1;
+			Item.useTime = 30;
+			Item.useAnimation = 30;
+			Item.knockBack = 4f;
+			Item.UseSound = SoundID.Item1;
+			Item.noMelee = true;
+			Item.noUseGraphic = true;
+			Item.useTurn = true;
+			Item.useStyle = 5;
+			Item.value = 100000;
+			Item.rare = 7;
+			Item.shoot = ProjectileType<Projectiles.QuartzSpearProj>();  //put your Spear projectile name
+			Item.shootSpeed = 5f;
 		}
 	}
 }

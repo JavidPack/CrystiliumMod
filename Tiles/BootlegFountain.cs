@@ -1,7 +1,9 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.Audio;
 using Terraria.DataStructures;
 using Terraria.Enums;
+using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
 using Terraria.ObjectData;
@@ -10,14 +12,14 @@ namespace CrystiliumMod.Tiles
 {
 	public class BootlegFountain : ModTile
 	{
-		public override void SetDefaults()
+		public override void SetStaticDefaults()
 		{
 			Main.tileFrameImportant[Type] = true;
 			Main.tileSolid[Type] = false;
 			Main.tileMergeDirt[Type] = true;
 			Main.tileBlockLight[Type] = true;
 			Main.tileLighted[Type] = true;
-			this.minPick = 15;
+			this.MinPick = 15;
 			TileObjectData.newTile.Height = 6;
 			TileObjectData.newTile.Width = 6;
 			TileObjectData.newTile.Origin = new Point16(3, 4); // Todo: make less annoying.
@@ -28,7 +30,7 @@ namespace CrystiliumMod.Tiles
 			TileObjectData.newTile.CoordinateWidth = 16;
 			TileObjectData.newTile.CoordinatePadding = 2;
 			TileObjectData.addTile(Type);
-			animationFrameHeight = 108;
+			AnimationFrameHeight = 108;
 			AddMapEntry(new Color(200, 200, 200));
 		}
 
@@ -46,7 +48,7 @@ namespace CrystiliumMod.Tiles
 
 		public override void KillMultiTile(int i, int j, int frameX, int frameY)
 		{
-			Main.PlaySound(2, i * 16, j * 16, 27);
+			SoundEngine.PlaySound(SoundID.Item27, new Vector2(i * 16, j * 16));
 		}
 
 		public override void AnimateTile(ref int frame, ref int frameCounter)

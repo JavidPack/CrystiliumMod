@@ -15,21 +15,21 @@ namespace CrystiliumMod.Items.Weapons
 
 		public override void SetDefaults()
 		{
-			item.damage = 277;
-			item.melee = true;
-			item.width = 40;
-			item.height = 40;
-			item.useTime = 25;
-			item.useAnimation = 25;
-			item.useStyle = 1;
-			item.knockBack = 6;
-			item.value = Item.sellPrice(0, 1, 0, 0);
-			item.rare = 6;
-			item.UseSound = SoundID.Item1;
-			item.autoReuse = true;
+			Item.damage = 277;
+			Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+			Item.width = 40;
+			Item.height = 40;
+			Item.useTime = 25;
+			Item.useAnimation = 25;
+			Item.useStyle = 1;
+			Item.knockBack = 6;
+			Item.value = Item.sellPrice(0, 1, 0, 0);
+			Item.rare = 6;
+			Item.UseSound = SoundID.Item1;
+			Item.autoReuse = true;
 		}
 
-		public override bool UseItem(Player player)
+		public override bool? UseItem(Player player)/* tModPorter Suggestion: Return null instead of false */
 		{
 			for (int J = 1; J < 20; J++)
 			{

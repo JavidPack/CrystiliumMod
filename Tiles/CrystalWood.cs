@@ -7,17 +7,17 @@ namespace CrystiliumMod.Tiles
 {
 	public class CrystalWood : ModTile
 	{
-		public override void SetDefaults()
+		public override void SetStaticDefaults()
 		{
 			Main.tileSolid[Type] = true;
 			Main.tileMergeDirt[Type] = true;
 			Main.tileBlockLight[Type] = true;
 			Main.tileLighted[Type] = false;
-			SetModTree(new CrystalTree());
-			dustType = DustType<Dusts.Sparkle>();
-			soundType = 27;
-			soundStyle = 2;
-			drop = ItemType<Items.Placeable.CrystalWood>();
+			SetModTree(new CrystalTree())/* tModPorter Note: Removed. Assign GrowsOnTileId to this tile type in ModTree.SetStaticDefaults instead */;
+			DustType = DustType<Dusts.Sparkle>();
+			HitSound = 27;
+			soundStyle/* tModPorter Note: Removed. Integrate into HitSound */ = 2;
+			ItemDrop = ItemType<Items.Placeable.CrystalWood>();
 			AddMapEntry(new Color(19, 163, 189));
 		}
 

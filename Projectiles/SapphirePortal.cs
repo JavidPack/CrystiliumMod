@@ -10,20 +10,20 @@ namespace CrystiliumMod.Projectiles //We need this to basically indicate the fol
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Sapphire Portal");
-			Main.projFrames[projectile.type] = 2;
+			Main.projFrames[Projectile.type] = 2;
 		}
 
 		public override void SetDefaults()
 		{
-			projectile.width = 60; //Set the hitbox width
-			projectile.height = 60; //Set the hitbox height
-			projectile.timeLeft = 1300; //The amount of time the projectile is alive for
-			projectile.penetrate = 10; //Tells the game how many enemies it can hit before being destroyed
-			projectile.light = 0.75f;
-			projectile.friendly = false; //Tells the game whether it is friendly to players/friendly npcs or not
-			projectile.hostile = false; //Tells the game whether it is hostile to players or not
-			projectile.tileCollide = false; //Tells the game whether or not it can collide with a tile
-			projectile.ignoreWater = true; //Tells the game whether or not projectile will be affected by water
+			Projectile.width = 60; //Set the hitbox width
+			Projectile.height = 60; //Set the hitbox height
+			Projectile.timeLeft = 1300; //The amount of time the projectile is alive for
+			Projectile.penetrate = 10; //Tells the game how many enemies it can hit before being destroyed
+			Projectile.light = 0.75f;
+			Projectile.friendly = false; //Tells the game whether it is friendly to players/friendly npcs or not
+			Projectile.hostile = false; //Tells the game whether it is hostile to players or not
+			Projectile.tileCollide = false; //Tells the game whether or not it can collide with a tile
+			Projectile.ignoreWater = true; //Tells the game whether or not projectile will be affected by water
 		}
 
 		//How the projectile works
@@ -31,37 +31,37 @@ namespace CrystiliumMod.Projectiles //We need this to basically indicate the fol
 		{
 			for (int i = 0; i < 15; i++)
 			{
-				Dust.NewDust(projectile.position, projectile.width, projectile.height, mod.DustType("SapphireDust"), (float)Main.rand.Next(-3, 3), (float)Main.rand.Next(-3, 3), 0);
+				Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, Mod.Find<ModDust>("SapphireDust").Type, (float)Main.rand.Next(-3, 3), (float)Main.rand.Next(-3, 3), 0);
 			}
 		}
 
 		public override void AI()
 		{
 			float rotationSpeed = (float)Math.PI / 15;
-			projectile.rotation += rotationSpeed;
-			if (projectile.timeLeft == 1300)
+			Projectile.rotation += rotationSpeed;
+			if (Projectile.timeLeft == 1300)
 			{
 				for (int i = 0; i < 15; i++)
 				{
-					Dust.NewDust(projectile.position, projectile.width, projectile.height, mod.DustType("SapphireDust"), (float)Main.rand.Next(-3, 3), (float)Main.rand.Next(-3, 3), 0);
+					Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, Mod.Find<ModDust>("SapphireDust").Type, (float)Main.rand.Next(-3, 3), (float)Main.rand.Next(-3, 3), 0);
 				}
 			}
-			projectile.frameCounter++;
-			if (projectile.frameCounter >= 8)
+			Projectile.frameCounter++;
+			if (Projectile.frameCounter >= 8)
 			{
-				projectile.frameCounter = 0;
-				projectile.frame = (projectile.frame + 1) % 2;
+				Projectile.frameCounter = 0;
+				Projectile.frame = (Projectile.frame + 1) % 2;
 			}
-			projectile.velocity.X = 0;
-			projectile.velocity.Y = 0;
-			if (Main.myPlayer == projectile.owner)
+			Projectile.velocity.X = 0;
+			Projectile.velocity.Y = 0;
+			if (Main.myPlayer == Projectile.owner)
 			{
 				//Do net updatey thing. Syncs this projectile.
-				projectile.netUpdate = true;
+				Projectile.netUpdate = true;
 				if (Main.rand.Next(25) == 0)
 				{
-					float dirX = Main.MouseWorld.X - projectile.position.X;
-					float dirY = Main.MouseWorld.Y - projectile.position.Y;
+					float dirX = Main.MouseWorld.X - Projectile.position.X;
+					float dirY = Main.MouseWorld.Y - Projectile.position.Y;
 
 					float s = 15f;
 
@@ -69,7 +69,7 @@ namespace CrystiliumMod.Projectiles //We need this to basically indicate the fol
 
 					float velX = dirX * factor;
 					float velY = dirY * factor;
-					Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, velX, velY, ProjectileType<SapphireSpike>(), projectile.damage + 4, 0, Main.myPlayer);
+					Projectile.NewProjectile(Projectile.Center.X, Projectile.Center.Y, velX, velY, ProjectileType<SapphireSpike>(), Projectile.damage + 4, 0, Main.myPlayer);
 				}
 			}
 		}

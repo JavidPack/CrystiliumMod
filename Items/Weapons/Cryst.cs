@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
@@ -13,35 +14,35 @@ namespace CrystiliumMod.Items.Weapons
 		{
 			DisplayName.SetDefault("Cryst");
 			Tooltip.SetDefault("Summons sharp crystals to orbit you");
-			Item.staff[item.type] = true; //this makes the useStyle animate as a staff instead of as a gun
+			Item.staff[Item.type] = true; //this makes the useStyle animate as a staff instead of as a gun
 		}
 
 		public override void SetDefaults()
 		{
-			item.damage = 67;
-			item.summon = true;
-			item.mana = 17;
-			item.width = 40;
-			item.height = 40;
-			item.useTime = 41;
-			item.useAnimation = 41;
-			item.useStyle = 1;
-			item.noMelee = true;
-			item.knockBack = 5;
-			item.value = 100000;
-			item.rare = 7;
-			item.UseSound = SoundID.Item20;
-			item.autoReuse = true;
-			item.shoot = ProjectileType<Projectiles.CrystProj>();
+			Item.damage = 67;
+			Item.DamageType = DamageClass.Summon;
+			Item.mana = 17;
+			Item.width = 40;
+			Item.height = 40;
+			Item.useTime = 41;
+			Item.useAnimation = 41;
+			Item.useStyle = 1;
+			Item.noMelee = true;
+			Item.knockBack = 5;
+			Item.value = 100000;
+			Item.rare = 7;
+			Item.UseSound = SoundID.Item20;
+			Item.autoReuse = true;
+			Item.shoot = ProjectileType<Projectiles.CrystProj>();
 		}
 
-		public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+		public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
 		{
 			//Remove all previous Cryst projectiles - creates "reset" behavior
 			for (int i = 0; i < Main.projectile.Length; i++)
 			{
 				Projectile p = Main.projectile[i];
-				if (p.active && p.type == item.shoot && p.owner == player.whoAmI)
+				if (p.active && p.type == Item.shoot && p.owner == player.whoAmI)
 				{
 					p.active = false;
 				}
@@ -53,9 +54,9 @@ namespace CrystiliumMod.Items.Weapons
 			int dir3 = dir - 120;
 
 			//spawn the new projectiles
-			Projectile.NewProjectile(position.X, position.Y, speedX, speedY, item.shoot, damage, knockBack, player.whoAmI, 0, dir);
-			Projectile.NewProjectile(position.X, position.Y, speedX, speedY, item.shoot, damage, knockBack, player.whoAmI, 0, dir2);
-			Projectile.NewProjectile(position.X, position.Y, speedX, speedY, item.shoot, damage, knockBack, player.whoAmI, 0, dir3);
+			Projectile.NewProjectile(position.X, position.Y, speedX, speedY, Item.shoot, damage, knockBack, player.whoAmI, 0, dir);
+			Projectile.NewProjectile(position.X, position.Y, speedX, speedY, Item.shoot, damage, knockBack, player.whoAmI, 0, dir2);
+			Projectile.NewProjectile(position.X, position.Y, speedX, speedY, Item.shoot, damage, knockBack, player.whoAmI, 0, dir3);
 			return false;
 		}
 	}

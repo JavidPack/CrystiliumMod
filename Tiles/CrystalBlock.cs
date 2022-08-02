@@ -1,5 +1,7 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.Audio;
+using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
 
@@ -7,17 +9,17 @@ namespace CrystiliumMod.Tiles
 {
 	public class CrystalBlock : ModTile
 	{
-		public override void SetDefaults()
+		public override void SetStaticDefaults()
 		{
 			Main.tileSolid[Type] = true;
 			Main.tileMergeDirt[Type] = true;
 			Main.tileBlockLight[Type] = true;
 			Main.tileLighted[Type] = false;
-			SetModTree(new CrystalTree());
-			dustType = DustType<Dusts.Sparkle>();
-			soundType = 27;
-			soundStyle = 2;
-			drop = ItemType<Items.Placeable.CrystalBlock>();
+			SetModTree(new CrystalTree())/* tModPorter Note: Removed. Assign GrowsOnTileId to this tile type in ModTree.SetStaticDefaults instead */;
+			DustType = DustType<Dusts.Sparkle>();
+			HitSound = 27;
+			soundStyle/* tModPorter Note: Removed. Integrate into HitSound */ = 2;
+			ItemDrop = ItemType<Items.Placeable.CrystalBlock>();
 			AddMapEntry(new Color(19, 163, 189));
 		}
 
@@ -35,7 +37,7 @@ namespace CrystiliumMod.Tiles
 
 		public override void RandomUpdate(int i, int j)
 		{
-			if (Framing.GetTileSafely(i, j - 1).type == 0 && Framing.GetTileSafely(i, j - 2).type == 0)
+			if (Framing.GetTileSafely(i, j - 1).TileType == 0 && Framing.GetTileSafely(i, j - 2).TileType == 0)
 			{
 				if (Main.rand.Next(2) == 0)
 				{
@@ -53,7 +55,7 @@ namespace CrystiliumMod.Tiles
 			}
 		}
 
-		public override int SaplingGrowthType(ref int style)
+		public override int SaplingGrowthType(ref int style)/* tModPorter Note: Removed. Use ModTree.SaplingGrowthType */
 		{
 			style = 0;
 			return TileType<CrystalSapling>();
@@ -61,7 +63,7 @@ namespace CrystiliumMod.Tiles
 
 		public override bool KillSound(int i, int j)
 		{
-			Main.PlaySound(2, i * 16, j * 16, 27);
+			SoundEngine.PlaySound(SoundID.Item27, new Vector2(i * 16, j * 16));
 			return false;
 		}
 	}

@@ -9,28 +9,28 @@ namespace CrystiliumMod.Projectiles.CrystalKing
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Cultist Fire");
-			Main.projFrames[projectile.type] = 4;
+			Main.projFrames[Projectile.type] = 4;
 		}
 
 		public override void SetDefaults()
 		{
-			projectile.penetrate = 600;
-			projectile.hostile = true;
-			projectile.damage = 13;
-			projectile.friendly = false;
-			projectile.tileCollide = false;
-			projectile.timeLeft = 120;
-			projectile.light = 2;
+			Projectile.penetrate = 600;
+			Projectile.hostile = true;
+			Projectile.damage = 13;
+			Projectile.friendly = false;
+			Projectile.tileCollide = false;
+			Projectile.timeLeft = 120;
+			Projectile.light = 2;
 		}
 
 		public override void AI()
 		{
-			projectile.rotation = projectile.velocity.ToRotation() + 1.57f;
-			projectile.frameCounter++;
-			if (projectile.frameCounter >= 8)
+			Projectile.rotation = Projectile.velocity.ToRotation() + 1.57f;
+			Projectile.frameCounter++;
+			if (Projectile.frameCounter >= 8)
 			{
-				projectile.frameCounter = 0;
-				projectile.frame = (projectile.frame + 1) % 4;
+				Projectile.frameCounter = 0;
+				Projectile.frame = (Projectile.frame + 1) % 4;
 			}
 		}
 	}

@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
@@ -17,19 +18,19 @@ namespace CrystiliumMod.Items.Weapons
 
 		public override void SetDefaults()
 		{
-			item.CloneDefaults(ItemID.ElectrosphereLauncher); //grabs values we're not bothering to change yet
-			item.damage = 76;
-			item.ranged = true;
-			item.value = 100000;
-			item.rare = 7;
-			item.autoReuse = true;
-			item.useTime = 10;
-			item.useAnimation = 20;
-			item.shoot = ProjectileType<Projectiles.RPC>();
-			item.useAmmo = ItemType<RPC>();
+			Item.CloneDefaults(ItemID.ElectrosphereLauncher); //grabs values we're not bothering to change yet
+			Item.damage = 76;
+			Item.DamageType = DamageClass.Ranged;
+			Item.value = 100000;
+			Item.rare = 7;
+			Item.autoReuse = true;
+			Item.useTime = 10;
+			Item.useAnimation = 20;
+			Item.shoot = ProjectileType<Projectiles.RPC>();
+			Item.useAmmo = ItemType<RPC>();
 		}
 
-		public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+		public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
 		{
 			switch (Main.rand.Next(3))
 			{

@@ -9,7 +9,7 @@ namespace CrystiliumMod.Tiles
 {
 	public class CrystalWoodWorkbench : ModTile
 	{
-		public override void SetDefaults()
+		public override void SetStaticDefaults()
 		{
 			Main.tileSolidTop[Type] = true;
 			Main.tileFrameImportant[Type] = true;
@@ -23,9 +23,9 @@ namespace CrystiliumMod.Tiles
 			ModTranslation name = CreateMapEntryName();
 			name.SetDefault("Crystal Wood Workbench");
 			AddMapEntry(new Color(250, 140, 250), name);
-			dustType = mod.DustType("CrystalDust");
-			disableSmartCursor = true;
-			adjTiles = new int[] { TileID.WorkBenches };
+			DustType = Mod.Find<ModDust>("CrystalDust").Type;
+			disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
+			AdjTiles = new int[] { TileID.WorkBenches };
 		}
 
 		public override void NumDust(int i, int j, bool fail, ref int num)

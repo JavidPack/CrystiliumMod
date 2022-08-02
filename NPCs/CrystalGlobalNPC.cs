@@ -19,7 +19,7 @@ namespace CrystiliumMod.NPCs
 
 		public override void EditSpawnPool(IDictionary<int, float> pool, NPCSpawnInfo spawnInfo)
 		{
-			if (spawnInfo.player.GetModPlayer<CrystalPlayer>().ZoneCrystal)
+			if (spawnInfo.Player.GetModPlayer<CrystalPlayer>().ZoneCrystal)
 			{
 				pool.Clear(); //remove ALL spawns here
 				pool.Add(NPCType<CrystalElemental>(), 4f); // a modded enemy

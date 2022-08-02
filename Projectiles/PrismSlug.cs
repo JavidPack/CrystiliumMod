@@ -1,5 +1,7 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.Audio;
+using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
 
@@ -10,43 +12,43 @@ namespace CrystiliumMod.Projectiles //We need this to basically indicate the fol
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Prism Bolt");
-			Main.projFrames[projectile.type] = 7;
+			Main.projFrames[Projectile.type] = 7;
 		}
 
 		public override void SetDefaults()
 		{
-			projectile.width = 8;
-			projectile.height = 48;
-			projectile.timeLeft = 600; //The amount of time the projectile is alive for
-			projectile.penetrate = 4; //Tells the game how many enemies it can hit before being destroyed
-			projectile.friendly = true; //Tells the game whether it is friendly to players/friendly npcs or not
-			projectile.hostile = false; //Tells the game whether it is hostile to players or not
-			projectile.light = 0.75f;
-			projectile.ignoreWater = true; //Tells the game whether or not projectile will be affected by water
+			Projectile.width = 8;
+			Projectile.height = 48;
+			Projectile.timeLeft = 600; //The amount of time the projectile is alive for
+			Projectile.penetrate = 4; //Tells the game how many enemies it can hit before being destroyed
+			Projectile.friendly = true; //Tells the game whether it is friendly to players/friendly npcs or not
+			Projectile.hostile = false; //Tells the game whether it is hostile to players or not
+			Projectile.light = 0.75f;
+			Projectile.ignoreWater = true; //Tells the game whether or not projectile will be affected by water
 		}
 
 		public override bool OnTileCollide(Vector2 oldVelocity)
 		{
-			projectile.penetrate--;
-			if (projectile.penetrate <= 0)
+			Projectile.penetrate--;
+			if (Projectile.penetrate <= 0)
 			{
-				projectile.Kill();
+				Projectile.Kill();
 				for (int k = 0; k < 6; k++)
 				{
-					Dust.NewDust(projectile.position, projectile.width, projectile.height, mod.DustType("CrystalDust"), projectile.oldVelocity.X * 0.5f, projectile.oldVelocity.Y * 0.5f);
+					Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, Mod.Find<ModDust>("CrystalDust").Type, Projectile.oldVelocity.X * 0.5f, Projectile.oldVelocity.Y * 0.5f);
 				}
 			}
 			else
 			{
-				if (projectile.velocity.X != oldVelocity.X)
+				if (Projectile.velocity.X != oldVelocity.X)
 				{
-					projectile.velocity.X = -oldVelocity.X;
+					Projectile.velocity.X = -oldVelocity.X;
 				}
-				if (projectile.velocity.Y != oldVelocity.Y)
+				if (Projectile.velocity.Y != oldVelocity.Y)
 				{
-					projectile.velocity.Y = -oldVelocity.Y;
+					Projectile.velocity.Y = -oldVelocity.Y;
 				}
-				Main.PlaySound(2, (int)projectile.position.X, (int)projectile.position.Y, 10);
+				SoundEngine.PlaySound(SoundID.Item10, Projectile.position);
 			}
 			return false;
 		}
@@ -54,14 +56,14 @@ namespace CrystiliumMod.Projectiles //We need this to basically indicate the fol
 		//How the projectile works
 		public override void AI()
 		{
-			projectile.rotation = projectile.velocity.ToRotation() + 1.57f;
-			projectile.frameCounter++;
-			if (projectile.frameCounter >= 8)
+			Projectile.rotation = Projectile.velocity.ToRotation() + 1.57f;
+			Projectile.frameCounter++;
+			if (Projectile.frameCounter >= 8)
 			{
-				Dust.NewDust(projectile.position, projectile.width, projectile.height, mod.DustType("CrystalDust"), projectile.oldVelocity.X * 0.5f, projectile.oldVelocity.Y * 0.5f);
-				Dust.NewDust(projectile.position, projectile.width, projectile.height, mod.DustType("CrystalDust"), projectile.oldVelocity.X * 0.5f, projectile.oldVelocity.Y * 0.5f);
-				projectile.frameCounter = 0;
-				projectile.frame = (projectile.frame + 1) % 7;
+				Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, Mod.Find<ModDust>("CrystalDust").Type, Projectile.oldVelocity.X * 0.5f, Projectile.oldVelocity.Y * 0.5f);
+				Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, Mod.Find<ModDust>("CrystalDust").Type, Projectile.oldVelocity.X * 0.5f, Projectile.oldVelocity.Y * 0.5f);
+				Projectile.frameCounter = 0;
+				Projectile.frame = (Projectile.frame + 1) % 7;
 			}
 		}
 

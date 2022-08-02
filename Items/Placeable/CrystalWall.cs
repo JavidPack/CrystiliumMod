@@ -1,3 +1,4 @@
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
@@ -13,25 +14,24 @@ namespace CrystiliumMod.Items.Placeable
 
 		public override void SetDefaults()
 		{
-			item.width = 12;
-			item.height = 12;
-			item.maxStack = 999;
-			item.useTurn = true;
-			item.autoReuse = true;
-			item.useAnimation = 15;
-			item.useTime = 7;
-			item.useStyle = 1;
-			item.consumable = true;
-			item.createWall = WallType<Walls.CrystalWall>();
+			Item.width = 12;
+			Item.height = 12;
+			Item.maxStack = 999;
+			Item.useTurn = true;
+			Item.autoReuse = true;
+			Item.useAnimation = 15;
+			Item.useTime = 7;
+			Item.useStyle = 1;
+			Item.consumable = true;
+			Item.createWall = WallType<Walls.CrystalWall>();
 		}
 
 		public override void AddRecipes()
 		{
-			ModRecipe recipe = new ModRecipe(mod);
+			Recipe recipe = CreateRecipe(4);
 			recipe.AddIngredient(ItemType<CrystalBlock>());
 			recipe.AddTile(TileID.WorkBenches);
-			recipe.SetResult(this, 4);
-			recipe.AddRecipe();
+			recipe.Register();
 		}
 	}
 }

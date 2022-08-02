@@ -1,5 +1,6 @@
 using CrystiliumMod.Tiles;
 using Microsoft.Xna.Framework;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using Terraria;
@@ -8,11 +9,11 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
 using Terraria.ModLoader.IO;
-using Terraria.World.Generation;
+using Terraria.WorldBuilding;
 
 namespace CrystiliumMod
 {
-	public class CrystalWorld : ModWorld
+	public class CrystalWorld : ModSystem
 	{
 		public static int CrystalTiles = 0;
 		private static List<Point> BiomeCenters;
@@ -20,12 +21,12 @@ namespace CrystiliumMod
 		// TODO, auto SendData using property?
 		public static bool downedCrystalKing = false;
 
-		public override void Initialize()
+		public override void OnWorldLoad()/* tModPorter Suggestion: Also override OnWorldUnload, and mirror your worldgen-sensitive data initialization in PreWorldGen */
 		{
 			downedCrystalKing = false;
 		}
 
-		public override TagCompound Save()
+		public override void SaveWorldData(TagCompound tag)/* tModPorter Suggestion: Edit tag parameter instead of returning new TagCompound */
 		{
 			var downed = new List<string>();
 			if (downedCrystalKing) downed.Add("crystalKing");
@@ -35,7 +36,7 @@ namespace CrystiliumMod
 			};
 		}
 
-		public override void Load(TagCompound tag)
+		public override void LoadWorldData(TagCompound tag)
 		{
 			if (tag.ContainsKey("downed"))
 			{
@@ -157,7 +158,7 @@ namespace CrystiliumMod
 						int E = Xvalue + WorldGen.genRand.Next(340, 460);
 						int F = Yvalue + WorldGen.genRand.Next(340, 460);
 						Tile tile = Framing.GetTileSafely(E, F);
-						if (tile.type == TileType<CrystalBlock>() || tile.type == TileType<FountainBlock>())
+						if (tile.TileType == TileType<CrystalBlock>() || tile.TileType == TileType<FountainBlock>())
 						{
 							WorldGen.GrowTree(E, F);
 						}
@@ -166,7 +167,7 @@ namespace CrystiliumMod
 					{
 						int Xore = XvalueMid + Main.rand.Next(-300, 300);
 						int Yore = YvalueMid + Main.rand.Next(-300, 300);
-						if (Main.tile[Xore, Yore].type == TileType<CrystalBlock>()) // A = x, B = y.
+						if (Main.tile[Xore, Yore].TileType == TileType<CrystalBlock>()) // A = x, B = y.
 						{
 							WorldGen.TileRunner(Xore, Yore, (double)WorldGen.genRand.Next(3, 6), WorldGen.genRand.Next(3, 6), TileType<RadiantOre>(), false, 0f, 0f, false, true);
 						}
@@ -232,7 +233,7 @@ namespace CrystiliumMod
 				for (int chestIndex = 0; chestIndex < 1000; chestIndex++)
 				{
 					Chest chest = Main.chest[chestIndex];
-					if (chest != null && Main.tile[chest.x, chest.y].type == TileType<CrystalChest>())
+					if (chest != null && Main.tile[chest.x, chest.y].TileType == TileType<CrystalChest>())
 					{
 						for (int inventoryIndex = 0; inventoryIndex < 40; inventoryIndex++)
 						{
@@ -254,7 +255,7 @@ namespace CrystiliumMod
 			for (int chestIndex = 0; chestIndex < 1000; chestIndex++)
 			{
 				Chest chest = Main.chest[chestIndex];
-				if (chest != null && Main.tile[chest.x, chest.y].type/*.frameX == 47 * 36*/ == TileType<CrystalChest>()) // if glass chest
+				if (chest != null && Main.tile[chest.x, chest.y].TileType/*.frameX == 47 * 36*/ == TileType<CrystalChest>()) // if glass chest
 				{
 					for (int inventoryIndex = 0; inventoryIndex < 40; inventoryIndex++)
 					{
@@ -274,7 +275,7 @@ namespace CrystiliumMod
 			CrystalTiles = 0;
 		}
 
-		public override void TileCountsAvailable(int[] tileCounts)
+		public override void TileCountsAvailable(ReadOnlySpan<int> tileCounts)
 		{
 			CrystalTiles = tileCounts[TileType<CrystalBlock>()];
 		}

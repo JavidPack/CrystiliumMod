@@ -23,7 +23,7 @@ namespace CrystiliumMod.Items.Accessories
 		{
 			if (item.type == ItemID.DiamondRing)
 			{
-				tooltips.Add(new TooltipLine(mod, "CrystiliumTooltip", "5% increased critical strike chance"));
+				tooltips.Add(new TooltipLine(Mod, "CrystiliumTooltip", "5% increased critical strike chance"));
 			}
 		}
 
@@ -31,10 +31,10 @@ namespace CrystiliumMod.Items.Accessories
 		{
 			if (item.type == ItemID.DiamondRing)
 			{
-				player.magicCrit += 5;
-				player.meleeCrit += 5;
-				player.thrownCrit += 5;
-				player.rangedCrit += 5;
+				player.GetCritChance(DamageClass.Magic) += 5;
+				player.GetCritChance(DamageClass.Generic) += 5;
+				player.GetCritChance(DamageClass.Throwing) += 5;
+				player.GetCritChance(DamageClass.Ranged) += 5;
 			}
 		}
 	}

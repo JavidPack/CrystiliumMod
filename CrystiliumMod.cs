@@ -46,11 +46,11 @@ namespace CrystiliumMod
 			base.Close();
 		}
 
-		public override void AddRecipes()
+		public override void AddRecipes()/* tModPorter Note: Removed. Use ModSystem.AddRecipes */
 		{
 		}
 
-		public override void UpdateMusic(ref int music, ref MusicPriority priority)
+		public override void UpdateMusic(ref int music, ref SceneEffectPriority priority)/* tModPorter Note: Removed. Use ModSceneEffect.Music and .Priority, aswell as ModSceneEffect.IsSceneEffectActive */
 		{
 			if (Main.myPlayer == -1 || Main.gameMenu || !Main.LocalPlayer.active)
 			{
@@ -63,7 +63,7 @@ namespace CrystiliumMod
 				//var normalMusic = this.GetSoundSlot(SoundType.Music, "Sounds/Music/CrystallineFlows");
 				//if(music != normalMusic && Main.rand.NextBool(10))
 				music = this.GetSoundSlot(SoundType.Music, "Sounds/Music/CrystallineFlows");
-				priority = MusicPriority.BiomeMedium;
+				priority = SceneEffectPriority.BiomeMedium;
 			}
 		}
 

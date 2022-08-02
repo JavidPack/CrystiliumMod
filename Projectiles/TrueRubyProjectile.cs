@@ -11,28 +11,28 @@ namespace CrystiliumMod.Projectiles
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("True Ruby Gem");
-			Main.projFrames[projectile.type] = 4;
+			Main.projFrames[Projectile.type] = 4;
 		}
 
 		public override void SetDefaults()
 		{
-			projectile.friendly = true;
-			projectile.magic = true;
-			projectile.width = 14;
-			projectile.height = 26;
-			projectile.timeLeft = 240; //Projectile lasts 4 seconds
+			Projectile.friendly = true;
+			Projectile.DamageType = DamageClass.Magic;
+			Projectile.width = 14;
+			Projectile.height = 26;
+			Projectile.timeLeft = 240; //Projectile lasts 4 seconds
 		}
 
 		//Projectile AI adapted from friendly Lost Soul AI (AKA Spectre Staff projectiles)
 		//Note ADAPTED. Code was essentially unreadable and impractical originally.
 		public override void AI()
 		{
-			if (++projectile.frameCounter % 3 == 0)
+			if (++Projectile.frameCounter % 3 == 0)
 			{
-				if (++projectile.frame > 3) projectile.frame = 0;
+				if (++Projectile.frame > 3) Projectile.frame = 0;
 			}
 
-			Vector2 targetPos = projectile.Center;
+			Vector2 targetPos = Projectile.Center;
 			float targetDist = 250f;
 			bool targetAcquired = false;
 
@@ -40,9 +40,9 @@ namespace CrystiliumMod.Projectiles
 			//this loop finds the closest valid target NPC within the range of targetDist pixels
 			for (int i = 0; i < 200; i++)
 			{
-				if (Main.npc[i].CanBeChasedBy(projectile) && Collision.CanHit(projectile.Center, 1, 1, Main.npc[i].Center, 1, 1))
+				if (Main.npc[i].CanBeChasedBy(Projectile) && Collision.CanHit(Projectile.Center, 1, 1, Main.npc[i].Center, 1, 1))
 				{
-					float dist = projectile.Distance(Main.npc[i].Center);
+					float dist = Projectile.Distance(Main.npc[i].Center);
 					if (dist < targetDist)
 					{
 						targetDist = dist;
@@ -56,20 +56,20 @@ namespace CrystiliumMod.Projectiles
 			if (targetAcquired)
 			{
 				float homingSpeedFactor = 6f;
-				Vector2 homingVect = targetPos - projectile.Center;
-				float dist = projectile.Distance(targetPos);
+				Vector2 homingVect = targetPos - Projectile.Center;
+				float dist = Projectile.Distance(targetPos);
 				dist = homingSpeedFactor / dist;
 				homingVect *= dist;
 
-				projectile.velocity = (projectile.velocity * 20 + homingVect) / 21f;
+				Projectile.velocity = (Projectile.velocity * 20 + homingVect) / 21f;
 			}
 
 			//Spawn the dust
 			if (Main.rand.Next(3) == 0)
 			{
-				Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, mod.DustType("TrueRubyDust"), projectile.velocity.X * 0.5f, projectile.velocity.Y * 0.5f);
+				Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, Mod.Find<ModDust>("TrueRubyDust").Type, Projectile.velocity.X * 0.5f, Projectile.velocity.Y * 0.5f);
 			}
-			projectile.rotation = projectile.velocity.ToRotation() + (float)(Math.PI / 2);
+			Projectile.rotation = Projectile.velocity.ToRotation() + (float)(Math.PI / 2);
 		}
 	}
 }

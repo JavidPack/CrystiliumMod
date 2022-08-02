@@ -15,11 +15,11 @@ namespace CrystiliumMod.Items.Accessories
 
 		public override void SetDefaults()
 		{
-			item.width = 40;
-			item.height = 40;
-			item.value = Item.sellPrice(0, 0, 85, 0);
-			item.rare = 1;
-			item.accessory = true;
+			Item.width = 40;
+			Item.height = 40;
+			Item.value = Item.sellPrice(0, 0, 85, 0);
+			Item.rare = 1;
+			Item.accessory = true;
 		}
 
 		public override void UpdateAccessory(Player player, bool hideVisual)
@@ -31,11 +31,10 @@ namespace CrystiliumMod.Items.Accessories
 
 		public override void AddRecipes()
 		{
-			ModRecipe recipe = new ModRecipe(mod);
+			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.IronBar, 4);
 			recipe.AddIngredient(ItemID.Ruby, 3);
-			recipe.SetResult(this);
-			recipe.AddRecipe();
+			recipe.Register();
 		}
 	}
 }

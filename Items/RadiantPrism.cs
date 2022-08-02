@@ -12,25 +12,24 @@ namespace CrystiliumMod.Items
 		{
 			DisplayName.SetDefault("Radiant Prism");
 			Tooltip.SetDefault("It's vibrating intensely");
-			Main.RegisterItemAnimation(item.type, new DrawAnimationVertical(4, 4));
+			Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(4, 4));
 		}
 
 		public override void SetDefaults()
 		{
-			item.width = 20;
-			item.height = 20;
-			item.maxStack = 999;
-			item.value = 3000;
-			item.rare = 3;
+			Item.width = 20;
+			Item.height = 20;
+			Item.maxStack = 999;
+			Item.value = 3000;
+			Item.rare = 3;
 		}
 
 		public override void AddRecipes()
 		{
-			ModRecipe recipe = new ModRecipe(mod);
+			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemType<Placeable.RadiantOre>(), 3);
 			recipe.AddTile(TileID.Furnaces);
-			recipe.SetResult(this);
-			recipe.AddRecipe();
+			recipe.Register();
 		}
 	}
 }

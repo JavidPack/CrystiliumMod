@@ -1,5 +1,7 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.Audio;
+using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
 
@@ -7,15 +9,15 @@ namespace CrystiliumMod.Tiles
 {
 	public class RadiantOre : ModTile
 	{
-		public override void SetDefaults()
+		public override void SetStaticDefaults()
 		{
 			Main.tileSolid[Type] = true;
 			Main.tileMergeDirt[Type] = true;
 			Main.tileBlockLight[Type] = true;
-			this.minPick = 65;
+			this.MinPick = 65;
 			Main.tileLighted[Type] = false;
-			dustType = DustType<Dusts.Sparkle>();
-			drop = ItemType<Items.Placeable.RadiantOre>();
+			DustType = DustType<Dusts.Sparkle>();
+			ItemDrop = ItemType<Items.Placeable.RadiantOre>();
 			AddMapEntry(new Color(255, 93, 245));
 		}
 
@@ -33,7 +35,7 @@ namespace CrystiliumMod.Tiles
 
 		public override bool KillSound(int i, int j)
 		{
-			Main.PlaySound(2, i * 16, j * 16, 27);
+			SoundEngine.PlaySound(SoundID.Item27, new Vector2(i * 16, j * 16));
 			return false;
 		}
 	}

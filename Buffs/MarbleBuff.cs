@@ -6,13 +6,13 @@ namespace CrystiliumMod.Buffs
 {
 	public class MarbleBuff : ModBuff
 	{
-		public override void SetDefaults()
+		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Marble Aura");
 			Description.SetDefault("Light as a feather");
 			Main.debuff[Type] = false;
 			Main.pvpBuff[Type] = true;
-			longerExpertDebuff = false;
+			longerExpertDebuff/* tModPorter Note: Removed. Use BuffID.Sets.LongerExpertDebuff instead */ = false;
 		}
 
 		public override void Update(Player player, ref int buffIndex)

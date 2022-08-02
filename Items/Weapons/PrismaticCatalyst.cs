@@ -11,26 +11,26 @@ namespace CrystiliumMod.Items.Weapons
 		{
 			DisplayName.SetDefault("Prismatic Catalyst");
 			Tooltip.SetDefault("'Clense your soul'");
-			Item.staff[item.type] = true; //this makes the useStyle animate as a staff instead of as a gun
+			Item.staff[Item.type] = true; //this makes the useStyle animate as a staff instead of as a gun
 		}
 
 		public override void SetDefaults()
 		{
-			item.damage = 0;
-			item.magic = true;
-			item.mana = 55;
-			item.width = 40;
-			item.height = 40;
-			item.useTime = 77;
-			item.useAnimation = 77;
-			item.useStyle = 5;
-			item.noMelee = true;
-			item.knockBack = 5;
-			item.value = 30000;
-			item.rare = 3;
-			item.healLife = 10;
-			item.UseSound = SoundID.Item20;
-			item.autoReuse = true;
+			Item.damage = 0;
+			Item.DamageType = DamageClass.Magic;
+			Item.mana = 55;
+			Item.width = 40;
+			Item.height = 40;
+			Item.useTime = 77;
+			Item.useAnimation = 77;
+			Item.useStyle = 5;
+			Item.noMelee = true;
+			Item.knockBack = 5;
+			Item.value = 30000;
+			Item.rare = 3;
+			Item.healLife = 10;
+			Item.UseSound = SoundID.Item20;
+			Item.autoReuse = true;
 		}
 	}
 }

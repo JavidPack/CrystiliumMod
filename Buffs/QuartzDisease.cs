@@ -7,14 +7,14 @@ namespace CrystiliumMod.Buffs
 {
 	public class QuartzDisease : ModBuff
 	{
-		public override void SetDefaults()
+		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Quartz Disease");
 			Description.SetDefault("'Keter.'");
 			Main.debuff[Type] = true;
 			Main.pvpBuff[Type] = true;
 			Main.buffNoSave[Type] = true;
-			longerExpertDebuff = true;
+			longerExpertDebuff/* tModPorter Note: Removed. Use BuffID.Sets.LongerExpertDebuff instead */ = true;
 		}
 
 		private float ticks = 0f;

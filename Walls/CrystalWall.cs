@@ -7,10 +7,10 @@ namespace CrystiliumMod.Walls
 {
 	public class CrystalWall : ModWall
 	{
-		public override void SetDefaults()
+		public override void SetStaticDefaults()
 		{
 			Main.wallHouse[Type] = true;
-			dustType = DustType<Dusts.Sparkle>();
+			DustType = DustType<Dusts.Sparkle>();
 			AddMapEntry(new Color(150, 150, 150));
 		}
 

@@ -7,7 +7,7 @@ namespace CrystiliumMod
 {
 	public class CrystiliumGlobalNPC : GlobalNPC
 	{
-		public override void NPCLoot(NPC npc)
+		public override void OnKill(NPC npc)
 		{
 			if (npc.type == NPCID.Mothron && Main.rand.Next(4) == 0)
 			{

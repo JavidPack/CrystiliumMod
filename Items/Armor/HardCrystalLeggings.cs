@@ -17,11 +17,11 @@ namespace CrystiliumMod.Items.Armor
 
 		public override void SetDefaults()
 		{
-			item.width = 18;
-			item.height = 18;
-			item.value = 30000;
-			item.rare = 5;
-			item.defense = 7;
+			Item.width = 18;
+			Item.height = 18;
+			Item.value = 30000;
+			Item.rare = 5;
+			Item.defense = 7;
 		}
 
 		public override void UpdateEquip(Player player)
@@ -31,12 +31,11 @@ namespace CrystiliumMod.Items.Armor
 
 		public override void AddRecipes()
 		{
-			ModRecipe recipe = new ModRecipe(mod);
+			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.CrystalShard, 15);
 			recipe.AddIngredient(ItemType<Items.EnchantedGeode>(), 10);
 			recipe.AddTile(Terraria.ID.TileID.Anvils);
-			recipe.SetResult(this);
-			recipe.AddRecipe();
+			recipe.Register();
 		}
 	}
 }

@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
@@ -13,36 +14,36 @@ namespace CrystiliumMod.Projectiles.Minions
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Spirit Bow");
-			Main.projFrames[projectile.type] = 9;
-			ProjectileID.Sets.MinionTargettingFeature[projectile.type] = true;
+			Main.projFrames[Projectile.type] = 9;
+			ProjectileID.Sets.MinionTargettingFeature[Projectile.type] = true;
 		}
 
 		public override void SetDefaults()
 		{
-			projectile.width = 48;
-			projectile.height = 58;
-			projectile.timeLeft = 600;
-			projectile.friendly = false;
-			projectile.hostile = false;
-			projectile.penetrate = -1;
-			projectile.tileCollide = false;
-			projectile.ignoreWater = true;
-			projectile.minion = true;
-			projectile.sentry = true;
-			projectile.timeLeft = Projectile.SentryLifeTime;
+			Projectile.width = 48;
+			Projectile.height = 58;
+			Projectile.timeLeft = 600;
+			Projectile.friendly = false;
+			Projectile.hostile = false;
+			Projectile.penetrate = -1;
+			Projectile.tileCollide = false;
+			Projectile.ignoreWater = true;
+			Projectile.minion = true;
+			Projectile.sentry = true;
+			Projectile.timeLeft = Projectile.SentryLifeTime;
 		}
 
-		public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
+		public override bool PreDraw(ref Color lightColor)
 		{
 			//custom drawing, used to make bow not upside down when facing left
 			//also draws the animation PROPERLY, because vanilla is too dumb to do it right
-			if (projectile.rotation > Math.PI / 2 && projectile.rotation < Math.PI * 3 / 2)
+			if (Projectile.rotation > Math.PI / 2 && Projectile.rotation < Math.PI * 3 / 2)
 			{
-				spriteBatch.Draw(mod.GetTexture("Projectiles/Minions/SpiritBow"), projectile.Center - Main.screenPosition, new Rectangle(0, (projectile.height + 1) * projectile.frame, projectile.width, projectile.height), lightColor, projectile.rotation, new Vector2(projectile.width / 2, projectile.height / 2), projectile.scale, SpriteEffects.FlipVertically, 0f);
+				spriteBatch.Draw(Mod.GetTexture("Projectiles/Minions/SpiritBow"), Projectile.Center - Main.screenPosition, new Rectangle(0, (Projectile.height + 1) * Projectile.frame, Projectile.width, Projectile.height), lightColor, Projectile.rotation, new Vector2(Projectile.width / 2, Projectile.height / 2), Projectile.scale, SpriteEffects.FlipVertically, 0f);
 			}
 			else
 			{
-				spriteBatch.Draw(mod.GetTexture("Projectiles/Minions/SpiritBow"), projectile.Center - Main.screenPosition, new Rectangle(0, (projectile.height + 1) * projectile.frame, projectile.width, projectile.height), lightColor, projectile.rotation, new Vector2(projectile.width / 2, projectile.height / 2), projectile.scale, SpriteEffects.None, 0f);
+				spriteBatch.Draw(Mod.GetTexture("Projectiles/Minions/SpiritBow"), Projectile.Center - Main.screenPosition, new Rectangle(0, (Projectile.height + 1) * Projectile.frame, Projectile.width, Projectile.height), lightColor, Projectile.rotation, new Vector2(Projectile.width / 2, Projectile.height / 2), Projectile.scale, SpriteEffects.None, 0f);
 			}
 			return false;
 		}
@@ -59,96 +60,96 @@ namespace CrystiliumMod.Projectiles.Minions
 			int targetingMax = 20; //how many frames allowed to target nearest instead of shooting
 			float shootVelocity = 16f; //magnitude of the shoot vector (speed of arrows shot)
 
-			Player player = Main.player[projectile.owner];
+			Player player = Main.player[Projectile.owner];
 			player.UpdateMaxTurrets();
 
-			if (ClosestNPC(ref target, range*16, projectile.Center, false, player.MinionAttackTargetNPC))
+			if (ClosestNPC(ref target, range*16, Projectile.Center, false, player.MinionAttackTargetNPC))
 			{
-				Vector2 dirToTarget = projectile.DirectionTo(target.Center);
+				Vector2 dirToTarget = Projectile.DirectionTo(target.Center);
 				float rotToTarget = dirToTarget.ToRotation();
-				projectile.rotation = SlowRotation(projectile.rotation, rotToTarget, rotSpeed);
+				Projectile.rotation = SlowRotation(Projectile.rotation, rotToTarget, rotSpeed);
 			}
 
 			//ANIMATION HANDLING
 			//loading arrow
-			if ((projectile.frame >= 0 && projectile.frame < 5))
+			if ((Projectile.frame >= 0 && Projectile.frame < 5))
 			{
-				projectile.frameCounter++;
-				if (projectile.frameCounter % animSpeed == 0)
+				Projectile.frameCounter++;
+				if (Projectile.frameCounter % animSpeed == 0)
 				{
-					projectile.frame++;
+					Projectile.frame++;
 				}
-				if (projectile.frame == 5) projectile.frameCounter = 0;
+				if (Projectile.frame == 5) Projectile.frameCounter = 0;
 			}
 			//waiting for fire
-			else if (projectile.frame == 5)
+			else if (Projectile.frame == 5)
 			{
 				//do nuffin... until target in range
-				if (target != null && target.active && projectile.Distance(target.Center) / 16 < range)
+				if (target != null && target.active && Projectile.Distance(target.Center) / 16 < range)
 				{
-					projectile.frameCounter++;
+					Projectile.frameCounter++;
 					//proceed if rotated in the right direction
-					if (projectile.rotation == projectile.DirectionTo(target.position).ToRotation() && projectile.frameCounter % 4 > 0)
+					if (Projectile.rotation == Projectile.DirectionTo(target.position).ToRotation() && Projectile.frameCounter % 4 > 0)
 					{
-						projectile.frame++;
-						projectile.frameCounter = 0;
+						Projectile.frame++;
+						Projectile.frameCounter = 0;
 					}
 					//proceed if still haven't locked on (targets change too quickly, etc)
-					else if (projectile.frameCounter >= targetingMax)
+					else if (Projectile.frameCounter >= targetingMax)
 					{
-						projectile.frame++;
-						projectile.frameCounter = 0;
+						Projectile.frame++;
+						Projectile.frameCounter = 0;
 					}
 				}
-				else projectile.frameCounter = 0;
+				else Projectile.frameCounter = 0;
 			}
 			//firing
-			else if (projectile.frame == 6)
+			else if (Projectile.frame == 6)
 			{
-				projectile.frameCounter++;
+				Projectile.frameCounter++;
 				//fire!!
-				if (projectile.frameCounter % animSpeed == 0)
+				if (Projectile.frameCounter % animSpeed == 0)
 				{
 					//spawn the arrow centered on the bow (this code aligns the centers :3)
-					Vector2 vel = new Vector2(shootVelocity, 0f).RotatedBy(projectile.rotation);
-					int proj = Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, vel.X, vel.Y, ProjectileType<SpiritArrow>(), projectile.damage, projectile.knockBack, projectile.owner);
+					Vector2 vel = new Vector2(shootVelocity, 0f).RotatedBy(Projectile.rotation);
+					int proj = Projectile.NewProjectile(Projectile.Center.X, Projectile.Center.Y, vel.X, vel.Y, ProjectileType<SpiritArrow>(), Projectile.damage, Projectile.knockBack, Projectile.owner);
 					Projectile newProj = Main.projectile[proj];
-					newProj.position += projectile.Center - newProj.Center;
+					newProj.position += Projectile.Center - newProj.Center;
 
-					Main.PlaySound(2, projectile.Center, 5);  //make bow shooty sound
+					SoundEngine.PlaySound(SoundID.Item5, Projectile.Center);  //make bow shooty sound
 
-					projectile.frame++;
+					Projectile.frame++;
 				}
 			}
 			//finish firing anim, revert back to 0
-			else if (projectile.frame > 6)
+			else if (Projectile.frame > 6)
 			{
-				projectile.frameCounter++;
-				if (projectile.frameCounter % animSpeed == 0)
+				Projectile.frameCounter++;
+				if (Projectile.frameCounter % animSpeed == 0)
 				{
-					projectile.frame++;
+					Projectile.frame++;
 				}
-				if (projectile.frame == 9)
+				if (Projectile.frame == 9)
 				{
-					projectile.frame = 0;
-					projectile.frameCounter = 0;
+					Projectile.frame = 0;
+					Projectile.frameCounter = 0;
 				}
 			}
-			if (projectile.timeLeft == Projectile.SentryLifeTime)
+			if (Projectile.timeLeft == Projectile.SentryLifeTime)
 			{
 				for (int i = 0; i < 15; i++)
 				{
-					Dust.NewDust(projectile.position, projectile.width, projectile.height, DustType<Dusts.Sparkle>(), (float)Main.rand.Next(-3, 3), (float)Main.rand.Next(-3, 3), 0);
+					Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustType<Dusts.Sparkle>(), (float)Main.rand.Next(-3, 3), (float)Main.rand.Next(-3, 3), 0);
 				}
 			}
 		}
 
 		public override void Kill(int timeLeft)
 		{
-			Main.PlaySound(2, projectile.Center, 27);
+			SoundEngine.PlaySound(SoundID.Item27, Projectile.Center);
 			for (int i = 0; i < 15; i++)
 			{
-				Dust.NewDust(projectile.position, projectile.width, projectile.height, DustType<Dusts.Sparkle>(), (float)Main.rand.Next(-3, 3), (float)Main.rand.Next(-3, 3), 0);
+				Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustType<Dusts.Sparkle>(), (float)Main.rand.Next(-3, 3), (float)Main.rand.Next(-3, 3), 0);
 			}
 		}
 

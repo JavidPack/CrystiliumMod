@@ -15,20 +15,20 @@ namespace CrystiliumMod.Items
 
 		public override void SetDefaults()
 		{
-			item.UseSound = SoundID.Item3;
-			item.useStyle = 2;
-			item.useTurn = true;
-			item.useAnimation = 20;
-			item.useTime = 20;
-			item.maxStack = 30;
-			item.consumable = true;
-			item.value = 3500;
-			item.rare = 0;
-			item.buffTime = 600;
+			Item.UseSound = SoundID.Item3;
+			Item.useStyle = 2;
+			Item.useTurn = true;
+			Item.useAnimation = 20;
+			Item.useTime = 20;
+			Item.maxStack = 30;
+			Item.consumable = true;
+			Item.value = 3500;
+			Item.rare = 0;
+			Item.buffTime = 600;
 			return;
 		}
 
-		public override bool UseItem(Player player)
+		public override bool? UseItem(Player player)/* tModPorter Suggestion: Return null instead of false */
 		{
 			player.statLife -= 200;
 			player.AddBuff(BuffType<Buffs.DragonFury>(), 600);
@@ -41,14 +41,13 @@ namespace CrystiliumMod.Items
 
 		public override void AddRecipes()
 		{
-			ModRecipe recipe = new ModRecipe(mod);
+			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemType<CrystalBottleWater>());
 			recipe.AddIngredient(ItemID.TissueSample);
 			recipe.AddIngredient(ItemID.Deathweed);
 			recipe.AddIngredient(ItemID.Ichor);
 			recipe.AddTile(TileID.Bottles);
-			recipe.SetResult(this);
-			recipe.AddRecipe();
+			recipe.Register();
 		}
 	}
 }

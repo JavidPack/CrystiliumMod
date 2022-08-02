@@ -6,13 +6,13 @@ namespace CrystiliumMod.Buffs
 {
 	public class GraniteBuff : ModBuff
 	{
-		public override void SetDefaults()
+		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Granite Skin");
 			Description.SetDefault("Hard as a rock");
 			Main.debuff[Type] = false;
 			Main.pvpBuff[Type] = true;
-			longerExpertDebuff = false;
+			longerExpertDebuff/* tModPorter Note: Removed. Use BuffID.Sets.LongerExpertDebuff instead */ = false;
 		}
 
 		public override void Update(Player player, ref int buffIndex)
