@@ -15,11 +15,11 @@ namespace CrystiliumMod.Items
 
 		public override void SetDefaults()
 		{
-			item.width = 20;
-			item.maxStack = 30;
-			item.height = 20;
-			item.expert = true;
-			item.rare = -2;
+			Item.width = 20;
+			Item.maxStack = 30;
+			Item.height = 20;
+			Item.expert = true;
+			Item.rare = -2;
 		}
 
 		public override bool CanRightClick()

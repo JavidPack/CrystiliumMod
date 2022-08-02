@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.Audio;
 using Terraria.DataStructures;
 using Terraria.Enums;
 using Terraria.ID;
@@ -11,14 +12,14 @@ namespace CrystiliumMod.Tiles
 {
 	public class Fountain : ModTile
 	{
-		public override void SetDefaults()
+		public override void SetStaticDefaults()
 		{
 			Main.tileFrameImportant[Type] = true;
 			Main.tileSolid[Type] = false;
 			Main.tileMergeDirt[Type] = true;
 			Main.tileBlockLight[Type] = true;
 			Main.tileLighted[Type] = true;
-			minPick = 999;
+			MinPick = 999;
 			TileObjectData.newTile.Height = 6;
 			TileObjectData.newTile.Width = 6;
 			TileObjectData.newTile.Origin = new Point16(0, 0);
@@ -29,7 +30,7 @@ namespace CrystiliumMod.Tiles
 			TileObjectData.newTile.CoordinateWidth = 16;
 			TileObjectData.newTile.CoordinatePadding = 2;
 			TileObjectData.addTile(Type);
-			animationFrameHeight = 108;
+			AnimationFrameHeight = 108;
 			ModTranslation name = CreateMapEntryName();
 			name.SetDefault("Crystal Fountain");
 			AddMapEntry(new Color(200, 200, 200), name);
@@ -49,7 +50,7 @@ namespace CrystiliumMod.Tiles
 
 		public override void KillMultiTile(int i, int j, int frameX, int frameY)
 		{
-			Main.PlaySound(2, i * 16, j * 16, 27);
+			SoundEngine.PlaySound(SoundID.Item27, new Vector2(i * 16, j * 16));
 		}
 
 		public override void AnimateTile(ref int frame, ref int frameCounter)
@@ -72,11 +73,11 @@ namespace CrystiliumMod.Tiles
 		public override void MouseOver(int i, int j)
 		{
 			//shows the Cryptic Crystal icon while mousing over this tile
-			Main.LocalPlayer.showItemIcon = true;
-			Main.LocalPlayer.showItemIcon2 = ItemType<Items.CrypticCrystal>();
+			Main.LocalPlayer.cursorItemIconEnabled = true;
+			Main.LocalPlayer.cursorItemIconID = ItemType<Items.CrypticCrystal>();
 		}
 
-		public override bool NewRightClick(int i, int j)
+		public override bool RightClick(int i, int j)
 		{
 			//don't bother if there's already a Crystal King in the world
 			if(NPC.AnyNPCs(NPCType<NPCs.Bosses.CrystalKing>()))
@@ -85,7 +86,7 @@ namespace CrystiliumMod.Tiles
 			//check if player has a Cryptic Crystal
 			if (Main.LocalPlayer.ConsumeItem(ItemType<Items.CrypticCrystal>())) {
 				if (Main.netMode == NetmodeID.MultiplayerClient) {
-					ModPacket packet = mod.GetPacket();
+					ModPacket packet = Mod.GetPacket();
 					packet.Write((byte)CrystiliumModMessageType.SpawnBossSpecial);
 					packet.Send();
 				}

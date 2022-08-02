@@ -12,7 +12,7 @@ namespace CrystiliumMod.Tiles
 {
 	public class CrystalSapling : ModTile
 	{
-		public override void SetDefaults()
+		public override void SetStaticDefaults()
 		{
 			Main.tileFrameImportant[Type] = true;
 			Main.tileNoAttach[Type] = true;
@@ -32,12 +32,12 @@ namespace CrystiliumMod.Tiles
 			TileObjectData.newTile.LavaDeath = true;
 			TileObjectData.newTile.RandomStyleRange = 3;
 			TileObjectData.addTile(Type);
-			sapling = true;
+			sapling/* tModPorter Note: Removed. Use TileID.Sets.TreeSapling and TileID.Sets.CommonSapling instead */ = true;
 			ModTranslation name = CreateMapEntryName();
 			name.SetDefault("Sapling");
 			AddMapEntry(new Color(200, 200, 200), name);
-			dustType = DustType<Dusts.Sparkle>();
-			adjTiles = new int[] { TileID.Saplings };
+			DustType = DustType<Dusts.Sparkle>();
+			AdjTiles = new int[] { TileID.Saplings };
 		}
 
 		public override void NumDust(int i, int j, bool fail, ref int num)

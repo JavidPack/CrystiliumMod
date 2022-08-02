@@ -16,14 +16,14 @@ namespace CrystiliumMod.Projectiles
 
 		public override void SetDefaults()
 		{
-			projectile.CloneDefaults(ProjectileID.ThornChakram);
+			Projectile.CloneDefaults(ProjectileID.ThornChakram);
 		}
 
 		public override bool PreAI()
 		{
-			if (Main.myPlayer == projectile.owner)
+			if (Main.myPlayer == Projectile.owner)
 			{
-				projectile.netUpdate = true;
+				Projectile.netUpdate = true;
 			}
 			return true;
 		}

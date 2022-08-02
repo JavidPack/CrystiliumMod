@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
@@ -15,15 +16,15 @@ namespace CrystiliumMod.Projectiles
 
 		public override void SetDefaults()
 		{
-			projectile.CloneDefaults(ProjectileID.WoodenArrowFriendly);
-			projectile.penetrate = 5;
-			projectile.width = 13;
-			projectile.height = 46;
+			Projectile.CloneDefaults(ProjectileID.WoodenArrowFriendly);
+			Projectile.penetrate = 5;
+			Projectile.width = 13;
+			Projectile.height = 46;
 		}
 
 		public override bool OnTileCollide(Vector2 oldVelocity)
 		{
-			Main.PlaySound(0, projectile.Center);
+			SoundEngine.PlaySound(SoundID.Dig, Projectile.Center);
 			return base.OnTileCollide(oldVelocity);
 		}
 	}

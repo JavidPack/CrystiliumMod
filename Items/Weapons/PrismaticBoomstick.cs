@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
@@ -16,24 +17,24 @@ namespace CrystiliumMod.Items.Weapons
 
 		public override void SetDefaults()
 		{
-			item.damage = 47;
-			item.ranged = true;
-			item.width = 40;
-			item.height = 20;
-			item.useTime = 32;
-			item.useAnimation = 32;
-			item.useStyle = 5;
-			item.noMelee = true; //so the item's animation doesn't do damage
-			item.knockBack = 4;
-			item.value = 100000;
-			item.rare = 7;
-			item.UseSound = SoundID.Item11;
-			item.autoReuse = true;
-			item.shoot = ProjectileType<Projectiles.PrismSlug>(); //idk why but all the guns in the vanilla source have this
-			item.shootSpeed = 8f;
+			Item.damage = 47;
+			Item.DamageType = DamageClass.Ranged;
+			Item.width = 40;
+			Item.height = 20;
+			Item.useTime = 32;
+			Item.useAnimation = 32;
+			Item.useStyle = 5;
+			Item.noMelee = true; //so the item's animation doesn't do damage
+			Item.knockBack = 4;
+			Item.value = 100000;
+			Item.rare = 7;
+			Item.UseSound = SoundID.Item11;
+			Item.autoReuse = true;
+			Item.shoot = ProjectileType<Projectiles.PrismSlug>(); //idk why but all the guns in the vanilla source have this
+			Item.shootSpeed = 8f;
 		}
 
-		public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+		public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
 		{
 			for (int i = 0; i < 3; i++)
 			{

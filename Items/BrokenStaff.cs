@@ -13,7 +13,7 @@ namespace CrystiliumMod.Items
 
 		public override void SetDefaults()
 		{
-			item.CloneDefaults(ItemID.BrokenHeroSword);
+			Item.CloneDefaults(ItemID.BrokenHeroSword);
 		}
 	}
 }

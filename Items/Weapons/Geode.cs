@@ -14,16 +14,16 @@ namespace CrystiliumMod.Items.Weapons
 
 		public override void SetDefaults()
 		{
-			item.CloneDefaults(ItemID.WoodYoyo);
-			item.damage = 22;
-			item.value = 30000;
-			item.rare = 3;
-			item.knockBack = 0;
-			item.channel = true;
-			item.useStyle = 5;
-			item.useAnimation = 25;
-			item.useTime = 25;
-			item.shoot = ProjectileType<Projectiles.Geode>();
+			Item.CloneDefaults(ItemID.WoodYoyo);
+			Item.damage = 22;
+			Item.value = 30000;
+			Item.rare = 3;
+			Item.knockBack = 0;
+			Item.channel = true;
+			Item.useStyle = 5;
+			Item.useAnimation = 25;
+			Item.useTime = 25;
+			Item.shoot = ProjectileType<Projectiles.Geode>();
 		}
 	}
 }

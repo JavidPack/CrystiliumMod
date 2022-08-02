@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
@@ -10,36 +11,36 @@ namespace CrystiliumMod.Projectiles.CrystalKing
 	{
 		public override void SetDefaults()
 		{
-			projectile.CloneDefaults(ProjectileID.Grenade);
-			projectile.penetrate = 1;
-			projectile.friendly = false;
-			projectile.hostile = true;
-			projectile.alpha = 80;
-			aiType = ProjectileID.Grenade;
-			projectile.light = 0.5f;
+			Projectile.CloneDefaults(ProjectileID.Grenade);
+			Projectile.penetrate = 1;
+			Projectile.friendly = false;
+			Projectile.hostile = true;
+			Projectile.alpha = 80;
+			AIType = ProjectileID.Grenade;
+			Projectile.light = 0.5f;
 		}
 
 		public override bool OnTileCollide(Vector2 oldVelocity)
 		{
-			projectile.penetrate--;
-			if (projectile.penetrate <= 0)
+			Projectile.penetrate--;
+			if (Projectile.penetrate <= 0)
 			{
-				Main.PlaySound(2, (int)projectile.position.X, (int)projectile.position.Y, 27);
-				projectile.Kill();
+				SoundEngine.PlaySound(SoundID.Item27, Projectile.position);
+				Projectile.Kill();
 			}
 			else
 			{
-				projectile.ai[0] += 0.1f;
-				if (projectile.velocity.X != oldVelocity.X)
+				Projectile.ai[0] += 0.1f;
+				if (Projectile.velocity.X != oldVelocity.X)
 				{
-					projectile.velocity.X = -oldVelocity.X;
+					Projectile.velocity.X = -oldVelocity.X;
 				}
-				if (projectile.velocity.Y != oldVelocity.Y)
+				if (Projectile.velocity.Y != oldVelocity.Y)
 				{
-					projectile.velocity.Y = -oldVelocity.Y;
+					Projectile.velocity.Y = -oldVelocity.Y;
 				}
-				projectile.velocity *= 0.75f;
-				Main.PlaySound(2, (int)projectile.position.X, (int)projectile.position.Y, 27);
+				Projectile.velocity *= 0.75f;
+				SoundEngine.PlaySound(SoundID.Item27, Projectile.position);
 			}
 			return false;
 		}

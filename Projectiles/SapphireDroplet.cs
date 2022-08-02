@@ -1,5 +1,7 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.Audio;
+using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
 
@@ -9,12 +11,12 @@ namespace CrystiliumMod.Projectiles
 	{
 		public override void SetDefaults()
 		{
-			projectile.penetrate = 1;
-			projectile.width = 24;
-			projectile.height = 26;
-			projectile.friendly = true;
-			projectile.alpha = 80;
-			projectile.light = 0.5f;
+			Projectile.penetrate = 1;
+			Projectile.width = 24;
+			Projectile.height = 26;
+			Projectile.friendly = true;
+			Projectile.alpha = 80;
+			Projectile.light = 0.5f;
 		}
 
 		/*	public override void AI()
@@ -28,35 +30,35 @@ namespace CrystiliumMod.Projectiles
 
 		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
 		{
-			projectile.Kill();
+			Projectile.Kill();
 		}
 
 		public override bool OnTileCollide(Vector2 oldVelocity)
 		{
-			projectile.penetrate--;
-			projectile.Kill();
-			if (projectile.penetrate <= 0)
+			Projectile.penetrate--;
+			Projectile.Kill();
+			if (Projectile.penetrate <= 0)
 			{
-				Main.PlaySound(2, (int)projectile.position.X, (int)projectile.position.Y, 27);
-				projectile.Kill();
+				SoundEngine.PlaySound(SoundID.Item27, Projectile.position);
+				Projectile.Kill();
 				for (int k = 0; k < 6; k++)
 				{
-					Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, 33, projectile.oldVelocity.X * 0.5f, projectile.oldVelocity.Y * 0.5f);
+					Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, 33, Projectile.oldVelocity.X * 0.5f, Projectile.oldVelocity.Y * 0.5f);
 				}
 			}
 			else
 			{
-				projectile.ai[0] += 0.1f;
-				if (projectile.velocity.X != oldVelocity.X)
+				Projectile.ai[0] += 0.1f;
+				if (Projectile.velocity.X != oldVelocity.X)
 				{
-					projectile.velocity.X = -oldVelocity.X;
+					Projectile.velocity.X = -oldVelocity.X;
 				}
-				if (projectile.velocity.Y != oldVelocity.Y)
+				if (Projectile.velocity.Y != oldVelocity.Y)
 				{
-					projectile.velocity.Y = -oldVelocity.Y;
+					Projectile.velocity.Y = -oldVelocity.Y;
 				}
-				projectile.velocity *= 0.75f;
-				Main.PlaySound(2, (int)projectile.position.X, (int)projectile.position.Y, 27);
+				Projectile.velocity *= 0.75f;
+				SoundEngine.PlaySound(SoundID.Item27, Projectile.position);
 			}
 			return false;
 		}

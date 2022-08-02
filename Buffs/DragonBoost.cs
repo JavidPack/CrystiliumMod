@@ -6,22 +6,22 @@ namespace CrystiliumMod.Buffs
 {
 	public class DragonFury : ModBuff
 	{
-		public override void SetDefaults()
+		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Dragon Fury");
 			Description.SetDefault("'RYUUGAWA GA TEKI WO KURAU'");
 			Main.debuff[Type] = false;
 			Main.pvpBuff[Type] = true;
-			longerExpertDebuff = false;
+			longerExpertDebuff/* tModPorter Note: Removed. Use BuffID.Sets.LongerExpertDebuff instead */ = false;
 		}
 
 		public override void Update(Player player, ref int buffIndex)
 		{
-			player.thrownDamage *= 4;
-			player.magicDamage *= 4;
-			player.minionDamage *= 4;
-			player.meleeDamage *= 4;
-			player.rangedDamage *= 4;
+			player.GetDamage(DamageClass.Throwing) *= 4;
+			player.GetDamage(DamageClass.Magic) *= 4;
+			player.GetDamage(DamageClass.Summon) *= 4;
+			player.GetDamage(DamageClass.Melee) *= 4;
+			player.GetDamage(DamageClass.Ranged) *= 4;
 		}
 	}
 }

@@ -1,5 +1,7 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.Audio;
+using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
 
@@ -10,40 +12,40 @@ namespace CrystiliumMod.Projectiles
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("StardustDiamond");
-			Main.projFrames[projectile.type] = 8;
+			Main.projFrames[Projectile.type] = 8;
 		}
 
 		public override void SetDefaults()
 		{
-			projectile.width = 48;
-			projectile.height = 58;
-			projectile.timeLeft = 1500;
-			projectile.friendly = false;
-			projectile.hostile = false;
-			projectile.penetrate = -1;
-			projectile.tileCollide = false;
-			projectile.ignoreWater = true;
-			projectile.minion = true;
-			projectile.light = 0.75f;
-			projectile.minionSlots = 0;
+			Projectile.width = 48;
+			Projectile.height = 58;
+			Projectile.timeLeft = 1500;
+			Projectile.friendly = false;
+			Projectile.hostile = false;
+			Projectile.penetrate = -1;
+			Projectile.tileCollide = false;
+			Projectile.ignoreWater = true;
+			Projectile.minion = true;
+			Projectile.light = 0.75f;
+			Projectile.minionSlots = 0;
 		}
 
 		//How the projectile works
 		//AI ARRAY INFO: 0 - NUFFIN  |  1 - TARGET
 		public override void AI()
 		{
-			if (projectile.timeLeft == 1500 || projectile.timeLeft == 1)
+			if (Projectile.timeLeft == 1500 || Projectile.timeLeft == 1)
 			{
 				for (int i = 0; i < 15; i++)
 				{
-					Dust.NewDust(projectile.position, projectile.width, projectile.height, mod.DustType("StardustDust"), (float)Main.rand.Next(-3, 3), (float)Main.rand.Next(-3, 3), 0);
+					Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, Mod.Find<ModDust>("StardustDust").Type, (float)Main.rand.Next(-3, 3), (float)Main.rand.Next(-3, 3), 0);
 				}
 			}
-			projectile.frameCounter++;
-			if (projectile.frameCounter >= 8)
+			Projectile.frameCounter++;
+			if (Projectile.frameCounter >= 8)
 			{
-				projectile.frameCounter = 0;
-				projectile.frame = (projectile.frame + 1) % 8;
+				Projectile.frameCounter = 0;
+				Projectile.frame = (Projectile.frame + 1) % 8;
 			}
 			//CONFIG INFO
 			int range = 50;	//How many tiles away the projectile targets NPCs
@@ -58,7 +60,7 @@ namespace CrystiliumMod.Projectiles
 				if (npc.active && !npc.friendly && npc.catchItem == 0)
 				{
 					//if npc is within 50 blocks
-					float dist = projectile.Distance(npc.Center);
+					float dist = Projectile.Distance(npc.Center);
 					if (dist / 16 < range)
 					{
 						//if npc is closer than closest found npc
@@ -67,22 +69,22 @@ namespace CrystiliumMod.Projectiles
 							lowestDist = dist;
 
 							//target this npc
-							projectile.ai[1] = npc.whoAmI;
+							Projectile.ai[1] = npc.whoAmI;
 						}
 					}
 				}
 			}
-			NPC target = (Main.npc[(int)projectile.ai[1]] ?? new NPC());
+			NPC target = (Main.npc[(int)Projectile.ai[1]] ?? new NPC());
 			//fire!!
-			if (Main.rand.Next(25) == 0 && target.active && projectile.Distance(target.Center) / 16 < range)
+			if (Main.rand.Next(25) == 0 && target.active && Projectile.Distance(target.Center) / 16 < range)
 			{
 				//spawn the arrow centered on the bow (this code aligns the centers :3)
-				Vector2 vel = projectile.DirectionTo(target.Center);
-				int proj = Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, vel.X * 10, vel.Y * 10, ProjectileType<StardustCrystal>(), projectile.damage, projectile.knockBack, projectile.owner);
+				Vector2 vel = Projectile.DirectionTo(target.Center);
+				int proj = Projectile.NewProjectile(Projectile.Center.X, Projectile.Center.Y, vel.X * 10, vel.Y * 10, ProjectileType<StardustCrystal>(), Projectile.damage, Projectile.knockBack, Projectile.owner);
 				Projectile newProj = Main.projectile[proj];
-				newProj.position += projectile.Center - newProj.Center;
+				newProj.position += Projectile.Center - newProj.Center;
 
-				Main.PlaySound(2, projectile.Center, 5);  //make bow shooty sound
+				SoundEngine.PlaySound(SoundID.Item5, Projectile.Center);  //make bow shooty sound
 			}
 		}
 
@@ -90,7 +92,7 @@ namespace CrystiliumMod.Projectiles
 		{
 			if (timeLeft <= 1)
 			{
-				Main.PlaySound(2, projectile.Center, 27);
+				SoundEngine.PlaySound(SoundID.Item27, Projectile.Center);
 			}
 		}
 	}

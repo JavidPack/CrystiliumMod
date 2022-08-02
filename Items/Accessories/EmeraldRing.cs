@@ -15,29 +15,28 @@ namespace CrystiliumMod.Items.Accessories
 
 		public override void SetDefaults()
 		{
-			item.width = 40;
-			item.height = 40;
-			item.value = Item.sellPrice(0, 0, 70, 0);
-			item.rare = 1;
-			item.accessory = true;
+			Item.width = 40;
+			Item.height = 40;
+			Item.value = Item.sellPrice(0, 0, 70, 0);
+			Item.rare = 1;
+			Item.accessory = true;
 		}
 
 		public override void UpdateAccessory(Player player, bool hideVisual)
 		{
-			player.magicDamage += .05f;
-			player.meleeDamage += .05f;
-			player.rangedDamage += .05f;
-			player.minionDamage += .05f;
-			player.thrownDamage += .05f;
+			player.GetDamage(DamageClass.Magic) += .05f;
+			player.GetDamage(DamageClass.Melee) += .05f;
+			player.GetDamage(DamageClass.Ranged) += .05f;
+			player.GetDamage(DamageClass.Summon) += .05f;
+			player.GetDamage(DamageClass.Throwing) += .05f;
 		}
 
 		public override void AddRecipes()
 		{
-			ModRecipe recipe = new ModRecipe(mod);
+			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.GoldBar, 4);
 			recipe.AddIngredient(ItemID.Emerald, 3);
-			recipe.SetResult(this);
-			recipe.AddRecipe();
+			recipe.Register();
 		}
 	}
 }

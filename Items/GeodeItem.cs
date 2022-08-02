@@ -13,22 +13,22 @@ namespace CrystiliumMod.Items
 		{
 			DisplayName.SetDefault("Geode");
 			Tooltip.SetDefault("'I wonder what's inside!'");
-			ItemID.Sets.ExtractinatorMode[item.type] = item.type;
+			ItemID.Sets.ExtractinatorMode[Item.type] = Item.type;
 		}
 
 		public override void SetDefaults()
 		{
-			item.width = 20;
-			item.height = 20;
-			item.maxStack = 999;
-			item.useTurn = true;
-			item.autoReuse = true;
-			item.useAnimation = 15;
-			item.useTime = 10;
-			item.useStyle = 1;
-			item.consumable = true;
-			item.value = 4000;
-			item.rare = 1;
+			Item.width = 20;
+			Item.height = 20;
+			Item.maxStack = 999;
+			Item.useTurn = true;
+			Item.autoReuse = true;
+			Item.useAnimation = 15;
+			Item.useTime = 10;
+			Item.useStyle = 1;
+			Item.consumable = true;
+			Item.value = 4000;
+			Item.rare = 1;
 		}
 
 		public override void ExtractinatorUse(ref int resultType, ref int resultStack)

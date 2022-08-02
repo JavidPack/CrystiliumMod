@@ -6,19 +6,19 @@ namespace CrystiliumMod.Buffs
 {
 	public class CrystalCharm : ModBuff
 	{
-		public override void SetDefaults()
+		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Resonance");
 			Description.SetDefault("+1% magic damage");
 			Main.debuff[Type] = false;
 			Main.pvpBuff[Type] = true;
-			longerExpertDebuff = false;
+			longerExpertDebuff/* tModPorter Note: Removed. Use BuffID.Sets.LongerExpertDebuff instead */ = false;
 		}
 
 		public override void Update(Player player, ref int buffIndex)
 		{
 			//Increase magic damage based on current stacks
-			player.magicDamage *= (float)(1 + (player.GetModPlayer<CrystalPlayer>().crystalCharmStacks * .01));
+			player.GetDamage(DamageClass.Magic) *= (float)(1 + (player.GetModPlayer<CrystalPlayer>().crystalCharmStacks * .01));
 		}
 
 		public override void ModifyBuffTip(ref string tip, ref int rare)

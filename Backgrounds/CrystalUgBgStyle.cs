@@ -4,19 +4,19 @@ using static Terraria.ModLoader.ModContent;
 
 namespace CrystiliumMod.Backgrounds
 {
-	public class CrystalUgBgStyle : ModUgBgStyle
+	public class CrystalUgBgStyle : ModUndergroundBackgroundStyle
 	{
-		public override bool ChooseBgStyle()
+		public override bool ChooseBgStyle()/* tModPorter Note: Removed. Create a ModBiome (or ModSceneEffect) class and override UndergroundBackgroundStyle property to return this object through Mod/ModContent.Find, then move this code into IsBiomeActive (or IsSceneEffectActive) */
 		{
 			return Main.LocalPlayer.GetModPlayer<CrystalPlayer>().ZoneCrystal;
 		}
 
 		public override void FillTextureArray(int[] textureSlots)
 		{
-			textureSlots[0] = mod.GetBackgroundSlot("Backgrounds/CrystalBiomeUG0");
-			textureSlots[1] = mod.GetBackgroundSlot("Backgrounds/CrystalBiomeUG1");
-			textureSlots[2] = mod.GetBackgroundSlot("Backgrounds/CrystalBiomeUG2");
-			textureSlots[3] = mod.GetBackgroundSlot("Backgrounds/CrystalBiomeUG3");
+			textureSlots[0] = BackgroundTextureLoader.GetBackgroundSlot(Mod, "Backgrounds/CrystalBiomeUG0");
+			textureSlots[1] = BackgroundTextureLoader.GetBackgroundSlot(Mod, "Backgrounds/CrystalBiomeUG1");
+			textureSlots[2] = BackgroundTextureLoader.GetBackgroundSlot(Mod, "Backgrounds/CrystalBiomeUG2");
+			textureSlots[3] = BackgroundTextureLoader.GetBackgroundSlot(Mod, "Backgrounds/CrystalBiomeUG3");
 		}
 	}
 }

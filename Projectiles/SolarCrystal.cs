@@ -13,25 +13,25 @@ namespace CrystiliumMod.Projectiles //We need this to basically indicate the fol
 
 		public override void SetDefaults()
 		{
-			projectile.width = 13;
-			projectile.height = 46;
-			projectile.timeLeft = 100; //The amount of time the projectile is alive for
-			projectile.penetrate = 10; //Tells the game how many enemies it can hit before being destroyed
-			projectile.friendly = true; //Tells the game whether it is friendly to players/friendly npcs or not
-			projectile.hostile = false; //Tells the game whether it is hostile to players or not
-			projectile.light = 0.75f;
-			projectile.tileCollide = false; //Tells the game whether or not it can collide with a tile
-			projectile.ignoreWater = true; //Tells the game whether or not projectile will be affected by water
+			Projectile.width = 13;
+			Projectile.height = 46;
+			Projectile.timeLeft = 100; //The amount of time the projectile is alive for
+			Projectile.penetrate = 10; //Tells the game how many enemies it can hit before being destroyed
+			Projectile.friendly = true; //Tells the game whether it is friendly to players/friendly npcs or not
+			Projectile.hostile = false; //Tells the game whether it is hostile to players or not
+			Projectile.light = 0.75f;
+			Projectile.tileCollide = false; //Tells the game whether or not it can collide with a tile
+			Projectile.ignoreWater = true; //Tells the game whether or not projectile will be affected by water
 		}
 
 		//How the projectile works
 		public override void AI()
 		{
-			projectile.rotation = projectile.velocity.ToRotation() + 1.57f;
-			projectile.velocity *= 0.98f;
+			Projectile.rotation = Projectile.velocity.ToRotation() + 1.57f;
+			Projectile.velocity *= 0.98f;
 			if (Main.rand.Next(5) == 0)
 			{
-				Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, mod.DustType("TrueRubyDust"), projectile.velocity.X * 0.5f, projectile.velocity.Y * 0.5f);
+				Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, Mod.Find<ModDust>("TrueRubyDust").Type, Projectile.velocity.X * 0.5f, Projectile.velocity.Y * 0.5f);
 			}
 		}
 

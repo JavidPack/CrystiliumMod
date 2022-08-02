@@ -13,11 +13,11 @@ namespace CrystiliumMod.Items
 
 		public override void SetDefaults()
 		{
-			item.width = 20;
-			item.height = 20;
-			item.maxStack = 999;
-			item.ammo = item.type;
-			item.consumable = true;
+			Item.width = 20;
+			Item.height = 20;
+			Item.maxStack = 999;
+			Item.ammo = Item.type;
+			Item.consumable = true;
 		}
 	}
 }

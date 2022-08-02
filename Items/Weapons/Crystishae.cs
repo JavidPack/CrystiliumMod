@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
@@ -16,12 +17,12 @@ namespace CrystiliumMod.Items.Weapons
 
 		public override void SetDefaults()
 		{
-			item.CloneDefaults(ItemID.ThornChakram);
-			item.damage = 77;
-			item.thrown = true;
-			item.value = Item.sellPrice(0, 1, 0, 0);
-			item.rare = 6;
-			item.shoot = ProjectileType<Projectiles.Crystishae>();
+			Item.CloneDefaults(ItemID.ThornChakram);
+			Item.damage = 77;
+			Item.DamageType = DamageClass.Throwing;
+			Item.value = Item.sellPrice(0, 1, 0, 0);
+			Item.rare = 6;
+			Item.shoot = ProjectileType<Projectiles.Crystishae>();
 		}
 
 		public override bool CanUseItem(Player player)
@@ -29,7 +30,7 @@ namespace CrystiliumMod.Items.Weapons
 			//if any projectiles named "Crystishae" exist that are owned by this player, don't use this item
 			for (int i = 0; i < Main.projectile.Length; i++)
 			{
-				if (Main.projectile[i].active && Main.projectile[i].type == item.shoot && Main.projectile[i].owner == player.whoAmI)
+				if (Main.projectile[i].active && Main.projectile[i].type == Item.shoot && Main.projectile[i].owner == player.whoAmI)
 					return false;
 			}
 
@@ -37,7 +38,7 @@ namespace CrystiliumMod.Items.Weapons
 			return true;
 		}
 
-		public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+		public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
 		{
 			//create velocity vectors for the two angled projectiles (outwards at PI/15 radians)
 			Vector2 origVect = new Vector2(speedX, speedY);

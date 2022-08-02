@@ -1,6 +1,7 @@
 using CrystiliumMod.Projectiles;
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
@@ -13,32 +14,32 @@ namespace CrystiliumMod.Items.Weapons
 		{
 			DisplayName.SetDefault("Ultimate Gem Staff");
 			Tooltip.SetDefault("'Ultimate gemstone power'");
-			Item.staff[item.type] = true; //this makes the useStyle animate as a staff instead of as a gun
+			Item.staff[Item.type] = true; //this makes the useStyle animate as a staff instead of as a gun
 		}
 
 		public override void SetDefaults()
 		{
-			item.damage = 96;
-			item.magic = true;
-			item.mana = 3;
-			item.width = 40;
-			item.height = 40;
-			item.useTime = 22;
-			item.useAnimation = 22;
-			item.useStyle = 5;
-			item.noMelee = true;
-			item.knockBack = 5;
-			item.value = 100000;
-			item.rare = 8;
-			item.UseSound = SoundID.Item20;
-			item.autoReuse = true;
-			item.shoot = ProjectileType<AmberDagger>();
-			item.shootSpeed = 10f;
+			Item.damage = 96;
+			Item.DamageType = DamageClass.Magic;
+			Item.mana = 3;
+			Item.width = 40;
+			Item.height = 40;
+			Item.useTime = 22;
+			Item.useAnimation = 22;
+			Item.useStyle = 5;
+			Item.noMelee = true;
+			Item.knockBack = 5;
+			Item.value = 100000;
+			Item.rare = 8;
+			Item.UseSound = SoundID.Item20;
+			Item.autoReuse = true;
+			Item.shoot = ProjectileType<AmberDagger>();
+			Item.shootSpeed = 10f;
 		}
 
 		public override void AddRecipes()
 		{
-			ModRecipe recipe = new ModRecipe(mod);
+			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemType<TrueRubyStaff>());
 			recipe.AddIngredient(ItemType<TrueEmeraldStaff>());
 			recipe.AddIngredient(ItemType<TrueDiamondStaff>());
@@ -47,11 +48,10 @@ namespace CrystiliumMod.Items.Weapons
 			recipe.AddIngredient(ItemType<TrueTopazStaff>());
 			recipe.AddIngredient(ItemType<TrueAmberStaff>());
 			recipe.AddTile(TileID.MythrilAnvil);
-			recipe.SetResult(this);
-			recipe.AddRecipe();
+			recipe.Register();
 		}
 
-		public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+		public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
 		{
 			Vector2 origVect = new Vector2(speedX, speedY);
 			Vector2 newVect = origVect.RotatedBy(System.Math.PI / (Main.rand.Next(20) + 8));

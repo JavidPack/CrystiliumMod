@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
@@ -13,30 +14,30 @@ namespace CrystiliumMod.Items.Weapons
 		{
 			DisplayName.SetDefault("Crystilium Scepter");
 			Tooltip.SetDefault("Launches 5 bolts");
-			Item.staff[item.type] = true; //this makes the useStyle animate as a staff instead of as a gun
+			Item.staff[Item.type] = true; //this makes the useStyle animate as a staff instead of as a gun
 		}
 
 		public override void SetDefaults()
 		{
-			item.damage = 67;
-			item.magic = true;
-			item.mana = 25;
-			item.width = 40;
-			item.height = 40;
-			item.useTime = 12;
-			item.useAnimation = 60;
-			item.useStyle = 5;
-			item.noMelee = true;
-			item.knockBack = 5;
-			item.value = 80000;
-			item.rare = 8;
-			item.UseSound = SoundID.Item20;
-			item.autoReuse = true;
-			item.shoot = ProjectileType<Projectiles.AmberDagger>();
-			item.shootSpeed = 8f;
+			Item.damage = 67;
+			Item.DamageType = DamageClass.Magic;
+			Item.mana = 25;
+			Item.width = 40;
+			Item.height = 40;
+			Item.useTime = 12;
+			Item.useAnimation = 60;
+			Item.useStyle = 5;
+			Item.noMelee = true;
+			Item.knockBack = 5;
+			Item.value = 80000;
+			Item.rare = 8;
+			Item.UseSound = SoundID.Item20;
+			Item.autoReuse = true;
+			Item.shoot = ProjectileType<Projectiles.AmberDagger>();
+			Item.shootSpeed = 8f;
 		}
 
-		public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+		public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
 		{
 			//float SdirX = (Main.MouseWorld.X - player.position.X) * 9.5f;
 			//float SdirY = (Main.MouseWorld.Y - player.position.Y) * 9.5f;

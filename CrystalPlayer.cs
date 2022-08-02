@@ -1,7 +1,9 @@
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
+using Terraria.Audio;
 using Terraria.DataStructures;
+using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
 using Microsoft.Xna.Framework.Graphics;
@@ -34,18 +36,18 @@ namespace CrystiliumMod
 			crystalCharm = false;
 		}
 
-		public override void Hurt(bool pvp, bool quiet, double damage, int hitDirection, bool crit)
+		public override void Hurt(bool pvp, bool quiet, double damage, int hitDirection, bool crit, int cooldownCounter)
 		{
 			if (CrystalAcc)
 			{
-				Main.PlaySound(2, (int)player.position.X, (int)player.position.Y, 27);
+				SoundEngine.PlaySound(SoundID.Item27, Player.position);
 				for (int h = 0; h < 20; h++)
 				{
 					Vector2 vel = new Vector2(0, -1);
 					float rand = Main.rand.NextFloat() * 6.283f;
 					vel = vel.RotatedBy(rand);
 					vel *= 5f;
-					Projectile.NewProjectile(player.Center.X, player.Center.Y, vel.X, vel.Y, mod.ProjectileType("Shatter" + (1 + Main.rand.Next(0, 3))), 20, 0, player.whoAmI);
+					Projectile.NewProjectile(Player.Center.X, Player.Center.Y, vel.X, vel.Y, Mod.Find<ModProjectile>("Shatter" + (1 + Main.rand.Next(0, 3))).Type, 20, 0, Player.whoAmI);
 				}
 			}
 		}
@@ -84,10 +86,10 @@ namespace CrystiliumMod
 			if (crystalCharm)
 			{
 				//add buff, update stacks
-				int buffIdx = player.FindBuffIndex(BuffType<Buffs.CrystalCharm>());
+				int buffIdx = Player.FindBuffIndex(BuffType<Buffs.CrystalCharm>());
 				if (buffIdx < 0)
 				{
-					player.AddBuff(BuffType<Buffs.CrystalCharm>(), 120);
+					Player.AddBuff(BuffType<Buffs.CrystalCharm>(), 120);
 					crystalCharmStacks = 1;
 					//1/3 chance to increase stack each hit
 				}
@@ -99,7 +101,7 @@ namespace CrystiliumMod
 				//reset buff time
 				if (buffIdx > -1)
 				{
-					player.buffTime[buffIdx] = 120;
+					Player.buffTime[buffIdx] = 120;
 				}
 			}
 		}
@@ -154,12 +156,11 @@ namespace CrystiliumMod
 			ZoneCrystal = flags[0];
 		}
 
-		public override bool PreHurt(bool pvp, bool quiet, ref int damage, ref int hitDirection, ref bool crit,
-		ref bool customDamage, ref bool playSound, ref bool genGore, ref PlayerDeathReason damageSource)
+		public override bool PreHurt(bool pvp, bool quiet, ref int damage, ref int hitDirection, ref bool crit, ref bool customDamage, ref bool playSound, ref bool genGore, ref PlayerDeathReason damageSource, ref int cooldownCounter)
 		{
 			if (constantDamage > 0 || percentDamage > 0f)
 			{
-				int damageFromPercent = (int)(player.statLifeMax2 * percentDamage);
+				int damageFromPercent = (int)(Player.statLifeMax2 * percentDamage);
 				damage = Math.Max(constantDamage, damageFromPercent);
 				customDamage = true;
 			}
@@ -169,7 +170,7 @@ namespace CrystiliumMod
 				{
 					defenseEffect *= 1.5f;
 				}
-				damage -= (int)(player.statDefense * defenseEffect);
+				damage -= (int)(Player.statDefense * defenseEffect);
 				if (damage < 0)
 				{
 					damage = 1;
@@ -186,13 +187,13 @@ namespace CrystiliumMod
 		{
 			if (crystalFountain)
 			{
-				player.AddBuff(BuffType<Buffs.CrystalHealing>(), 2);
+				Player.AddBuff(BuffType<Buffs.CrystalHealing>(), 2);
 			}
 		}
 
 		public override void PostUpdateBuffs()
 		{
-			if (player.FindBuffIndex(BuffType<Buffs.CrystalCharm>()) < 0)
+			if (Player.FindBuffIndex(BuffType<Buffs.CrystalCharm>()) < 0)
 			{
 				crystalCharmStacks = 0;
 			}

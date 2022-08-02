@@ -17,17 +17,17 @@ namespace CrystiliumMod.Items.Armor
 
 		public override void SetDefaults()
 		{
-			item.width = 18;
-			item.height = 18;
-			item.value = 15000;
-			item.rare = 3;
-			item.defense = 3;
+			Item.width = 18;
+			Item.height = 18;
+			Item.value = 15000;
+			Item.rare = 3;
+			Item.defense = 3;
 		}
 
 		public override void UpdateEquip(Player player)
 		{
-			player.magicDamage *= 1.08f;
-			player.minionDamage *= 1.08f;
+			player.GetDamage(DamageClass.Magic) *= 1.08f;
+			player.GetDamage(DamageClass.Summon) *= 1.08f;
 			player.maxMinions += 1;
 		}
 
@@ -47,12 +47,11 @@ namespace CrystiliumMod.Items.Armor
 
 		public override void AddRecipes()
 		{
-			ModRecipe recipe = new ModRecipe(mod);
+			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemType<Items.RadiantPrism>(), 10);
 			recipe.AddIngredient(ItemType<Items.ShinyGemstone>(), 15);
 			recipe.AddTile(Terraria.ID.TileID.Anvils);
-			recipe.SetResult(this);
-			recipe.AddRecipe();
+			recipe.Register();
 		}
 	}
 }

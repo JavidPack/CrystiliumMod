@@ -16,8 +16,8 @@ namespace CrystiliumMod.Items
 
 		public override void SetDefaults()
 		{
-			item.consumable = true;
-			item.rare = 7;
+			Item.consumable = true;
+			Item.rare = 7;
 		}
 
 		public override bool CanUseItem(Player player)
@@ -27,13 +27,12 @@ namespace CrystiliumMod.Items
 
 		public override void AddRecipes()
 		{
-			ModRecipe recipe = new ModRecipe(mod);
+			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.Ectoplasm, 10);
 			recipe.AddIngredient(ItemID.CrystalShard, 10);
 			recipe.AddIngredient(ItemType<EnchantedGeode>(), 5);
 			recipe.AddTile(TileID.MythrilAnvil);
-			recipe.SetResult(this);
-			recipe.AddRecipe();
+			recipe.Register();
 		}
 	}
 }

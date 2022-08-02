@@ -8,15 +8,15 @@ namespace CrystiliumMod.Projectiles.CrystalKing
 	{
 		public override void SetDefaults()
 		{
-			projectile.penetrate = 600;
-			projectile.hostile = true;
-			projectile.damage = 15;
-			projectile.width = 80;
-			projectile.height = 48;
-			projectile.friendly = false;
-			projectile.light = 2;
-			projectile.aiStyle = 1;
-			aiType = ProjectileID.Bullet;
+			Projectile.penetrate = 600;
+			Projectile.hostile = true;
+			Projectile.damage = 15;
+			Projectile.width = 80;
+			Projectile.height = 48;
+			Projectile.friendly = false;
+			Projectile.light = 2;
+			Projectile.aiStyle = 1;
+			AIType = ProjectileID.Bullet;
 		}
 	}
 }

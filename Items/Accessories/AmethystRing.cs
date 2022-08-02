@@ -14,21 +14,20 @@ namespace CrystiliumMod.Items.Accessories
 
 		public override void SetDefaults()
 		{
-			item.width = 40;
-			item.height = 40;
-			item.value = Item.sellPrice(0, 0, 15, 0);
-			item.rare = 1;
-			item.accessory = true;
-			item.defense = 3;
+			Item.width = 40;
+			Item.height = 40;
+			Item.value = Item.sellPrice(0, 0, 15, 0);
+			Item.rare = 1;
+			Item.accessory = true;
+			Item.defense = 3;
 		}
 
 		public override void AddRecipes()
 		{
-			ModRecipe recipe = new ModRecipe(mod);
+			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.CopperBar, 4);
 			recipe.AddIngredient(ItemID.Amethyst, 3);
-			recipe.SetResult(this);
-			recipe.AddRecipe();
+			recipe.Register();
 		}
 	}
 }

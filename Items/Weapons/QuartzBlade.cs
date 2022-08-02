@@ -1,6 +1,7 @@
 using CrystiliumMod.Projectiles;
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
@@ -17,23 +18,23 @@ namespace CrystiliumMod.Items.Weapons
 
 		public override void SetDefaults()
 		{
-			item.damage = 54;
-			item.melee = true;
-			item.width = 40;
-			item.height = 40;
-			item.useTime = 25;
-			item.useAnimation = 25;
-			item.useStyle = 1;
-			item.knockBack = 6;
-			item.value = 80000;
-			item.rare = 8;
-			item.UseSound = SoundID.Item1;
-			item.shoot = ProjectileType<QuartzTrident>();
-			item.shootSpeed = 6f;
-			item.autoReuse = true;
+			Item.damage = 54;
+			Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+			Item.width = 40;
+			Item.height = 40;
+			Item.useTime = 25;
+			Item.useAnimation = 25;
+			Item.useStyle = 1;
+			Item.knockBack = 6;
+			Item.value = 80000;
+			Item.rare = 8;
+			Item.UseSound = SoundID.Item1;
+			Item.shoot = ProjectileType<QuartzTrident>();
+			Item.shootSpeed = 6f;
+			Item.autoReuse = true;
 		}
 
-		public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+		public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
 		{
 			//create velocity vectors for the two angled projectiles (outwards at PI/6 radians, or 15 degrees)
 			Vector2 origVect = new Vector2(speedX, speedY);
@@ -41,9 +42,9 @@ namespace CrystiliumMod.Items.Weapons
 			Vector2 newVect2 = origVect.RotatedBy(-System.Math.PI / 20);
 
 			//create three Crystishae projectiles
-			Projectile.NewProjectile(player.Center.X, player.Center.Y - 20, speedX, speedY, ProjectileType<QuartzTrident>(), damage, knockBack, item.owner, 0, 0);
-			Projectile.NewProjectile(player.Center.X, player.Center.Y - 20, newVect.X, newVect.Y, ProjectileType<QuartzTrident>(), damage, knockBack, item.owner, 0, 0);
-			Projectile.NewProjectile(player.Center.X, player.Center.Y - 20, newVect2.X, newVect2.Y, ProjectileType<QuartzTrident>(), damage, knockBack, item.owner, 0, 0);
+			Projectile.NewProjectile(player.Center.X, player.Center.Y - 20, speedX, speedY, ProjectileType<QuartzTrident>(), damage, knockBack, Item.playerIndexTheItemIsReservedFor, 0, 0);
+			Projectile.NewProjectile(player.Center.X, player.Center.Y - 20, newVect.X, newVect.Y, ProjectileType<QuartzTrident>(), damage, knockBack, Item.playerIndexTheItemIsReservedFor, 0, 0);
+			Projectile.NewProjectile(player.Center.X, player.Center.Y - 20, newVect2.X, newVect2.Y, ProjectileType<QuartzTrident>(), damage, knockBack, Item.playerIndexTheItemIsReservedFor, 0, 0);
 			return false;
 		}
 

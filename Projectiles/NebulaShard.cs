@@ -9,52 +9,52 @@ namespace CrystiliumMod.Projectiles
 	{
 		public override void SetDefaults()
 		{
-			projectile.width = 14;
-			projectile.height = 36;
-			projectile.friendly = true;
-			projectile.magic = true;
-			projectile.light = 0.75f;
-			projectile.penetrate = 25;
+			Projectile.width = 14;
+			Projectile.height = 36;
+			Projectile.friendly = true;
+			Projectile.DamageType = DamageClass.Magic;
+			Projectile.light = 0.75f;
+			Projectile.penetrate = 25;
 		}
 
 		public override void Kill(int timeLeft)
 		{
 			for (int i = 0; i < 15; i++)
 			{
-				Dust.NewDust(projectile.position, projectile.width, projectile.height, mod.DustType("NebulaDust"), (float)Main.rand.Next(-3, 3), (float)Main.rand.Next(-3, 3), 0);
+				Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, Mod.Find<ModDust>("NebulaDust").Type, (float)Main.rand.Next(-3, 3), (float)Main.rand.Next(-3, 3), 0);
 			}
 		}
 
 		public override void AI()
 		{
 			float rotationSpeed = (float)Math.PI / 15;
-			projectile.rotation += rotationSpeed;
+			Projectile.rotation += rotationSpeed;
 			//Only do thing on the controller's client perspective
-			if (Main.myPlayer == projectile.owner)
+			if (Main.myPlayer == Projectile.owner)
 			{
 				//Do net updatey thing. Syncs this projectile.
-				projectile.netUpdate = true;
+				Projectile.netUpdate = true;
 
 				float maxVelocity = 6.5f; //maximum velocity projectile can approach cursor
 										  //only do this stuff if player is actively channeling
-				if (Main.player[projectile.owner].channel)
+				if (Main.player[Projectile.owner].channel)
 				{
-					Main.player[projectile.owner].itemTime = 2;
-					Main.player[projectile.owner].itemAnimation = 2;
+					Main.player[Projectile.owner].itemTime = 2;
+					Main.player[Projectile.owner].itemAnimation = 2;
 
 					//move towards cursor
-					projectile.velocity = projectile.DirectionTo(Main.MouseWorld) * maxVelocity;
-					float distToMouse = projectile.Distance(Main.MouseWorld);
+					Projectile.velocity = Projectile.DirectionTo(Main.MouseWorld) * maxVelocity;
+					float distToMouse = Projectile.Distance(Main.MouseWorld);
 
 					//slows down projectile when getting close to cursor
 					if (distToMouse <= maxVelocity * 3)
 					{
-						projectile.velocity *= distToMouse / (distToMouse + maxVelocity / 2);
+						Projectile.velocity *= distToMouse / (distToMouse + maxVelocity / 2);
 					}
 				}
 				else
 				{
-					projectile.Kill(); //kill projectile if no longer channeling
+					Projectile.Kill(); //kill projectile if no longer channeling
 				}
 			}
 		}

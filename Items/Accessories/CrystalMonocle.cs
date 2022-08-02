@@ -16,20 +16,20 @@ namespace CrystiliumMod.Items.Accessories
 
 		public override void SetDefaults()
 		{
-			item.width = 40;
-			item.height = 40;
-			item.value = 30000;
-			item.rare = 3;
-			item.defense = 3;
-			item.accessory = true;
+			Item.width = 40;
+			Item.height = 40;
+			Item.value = 30000;
+			Item.rare = 3;
+			Item.defense = 3;
+			Item.accessory = true;
 		}
 
 		public override void UpdateAccessory(Player player, bool hideVisual)
 		{
-			player.magicCrit += 10;
-			player.rangedCrit += 10;
-			player.magicDamage *= 1.10f;
-			player.rangedDamage *= 1.10f;
+			player.GetCritChance(DamageClass.Magic) += 10;
+			player.GetCritChance(DamageClass.Ranged) += 10;
+			player.GetDamage(DamageClass.Magic) *= 1.10f;
+			player.GetDamage(DamageClass.Ranged) *= 1.10f;
 		}
 	}
 }

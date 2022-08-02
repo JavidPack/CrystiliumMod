@@ -1,6 +1,7 @@
 using CrystiliumMod.Projectiles;
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
 
@@ -16,26 +17,26 @@ namespace CrystiliumMod.Items.Weapons
 
 		public override void SetDefaults()
 		{
-			item.width = 36;
-			item.height = 36;
-			item.useAnimation = 25;
-			item.useTime = 15;
-			item.useStyle = 5;
-			item.noUseGraphic = true;
-			item.channel = true;
-			item.noMelee = true;
-			item.damage = 166;
-			item.knockBack = 4f;
-			item.autoReuse = false;
-			item.noMelee = true;
-			item.melee = true;
-			item.shoot = ProjectileType<CallandorSlice>();
-			item.shootSpeed = 15f;
-			item.value = 100000;
-			item.rare = 7;
+			Item.width = 36;
+			Item.height = 36;
+			Item.useAnimation = 25;
+			Item.useTime = 15;
+			Item.useStyle = 5;
+			Item.noUseGraphic = true;
+			Item.channel = true;
+			Item.noMelee = true;
+			Item.damage = 166;
+			Item.knockBack = 4f;
+			Item.autoReuse = false;
+			Item.noMelee = true;
+			Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+			Item.shoot = ProjectileType<CallandorSlice>();
+			Item.shootSpeed = 15f;
+			Item.value = 100000;
+			Item.rare = 7;
 		}
 
-		public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+		public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
 		{
 			int p = Projectile.NewProjectile(position.X, position.Y, speedX, speedY, ProjectileType<CallandorSlice>(), damage, knockBack, player.whoAmI);
 			Main.projectile[p].scale = 1f;

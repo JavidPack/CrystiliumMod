@@ -11,47 +11,47 @@ namespace CrystiliumMod.NPCs
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Crystal Slime");
-			Main.npcFrameCount[npc.type] = 2;
+			Main.npcFrameCount[NPC.type] = 2;
 		}
 
 		public override void SetDefaults()
 		{
-			npc.width = 30;
-			npc.height = 50;
-			npc.damage = 24;
-			npc.defense = 9;
-			npc.lifeMax = 130;
-			npc.HitSound = SoundID.NPCHit5;
-			npc.DeathSound = SoundID.NPCDeath6;
-			npc.value = 200f;
-			npc.knockBackResist = 0.5f;
-			npc.aiStyle = 1;
-			aiType = 1;
-			animationType = NPCID.BlueSlime;
+			NPC.width = 30;
+			NPC.height = 50;
+			NPC.damage = 24;
+			NPC.defense = 9;
+			NPC.lifeMax = 130;
+			NPC.HitSound = SoundID.NPCHit5;
+			NPC.DeathSound = SoundID.NPCDeath6;
+			NPC.value = 200f;
+			NPC.knockBackResist = 0.5f;
+			NPC.aiStyle = 1;
+			AIType = 1;
+			AnimationType = NPCID.BlueSlime;
 		}
 
 		public override float SpawnChance(NPCSpawnInfo spawnInfo)
 		{
-			return Main.tile[(int)(spawnInfo.spawnTileX), (int)(spawnInfo.spawnTileY)].type == TileType<Tiles.CrystalBlock>() ? 10f : 0f;
+			return Main.tile[(int)(spawnInfo.SpawnTileX), (int)(spawnInfo.SpawnTileY)].TileType == TileType<Tiles.CrystalBlock>() ? 10f : 0f;
 		}
 
 		public override void HitEffect(int hitDirection, double damage)
 		{
-			if (npc.life <= 0)
+			if (NPC.life <= 0)
 			{
 				//spawn gore set
 				for (int i = 1; i <= 4; i++)
 				{
-					Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/Crystal_Slime_Gore_" + i));
+					Gore.NewGore(NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/Crystal_Slime_Gore_" + i));
 				}
 			}
 		}
 
-		public override void NPCLoot()
+		public override void OnKill()
 		{
 			if (Main.rand.Next(2) == 0)
 			{
-				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, ItemType<Items.ShinyGemstone>());
+				Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ItemType<Items.ShinyGemstone>());
 			}
 		}
 
@@ -70,7 +70,7 @@ namespace CrystiliumMod.NPCs
 			{
 				multiplier = 1.5f;
 			}
-			Lighting.AddLight(npc.position, RGB.X, RGB.Y, RGB.Z);
+			Lighting.AddLight(NPC.position, RGB.X, RGB.Y, RGB.Z);
 		}
 	}
 }
