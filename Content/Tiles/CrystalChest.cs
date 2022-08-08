@@ -23,16 +23,23 @@ namespace CrystiliumMod.Content.Tiles
 			Main.tileFrameImportant[Type] = true;
 			Main.tileNoAttach[Type] = true;
 			Main.tileOreFinderPriority[Type] = 500;
+
+			TileID.Sets.HasOutlines[Type] = true;
+			TileID.Sets.BasicChest[Type] = true;
+			TileID.Sets.DisableSmartCursor[Type] = true;
+
 			TileObjectData.newTile.CopyFrom(TileObjectData.Style2x2);
 			TileObjectData.newTile.Origin = new Point16(0, 1);
+			TileObjectData.newTile.Height = 2;
 			TileObjectData.newTile.CoordinateHeights = new int[] { 16, 18 };
-			TileObjectData.newTile.HookCheckIfCanPlace = new PlacementHook(new Func<int, int, int, int, int, int>(Chest.FindEmptyChest), -1, 0, true);
-			TileObjectData.newTile.HookPostPlaceMyPlayer = new PlacementHook(new Func<int, int, int, int, int, int>(Chest.AfterPlacement_Hook), -1, 0, false);
+			TileObjectData.newTile.HookCheckIfCanPlace = new PlacementHook(Chest.FindEmptyChest, -1, 0, true);
+			TileObjectData.newTile.HookPostPlaceMyPlayer = new PlacementHook(Chest.AfterPlacement_Hook, -1, 0, false);
 			TileObjectData.newTile.AnchorInvalidTiles = new int[] { 127 };
 			TileObjectData.newTile.StyleHorizontal = true;
 			TileObjectData.newTile.LavaDeath = false;
 			TileObjectData.newTile.AnchorBottom = new AnchorData(AnchorType.SolidTile | AnchorType.SolidWithTop | AnchorType.SolidSide, TileObjectData.newTile.Width, 0);
 			TileObjectData.addTile(Type);
+
 			ModTranslation name = CreateMapEntryName();
 			name.SetDefault("Crystal Chest");
 			AddMapEntry(new Color(124, 83, 166), name, MapChestName);
@@ -40,9 +47,9 @@ namespace CrystiliumMod.Content.Tiles
 			name.SetDefault("Locked Crystal Chest");
 			AddMapEntry(new Color(124, 83, 166), name, MapChestName);
 			DustType = ModContent.DustType<Dusts.Sparkle>();
-			disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
 			AdjTiles = new int[] { TileID.Containers };
-			chest/* tModPorter Note: Removed. Use ContainerName.SetDefault() and TileID.Sets.BasicChest instead */ = "Crystal Chest";
+			ChestDrop = ModContent.ItemType<Items.Placeable.CrystalWoodChest>();
+			ContainerName.SetDefault("Crystal Wood Chest");
 		}
 
 		public string MapChestName(string name, int i, int j)
@@ -110,7 +117,7 @@ namespace CrystiliumMod.Content.Tiles
 
 		public override void KillMultiTile(int i, int j, int frameX, int frameY)
 		{
-			Item.NewItem(i * 16, j * 16, 32, 32, ModContent.ItemType<Items.Placeable.CrystalChest>());
+			Item.NewItem(new EntitySource_TileBreak(i, j), new Vector2(i, j) * 16, 32, 32, ChestDrop);
 			Chest.DestroyChest(i, j);
 		}
 

@@ -22,24 +22,30 @@ namespace CrystiliumMod.Content.Tiles
 			Main.tileFrameImportant[Type] = true;
 			Main.tileNoAttach[Type] = true;
 			Main.tileOreFinderPriority[Type] = 500;
+
+			TileID.Sets.HasOutlines[Type] = true;
+			TileID.Sets.BasicChest[Type] = true;
+			TileID.Sets.DisableSmartCursor[Type] = true;
+
 			TileObjectData.newTile.CopyFrom(TileObjectData.Style2x2);
 			TileObjectData.newTile.Origin = new Point16(0, 1);
+			TileObjectData.newTile.Height = 2;
 			TileObjectData.newTile.CoordinateHeights = new int[] { 16, 18 };
-			TileObjectData.newTile.HookCheckIfCanPlace = new PlacementHook(new Func<int, int, int, int, int, int>(Chest.FindEmptyChest), -1, 0, true);
-			TileObjectData.newTile.HookPostPlaceMyPlayer = new PlacementHook(new Func<int, int, int, int, int, int>(Chest.AfterPlacement_Hook), -1, 0, false);
+			TileObjectData.newTile.HookCheckIfCanPlace = new PlacementHook(Chest.FindEmptyChest, -1, 0, true);
+			TileObjectData.newTile.HookPostPlaceMyPlayer = new PlacementHook(Chest.AfterPlacement_Hook, -1, 0, false);
 			TileObjectData.newTile.AnchorInvalidTiles = new int[] { 127 };
 			TileObjectData.newTile.StyleHorizontal = true;
 			TileObjectData.newTile.LavaDeath = false;
 			TileObjectData.newTile.AnchorBottom = new AnchorData(AnchorType.SolidTile | AnchorType.SolidWithTop | AnchorType.SolidSide, TileObjectData.newTile.Width, 0);
 			TileObjectData.addTile(Type);
+
 			ModTranslation name = CreateMapEntryName();
-			name.SetDefault("CrystalWood Chest");
+			name.SetDefault("Crystal Wood Chest");
 			AddMapEntry(new Color(250, 140, 250), name, MapChestName);
 			DustType = Mod.Find<ModDust>("CrystalDust").Type;
-			TileID.Sets.DisableSmartCursor[Type] = true;
 			AdjTiles = new int[] { TileID.Containers };
-			chest/* tModPorter Note: Removed. Use ContainerName.SetDefault() and TileID.Sets.BasicChest instead */ = "CrystalWood Chest";
 			ChestDrop = ModContent.ItemType<Items.Placeable.CrystalWoodChest>();
+			ContainerName.SetDefault("Crystal Wood Chest");
 		}
 
 		public string MapChestName(string name, int i, int j)
@@ -73,11 +79,11 @@ namespace CrystiliumMod.Content.Tiles
 
 		public override void KillMultiTile(int i, int j, int frameX, int frameY)
 		{
-			Item.NewItem(i * 16, j * 16, 32, 32, ChestDrop);
+			Item.NewItem(new EntitySource_TileBreak(i, j), new Vector2(i,j) * 16, 32, 32, ChestDrop);
 			Chest.DestroyChest(i, j);
 		}
 
-		public override void RightClick(int i, int j)
+		public override bool RightClick(int i, int j)
 		{
 			Player player = Main.LocalPlayer;
 			Tile tile = Main.tile[i, j];
@@ -142,11 +148,12 @@ namespace CrystiliumMod.Content.Tiles
 						Main.recBigList = false;
 						player.chestX = left;
 						player.chestY = top;
-						SoundEngine.PlaySound(player.chest < 0 ? 10 : 12, -1, -1, 1);
+						SoundEngine.PlaySound(player.chest < 0 ? SoundID.MenuOpen : SoundID.MenuClose);
 					}
 					Recipe.FindRecipes();
 				}
 			}
+			return true;
 		}
 
 		public override void MouseOver(int i, int j)
