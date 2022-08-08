@@ -16,6 +16,20 @@ namespace CrystiliumMod.Content.Biomes
 
         public override ModUndergroundBackgroundStyle UndergroundBackgroundStyle => ModContent.GetInstance<CrystalUndergroundBackgroundStyle>();
 
+        public override void OnEnter(Player player)
+        {
+            player.GetModPlayer<CrystalPlayer>().ZoneCrystal = true;
+        }
+
+        public override void OnInBiome(Player player)
+        {
+            player.GetModPlayer<CrystalPlayer>().ZoneCrystal = true;
+        }
+        public override void OnLeave(Player player)
+        {
+            player.GetModPlayer<CrystalPlayer>().ZoneCrystal = false;
+        }
+
         public override bool IsBiomeActive(Player player) {
             return CrystalWorld.CrystalTiles > 400;
         }

@@ -9,7 +9,7 @@ namespace CrystiliumMod.Content.Projectiles
 {
 	public class RPC : ModProjectile
 	{
-		public override string Texture => "CrystiliumMod/Projectiles/RPC1";
+		public override string Texture => "CrystiliumMod/Content/Projectiles/RPC1";
 
 		public override void SetStaticDefaults()
 		{
@@ -31,7 +31,7 @@ namespace CrystiliumMod.Content.Projectiles
 		{
 			if (++Projectile.frameCounter % 2 == 0) Projectile.frame++;
 			if (Projectile.frame >= 4) Projectile.frame = 0;
-			string tex = "CrystiliumMod/Projectiles/RPC" + (int)(Projectile.ai[1] + 1);
+			string tex = "CrystiliumMod/Content/Projectiles/RPC" + (int)(Projectile.ai[1] + 1);
 			Main.spriteBatch.Draw(ModContent.Request<Texture2D>(tex).Value, Projectile.Center - Main.screenPosition, new Rectangle(0, Projectile.height * Projectile.frame, Projectile.width, Projectile.height), lightColor, Projectile.rotation, new Vector2(Projectile.width / 2, Projectile.height / 2), Projectile.scale, SpriteEffects.None, 0f);
 			return false;
 		}

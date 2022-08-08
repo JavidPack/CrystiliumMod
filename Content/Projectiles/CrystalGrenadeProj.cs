@@ -8,7 +8,7 @@ namespace CrystiliumMod.Content.Projectiles
 {
 	public class CrystalGrenadeProj : ModProjectile
 	{
-		public override string Texture => "CrystiliumMod/Items/Weapons/CrystalGrenade";
+		public override string Texture => "CrystiliumMod/Content/Items/Weapons/CrystalGrenade";
 
 		public override void SetStaticDefaults()
 		{

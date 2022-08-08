@@ -48,7 +48,7 @@ namespace CrystiliumMod.Content.Items.Weapons
 
 		public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
 		{
-			SoundEngine.PlaySound(SoundLoader.customSoundType, player.position, Mod.GetSoundSlot(SoundType.Custom, "Sounds/Thunder"));
+			SoundEngine.PlaySound(new SoundStyle("CrystiliumMod/Sounds/Thunder"));
 			Vector2 vector82 = -Main.LocalPlayer.Center + Main.MouseWorld;
 			float ai = Main.rand.Next(100);
 			Vector2 vector83 = Vector2.Normalize(vector82) * Item.shootSpeed;

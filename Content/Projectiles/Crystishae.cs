@@ -6,7 +6,7 @@ namespace CrystiliumMod.Content.Projectiles
 {
 	public class Crystishae : ModProjectile
 	{
-		public override string Texture => "CrystiliumMod/Items/Weapons/Crystishae";
+		public override string Texture => "CrystiliumMod/Content/Items/Weapons/Crystishae";
 
 		public override void SetStaticDefaults()
 		{

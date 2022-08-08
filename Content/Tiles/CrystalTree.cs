@@ -24,9 +24,9 @@ namespace CrystiliumMod.Content.Tiles
 		public override int CreateDust() => 22;
 		public override int TreeLeaf() => GoreID.TreeLeaf_Normal;
 		public override int DropWood() => ModContent.ItemType<Items.Placeable.CrystalWood>();
-		public override Asset<Texture2D> GetTexture() => ModContent.Request<Texture2D>("CrystiliumMod/Tiles/CrystalTree");
-		public override Asset<Texture2D> GetTopTextures() => ModContent.Request<Texture2D>("CrystiliumMod/Tiles/CrystalTree_Tops");
-		public override Asset<Texture2D> GetBranchTextures() => ModContent.Request<Texture2D>("CrystiliumMod/Tiles/CrystalTree_Branches");
+		public override Asset<Texture2D> GetTexture() => ModContent.Request<Texture2D>("CrystiliumMod/Content/Tiles/CrystalTree");
+		public override Asset<Texture2D> GetTopTextures() => ModContent.Request<Texture2D>("CrystiliumMod/Content/Tiles/CrystalTree_Tops");
+		public override Asset<Texture2D> GetBranchTextures() => ModContent.Request<Texture2D>("CrystiliumMod/Content/Tiles/CrystalTree_Branches");
 
 		public override int SaplingGrowthType(ref int style)
 		{
@@ -36,9 +36,9 @@ namespace CrystiliumMod.Content.Tiles
 
 		public override void SetTreeFoliageSettings(Tile tile, ref int xoffset, ref int treeFrame, ref int floorY, ref int topTextureFrameWidth, ref int topTextureFrameHeight)
 		{
-			topTextureFrameWidth = 142;
-			topTextureFrameHeight = 114;
-			xoffset = 62;
+			topTextureFrameWidth = 80;
+			topTextureFrameHeight = 80;
+			xoffset = 40;
 			floorY = 2;
 		}
 	}

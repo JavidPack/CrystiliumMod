@@ -13,6 +13,7 @@ namespace CrystiliumMod
 {
 	public class CrystalPlayer : ModPlayer
 	{
+		public bool ZoneCrystal = false;
 		public float critDmgMult = 1f;
 		public bool CrystalAcc = false;
 		public int constantDamage = 0;
