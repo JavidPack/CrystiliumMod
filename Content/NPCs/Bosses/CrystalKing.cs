@@ -40,7 +40,7 @@ namespace CrystiliumMod.Content.NPCs.Bosses
 			NPC.DeathSound = SoundID.NPCDeath6;
 			NPC.value = 60000f;
 			NPC.knockBackResist = 0f;
-			Music = MusicLoader.GetMusicSlot(Mod, "Sounds/Music/CrystalKing");
+			Music = MusicLoader.GetMusicSlot(Mod, "Content/Sounds/Music/CrystalKing");
 			NPC.lavaImmune = true;
 			NPC.noTileCollide = true;
 			NPC.noGravity = true;
@@ -54,7 +54,7 @@ namespace CrystiliumMod.Content.NPCs.Bosses
 				//spawn all gores once
 				for (int i = 1; i <= 10; i++)
 				{
-					Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("Gores/KingGore" + i).Type);
+					Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("KingGore" + i).Type);
 				}
 			}
 		}

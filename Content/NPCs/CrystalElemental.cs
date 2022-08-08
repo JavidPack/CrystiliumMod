@@ -53,11 +53,11 @@ namespace CrystiliumMod.Content.NPCs
 				//spawn shard gores (6 of them, 3 of each)
 				for (int i = 0; i < 3; i++)
 				{
-					Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("Gores/Crystal_Element_Gore_1").Type);
-					Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("Gores/Crystal_Element_Gore_2").Type);
+					Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("Crystal_Element_Gore_1").Type);
+					Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("Crystal_Element_Gore_2").Type);
 				}
 				//spawn core gore
-				Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("Gores/Crystal_Element_Gore_3").Type);
+				Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("Crystal_Element_Gore_3").Type);
 			}
 		}
 
