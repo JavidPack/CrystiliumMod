@@ -5,6 +5,7 @@ using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.GameContent.ItemDropRules;
 
 namespace CrystiliumMod.Content.NPCs
 {
@@ -50,12 +51,9 @@ namespace CrystiliumMod.Content.NPCs
 			}
 		}
 
-		public override void OnKill()
+		public override void ModifyNPCLoot(NPCLoot npcLoot)
 		{
-			if (Main.rand.Next(2) == 0)
-			{
-				Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<Items.ShinyGemstone>());
-			}
+			npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Items.ShinyGemstone>(), 2));
 		}
 
 		public override void AI()

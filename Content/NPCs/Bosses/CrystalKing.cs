@@ -3,10 +3,14 @@ using CrystiliumMod.Content.Projectiles.CrystalKing;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.Audio;
 using Terraria.GameContent;
+using Terraria.GameContent.Events;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Utilities;
+using Terraria.GameContent.ItemDropRules;
+using Terraria.GameContent.Bestiary;
 
 namespace CrystiliumMod.Content.NPCs.Bosses
 {
@@ -35,9 +39,8 @@ namespace CrystiliumMod.Content.NPCs.Bosses
 			NPC.HitSound = SoundID.NPCHit5;
 			NPC.DeathSound = SoundID.NPCDeath6;
 			NPC.value = 60000f;
-			bossBag/* tModPorter Note: Removed. Spawn the treasure bag alongside other loot via npcLoot.Add(ItemDropRule.BossBag(type)) */ = ModContent.ItemType<Items.CrystalBag>();
 			NPC.knockBackResist = 0f;
-			Music = Mod.GetSoundSlot(SoundType.Music, "Sounds/Music/CrystalKing");
+			Music = MusicLoader.GetMusicSlot(Mod, "Sounds/Music/CrystalKing");
 			NPC.lavaImmune = true;
 			NPC.noTileCollide = true;
 			NPC.noGravity = true;
@@ -222,40 +225,35 @@ namespace CrystiliumMod.Content.NPCs.Bosses
 
 		public override void OnKill()
 		{
-			if (Main.rand.Next(10) == 0)
-			{
-				Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<Items.Placeable.KingTrophy>());
-			}
-			if (Main.expertMode)
-			{
-				NPC.DropBossBags();
-			}
-			else
-			{
-				if (Main.rand.Next(10) == 0)
-				{
-					Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<Items.Armor.CrystalMask>());
-				}
-				Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<Items.CrystiliumBar>(), Main.rand.Next(13, 20));
-
-				var ChoiceChooser = new WeightedRandom<int>();
-				ChoiceChooser.Add(ModContent.ItemType<Cryst>());
-				ChoiceChooser.Add(ModContent.ItemType<Callandor>());
-				ChoiceChooser.Add(ModContent.ItemType<QuartzSpear>());
-				ChoiceChooser.Add(ModContent.ItemType<ShiningTrigger>());
-				ChoiceChooser.Add(ModContent.ItemType<Slamborite>());
-				ChoiceChooser.Add(ModContent.ItemType<Shimmer>());
-				ChoiceChooser.Add(ModContent.ItemType<Shatterocket>());
-				ChoiceChooser.Add(ModContent.ItemType<RoyalShredder>());
-				int Choice = ChoiceChooser;
-				Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Choice);
-			}
 			if (!CrystalWorld.downedCrystalKing)
 			{
 				CrystalWorld.downedCrystalKing = true;
-				if(Main.netMode == NetmodeID.Server)
+				if (Main.netMode == NetmodeID.Server)
 					NetMessage.SendData(MessageID.WorldData);
 			}
 		}
-	}
+
+        public override void ModifyNPCLoot(NPCLoot npcLoot)
+        {
+			npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<Items.CrystalBag>()));
+
+			LeadingConditionRule notExpertRule = new LeadingConditionRule(new Conditions.NotExpert());
+			notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<Items.Placeable.KingTrophy>(), 10));
+			notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<Items.Armor.CrystalMask>(), 10));
+
+			notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<Items.CrystiliumBar>(), 1, 13, 20));
+
+			int[] lootTable = {
+				ModContent.ItemType<Cryst>(),
+				ModContent.ItemType<Callandor>(),
+				ModContent.ItemType<QuartzSpear>(),
+				ModContent.ItemType<ShiningTrigger>(),
+				ModContent.ItemType<Slamborite>(),
+				ModContent.ItemType<Shimmer>(),
+				ModContent.ItemType<Shatterocket>(),
+				ModContent.ItemType<RoyalShredder>() };
+			notExpertRule.OnSuccess(ItemDropRule.OneFromOptions(1, lootTable));
+
+		}
+    }
 }
