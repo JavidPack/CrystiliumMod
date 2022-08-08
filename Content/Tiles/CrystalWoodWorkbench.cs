@@ -24,7 +24,7 @@ namespace CrystiliumMod.Content.Tiles
 			name.SetDefault("Crystal Wood Workbench");
 			AddMapEntry(new Color(250, 140, 250), name);
 			DustType = Mod.Find<ModDust>("CrystalDust").Type;
-			disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
+			TileID.Sets.DisableSmartCursor[Type] = true;
 			AdjTiles = new int[] { TileID.WorkBenches };
 		}
 

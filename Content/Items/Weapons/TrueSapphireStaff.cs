@@ -50,8 +50,8 @@ namespace CrystiliumMod.Content.Items.Weapons
 			if (Main.myPlayer == player.whoAmI)
 			{
 				Vector2 mouse = Main.MouseWorld;
-				Projectile.NewProjectile(mouse.X + Main.rand.Next(-80, 80), player.Center.Y - 350 + Main.rand.Next(-50, 50), 0, 20, ModContent.ProjectileType<Projectiles.SapphireDroplet>(), damage, knockBack, player.whoAmI);
-				Projectile.NewProjectile(mouse.X + Main.rand.Next(-80, 80), player.Center.Y - 350 + Main.rand.Next(-50, 50), 0, 20, ModContent.ProjectileType<Projectiles.SapphireDroplet>(), damage, knockBack, player.whoAmI);
+				Projectile.NewProjectile(source, mouse.X + Main.rand.Next(-80, 80), player.Center.Y - 350 + Main.rand.Next(-50, 50), 0, 20, ModContent.ProjectileType<Projectiles.SapphireDroplet>(), damage, knockback, player.whoAmI);
+				Projectile.NewProjectile(source, mouse.X + Main.rand.Next(-80, 80), player.Center.Y - 350 + Main.rand.Next(-50, 50), 0, 20, ModContent.ProjectileType<Projectiles.SapphireDroplet>(), damage, knockback, player.whoAmI);
 			}
 			return false;
 		}

@@ -117,7 +117,7 @@ namespace CrystiliumMod.Content.NPCs.Bosses
 				NPC.velocity.X = 0;
 				if (Main.rand.Next(70) == 0)
 				{
-					NPC.NewNPC((int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<CrystalCultist>());
+					NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<CrystalCultist>());
 				}
 			}
 

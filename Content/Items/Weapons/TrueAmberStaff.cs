@@ -72,38 +72,38 @@ namespace CrystiliumMod.Content.Items.Weapons
 			float TrijectoryY4 = (float)(Math.Cos(Angle4));
 			if (Ydis1 >= 0)
 			{
-				Projectile.NewProjectile(player.Center.X + 45, player.Center.Y + 45, 0 - (TrijectoryX1 * 9), 0 - (TrijectoryY1 * 9), ModContent.ProjectileType<AmberBlade>(), damage, knockBack, player.whoAmI);
+				Projectile.NewProjectile(source, player.Center.X + 45, player.Center.Y + 45, 0 - (TrijectoryX1 * 9), 0 - (TrijectoryY1 * 9), ModContent.ProjectileType<AmberBlade>(), damage, knockback, player.whoAmI);
 			}
 			else
 			{
-				Projectile.NewProjectile(player.Center.X + 45, player.Center.Y + 45, TrijectoryX1 * 9, TrijectoryY1 * 9, ModContent.ProjectileType<AmberBlade>(), damage, knockBack, player.whoAmI);
+				Projectile.NewProjectile(source, player.Center.X + 45, player.Center.Y + 45, TrijectoryX1 * 9, TrijectoryY1 * 9, ModContent.ProjectileType<AmberBlade>(), damage, knockback, player.whoAmI);
 			}
 
 			if (Ydis2 >= 0)
 			{
-				Projectile.NewProjectile(player.Center.X - 45, player.Center.Y + 45, 0 - (TrijectoryX2 * 9), 0 - (TrijectoryY2 * 9), ModContent.ProjectileType<AmberBlade>(), damage, knockBack, player.whoAmI);
+				Projectile.NewProjectile(source, player.Center.X - 45, player.Center.Y + 45, 0 - (TrijectoryX2 * 9), 0 - (TrijectoryY2 * 9), ModContent.ProjectileType<AmberBlade>(), damage, knockback, player.whoAmI);
 			}
 			else
 			{
-				Projectile.NewProjectile(player.Center.X - 45, player.Center.Y + 45, TrijectoryX2 * 9, TrijectoryY2 * 9, ModContent.ProjectileType<AmberBlade>(), damage, knockBack, player.whoAmI);
+				Projectile.NewProjectile(source, player.Center.X - 45, player.Center.Y + 45, TrijectoryX2 * 9, TrijectoryY2 * 9, ModContent.ProjectileType<AmberBlade>(), damage, knockback, player.whoAmI);
 			}
 
 			if (Ydis3 >= 0)
 			{
-				Projectile.NewProjectile(player.Center.X + 45, player.Center.Y - 45, 0 - (TrijectoryX3 * 9), 0 - (TrijectoryY3 * 9), ModContent.ProjectileType<AmberBlade>(), damage, knockBack, player.whoAmI);
+				Projectile.NewProjectile(source, player.Center.X + 45, player.Center.Y - 45, 0 - (TrijectoryX3 * 9), 0 - (TrijectoryY3 * 9), ModContent.ProjectileType<AmberBlade>(), damage, knockback, player.whoAmI);
 			}
 			else
 			{
-				Projectile.NewProjectile(player.Center.X + 45, player.Center.Y - 45, TrijectoryX3 * 9, TrijectoryY3 * 9, ModContent.ProjectileType<AmberBlade>(), damage, knockBack, player.whoAmI);
+				Projectile.NewProjectile(source, player.Center.X + 45, player.Center.Y - 45, TrijectoryX3 * 9, TrijectoryY3 * 9, ModContent.ProjectileType<AmberBlade>(), damage, knockback, player.whoAmI);
 			}
 
 			if (Ydis4 >= 0)
 			{
-				Projectile.NewProjectile(player.Center.X - 45, player.Center.Y - 45, 0 - (TrijectoryX4 * 9), 0 - (TrijectoryY4 * 9), ModContent.ProjectileType<AmberBlade>(), damage, knockBack, player.whoAmI);
+				Projectile.NewProjectile(source, player.Center.X - 45, player.Center.Y - 45, 0 - (TrijectoryX4 * 9), 0 - (TrijectoryY4 * 9), ModContent.ProjectileType<AmberBlade>(), damage, knockback, player.whoAmI);
 			}
 			else
 			{
-				Projectile.NewProjectile(player.Center.X - 45, player.Center.Y - 45, TrijectoryX4 * 9, TrijectoryY4 * 9, ModContent.ProjectileType<AmberBlade>(), damage, knockBack, player.whoAmI);
+				Projectile.NewProjectile(source, player.Center.X - 45, player.Center.Y - 45, TrijectoryX4 * 9, TrijectoryY4 * 9, ModContent.ProjectileType<AmberBlade>(), damage, knockback, player.whoAmI);
 			}
 			return false;
 		}

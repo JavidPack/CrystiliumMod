@@ -36,18 +36,19 @@ namespace CrystiliumMod.Content.Items.Weapons
 		public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
 		{
 			//create velocity vectors for the projectiles
-			Vector2 origVect = new(speedX, speedY);
-			Vector2 newVect = origVect.RotatedBy(System.Math.PI / Main.rand.Next(18, 22));
-			Vector2 newVect2 = origVect.RotatedBy(-System.Math.PI / Main.rand.Next(18, 22));
-			Vector2 newVect3 = origVect.RotatedBy(System.Math.PI / Main.rand.Next(8, 12));
-			Vector2 newVect4 = origVect.RotatedBy(-System.Math.PI / Main.rand.Next(8, 12));
+			float speedX = velocity.X;
+			float speedY = velocity.Y;
+			Vector2 newVect = velocity.RotatedBy(System.Math.PI / Main.rand.Next(18, 22));
+			Vector2 newVect2 = velocity.RotatedBy(-System.Math.PI / Main.rand.Next(18, 22));
+			Vector2 newVect3 = velocity.RotatedBy(System.Math.PI / Main.rand.Next(8, 12));
+			Vector2 newVect4 = velocity.RotatedBy(-System.Math.PI / Main.rand.Next(8, 12));
 
 			//create projectiles
-			Projectile.NewProjectile(position.X, position.Y - 20, speedX + ((float)Main.rand.Next(-300, 300) / 100), speedY + ((float)Main.rand.Next(-300, 300) / 100), ModContent.ProjectileType<CrystiliumBladeProj>(), damage / 3, knockBack, player.whoAmI, 0, 0);
-			Projectile.NewProjectile(position.X, position.Y - 20, newVect.X + ((float)Main.rand.Next(-300, 300) / 100), newVect.Y + ((float)Main.rand.Next(-300, 300) / 100), ModContent.ProjectileType<CrystiliumBladeProj>(), damage / 3, knockBack, player.whoAmI, 0, 0);
-			Projectile.NewProjectile(position.X, position.Y - 20, newVect2.X + ((float)Main.rand.Next(-300, 300) / 100), newVect2.Y + ((float)Main.rand.Next(-300, 300) / 100), ModContent.ProjectileType<CrystiliumBladeProj>(), damage / 3, knockBack, player.whoAmI, 0, 0);
-			Projectile.NewProjectile(position.X, position.Y - 20, newVect3.X + ((float)Main.rand.Next(-300, 300) / 100), newVect3.Y + ((float)Main.rand.Next(-300, 300) / 100), ModContent.ProjectileType<CrystiliumBladeProj>(), damage / 3, knockBack, player.whoAmI, 0, 0);
-			Projectile.NewProjectile(position.X, position.Y - 20, newVect4.X + ((float)Main.rand.Next(-300, 300) / 100), newVect4.Y + ((float)Main.rand.Next(-300, 300) / 100), ModContent.ProjectileType<CrystiliumBladeProj>(), damage / 3, knockBack, player.whoAmI, 0, 0);
+			Projectile.NewProjectile(source, position.X, position.Y - 20, speedX + ((float)Main.rand.Next(-300, 300) / 100), speedY + ((float)Main.rand.Next(-300, 300) / 100), ModContent.ProjectileType<CrystiliumBladeProj>(), damage / 3, knockback, player.whoAmI, 0, 0);
+			Projectile.NewProjectile(source, position.X, position.Y - 20, newVect.X + ((float)Main.rand.Next(-300, 300) / 100), newVect.Y + ((float)Main.rand.Next(-300, 300) / 100), ModContent.ProjectileType<CrystiliumBladeProj>(), damage / 3, knockback, player.whoAmI, 0, 0);
+			Projectile.NewProjectile(source, position.X, position.Y - 20, newVect2.X + ((float)Main.rand.Next(-300, 300) / 100), newVect2.Y + ((float)Main.rand.Next(-300, 300) / 100), ModContent.ProjectileType<CrystiliumBladeProj>(), damage / 3, knockback, player.whoAmI, 0, 0);
+			Projectile.NewProjectile(source, position.X, position.Y - 20, newVect3.X + ((float)Main.rand.Next(-300, 300) / 100), newVect3.Y + ((float)Main.rand.Next(-300, 300) / 100), ModContent.ProjectileType<CrystiliumBladeProj>(), damage / 3, knockback, player.whoAmI, 0, 0);
+			Projectile.NewProjectile(source, position.X, position.Y - 20, newVect4.X + ((float)Main.rand.Next(-300, 300) / 100), newVect4.Y + ((float)Main.rand.Next(-300, 300) / 100), ModContent.ProjectileType<CrystiliumBladeProj>(), damage / 3, knockback, player.whoAmI, 0, 0);
 			return false;
 		}
 

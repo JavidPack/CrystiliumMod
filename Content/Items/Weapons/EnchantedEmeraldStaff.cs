@@ -39,12 +39,14 @@ namespace CrystiliumMod.Content.Items.Weapons
 		public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
 		{
 			float spread = 55f * 0.0174f;//45 degrees converted to radians
+			float speedX = velocity.X;
+			float speedY = velocity.Y;
 			float baseSpeed = (float)Math.Sqrt(speedX * speedX + speedY * speedY) * 3;
 			double baseAngle = Math.Atan2(speedX, speedY);
 			double randomAngle = baseAngle + (Main.rand.NextFloat() - 0.5f) * spread;
 			speedX = baseSpeed * (float)Math.Sin(randomAngle);
 			speedY = baseSpeed * (float)Math.Cos(randomAngle);
-			Projectile.NewProjectile(position.X, position.Y, speedX - 0.5f, speedY - 0.5f, ModContent.ProjectileType<Projectiles.Leaf>(), damage, knockBack, player.whoAmI);
+			Projectile.NewProjectile(source, position.X, position.Y, speedX - 0.5f, speedY - 0.5f, ModContent.ProjectileType<Projectiles.Leaf>(), damage, knockback, player.whoAmI);
 			return true;
 		}
 

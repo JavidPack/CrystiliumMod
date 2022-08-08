@@ -34,15 +34,15 @@ namespace CrystiliumMod.Content.Items.Weapons
 			switch (Main.rand.Next(3))
 			{
 				case (0):
-					Projectile.NewProjectile(position.X, position.Y, speedX, speedY, ModContent.ProjectileType<Projectiles.RPC>(), damage, knockBack, player.whoAmI);
+					Projectile.NewProjectile(source, position, velocity, ModContent.ProjectileType<Projectiles.RPC>(), damage, knockback, player.whoAmI);
 					break;
 
 				case (1):
-					Projectile.NewProjectile(position.X, position.Y, speedX, speedY, ModContent.ProjectileType<Projectiles.RPC>(), damage * 2, knockBack, player.whoAmI, 0, 1);
+					Projectile.NewProjectile(source, position, velocity, ModContent.ProjectileType<Projectiles.RPC>(), damage * 2, knockback, player.whoAmI, 0, 1);
 					break;
 
 				case (2):
-					Projectile.NewProjectile(position.X, position.Y, speedX * 2, speedY * 2, ModContent.ProjectileType<Projectiles.RPC>(), damage, knockBack, player.whoAmI, 0, 2);
+					Projectile.NewProjectile(source, position, velocity * 2, ModContent.ProjectileType<Projectiles.RPC>(), damage, knockback, player.whoAmI, 0, 2);
 					break;
 			}
 			return false;

@@ -36,14 +36,18 @@ namespace CrystiliumMod.Content.Items.Weapons
 		public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
 		{
 			//create velocity vectors for the two angled projectiles (outwards at PI/6 radians, or 15 degrees)
+
+			float speedX = velocity.X;
+			float speedY = velocity.Y;
+
 			Vector2 origVect = new(speedX, speedY);
 			Vector2 newVect = origVect.RotatedBy(System.Math.PI / 20);
 			Vector2 newVect2 = origVect.RotatedBy(-System.Math.PI / 20);
 
 			//create three Crystishae projectiles
-			Projectile.NewProjectile(player.Center.X, player.Center.Y - 20, speedX, speedY, ModContent.ProjectileType<QuartzTrident>(), damage, knockBack, Item.playerIndexTheItemIsReservedFor, 0, 0);
-			Projectile.NewProjectile(player.Center.X, player.Center.Y - 20, newVect.X, newVect.Y, ModContent.ProjectileType<QuartzTrident>(), damage, knockBack, Item.playerIndexTheItemIsReservedFor, 0, 0);
-			Projectile.NewProjectile(player.Center.X, player.Center.Y - 20, newVect2.X, newVect2.Y, ModContent.ProjectileType<QuartzTrident>(), damage, knockBack, Item.playerIndexTheItemIsReservedFor, 0, 0);
+			Projectile.NewProjectile(source, player.Center.X, player.Center.Y - 20, speedX, speedY, ModContent.ProjectileType<QuartzTrident>(), damage, knockback, Item.playerIndexTheItemIsReservedFor, 0, 0);
+			Projectile.NewProjectile(source, player.Center.X, player.Center.Y - 20, newVect.X, newVect.Y, ModContent.ProjectileType<QuartzTrident>(), damage, knockback, Item.playerIndexTheItemIsReservedFor, 0, 0);
+			Projectile.NewProjectile(source, player.Center.X, player.Center.Y - 20, newVect2.X, newVect2.Y, ModContent.ProjectileType<QuartzTrident>(), damage, knockback, Item.playerIndexTheItemIsReservedFor, 0, 0);
 			return false;
 		}
 

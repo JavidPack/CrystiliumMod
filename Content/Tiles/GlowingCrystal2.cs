@@ -38,9 +38,9 @@ namespace CrystiliumMod.Content.Tiles
 			//name.SetDefault("Torch");
 			//AddMapEntry(new Color(200, 200, 200), name);
 			DustType = ModContent.DustType<Dusts.Sparkle>();
-			disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
+			TileID.Sets.DisableSmartCursor[Type] = true;
 			AdjTiles = new int[] { TileID.Torches };
-			torch/* tModPorter Note: Removed. Use TileID.Sets.Torch instead */ = true;
+			TileID.Sets.Torch[Type] = true;
 		}
 
 		public override void NumDust(int i, int j, bool fail, ref int num)

@@ -37,7 +37,7 @@ namespace CrystiliumMod.Content.Items.Weapons
 
 		public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
 		{
-			int p = Projectile.NewProjectile(player.GetSource_ItemUse(), position, velocity, ModContent.ProjectileType<CallandorSlice>(), damage, knockBack, player.whoAmI);
+			int p = Projectile.NewProjectile(source, position, velocity, ModContent.ProjectileType<CallandorSlice>(), damage, knockback, player.whoAmI);
 			Main.projectile[p].scale = 1f;
 			return false;
 		}

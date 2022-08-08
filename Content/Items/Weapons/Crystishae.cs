@@ -40,14 +40,13 @@ namespace CrystiliumMod.Content.Items.Weapons
 		public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
 		{
 			//create velocity vectors for the two angled projectiles (outwards at PI/15 radians)
-			Vector2 origVect = new(speedX, speedY);
-			Vector2 newVect = origVect.RotatedBy(System.Math.PI / 15);
-			Vector2 newVect2 = origVect.RotatedBy(-System.Math.PI / 15);
+			Vector2 newVect = velocity.RotatedBy(System.Math.PI / 15);
+			Vector2 newVect2 = velocity.RotatedBy(-System.Math.PI / 15);
 
 			//create three Crystishae projectiles
 			//Projectile.NewProjectile(position.X, position.Y, speedX, speedY, type, damage, knockBack, player.whoAmI);
-			Projectile.NewProjectile(position.X, position.Y, newVect.X, newVect.Y, type, damage, knockBack, player.whoAmI);
-			Projectile.NewProjectile(position.X, position.Y, newVect2.X, newVect2.Y, type, damage, knockBack, player.whoAmI);
+			Projectile.NewProjectile(source, position.X, position.Y, newVect.X, newVect.Y, type, damage, knockback, player.whoAmI);
+			Projectile.NewProjectile(source, position.X, position.Y, newVect2.X, newVect2.Y, type, damage, knockback, player.whoAmI);
 			return true; //will shoot original projectile
 		}
 	}

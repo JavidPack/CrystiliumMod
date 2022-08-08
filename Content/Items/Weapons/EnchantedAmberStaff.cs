@@ -51,12 +51,16 @@ namespace CrystiliumMod.Content.Items.Weapons
 		{
 			//float SdirX = (Main.MouseWorld.X - player.position.X) * 8.5f;
 			//float SdirY = (Main.MouseWorld.Y - player.position.Y) * 8.5f;
+
+			float speedX = velocity.X;
+			float speedY = velocity.Y;
+
 			float angle = (float)Math.Atan(12f);
-			Projectile.NewProjectile(position.X, position.Y, speedX, speedY, ModContent.ProjectileType<AmberDagger>(), damage, knockBack, player.whoAmI, 0f, 0f);
-			Projectile.NewProjectile(position.X, position.Y, speedX - 1, speedY - angle, ModContent.ProjectileType<AmberDagger>(), damage, knockBack, player.whoAmI, 0f, 0f);
-			Projectile.NewProjectile(position.X, position.Y, speedX + 1, speedY + angle, ModContent.ProjectileType<AmberDagger>(), damage, knockBack, player.whoAmI, 0f, 0f);
-			Projectile.NewProjectile(position.X, position.Y, speedX - 2, speedY - (2 * angle), ModContent.ProjectileType<AmberDagger>(), damage, knockBack, player.whoAmI, 0f, 0f);
-			Projectile.NewProjectile(position.X, position.Y, speedX + 2, speedY + (2 * angle), ModContent.ProjectileType<AmberDagger>(), damage, knockBack, player.whoAmI, 0f, 0f);
+			Projectile.NewProjectile(source, position.X, position.Y, speedX, speedY, ModContent.ProjectileType<AmberDagger>(), damage, knockback, player.whoAmI, 0f, 0f);
+			Projectile.NewProjectile(source, position.X, position.Y, speedX - 1, speedY - angle, ModContent.ProjectileType<AmberDagger>(), damage, knockback, player.whoAmI, 0f, 0f);
+			Projectile.NewProjectile(source, position.X, position.Y, speedX + 1, speedY + angle, ModContent.ProjectileType<AmberDagger>(), damage, knockback, player.whoAmI, 0f, 0f);
+			Projectile.NewProjectile(source, position.X, position.Y, speedX - 2, speedY - (2 * angle), ModContent.ProjectileType<AmberDagger>(), damage, knockback, player.whoAmI, 0f, 0f);
+			Projectile.NewProjectile(source, position.X, position.Y, speedX + 2, speedY + (2 * angle), ModContent.ProjectileType<AmberDagger>(), damage, knockback, player.whoAmI, 0f, 0f);
 			return false;
 		}
 	}

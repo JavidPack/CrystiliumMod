@@ -35,9 +35,12 @@ namespace CrystiliumMod.Content.Items.Weapons
 
 		public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
 		{
+			float speedX = velocity.X;
+			float speedY = velocity.Y;
+
 			for (int i = 0; i < 3; i++)
 			{
-				Projectile.NewProjectile(position.X - 8, position.Y + 8, speedX + ((float)Main.rand.Next(-200, 200) / 100), speedY + ((float)Main.rand.Next(-200, 200) / 100), type, damage, knockBack, player.whoAmI, 0f, 0f);
+				Projectile.NewProjectile(source, position.X - 8, position.Y + 8, speedX + ((float)Main.rand.Next(-200, 200) / 100), speedY + ((float)Main.rand.Next(-200, 200) / 100), type, damage, knockback, player.whoAmI, 0f, 0f);
 			}
 			return false;
 		}

@@ -72,7 +72,7 @@ namespace CrystiliumMod.Content.Items.Weapons
 				DistX = (position.X + (0 - DistXT));
 				DistY = (position.Y + (0 - DistYT));
 			}
-			Projectile.NewProjectile(DistX, DistY, Main.rand.Next(-10, 10), Main.rand.Next(-10, 10), ModContent.ProjectileType<Projectiles.SandParticle>(), damage, knockBack, player.whoAmI, 0f, 0f);
+			Projectile.NewProjectile(source, DistX, DistY, Main.rand.Next(-10, 10), Main.rand.Next(-10, 10), ModContent.ProjectileType<Projectiles.SandParticle>(), damage, knockback, player.whoAmI, 0f, 0f);
 			return false;
 		}
 	}

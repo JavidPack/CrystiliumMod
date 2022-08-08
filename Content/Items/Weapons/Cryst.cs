@@ -48,14 +48,14 @@ namespace CrystiliumMod.Content.Items.Weapons
 			}
 
 			//get degrees from direction vector
-			int dir = (int)(new Vector2(speedX, speedY).ToRotation() / (Math.PI / 180));
+			int dir = (int)(velocity.ToRotation() / (Math.PI / 180));
 			int dir2 = dir + 120;
 			int dir3 = dir - 120;
 
 			//spawn the new projectiles
-			Projectile.NewProjectile(position.X, position.Y, speedX, speedY, Item.shoot, damage, knockBack, player.whoAmI, 0, dir);
-			Projectile.NewProjectile(position.X, position.Y, speedX, speedY, Item.shoot, damage, knockBack, player.whoAmI, 0, dir2);
-			Projectile.NewProjectile(position.X, position.Y, speedX, speedY, Item.shoot, damage, knockBack, player.whoAmI, 0, dir3);
+			Projectile.NewProjectile(source, position, velocity, Item.shoot, damage, knockback, player.whoAmI, 0, dir);
+			Projectile.NewProjectile(source, position, velocity, Item.shoot, damage, knockback, player.whoAmI, 0, dir2);
+			Projectile.NewProjectile(source, position, velocity, Item.shoot, damage, knockback, player.whoAmI, 0, dir3);
 			return false;
 		}
 	}

@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
+using Terraria.ID;
 
 namespace CrystiliumMod.Content.Tiles
 {
@@ -12,10 +13,8 @@ namespace CrystiliumMod.Content.Tiles
 			Main.tileMergeDirt[Type] = true;
 			Main.tileBlockLight[Type] = true;
 			Main.tileLighted[Type] = false;
-			SetModTree(new CrystalTree())/* tModPorter Note: Removed. Assign GrowsOnTileId to this tile type in ModTree.SetStaticDefaults instead */;
 			DustType = ModContent.DustType<Dusts.Sparkle>();
-			HitSound = 27;
-			soundStyle/* tModPorter Note: Removed. Integrate into HitSound */ = 2;
+			HitSound = SoundID.Shatter;
 			ItemDrop = ModContent.ItemType<Items.Placeable.CrystalWood>();
 			AddMapEntry(new Color(19, 163, 189));
 		}

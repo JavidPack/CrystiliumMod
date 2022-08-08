@@ -52,18 +52,17 @@ namespace CrystiliumMod.Content.Items.Weapons
 
 		public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
 		{
-			Vector2 origVect = new(speedX, speedY);
-			Vector2 newVect = origVect.RotatedBy(System.Math.PI / (Main.rand.Next(20) + 8));
+			Vector2 newVect = velocity.RotatedBy(System.Math.PI / (Main.rand.Next(20) + 8));
 
 			//create the first two projectiles
-			Projectile.NewProjectile(position.X, position.Y, speedX, speedY, ModContent.ProjectileType<Projectiles.TrueGems.TerraGemProj>(), damage, knockBack, player.whoAmI, 0f, 1f);
-			Projectile.NewProjectile(position.X, position.Y, newVect.X, newVect.Y, ModContent.ProjectileType<Projectiles.TrueGems.TerraGemProj>(), damage, knockBack, player.whoAmI, 0f, 2f);
+			Projectile.NewProjectile(source, position.X, position.Y, velocity.X, velocity.Y, ModContent.ProjectileType<Projectiles.TrueGems.TerraGemProj>(), damage, knockback, player.whoAmI, 0f, 1f);
+			Projectile.NewProjectile(source, position.X, position.Y, newVect.X, newVect.Y, ModContent.ProjectileType<Projectiles.TrueGems.TerraGemProj>(), damage, knockback, player.whoAmI, 0f, 2f);
 
 			//generate the remaining projectiles
 			for (int i = 3; i <= 7; i++)
 			{
-				Vector2 randVect2 = origVect.RotatedBy(-System.Math.PI / (Main.rand.Next(20) + 8));
-				Projectile.NewProjectile(position.X, position.Y, randVect2.X, randVect2.Y, ModContent.ProjectileType<Projectiles.TrueGems.TerraGemProj>(), damage, knockBack, player.whoAmI, 0f, i);
+				Vector2 randVect2 = velocity.RotatedBy(-System.Math.PI / (Main.rand.Next(20) + 8));
+				Projectile.NewProjectile(source, position.X, position.Y, randVect2.X, randVect2.Y, ModContent.ProjectileType<Projectiles.TrueGems.TerraGemProj>(), damage, knockback, player.whoAmI, 0f, i);
 			}
 			return false;
 		}

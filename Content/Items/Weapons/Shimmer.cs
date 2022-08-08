@@ -38,7 +38,7 @@ namespace CrystiliumMod.Content.Items.Weapons
 		{
 			for (int i = 0; i < 3; i++)
 			{
-				Projectile.NewProjectile(position.X - 8, position.Y + 8, speedX + ((float)Main.rand.Next(-300, 300) / 100), speedY + ((float)Main.rand.Next(-300, 300) / 100), type, damage, knockBack, player.whoAmI, 0f, 0f);
+				Projectile.NewProjectile(source, position.X - 8, position.Y + 8, velocity.X + ((float)Main.rand.Next(-300, 300) / 100), velocity.Y + ((float)Main.rand.Next(-300, 300) / 100), type, damage, knockback, player.whoAmI, 0f, 0f);
 			}
 			return false;
 		}

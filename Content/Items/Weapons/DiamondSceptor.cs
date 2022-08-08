@@ -38,18 +38,19 @@ namespace CrystiliumMod.Content.Items.Weapons
 
 		public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
 		{
-			Vector2 origVect = new(speedX, speedY);
-			Vector2 newVect = origVect.RotatedBy(System.Math.PI / (Main.rand.Next(30) + 13));
+			float speedX = velocity.X;
+			float speedY = velocity.Y;
+			Vector2 newVect = velocity.RotatedBy(System.Math.PI / (Main.rand.Next(30) + 13));
 
 			//create the first two projectiles
-			Projectile.NewProjectile(position.X, position.Y, speedX, speedY, ModContent.ProjectileType<DiamondBomb>(), damage, knockBack, Item.playerIndexTheItemIsReservedFor, 0f, 1f);
-			Projectile.NewProjectile(position.X, position.Y, newVect.X, newVect.Y, ModContent.ProjectileType<DiamondBomb>(), damage, knockBack, Item.playerIndexTheItemIsReservedFor, 0f, 2f);
+			Projectile.NewProjectile(source, position.X, position.Y, speedX, speedY, ModContent.ProjectileType<DiamondBomb>(), damage, knockback, Item.playerIndexTheItemIsReservedFor, 0f, 1f);
+			Projectile.NewProjectile(source, position.X, position.Y, newVect.X, newVect.Y, ModContent.ProjectileType<DiamondBomb>(), damage, knockback, Item.playerIndexTheItemIsReservedFor, 0f, 2f);
 
 			//generate the remaining projectiles
 			for (int i = 3; i <= 2; i++)
 			{
-				Vector2 randVect2 = origVect.RotatedBy(-System.Math.PI / (Main.rand.Next(30) + 13));
-				Projectile.NewProjectile(position.X, position.Y, randVect2.X, randVect2.Y, ModContent.ProjectileType<DiamondBomb>(), damage, knockBack, Item.playerIndexTheItemIsReservedFor, 0f, i);
+				Vector2 randVect2 = velocity.RotatedBy(-System.Math.PI / (Main.rand.Next(30) + 13));
+				Projectile.NewProjectile(source, position.X, position.Y, randVect2.X, randVect2.Y, ModContent.ProjectileType<DiamondBomb>(), damage, knockback, Item.playerIndexTheItemIsReservedFor, 0f, i);
 			}
 			return false;
 		}

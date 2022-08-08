@@ -61,7 +61,7 @@ namespace CrystiliumMod.Content.Tiles
 			name.SetDefault("CrystalWood Door");
 			AddMapEntry(new Color(250, 140, 250), name);
 			DustType = ModContent.DustType<Dusts.CrystalDust>();
-			disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
+			TileID.Sets.DisableSmartCursor[Type] = true;
 			AdjTiles = new int[] { TileID.OpenDoor };
 			CloseDoorID = ModContent.TileType<Tiles.CrystalWoodDoorClosed>();
 		}

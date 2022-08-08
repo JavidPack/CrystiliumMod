@@ -46,15 +46,14 @@ namespace CrystiliumMod.Content.Items.Weapons
 			recipe.Register();
 		}
 
-		public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
-		{
+        public override void ModifyShootStats(Player player, ref Vector2 position, ref Vector2 velocity, ref int type, ref int damage, ref float knockback)
+        {
 			Vector2 playerPos = player.Center; //position of player
 			int maxPixelDist = 200; //max distance projectiles can spawn from player
 			int minPixelDist = 80; //min distance projectiles can spawn from player
 			Vector2 transVector = new Vector2(Main.rand.Next(minPixelDist, maxPixelDist), 0f).RotatedByRandom(2 * Math.PI);
 			position = position + transVector; //move projectile position accordingly
-			speedX = 0; speedY = 0;
-			return true;
+			velocity = Vector2.Zero;
 		}
 	}
 }

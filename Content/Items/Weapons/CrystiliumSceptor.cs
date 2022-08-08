@@ -40,8 +40,10 @@ namespace CrystiliumMod.Content.Items.Weapons
 		{
 			//float SdirX = (Main.MouseWorld.X - player.position.X) * 9.5f;
 			//float SdirY = (Main.MouseWorld.Y - player.position.Y) * 9.5f;
+			float speedX = velocity.X;
+			float speedY = velocity.Y;
 			float angle = (float)Math.Atan((float)Main.rand.Next(-12, 12));
-			Projectile.NewProjectile(position.X, position.Y, speedX + angle, speedY + Main.rand.Next(-1, 1), ModContent.ProjectileType<Projectiles.CrystalSceptorProj>(), damage, knockBack, player.whoAmI, 0f, 0f);
+			Projectile.NewProjectile(source, position.X, position.Y, speedX + angle, speedY + Main.rand.Next(-1, 1), ModContent.ProjectileType<Projectiles.CrystalSceptorProj>(), damage, knockback, player.whoAmI, 0f, 0f);
 			return false;
 		}
 	}

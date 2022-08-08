@@ -45,7 +45,7 @@ namespace CrystiliumMod.Content.Items.Weapons
 		{
 			if (player.altFunctionUse == 2)
 			{
-				player.MinionNPCTargetAim();
+				player.MinionNPCTargetAim(true);
 			}
 			return base.UseItem(player);
 		}

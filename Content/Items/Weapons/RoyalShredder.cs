@@ -37,16 +37,15 @@ namespace CrystiliumMod.Content.Items.Weapons
 
 		public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
 		{
-			Vector2 origVect = new(speedX, speedY);
 			if (Main.rand.Next(2) == 0)
 			{
-				newVect = origVect.RotatedBy(System.Math.PI / (Main.rand.Next(900, 1800) / 10));
+				newVect = velocity.RotatedBy(System.Math.PI / (Main.rand.Next(900, 1800) / 10));
 			}
 			else
 			{
-				newVect = origVect.RotatedBy(-System.Math.PI / (Main.rand.Next(900, 1800) / 10));
+				newVect = velocity.RotatedBy(-System.Math.PI / (Main.rand.Next(900, 1800) / 10));
 			}
-			Projectile.NewProjectile(position.X, position.Y, newVect.X, newVect.Y, Mod.Find<ModProjectile>("Shatter" + (1 + Main.rand.Next(0, 3))).Type, damage - 5, knockBack, player.whoAmI, 0f, 0f);
+			Projectile.NewProjectile(source, position.X, position.Y, newVect.X, newVect.Y, Mod.Find<ModProjectile>("Shatter" + (1 + Main.rand.Next(0, 3))).Type, damage - 5, knockback, player.whoAmI, 0f, 0f);
 			return false;
 		}
 	}

@@ -45,14 +45,5 @@ namespace CrystiliumMod.Content.Items.Weapons
 			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
 		}
-
-		public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
-		{
-			//float SdirX = (Main.MouseWorld.X - player.position.X) * 8.5f;
-			//float SdirY = (Main.MouseWorld.Y - player.position.Y) * 8.5f;
-			//float angle = (float)Math.Atan(12f);
-			Projectile.NewProjectile(position.X - player.width / 2, position.Y - player.height / 2, speedX, speedY, ModContent.ProjectileType<Projectiles.FireGem>(), damage, knockBack, player.whoAmI, 0f, 0f);
-			return false;
-		}
 	}
 }

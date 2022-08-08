@@ -38,9 +38,9 @@ namespace CrystiliumMod.Content.Tiles
 			name.SetDefault("Torch");
 			AddMapEntry(new Color(250, 140, 250), name);
 			ItemDrop = ModContent.ItemType<Items.Placeable.CrystalWoodTorch>();
-			disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
+			TileID.Sets.DisableSmartCursor[Type] = true;
 			AdjTiles = new int[] { TileID.Torches };
-			torch/* tModPorter Note: Removed. Use TileID.Sets.Torch instead */ = true;
+			TileID.Sets.Torch[Type] = true;
 		}
 
 		public override void NumDust(int i, int j, bool fail, ref int num)

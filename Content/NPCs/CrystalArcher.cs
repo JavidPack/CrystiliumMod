@@ -310,30 +310,6 @@ namespace CrystiliumMod.Content.NPCs
 				position2.X += NPC.velocity.X;
 				int tileX = (int)((position2.X + (float)(NPC.width / 2) + (float)((NPC.width / 2 + 1) * direction)) / 16f);
 				int tileY = (int)((position2.Y + (float)NPC.height - 1f) / 16f);
-				if (Main.tile[tileX, tileY] == null)
-				{
-					Main.tile[tileX, tileY] = new Tile();
-				}
-				if (Main.tile[tileX, tileY - 1] == null)
-				{
-					Main.tile[tileX, tileY - 1] = new Tile();
-				}
-				if (Main.tile[tileX, tileY - 2] == null)
-				{
-					Main.tile[tileX, tileY - 2] = new Tile();
-				}
-				if (Main.tile[tileX, tileY - 3] == null)
-				{
-					Main.tile[tileX, tileY - 3] = new Tile();
-				}
-				if (Main.tile[tileX, tileY + 1] == null)
-				{
-					Main.tile[tileX, tileY + 1] = new Tile();
-				}
-				if (Main.tile[tileX - direction, tileY - 3] == null)
-				{
-					Main.tile[tileX - direction, tileY - 3] = new Tile();
-				}
 				if ((float)(tileX * 16) < position2.X + (float)NPC.width && (float)(tileX * 16 + 16) > position2.X && ((Main.tile[tileX, tileY].HasUnactuatedTile && !Main.tile[tileX, tileY].TopSlope && !Main.tile[tileX, tileY - 1].TopSlope && Main.tileSolid[(int)Main.tile[tileX, tileY].TileType] && !Main.tileSolidTop[(int)Main.tile[tileX, tileY].TileType]) || (Main.tile[tileX, tileY - 1].IsHalfBlock && Main.tile[tileX, tileY - 1].HasUnactuatedTile)) && (!Main.tile[tileX, tileY - 1].HasUnactuatedTile || !Main.tileSolid[(int)Main.tile[tileX, tileY - 1].TileType] || Main.tileSolidTop[(int)Main.tile[tileX, tileY - 1].TileType] || (Main.tile[tileX, tileY - 1].IsHalfBlock && (!Main.tile[tileX, tileY - 4].HasUnactuatedTile || !Main.tileSolid[(int)Main.tile[tileX, tileY - 4].TileType] || Main.tileSolidTop[(int)Main.tile[tileX, tileY - 4].TileType]))) && (!Main.tile[tileX, tileY - 2].HasUnactuatedTile || !Main.tileSolid[(int)Main.tile[tileX, tileY - 2].TileType] || Main.tileSolidTop[(int)Main.tile[tileX, tileY - 2].TileType]) && (!Main.tile[tileX, tileY - 3].HasUnactuatedTile || !Main.tileSolid[(int)Main.tile[tileX, tileY - 3].TileType] || Main.tileSolidTop[(int)Main.tile[tileX, tileY - 3].TileType]) && (!Main.tile[tileX - direction, tileY - 3].HasUnactuatedTile || !Main.tileSolid[(int)Main.tile[tileX - direction, tileY - 3].TileType]))
 				{
 					float num208 = (float)(tileY * 16);
@@ -369,39 +345,6 @@ namespace CrystiliumMod.Content.NPCs
 			{
 				int tileX = (int)((NPC.position.X + (float)(NPC.width / 2) + (float)(15 * NPC.direction)) / 16f);
 				int tileY = (int)((NPC.position.Y + (float)NPC.height - 15f) / 16f);
-				if (Main.tile[tileX, tileY] == null)
-				{
-					Main.tile[tileX, tileY] = new Tile();
-				}
-				if (Main.tile[tileX, tileY - 1] == null)
-				{
-					Main.tile[tileX, tileY - 1] = new Tile();
-				}
-				if (Main.tile[tileX, tileY - 2] == null)
-				{
-					Main.tile[tileX, tileY - 2] = new Tile();
-				}
-				if (Main.tile[tileX, tileY - 3] == null)
-				{
-					Main.tile[tileX, tileY - 3] = new Tile();
-				}
-				if (Main.tile[tileX, tileY + 1] == null)
-				{
-					Main.tile[tileX, tileY + 1] = new Tile();
-				}
-				if (Main.tile[tileX + NPC.direction, tileY - 1] == null)
-				{
-					Main.tile[tileX + NPC.direction, tileY - 1] = new Tile();
-				}
-				if (Main.tile[tileX + NPC.direction, tileY + 1] == null)
-				{
-					Main.tile[tileX + NPC.direction, tileY + 1] = new Tile();
-				}
-				if (Main.tile[tileX - NPC.direction, tileY + 1] == null)
-				{
-					Main.tile[tileX - NPC.direction, tileY + 1] = new Tile();
-				}
-				Main.tile[tileX, tileY + 1].IsHalfBlock;
 				int spriteDirection = NPC.spriteDirection;
 				if ((NPC.velocity.X < 0f && spriteDirection == -1) || (NPC.velocity.X > 0f && spriteDirection == 1))
 				{
