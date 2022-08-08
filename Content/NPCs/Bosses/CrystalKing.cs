@@ -40,7 +40,7 @@ namespace CrystiliumMod.Content.NPCs.Bosses
 			NPC.DeathSound = SoundID.NPCDeath6;
 			NPC.value = 60000f;
 			NPC.knockBackResist = 0f;
-			Music = MusicLoader.GetMusicSlot(Mod, "Sounds/Music/CrystalKing");
+			Music = MusicLoader.GetMusicSlot(Mod, "Content/Sounds/Music/CrystalKing");
 			NPC.lavaImmune = true;
 			NPC.noTileCollide = true;
 			NPC.noGravity = true;
