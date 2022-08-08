@@ -39,10 +39,10 @@ namespace CrystiliumMod.Content.NPCs.Bosses
 				//spawn initial set
 				for (int i = 1; i <= 3; i++)
 				{
-					Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("Gores/Crystal_Cultist_Gore_" + i).Type);
+					Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("Crystal_Cultist_Gore_" + i).Type);
 				}
 				//spawn the remaining arm
-				Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("Gores/Crystal_Cultist_Gore_1").Type);
+				Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("Crystal_Cultist_Gore_1").Type);
 			}
 		}
 

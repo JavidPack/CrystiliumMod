@@ -54,7 +54,7 @@ namespace CrystiliumMod.Content.NPCs.Bosses
 				//spawn all gores once
 				for (int i = 1; i <= 10; i++)
 				{
-					Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("Gores/KingGore" + i).Type);
+					Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("KingGore" + i).Type);
 				}
 			}
 		}
