@@ -80,11 +80,11 @@ namespace CrystiliumMod.Content.NPCs.Bosses
 			{
 				if (Main.player[NPC.target].Center.Y <= NPC.Center.Y)
 				{
-					Projectile.NewProjectile(NPC.Center.X, NPC.Center.Y, 0 - (TrajectoryX * 7), 0 - (TrajectoryY * 7), ModContent.ProjectileType<Slasher>(), 40, 0f, NPC.target);
+					Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, 0 - (TrajectoryX * 7), 0 - (TrajectoryY * 7), ModContent.ProjectileType<Slasher>(), 40, 0f, NPC.target);
 				}
 				else if (Main.player[NPC.target].Center.Y > NPC.Center.Y)
 				{
-					Projectile.NewProjectile(NPC.Center.X, NPC.Center.Y, (TrajectoryX * 7), TrajectoryY * 7, ModContent.ProjectileType<Slasher>(), 40, 0f, NPC.target);
+					Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, (TrajectoryX * 7), TrajectoryY * 7, ModContent.ProjectileType<Slasher>(), 40, 0f, NPC.target);
 				}
 			}
 			Vector3 RGB = new(2.0f, 0.75f, 1.5f);

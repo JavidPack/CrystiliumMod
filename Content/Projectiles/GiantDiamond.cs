@@ -64,7 +64,7 @@ namespace CrystiliumMod.Content.Projectiles
 			}
 			for (int h = 0; h < 4; h++)
 			{
-				Projectile.NewProjectile(Projectile.Center.X, Projectile.Center.Y, Main.rand.Next(-5, 5), Main.rand.Next(-5, 5), ModContent.ProjectileType<DiamondBomb>(), Projectile.damage, 0, Projectile.owner);
+				Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center.X, Projectile.Center.Y, Main.rand.Next(-5, 5), Main.rand.Next(-5, 5), ModContent.ProjectileType<DiamondBomb>(), Projectile.damage, 0, Projectile.owner);
 			}
 		}
 

@@ -37,7 +37,7 @@ namespace CrystiliumMod.Content.Items.Weapons
 				float rand = Main.rand.NextFloat() * 6.283f;
 				vel = vel.RotatedBy(rand);
 				vel *= 1f;
-				Projectile.NewProjectile(hitbox.X + Main.rand.Next(40), hitbox.Y + Main.rand.Next(40), vel.X, vel.Y, Mod.Find<ModProjectile>("Shatter" + (1 + Main.rand.Next(0, 3))).Type, Item.damage, 0, Main.myPlayer);
+				Projectile.NewProjectile(Item.GetSource_ItemUse(Item), hitbox.X + Main.rand.Next(40), hitbox.Y + Main.rand.Next(40), vel.X, vel.Y, Mod.Find<ModProjectile>("Shatter" + (1 + Main.rand.Next(0, 3))).Type, Item.damage, 0, Main.myPlayer);
 			}
 		}
 

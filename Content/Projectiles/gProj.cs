@@ -18,7 +18,7 @@ namespace CrystiliumMod.Content.Projectiles
 				{
 					projectile.knockBack -= .0125f;
 					Vector2 vector83 = projectile.velocity.RotatedByRandom(.1f);
-					Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, vector83.X, vector83.Y, projectile.type, projectile.damage, projectile.knockBack - .025f, projectile.owner, projectile.velocity.ToRotation(), projectile.ai[1]);
+					Projectile.NewProjectile(projectile.GetSource_FromThis(), projectile.Center.X, projectile.Center.Y, vector83.X, vector83.Y, projectile.type, projectile.damage, projectile.knockBack - .025f, projectile.owner, projectile.velocity.ToRotation(), projectile.ai[1]);
 				}
 			}
 		}

@@ -52,7 +52,7 @@ namespace CrystiliumMod.Content.Items.Weapons
 			Vector2 vector82 = -Main.LocalPlayer.Center + Main.MouseWorld;
 			float ai = Main.rand.Next(100);
 			Vector2 vector83 = Vector2.Normalize(vector82) * Item.shootSpeed;
-			Projectile.NewProjectile(player.Center.X, player.Center.Y, vector83.X, vector83.Y, type, damage, .49f, player.whoAmI, vector82.ToRotation(), ai);
+			Projectile.NewProjectile(source, player.Center, vector83, type, damage, .49f, player.whoAmI, vector82.ToRotation(), ai);
 			return false;
 		}
 	}

@@ -30,10 +30,10 @@ namespace CrystiliumMod.Content.Items
 		{
 			if (Main.rand.Next(10) == 0)
 			{
-				player.QuickSpawnItem(ModContent.ItemType<Armor.CrystalMask>());
+				player.QuickSpawnItem(Item.GetSource_Loot(),ModContent.ItemType<Armor.CrystalMask>());
 			}
-			player.QuickSpawnItem(ModContent.ItemType<Accessories.CrystalJewel>());
-			player.QuickSpawnItem(ModContent.ItemType<CrystiliumBar>(), Main.rand.Next(13, 20));
+			player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<Accessories.CrystalJewel>());
+			player.QuickSpawnItem(Item.GetSource_Loot(), ModContent.ItemType<CrystiliumBar>(), Main.rand.Next(13, 20));
 
 			var ChoiceChooser = new WeightedRandom<int>();
 			ChoiceChooser.Add(ModContent.ItemType<Weapons.Cryst>());
@@ -45,7 +45,7 @@ namespace CrystiliumMod.Content.Items
 			ChoiceChooser.Add(ModContent.ItemType<Weapons.Shatterocket>());
 			ChoiceChooser.Add(ModContent.ItemType<Weapons.RoyalShredder>());
 			int Choice = ChoiceChooser;
-			player.QuickSpawnItem(Choice);
+			player.QuickSpawnItem(Item.GetSource_Loot(), Choice);
 		}
 	}
 }

@@ -65,7 +65,7 @@ namespace CrystiliumMod.Content.Projectiles //We need this to basically indicate
 					float velX = dirX * factor;
 					float velY = dirY * factor;
 					SoundEngine.PlaySound(SoundID.Item13, Projectile.position);
-					Projectile.NewProjectile(Projectile.Center.X, Projectile.Center.Y, velX, velY, ModContent.ProjectileType<VortexCrystal>(), Projectile.damage + 1, 0, Projectile.owner);
+					Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, velX, velY, ModContent.ProjectileType<VortexCrystal>(), Projectile.damage + 1, 0, Projectile.owner);
 				}
 			}
 		}

@@ -67,7 +67,7 @@ namespace CrystiliumMod.Content.Projectiles
 				Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, 206, Projectile.oldVelocity.X * 0.5f, Projectile.oldVelocity.Y * 0.5f);
 			}
 			SoundEngine.PlaySound(SoundID.Item27, Projectile.position);
-			Projectile.NewProjectile(Projectile.Center.X, Projectile.Center.Y, 0, 0, ModContent.ProjectileType<DiamondExplosion>(), Projectile.damage, 0, Main.myPlayer);
+			Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center.X, Projectile.Center.Y, 0, 0, ModContent.ProjectileType<DiamondExplosion>(), Projectile.damage, 0, Main.myPlayer);
 		}
 
 		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)

@@ -23,9 +23,9 @@ namespace CrystiliumMod.Content.Projectiles.ShatterGems
 		//Changes draw texture based on AI value, set at creation. Removes disgusting duplicate projectiles.
 		public override bool PreDraw(ref Color lightColor)
 		{
-			string texName = "Projectiles/ShatterGems/GemstoneFlail" + Projectile.ai[1];
-			Texture2D texture = Mod.GetTexture(texName);
-			spriteBatch.Draw(texture, Projectile.Center - Main.screenPosition, new Rectangle(0, 0, texture.Width, texture.Height), lightColor, Projectile.rotation, new Vector2((float)texture.Width / 2, (float)texture.Height / 2), Projectile.scale, SpriteEffects.None, 0f);
+			string texName = "CrystiliumMod/Projectiles/ShatterGems/GemstoneFlail" + Projectile.ai[1];
+			Texture2D texture = ModContent.Request<Texture2D>(texName).Value;
+			Main.spriteBatch.Draw(texture, Projectile.Center - Main.screenPosition, new Rectangle(0, 0, texture.Width, texture.Height), lightColor, Projectile.rotation, new Vector2((float)texture.Width / 2, (float)texture.Height / 2), Projectile.scale, SpriteEffects.None, 0f);
 			return false;
 		}
 

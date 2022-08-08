@@ -39,7 +39,7 @@ namespace CrystiliumMod.Content.Tiles
 			name.SetDefault("CrystalWood Door");
 			AddMapEntry(new Color(250, 140, 250), name);
 			DustType = Mod.Find<ModDust>("CrystalDust").Type;
-			disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
+			TileID.Sets.DisableSmartCursor[Type] = true;
 			AdjTiles = new int[] { TileID.ClosedDoor };
 			OpenDoorID = ModContent.TileType<CrystalWoodDoorOpen>();
 		}
@@ -51,7 +51,7 @@ namespace CrystiliumMod.Content.Tiles
 
 		public override void KillMultiTile(int i, int j, int frameX, int frameY)
 		{
-			Item.NewItem(i * 16, j * 16, 16, 48, ModContent.ItemType<Items.Placeable.CrystalWoodDoor>());
+			Item.NewItem(new EntitySource_TileBreak(i, j), i * 16, j * 16, 16, 48, ModContent.ItemType<Items.Placeable.CrystalWoodDoor>());
 		}
 	}
 }

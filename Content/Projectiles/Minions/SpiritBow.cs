@@ -38,11 +38,11 @@ namespace CrystiliumMod.Content.Projectiles.Minions
 			//also draws the animation PROPERLY, because vanilla is too dumb to do it right
 			if (Projectile.rotation > Math.PI / 2 && Projectile.rotation < Math.PI * 3 / 2)
 			{
-				spriteBatch.Draw(Mod.GetTexture("Projectiles/Minions/SpiritBow"), Projectile.Center - Main.screenPosition, new Rectangle(0, (Projectile.height + 1) * Projectile.frame, Projectile.width, Projectile.height), lightColor, Projectile.rotation, new Vector2(Projectile.width / 2, Projectile.height / 2), Projectile.scale, SpriteEffects.FlipVertically, 0f);
+				Main.spriteBatch.Draw(ModContent.Request<Texture2D>(Texture).Value, Projectile.Center - Main.screenPosition, new Rectangle(0, (Projectile.height + 1) * Projectile.frame, Projectile.width, Projectile.height), lightColor, Projectile.rotation, new Vector2(Projectile.width / 2, Projectile.height / 2), Projectile.scale, SpriteEffects.FlipVertically, 0f);
 			}
 			else
 			{
-				spriteBatch.Draw(Mod.GetTexture("Projectiles/Minions/SpiritBow"), Projectile.Center - Main.screenPosition, new Rectangle(0, (Projectile.height + 1) * Projectile.frame, Projectile.width, Projectile.height), lightColor, Projectile.rotation, new Vector2(Projectile.width / 2, Projectile.height / 2), Projectile.scale, SpriteEffects.None, 0f);
+				Main.spriteBatch.Draw(ModContent.Request<Texture2D>(Texture).Value, Projectile.Center - Main.screenPosition, new Rectangle(0, (Projectile.height + 1) * Projectile.frame, Projectile.width, Projectile.height), lightColor, Projectile.rotation, new Vector2(Projectile.width / 2, Projectile.height / 2), Projectile.scale, SpriteEffects.None, 0f);
 			}
 			return false;
 		}
@@ -111,7 +111,7 @@ namespace CrystiliumMod.Content.Projectiles.Minions
 				{
 					//spawn the arrow centered on the bow (this code aligns the centers :3)
 					Vector2 vel = new Vector2(shootVelocity, 0f).RotatedBy(Projectile.rotation);
-					int proj = Projectile.NewProjectile(Projectile.Center.X, Projectile.Center.Y, vel.X, vel.Y, ModContent.ProjectileType<SpiritArrow>(), Projectile.damage, Projectile.knockBack, Projectile.owner);
+					int proj = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, vel.X, vel.Y, ModContent.ProjectileType<SpiritArrow>(), Projectile.damage, Projectile.knockBack, Projectile.owner);
 					Projectile newProj = Main.projectile[proj];
 					newProj.position += Projectile.Center - newProj.Center;
 

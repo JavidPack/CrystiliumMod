@@ -153,7 +153,7 @@ namespace CrystiliumMod.Content.NPCs
 						centerVect.Y += num183;
 						if (Main.netMode != 1)
 						{
-							Projectile.NewProjectile(NPC.Center.X, NPC.Center.Y, num181, num183, num186, 20, 0f, Main.myPlayer, 0f, 0f);
+							Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, num181, num183, num186, 20, 0f, Main.myPlayer, 0f, 0f);
 						}
 						if (Math.Abs(num183) > Math.Abs(num181) * 2f)
 						{

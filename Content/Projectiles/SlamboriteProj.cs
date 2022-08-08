@@ -32,7 +32,7 @@ namespace CrystiliumMod.Content.Projectiles
 		{
 			// So set the correct path here to load the chain texture. 'YourModName' is of course the name of your mod.
 			// Then into the Projectiles folder and take the texture that is called 'CustomFlailBall_Chain'.
-			Texture2D texture = ModContent.GetTexture("CrystiliumMod/Projectiles/SlamboriteChain");
+			Texture2D texture = ModContent.Request<Texture2D>("CrystiliumMod/Projectiles/SlamboriteChain").Value;
 
 			Vector2 position = Projectile.Center;
 			Vector2 mountedCenter = Main.player[Projectile.owner].MountedCenter;
@@ -76,7 +76,7 @@ namespace CrystiliumMod.Content.Projectiles
 				float rand = Main.rand.NextFloat() * 6.283f;
 				vel = vel.RotatedBy(rand);
 				vel *= 5f;
-				Projectile.NewProjectile(Projectile.Center.X, Projectile.Center.Y + 20, vel.X, vel.Y, ModContent.ProjectileType<ShatterGems.GemstoneFlailProj>(), Projectile.damage - (Projectile.damage / 3), 0, Projectile.owner, 0, Main.rand.Next(1, 8));
+				Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y + 20, vel.X, vel.Y, ModContent.ProjectileType<ShatterGems.GemstoneFlailProj>(), Projectile.damage - (Projectile.damage / 3), 0, Projectile.owner, 0, Main.rand.Next(1, 8));
 			}
 		}
 	}

@@ -79,7 +79,7 @@ namespace CrystiliumMod.Content.Projectiles
 			{
 				//spawn the arrow centered on the bow (this code aligns the centers :3)
 				Vector2 vel = Projectile.DirectionTo(target.Center);
-				int proj = Projectile.NewProjectile(Projectile.Center.X, Projectile.Center.Y, vel.X * 10, vel.Y * 10, ModContent.ProjectileType<StardustCrystal>(), Projectile.damage, Projectile.knockBack, Projectile.owner);
+				int proj = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, vel.X * 10, vel.Y * 10, ModContent.ProjectileType<StardustCrystal>(), Projectile.damage, Projectile.knockBack, Projectile.owner);
 				Projectile newProj = Main.projectile[proj];
 				newProj.position += Projectile.Center - newProj.Center;
 

@@ -32,7 +32,7 @@ namespace CrystiliumMod.Content.Projectiles
 				float rand = Main.rand.NextFloat() * 6.283f;
 				vel = vel.RotatedBy(rand);
 				vel *= 5f;
-				int proj = Projectile.NewProjectile(Projectile.Center.X, Projectile.Center.Y + 20, vel.X, vel.Y, Mod.Find<ModProjectile>("Shatter" + (1 + Main.rand.Next(0, 3))).Type, (int)(Projectile.damage * .425), 0, Main.myPlayer);
+				int proj = Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center.X, Projectile.Center.Y + 20, vel.X, vel.Y, Mod.Find<ModProjectile>("Shatter" + (1 + Main.rand.Next(0, 3))).Type, (int)(Projectile.damage * .425), 0, Main.myPlayer);
 				Main.projectile[proj].friendly = true;
 				Main.projectile[proj].hostile = true;
 			}

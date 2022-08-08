@@ -14,7 +14,7 @@ namespace CrystiliumMod.Content.Projectiles.Minions
 		public override void SetDefaults()
 		{
 			Projectile.CloneDefaults(ProjectileID.WoodenArrowFriendly);
-			Projectile.ranged = false/* tModPorter Suggestion: Remove. See Item.DamageType */;
+			Projectile.DamageType = DamageClass.Summon;
 			Projectile.minion = true;
 			Projectile.width = 10;
 			Projectile.penetrate = 5;

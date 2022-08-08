@@ -131,7 +131,7 @@ namespace CrystiliumMod.Content.NPCs.Bosses
 			{
 				Vector2 direction = Main.player[NPC.target].Center - NPC.Center;
 				direction.Normalize();
-				Projectile.NewProjectile(NPC.Center.X, NPC.Center.Y, direction.X * 10f, direction.Y * 10f, ModContent.ProjectileType<Slasher>(), 50, 1, Main.myPlayer, 0, 0);
+				Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, direction.X * 10f, direction.Y * 10f, ModContent.ProjectileType<Slasher>(), 50, 1, Main.myPlayer, 0, 0);
 				timer2 = 0;
 			}
 
@@ -147,7 +147,7 @@ namespace CrystiliumMod.Content.NPCs.Bosses
 				{
 					float A = (float)Main.rand.Next(-150, 150) * 0.01f;
 					float B = (float)Main.rand.Next(-150, 150) * 0.01f;
-					Projectile.NewProjectile(NPC.Center.X, NPC.Center.Y, direction.X + A, direction.Y + B, ModContent.ProjectileType<CultistFire>(), 60, 1, Main.myPlayer, 0, 0);
+					Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, direction.X + A, direction.Y + B, ModContent.ProjectileType<CultistFire>(), 60, 1, Main.myPlayer, 0, 0);
 				}
 			}
 
@@ -157,11 +157,11 @@ namespace CrystiliumMod.Content.NPCs.Bosses
 				direction.Normalize();
 				Vector2 newVect = direction.RotatedBy(System.Math.PI / 13);
 				Vector2 newVect2 = direction.RotatedBy(-System.Math.PI / 13);
-				Projectile.NewProjectile(NPC.Center.X, NPC.Center.Y, direction.X * 20f, direction.Y * 20f, ModContent.ProjectileType<Kingwave>(), 55, 1, Main.myPlayer, 0, 0);
+				Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, direction.X * 20f, direction.Y * 20f, ModContent.ProjectileType<Kingwave>(), 55, 1, Main.myPlayer, 0, 0);
 				if (NPC.life <= 46500)
 				{
-					Projectile.NewProjectile(NPC.Center.X, NPC.Center.Y, newVect.X * 20f, newVect.Y * 20f, ModContent.ProjectileType<Kingwave>(), 55, 1, Main.myPlayer, 0, 0);
-					Projectile.NewProjectile(NPC.Center.X, NPC.Center.Y, newVect2.X * 20f, newVect2.Y * 20f, ModContent.ProjectileType<Kingwave>(), 55, 1, Main.myPlayer, 0, 0);
+					Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, newVect.X * 20f, newVect.Y * 20f, ModContent.ProjectileType<Kingwave>(), 55, 1, Main.myPlayer, 0, 0);
+					Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, newVect2.X * 20f, newVect2.Y * 20f, ModContent.ProjectileType<Kingwave>(), 55, 1, Main.myPlayer, 0, 0);
 				}
 				timer4 = 0;
 			}
@@ -172,11 +172,11 @@ namespace CrystiliumMod.Content.NPCs.Bosses
 				direction.Normalize();
 				Vector2 newVect = direction.RotatedBy(System.Math.PI / 20);
 				Vector2 newVect2 = direction.RotatedBy(-System.Math.PI / 20);
-				Projectile.NewProjectile(NPC.Center.X, NPC.Center.Y, direction.X * 20f, direction.Y * 20f, ModContent.ProjectileType<Projectiles.CrystalKing.Kingwave>(), 50, 1, Main.myPlayer, 0, 0);
+				Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, direction.X * 20f, direction.Y * 20f, ModContent.ProjectileType<Projectiles.CrystalKing.Kingwave>(), 50, 1, Main.myPlayer, 0, 0);
 				if (NPC.life <= 23250)
 				{
-					Projectile.NewProjectile(NPC.Center.X, NPC.Center.Y, newVect.X * 20f, newVect.Y * 20f, ModContent.ProjectileType<Kingwave>(), 50, 1, Main.myPlayer, 0, 0);
-					Projectile.NewProjectile(NPC.Center.X, NPC.Center.Y, newVect2.X * 20f, newVect2.Y * 20f, ModContent.ProjectileType<Kingwave>(), 50, 1, Main.myPlayer, 0, 0);
+					Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, newVect.X * 20f, newVect.Y * 20f, ModContent.ProjectileType<Kingwave>(), 50, 1, Main.myPlayer, 0, 0);
+					Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, newVect2.X * 20f, newVect2.Y * 20f, ModContent.ProjectileType<Kingwave>(), 50, 1, Main.myPlayer, 0, 0);
 				}
 
 				timer4 = 0;
@@ -224,7 +224,7 @@ namespace CrystiliumMod.Content.NPCs.Bosses
 		{
 			if (Main.rand.Next(10) == 0)
 			{
-				Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<Items.Placeable.KingTrophy>());
+				Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<Items.Placeable.KingTrophy>());
 			}
 			if (Main.expertMode)
 			{
@@ -234,9 +234,9 @@ namespace CrystiliumMod.Content.NPCs.Bosses
 			{
 				if (Main.rand.Next(10) == 0)
 				{
-					Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<Items.Armor.CrystalMask>());
+					Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<Items.Armor.CrystalMask>());
 				}
-				Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<Items.CrystiliumBar>(), Main.rand.Next(13, 20));
+				Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<Items.CrystiliumBar>(), Main.rand.Next(13, 20));
 
 				var ChoiceChooser = new WeightedRandom<int>();
 				ChoiceChooser.Add(ModContent.ItemType<Cryst>());
@@ -248,7 +248,7 @@ namespace CrystiliumMod.Content.NPCs.Bosses
 				ChoiceChooser.Add(ModContent.ItemType<Shatterocket>());
 				ChoiceChooser.Add(ModContent.ItemType<RoyalShredder>());
 				int Choice = ChoiceChooser;
-				Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Choice);
+				Item.NewItem(NPC.GetSource_Loot(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Choice);
 			}
 			if (!CrystalWorld.downedCrystalKing)
 			{

@@ -37,7 +37,7 @@ namespace CrystiliumMod.Content.Projectiles
 				{
 					float rotation = MathHelper.ToRadians(360 / n * i + deviation);
 					Vector2 perturbedSpeed = new Vector2(Projectile.velocity.X, Projectile.velocity.Y).RotatedBy(rotation);
-					Projectile.NewProjectile(Projectile.Center.X, Projectile.Center.Y, perturbedSpeed.X, perturbedSpeed.Y, Terraria.ID.ProjectileID.RubyBolt, Projectile.damage, Projectile.knockBack, Projectile.owner);
+					Projectile.NewProjectile(Projectile.GetSource_FromAI(), Projectile.Center.X, Projectile.Center.Y, perturbedSpeed.X, perturbedSpeed.Y, Terraria.ID.ProjectileID.RubyBolt, Projectile.damage, Projectile.knockBack, Projectile.owner);
 				}
 			}
 		}

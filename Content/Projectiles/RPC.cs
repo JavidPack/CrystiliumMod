@@ -31,8 +31,8 @@ namespace CrystiliumMod.Content.Projectiles
 		{
 			if (++Projectile.frameCounter % 2 == 0) Projectile.frame++;
 			if (Projectile.frame >= 4) Projectile.frame = 0;
-			string tex = "Projectiles/RPC" + (int)(Projectile.ai[1] + 1);
-			spriteBatch.Draw(Mod.GetTexture(tex), Projectile.Center - Main.screenPosition, new Rectangle(0, Projectile.height * Projectile.frame, Projectile.width, Projectile.height), lightColor, Projectile.rotation, new Vector2(Projectile.width / 2, Projectile.height / 2), Projectile.scale, SpriteEffects.None, 0f);
+			string tex = "CrystiliumMod/Projectiles/RPC" + (int)(Projectile.ai[1] + 1);
+			Main.spriteBatch.Draw(ModContent.Request<Texture2D>(tex).Value, Projectile.Center - Main.screenPosition, new Rectangle(0, Projectile.height * Projectile.frame, Projectile.width, Projectile.height), lightColor, Projectile.rotation, new Vector2(Projectile.width / 2, Projectile.height / 2), Projectile.scale, SpriteEffects.None, 0f);
 			return false;
 		}
 
@@ -49,7 +49,7 @@ namespace CrystiliumMod.Content.Projectiles
 				float rand = Main.rand.NextFloat() * 6.283f;
 				vel = vel.RotatedBy(rand);
 				vel *= 5f;
-				Projectile.NewProjectile(Projectile.Center.X, Projectile.Center.Y + 20, vel.X, vel.Y, Mod.Find<ModProjectile>("Shatter" + (1 + Main.rand.Next(0, 3))).Type, Projectile.damage - 8, 0, Main.myPlayer);
+				Projectile.NewProjectile(Projectile.GetSource_Death(), Projectile.Center.X, Projectile.Center.Y + 20, vel.X, vel.Y, Mod.Find<ModProjectile>("Shatter" + (1 + Main.rand.Next(0, 3))).Type, Projectile.damage - 8, 0, Main.myPlayer);
 			}
 		}
 	}

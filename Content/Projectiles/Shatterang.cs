@@ -18,7 +18,6 @@ namespace CrystiliumMod.Content.Projectiles
 			Projectile.aiStyle = 3;
 			Projectile.friendly = true;
 			Projectile.DamageType = DamageClass.Ranged;
-			Projectile.magic = false/* tModPorter Suggestion: Remove. See Item.DamageType */;
 			Projectile.penetrate = 10;
 			Projectile.timeLeft = 600;
 			Projectile.light = 0.5f;
@@ -33,7 +32,7 @@ namespace CrystiliumMod.Content.Projectiles
 				float rand = Main.rand.NextFloat() * 6.283f;
 				vel = vel.RotatedBy(rand);
 				vel *= 5f;
-				Projectile.NewProjectile(Projectile.Center.X, Projectile.Center.Y + 20, vel.X, vel.Y, Mod.Find<ModProjectile>("Shatter" + (1 + Main.rand.Next(0, 3))).Type, Projectile.damage / 3, 0, Main.myPlayer);
+				Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y + 20, vel.X, vel.Y, Mod.Find<ModProjectile>("Shatter" + (1 + Main.rand.Next(0, 3))).Type, Projectile.damage / 3, 0, Main.myPlayer);
 			}
 		}
 	}

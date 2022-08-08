@@ -4,6 +4,7 @@ using Terraria.Enums;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
+using Terraria.DataStructures;
 
 namespace CrystiliumMod.Content.Tiles
 {
@@ -40,7 +41,7 @@ namespace CrystiliumMod.Content.Tiles
 
 		public override void KillMultiTile(int i, int j, int frameX, int frameY)
 		{
-			Item.NewItem(i * 16, j * 16, 16, 32, ModContent.ItemType<Items.Placeable.CrystalWoodChair>());
+			Item.NewItem(new EntitySource_TileBreak(i, j), i * 16, j * 16, 16, 32, ModContent.ItemType<Items.Placeable.CrystalWoodChair>());
 		}
 	}
 }

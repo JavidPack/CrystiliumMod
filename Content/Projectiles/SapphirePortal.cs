@@ -68,7 +68,7 @@ namespace CrystiliumMod.Content.Projectiles //We need this to basically indicate
 
 					float velX = dirX * factor;
 					float velY = dirY * factor;
-					Projectile.NewProjectile(Projectile.Center.X, Projectile.Center.Y, velX, velY, ModContent.ProjectileType<SapphireSpike>(), Projectile.damage + 4, 0, Main.myPlayer);
+					Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, velX, velY, ModContent.ProjectileType<SapphireSpike>(), Projectile.damage + 4, 0, Main.myPlayer);
 				}
 			}
 		}

@@ -41,7 +41,7 @@ namespace CrystiliumMod.Content.NPCs
 				//spawn gore set
 				for (int i = 1; i <= 4; i++)
 				{
-					Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("Gores/Crystal_Slime_Gore_" + i).Value);
+					Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("Gores/Crystal_Slime_Gore_" + i).Type);
 				}
 			}
 		}
