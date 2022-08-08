@@ -6,6 +6,7 @@ using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.GameContent.ItemDropRules;
+using Terraria.GameContent.Bestiary;
 
 namespace CrystiliumMod.Content.NPCs
 {
@@ -31,7 +32,15 @@ namespace CrystiliumMod.Content.NPCs
 			AnimationType = NPCID.SkeletonArcher;
 		}
 
-		public override float SpawnChance(NPCSpawnInfo spawnInfo)
+        public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
+        {
+			bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[] {
+				CrystiliumMod.SpawnCondition,
+				new FlavorTextBestiaryInfoElement("Too many gamer rgb lights"),
+			});
+		}
+
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
 		{
 			return Main.tile[(int)(spawnInfo.SpawnTileX), (int)(spawnInfo.SpawnTileY)].TileType == ModContent.TileType<Tiles.CrystalBlock>() ? 10f : 0f;
 		}
@@ -87,7 +96,7 @@ namespace CrystiliumMod.Content.NPCs
 			{
 				NPC.netUpdate = true;
 			}
-			if (Main.rand.Next(1000) == 0)
+			if (Main.rand.NextBool(1000))
 			{
 				SoundEngine.PlaySound(SoundID.ZombieMoan, NPC.position);
 			}

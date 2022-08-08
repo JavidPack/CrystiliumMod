@@ -22,7 +22,14 @@ namespace CrystiliumMod
 					break;
 			}
 		}
-	}
+
+		public static CrystaliumSpawnCondition SpawnCondition = new CrystaliumSpawnCondition();
+
+		public override void Unload()
+        {
+			SpawnCondition = null;
+		}
+    }
 
 	enum CrystiliumModMessageType : byte
 	{

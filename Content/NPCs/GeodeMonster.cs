@@ -3,6 +3,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.GameContent.ItemDropRules;
+using Terraria.GameContent.Bestiary;
 
 namespace CrystiliumMod.Content.NPCs
 {
@@ -29,6 +30,14 @@ namespace CrystiliumMod.Content.NPCs
 			NPC.aiStyle = NPCID.GoblinPeon;
 			AIType = NPCID.GoblinPeon;
 			AnimationType = NPCID.SolarDrakomire;
+		}
+
+		public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
+		{
+			bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[] {
+				CrystiliumMod.SpawnCondition,
+				new FlavorTextBestiaryInfoElement("Vineboom"),
+			});
 		}
 
 		public override float SpawnChance(NPCSpawnInfo spawnInfo)
