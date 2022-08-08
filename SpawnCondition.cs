@@ -19,14 +19,16 @@ namespace CrystiliumMod
     {
         public string name = "Crystal biome";
         public Color color = Color.AliceBlue;
+
         public float OrderPriority => 1f;
+
         public Color? GetBackgroundColor() => color;
+        public string GetDisplayNameKey() => name;
         public Asset<Texture2D> GetBackgroundImage() => ModContent.Request<Texture2D>("CrystiliumMod/Content/Biomes/Backgrounds/CrystalBiomeUG1");
 
-        public string GetDisplayNameKey() => name;
         public UIElement GetFilterImage()
         {
-            Asset<Texture2D> asset = null;//Terraria.GameContent.TextureAssets.BlackTile;
+            Asset<Texture2D> asset = ModContent.Request<Texture2D>("CrystiliumMod/Content/Items/CrystalKey");
             return new UIImageFramed(asset, new Rectangle(0, 0, asset.Width(), asset.Height()))
             {
                 HAlign = 0.5f,
