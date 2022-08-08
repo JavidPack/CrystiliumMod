@@ -22,7 +22,6 @@ namespace CrystiliumMod.Content.Tiles
 			DustType = ModContent.DustType<Dusts.Sparkle>();
 			ItemDrop = ModContent.ItemType<Items.Placeable.GlowingCrystal>();
 			AddMapEntry(new Color(200, 200, 200));
-
 			TileObjectData.newTile.CoordinateHeights = new int[]
 			{
 				16,
@@ -35,12 +34,6 @@ namespace CrystiliumMod.Content.Tiles
 		public override void NumDust(int i, int j, bool fail, ref int num)
 		{
 			num = fail ? 1 : 3;
-		}
-
-		public override int SaplingGrowthType(ref int style)/* tModPorter Note: Removed. Use ModTree.SaplingGrowthType */
-		{
-			style = 0;
-			return ModContent.TileType<CrystalSapling>();
 		}
 
 		public override void ModifyLight(int i, int j, ref float r, ref float g, ref float b)

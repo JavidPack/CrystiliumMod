@@ -36,7 +36,7 @@ namespace CrystiliumMod.Content.Tiles
 			name.SetDefault("CrystalWood Chest");
 			AddMapEntry(new Color(250, 140, 250), name, MapChestName);
 			DustType = Mod.Find<ModDust>("CrystalDust").Type;
-			disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
+			TileID.Sets.DisableSmartCursor[Type] = true;
 			AdjTiles = new int[] { TileID.Containers };
 			chest/* tModPorter Note: Removed. Use ContainerName.SetDefault() and TileID.Sets.BasicChest instead */ = "CrystalWood Chest";
 			ChestDrop = ModContent.ItemType<Items.Placeable.CrystalWoodChest>();

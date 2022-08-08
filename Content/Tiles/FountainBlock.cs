@@ -13,12 +13,9 @@ namespace CrystiliumMod.Content.Tiles
 			Main.tileSolid[Type] = true;
 			Main.tileMergeDirt[Type] = true;
 			Main.tileBlockLight[Type] = true;
-			this.MinPick = 999;
 			Main.tileLighted[Type] = false;
-			SetModTree(new CrystalTree())/* tModPorter Note: Removed. Assign GrowsOnTileId to this tile type in ModTree.SetStaticDefaults instead */;
 			DustType = ModContent.DustType<Dusts.Sparkle>();
-			HitSound = 27;
-			soundStyle/* tModPorter Note: Removed. Integrate into HitSound */ = 2;
+			HitSound = SoundID.Shatter;
 			ItemDrop = ModContent.ItemType<Items.Placeable.CrystalBlock>();
 			AddMapEntry(new Color(19, 163, 189));
 		}
@@ -52,18 +49,6 @@ namespace CrystiliumMod.Content.Tiles
 			{
 				WorldGen.PlaceObject(i, j - 1, ModContent.TileType<CrystalSapling>());
 			}
-		}
-
-		public override int SaplingGrowthType(ref int style)/* tModPorter Note: Removed. Use ModTree.SaplingGrowthType */
-		{
-			style = 0;
-			return ModContent.TileType<CrystalSapling>();
-		}
-
-		public override bool KillSound(int i, int j)
-		{
-			SoundEngine.PlaySound(SoundID.Item27, new Vector2(i * 16, j * 16));
-			return false;
 		}
 	}
 }

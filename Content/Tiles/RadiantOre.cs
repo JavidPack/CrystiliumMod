@@ -14,7 +14,8 @@ namespace CrystiliumMod.Content.Tiles
 			Main.tileMergeDirt[Type] = true;
 			Main.tileBlockLight[Type] = true;
 			this.MinPick = 65;
-			Main.tileLighted[Type] = false;
+            Main.tileLighted[Type] = false;
+			HitSound = SoundID.Shatter;
 			DustType = ModContent.DustType<Dusts.Sparkle>();
 			ItemDrop = ModContent.ItemType<Items.Placeable.RadiantOre>();
 			AddMapEntry(new Color(255, 93, 245));
@@ -30,12 +31,6 @@ namespace CrystiliumMod.Content.Tiles
 			r = 1.50f;
 			g = 0.75f;
 			b = 1.25f;
-		}
-
-		public override bool KillSound(int i, int j)
-		{
-			SoundEngine.PlaySound(SoundID.Item27, new Vector2(i * 16, j * 16));
-			return false;
 		}
 	}
 }
