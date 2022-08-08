@@ -44,12 +44,12 @@ namespace CrystiliumMod.Content.NPCs
 				//spawn initial set
 				for (int i = 1; i <= 4; i++)
 				{
-					Gore.NewGore(NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/Geode_Monster_Gore_" + i));
+					Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("Gores/Geode_Monster_Gore_" + i).Type);
 				}
 				//spawn rest of the legs
 				for (int i = 0; i < 3; i++)
 				{
-					Gore.NewGore(NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/Geode_Monster_Gore_2"));
+					Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("Gores/Geode_Monster_Gore_2").Type);
 				}
 			}
 		}

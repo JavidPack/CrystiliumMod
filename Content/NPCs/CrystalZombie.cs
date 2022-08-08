@@ -41,11 +41,11 @@ namespace CrystiliumMod.Content.NPCs
 				//spawn initial set
 				for (int i = 1; i <= 3; i++)
 				{
-					Gore.NewGore(NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/Crystal_Zombie_Gore_" + i));
+					Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("Gores/Crystal_Zombie_Gore_" + i).Type);
 				}
 				//spawn a couple extra bits
-				Gore.NewGore(NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/Crystal_Zombie_Gore_1"));
-				Gore.NewGore(NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/Crystal_Zombie_Gore_1"));
+				Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("Gores/Crystal_Zombie_Gore_1").Type);
+				Gore.NewGore(NPC.GetSource_Death(), NPC.position, NPC.velocity, Mod.Find<ModGore>("Gores/Crystal_Zombie_Gore_1").Type);
 			}
 		}
 
