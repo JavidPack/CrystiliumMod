@@ -14,7 +14,7 @@ namespace CrystiliumMod.Content.Items.Weapons
 		public override void SetDefaults()
 		{
 			Item.damage = 90;
-			Item.DamageType = DamageClass.Throwing;
+			Item.DamageType = DamageClass.Ranged;
 			Item.width = 30;
 			Item.height = 30;
 			Item.useTime = 25;

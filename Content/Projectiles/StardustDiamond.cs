@@ -27,6 +27,7 @@ namespace CrystiliumMod.Content.Projectiles
 			Projectile.minion = true;
 			Projectile.light = 0.75f;
 			Projectile.minionSlots = 0;
+			Projectile.sentry = true;
 		}
 
 		//How the projectile works

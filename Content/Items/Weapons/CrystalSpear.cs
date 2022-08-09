@@ -16,7 +16,7 @@ namespace CrystiliumMod.Content.Items.Weapons
 			Item.useStyle = 1;
 			Item.noUseGraphic = true;
 			Item.UseSound = SoundID.Item1;
-			Item.DamageType = DamageClass.Throwing;
+			Item.DamageType = DamageClass.Ranged;
 			Item.channel = true;
 			Item.noMelee = true;
 			Item.consumable = true;

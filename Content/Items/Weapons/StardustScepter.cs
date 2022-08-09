@@ -42,8 +42,11 @@ namespace CrystiliumMod.Content.Items.Weapons
 			}
 			//projectile spawns at mouse cursor
 			Vector2 value18 = Main.screenPosition + new Vector2((float)Main.mouseX, (float)Main.mouseY);
-			position = value18;
-			return true;
+            position = value18;
+			Projectile proj = Projectile.NewProjectileDirect(source, position, velocity, type, damage, knockback, player.whoAmI);
+			proj.originalDamage = damage;
+			player.UpdateMaxTurrets();
+            return false;
 		}
 
 		public override void AddRecipes()

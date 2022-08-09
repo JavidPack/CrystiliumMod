@@ -19,7 +19,6 @@ namespace CrystiliumMod.Content.Items
 			Item.useAnimation = 15;
 			Item.useTime = 10;
 			Item.useStyle = 1;
-			Item.consumable = true;
 			Item.value = 7000;
 			Item.rare = 5;
 		}

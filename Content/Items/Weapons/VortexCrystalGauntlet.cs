@@ -40,7 +40,6 @@ namespace CrystiliumMod.Content.Items.Weapons
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.FragmentVortex, 10);
 			recipe.AddIngredient(ModContent.ItemType<CrystiliumBar>(), 15);
-			recipe.AddIngredient(ModContent.ItemType<CrystiliumBar>(), 15);
 			recipe.AddTile(TileID.LunarCraftingStation);
 			recipe.Register();
 		}
