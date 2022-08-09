@@ -35,7 +35,7 @@ namespace CrystiliumMod.Content.NPCs
 		{
 			bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[] {
 				CrystiliumMod.SpawnCondition,
-				new FlavorTextBestiaryInfoElement("Zystal Crombie"),
+				new FlavorTextBestiaryInfoElement("An ordinary undead overtaken by crystals. Slivers of sharp crystal constantly split off from its body, infecting new hosts."),
 			});
 		}
 

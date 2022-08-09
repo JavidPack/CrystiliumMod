@@ -30,7 +30,6 @@ namespace CrystiliumMod.Content.NPCs
 				{
 					pool.Add(ModContent.NPCType<CrystalMimic>(), 0.1f); // another modded enemy
 					pool.Add(ModContent.NPCType<GeodeMonster>(), 13f); // another modded enemy
-					pool.Add(ModContent.NPCType<Prismancer>(), 13f); // another modded enemy
 				}
 			}
 		}

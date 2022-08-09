@@ -47,6 +47,14 @@ namespace CrystiliumMod.Content.NPCs.Bosses
 			NPC.boss = true;
 		}
 
+		public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
+		{
+			bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[] {
+				CrystiliumMod.SpawnCondition,
+				new FlavorTextBestiaryInfoElement("The ancient soul of a tyrant king, who became an elemental lich to prolong his reign. In life, he was very fond of swords."),
+			});
+		}
+
 		public override void HitEffect(int hitDirection, double damage)
 		{
 			if (NPC.life <= 0)
@@ -214,8 +222,8 @@ namespace CrystiliumMod.Content.NPCs.Bosses
 			Vector2 origin = new((drawTexture.Width / 2) * 0.5F, (drawTexture.Height / Main.npcFrameCount[NPC.type]) * 0.5F);
 
 			Vector2 drawPos = new(
-				NPC.position.X - Main.screenPosition.X + (NPC.width / 2) - (TextureAssets.Npc[NPC.type].Value.Width / 2) * NPC.scale / 2f + origin.X * NPC.scale,
-				NPC.position.Y - Main.screenPosition.Y + NPC.height - TextureAssets.Npc[NPC.type].Value.Height * NPC.scale / Main.npcFrameCount[NPC.type] + 4f + origin.Y * NPC.scale + NPC.gfxOffY);
+				NPC.position.X - screenPos.X + (NPC.width / 2) - (TextureAssets.Npc[NPC.type].Value.Width / 2) * NPC.scale / 2f + origin.X * NPC.scale,
+				NPC.position.Y - screenPos.Y + NPC.height - TextureAssets.Npc[NPC.type].Value.Height * NPC.scale / Main.npcFrameCount[NPC.type] + 4f + origin.Y * NPC.scale + NPC.gfxOffY);
 
 			SpriteEffects effects = NPC.spriteDirection == -1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally;
 			spriteBatch.Draw(drawTexture, drawPos, NPC.frame, Color.White, NPC.rotation, origin, NPC.scale, effects, 0);

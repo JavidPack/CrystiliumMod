@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.GameContent.Bestiary;
 
 namespace CrystiliumMod.Content.NPCs.Bosses
 {
@@ -29,6 +30,14 @@ namespace CrystiliumMod.Content.NPCs.Bosses
 			NPC.noGravity = true;
 			NPC.value = 60f;
 			NPC.knockBackResist = 0f;
+		}
+
+		public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
+		{
+			bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[] {
+				CrystiliumMod.SpawnCondition,
+				new FlavorTextBestiaryInfoElement("The most devout worshippers of the King of Crystal. They act as anchors for his spirit, distorting the Hallow's blessing to sustain his influence."),
+			});
 		}
 
 		public override void HitEffect(int hitDirection, double damage)

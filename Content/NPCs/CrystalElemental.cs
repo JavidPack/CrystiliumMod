@@ -37,7 +37,7 @@ namespace CrystiliumMod.Content.NPCs
 		{
 			bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[] {
 				CrystiliumMod.SpawnCondition,
-				new FlavorTextBestiaryInfoElement("Element type: Crystal."),
+				new FlavorTextBestiaryInfoElement("A restless spirit bound to a mass of rough crystal through ancient magic. Chaotically teleports around, making it very difficult to hit its small core."),
 			});
 		}
 

@@ -36,7 +36,7 @@ namespace CrystiliumMod.Content.NPCs
         {
 			bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[] {
 				CrystiliumMod.SpawnCondition,
-				new FlavorTextBestiaryInfoElement("Too many gamer rgb lights"),
+				new FlavorTextBestiaryInfoElement("Swears fealty to a long-dead king. As initiation, these cultists take part in a grisly ritual sacrifice - they trade their mortal skin for enchanted crystal."),
 			});
 		}
 

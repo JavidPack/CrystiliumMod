@@ -36,7 +36,7 @@ namespace CrystiliumMod.Content.NPCs
 		{
 			bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[] {
 				CrystiliumMod.SpawnCondition,
-				new FlavorTextBestiaryInfoElement("Vineboom"),
+				new FlavorTextBestiaryInfoElement("A salamander twisted by crystalline energy. Precious gems grow from its rocky hide, cleansed of the warped blessing somehow."),
 			});
 		}
 

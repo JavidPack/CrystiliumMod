@@ -35,7 +35,7 @@ namespace CrystiliumMod.Content.NPCs
 		{
 			bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[] {
 				CrystiliumMod.SpawnCondition,
-				new FlavorTextBestiaryInfoElement("SlystalCrime"),
+				new FlavorTextBestiaryInfoElement("Each time a slime lands on enchanted crystal, a small amount sticks to the surface. These slimes will release these jagged shards to cut prey down to size."),
 			});
 		}
 
