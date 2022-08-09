@@ -7,7 +7,6 @@ namespace CrystiliumMod.Content.Items.Placeable
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Crystal King Trophy");
-			Tooltip.SetDefault("A chest");
 		}
 
 		public override void SetDefaults()

@@ -9,7 +9,6 @@ namespace CrystiliumMod.Content.Items.Accessories
 		{
 			DisplayName.SetDefault("Crystal Monocle");
 			Tooltip.SetDefault("+10% Magic and ranged damage and Crit chance"
-				+"\n+10% Magic and ranged critical strike chance"
 				+"\nColorful distortion");
 		}
 

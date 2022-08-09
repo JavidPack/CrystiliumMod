@@ -14,7 +14,7 @@ namespace CrystiliumMod.Content.Tiles
 			Main.tileMergeDirt[Type] = true;
 			Main.tileBlockLight[Type] = true;
             Main.tileLighted[Type] = false;
-			HitSound = SoundID.Shatter;
+			HitSound = SoundID.Item27;
 			DustType = ModContent.DustType<Dusts.Sparkle>();
 			ItemDrop = ModContent.ItemType<Items.Placeable.PolishedCrystal>();
 			AddMapEntry(new Color(19, 163, 189));

@@ -37,7 +37,7 @@ namespace CrystiliumMod.Content.Items.Armor
 
 		public override void UpdateArmorSet(Player player)
 		{
-			player.setBonus = "10% mangic and summon damage";
+			player.setBonus = "10% magic and summon damage";
 			player.GetDamage(DamageClass.Magic) *= 1.10f;
 			player.GetDamage(DamageClass.Summon) *= 1.10f;
 		}

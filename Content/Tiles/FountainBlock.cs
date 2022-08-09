@@ -15,7 +15,7 @@ namespace CrystiliumMod.Content.Tiles
 			Main.tileBlockLight[Type] = true;
 			Main.tileLighted[Type] = false;
 			DustType = ModContent.DustType<Dusts.Sparkle>();
-			HitSound = SoundID.Shatter;
+			HitSound = SoundID.Item27;
 			ItemDrop = ModContent.ItemType<Items.Placeable.CrystalBlock>();
 			MinPick = 999;
 			AddMapEntry(new Color(19, 163, 189));
