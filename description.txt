@@ -1,4 +1,7 @@
-Crystilium is a mod that focuses around a single new biome, the crystal biome. NOTE: You must
-generate a new world to get any of the content for this mod.
+After 5 years, the Crystilium Mod returns!
 
-Adds a lot of new items, and even a challenging fun new boss.
+A port of a long dead mod from 2016, this mod focuses on the crystal biome, a new biome found underground.
+
+Includes around 100 items, 1 new boss, several new enemies, and other goodies.
+
+Join our discord: https://discord.gg/BsyYWYVRsd

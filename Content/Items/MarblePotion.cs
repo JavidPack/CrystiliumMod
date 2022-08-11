@@ -27,7 +27,6 @@ namespace CrystiliumMod.Content.Items
 			Item.rare = 0;
 			Item.buffType = ModContent.BuffType<Buffs.MarbleBuff>();
 			Item.buffTime = 10000;
-			return;
 		}
 
 		public override void AddRecipes()
@@ -38,6 +37,7 @@ namespace CrystiliumMod.Content.Items
 			recipe.AddIngredient(ItemID.Marble, 5);
 			recipe.AddTile(TileID.Bottles);
 			recipe.Register();
+
 		}
 	}
 }
