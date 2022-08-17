@@ -10,9 +10,9 @@ namespace CrystiliumMod.Content.Items.Weapons
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Shatterocket");
-			Tooltip.SetDefault("Uses RPCs as ammo"
-				+ "\nFires dual volleys of varied shots");
+			// DisplayName.SetDefault("Shatterocket");
+			// Tooltip.SetDefault("Uses RPCs as ammo"
+			// 	+ "\nFires dual volleys of varied shots");
 		}
 
 		public override void SetDefaults()

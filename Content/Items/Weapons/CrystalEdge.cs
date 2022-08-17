@@ -9,8 +9,8 @@ namespace CrystiliumMod.Content.Items.Weapons
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Crystal Edge");
-			Tooltip.SetDefault("'Drenched in holy water'");
+			// DisplayName.SetDefault("Crystal Edge");
+			// Tooltip.SetDefault("'Drenched in holy water'");
 		}
 
 		public override void SetDefaults()

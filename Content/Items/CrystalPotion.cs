@@ -8,8 +8,8 @@ namespace CrystiliumMod.Content.Items
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Crystal Potion");
-			Tooltip.SetDefault("Makes shards of crystals damage nearby enemies.");
+			// DisplayName.SetDefault("Crystal Potion");
+			// Tooltip.SetDefault("Makes shards of crystals damage nearby enemies.");
 		}
 
 		public override void SetDefaults()

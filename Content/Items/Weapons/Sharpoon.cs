@@ -12,8 +12,8 @@ namespace CrystiliumMod.Content.Items.Weapons
 
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Sharp Shooter");
-			Tooltip.SetDefault("'Smooth as a crystal'");
+			// DisplayName.SetDefault("Sharp Shooter");
+			// Tooltip.SetDefault("'Smooth as a crystal'");
 		}
 
 		public override void SetDefaults()

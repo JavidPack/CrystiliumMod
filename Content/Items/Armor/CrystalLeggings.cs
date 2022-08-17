@@ -8,9 +8,9 @@ namespace CrystiliumMod.Content.Items.Armor
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Crystal Leggings");
-			Tooltip.SetDefault("7% increased magic and summon crit chance"
-				+ "\nIncreases maximum minions");
+			// DisplayName.SetDefault("Crystal Leggings");
+			// Tooltip.SetDefault("7% increased magic and summon crit chance"
+			// 	+ "\nIncreases maximum minions");
 		}
 
 		public override void SetDefaults()

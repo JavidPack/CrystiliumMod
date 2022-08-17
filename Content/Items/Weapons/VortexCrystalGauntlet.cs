@@ -10,8 +10,8 @@ namespace CrystiliumMod.Content.Items.Weapons
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Vortex Crystal Gauntlet");
-			Tooltip.SetDefault("'A shiny swirl consumes your arm'");
+			// DisplayName.SetDefault("Vortex Crystal Gauntlet");
+			// Tooltip.SetDefault("'A shiny swirl consumes your arm'");
 			Item.staff[Item.type] = true;
 		}
 

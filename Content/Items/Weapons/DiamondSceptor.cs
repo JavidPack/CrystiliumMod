@@ -11,8 +11,8 @@ namespace CrystiliumMod.Content.Items.Weapons
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Diamond Scepter");
-			Tooltip.SetDefault("Launches an explosive diamond");
+			// DisplayName.SetDefault("Diamond Scepter");
+			// Tooltip.SetDefault("Launches an explosive diamond");
 			Item.staff[Item.type] = true; //this makes the useStyle animate as a staff instead of as a gun
 		}
 

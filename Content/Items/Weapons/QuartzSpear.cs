@@ -7,8 +7,8 @@ namespace CrystiliumMod.Content.Items.Weapons
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Quartz Spear");
-			Tooltip.SetDefault("'Object class - Keter'");
+			// DisplayName.SetDefault("Quartz Spear");
+			// Tooltip.SetDefault("'Object class - Keter'");
 		}
 
 		public override void SetDefaults()

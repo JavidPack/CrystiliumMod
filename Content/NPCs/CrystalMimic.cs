@@ -10,7 +10,7 @@ namespace CrystiliumMod.Content.NPCs
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Crystal Mimic");
+			// DisplayName.SetDefault("Crystal Mimic");
 			Main.npcFrameCount[NPC.type] = Main.npcFrameCount[NPCID.BigMimicHallow];
 		}
 
@@ -34,7 +34,8 @@ namespace CrystiliumMod.Content.NPCs
 		{
 			bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[] {
 				CrystiliumMod.SpawnCondition,
-				new FlavorTextBestiaryInfoElement("Hallowed Mimics tainted by crystalline magic to serve a new master. The crystal cult also attempted to sway smaller mimics, resulting in the petrified chests scattered around their caverns."),
+				new FlavorTextBestiaryInfoElement("Mods.CrystiliumMod.Bestiary.CrystalMimic"),
+				// new FlavorTextBestiaryInfoElement("Hallowed Mimics tainted by crystalline magic to serve a new master. The crystal cult also attempted to sway smaller mimics, resulting in the petrified chests scattered around their caverns."),
 			});
 		}
 

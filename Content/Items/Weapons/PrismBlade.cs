@@ -8,8 +8,8 @@ namespace CrystiliumMod.Content.Items.Weapons
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Prism Blade");
-			Tooltip.SetDefault("Consumes life.");
+			// DisplayName.SetDefault("Prism Blade");
+			// Tooltip.SetDefault("Consumes life.");
 		}
 
 		public override void SetDefaults()

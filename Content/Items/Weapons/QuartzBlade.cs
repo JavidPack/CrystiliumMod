@@ -11,8 +11,8 @@ namespace CrystiliumMod.Content.Items.Weapons
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Quartz Blade");
-			Tooltip.SetDefault("Launches tridents");
+			// DisplayName.SetDefault("Quartz Blade");
+			// Tooltip.SetDefault("Launches tridents");
 		}
 
 		public override void SetDefaults()

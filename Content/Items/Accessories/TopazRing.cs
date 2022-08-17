@@ -8,8 +8,8 @@ namespace CrystiliumMod.Content.Items.Accessories
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Topaz Ring");
-			Tooltip.SetDefault("5% increased movement speed");
+			// DisplayName.SetDefault("Topaz Ring");
+			// Tooltip.SetDefault("5% increased movement speed");
 		}
 
 		public override void SetDefaults()

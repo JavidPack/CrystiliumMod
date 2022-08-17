@@ -8,7 +8,7 @@ namespace CrystiliumMod.Content.Items.Placeable
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Crystal Wood Door");
+			// DisplayName.SetDefault("Crystal Wood Door");
 		}
 
 		public override void SetDefaults()

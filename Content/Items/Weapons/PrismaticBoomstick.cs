@@ -10,8 +10,8 @@ namespace CrystiliumMod.Content.Items.Weapons
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Prismatic Boomstick");
-			Tooltip.SetDefault("Launches rainbow beams");
+			// DisplayName.SetDefault("Prismatic Boomstick");
+			// Tooltip.SetDefault("Launches rainbow beams");
 		}
 
 		public override void SetDefaults()

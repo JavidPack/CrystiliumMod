@@ -1,5 +1,6 @@
 using Terraria;
 using Terraria.ModLoader;
+using Terraria.Localization;
 
 namespace CrystiliumMod.Content.Items.Armor
 {
@@ -8,9 +9,9 @@ namespace CrystiliumMod.Content.Items.Armor
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Crystal Helm");
-			Tooltip.SetDefault("8% increased magic and summon damage"
-				+ "\nIncreases maximum minions");
+			// DisplayName.SetDefault("Crystal Helm");
+			// Tooltip.SetDefault("8% increased magic and summon damage"
+			// 	+ "\nIncreases maximum minions");
 		}
 
 		public override void SetDefaults()
@@ -36,7 +37,8 @@ namespace CrystiliumMod.Content.Items.Armor
 
 		public override void UpdateArmorSet(Player player)
 		{
-			player.setBonus = "Walking leaves behind damaging crystals";
+			player.setBonus = Language.GetTextValue("ArmorSetBonus.CrystalSet");
+			// player.setBonus = "Walking leaves behind damaging crystals";
 			if (player.moveSpeed != 0)
 			{
 				player.AddBuff(ModContent.BuffType<Buffs.CrystalLeak>(), 2);

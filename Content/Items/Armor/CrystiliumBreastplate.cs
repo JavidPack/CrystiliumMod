@@ -9,8 +9,8 @@ namespace CrystiliumMod.Content.Items.Armor
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Crystilium Breastplate");
-			Tooltip.SetDefault("12% increased magic damage");
+			// DisplayName.SetDefault("Crystilium Breastplate");
+			// Tooltip.SetDefault("12% increased magic damage");
 		}
 
 		public override void SetDefaults()

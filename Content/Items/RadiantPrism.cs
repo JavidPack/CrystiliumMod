@@ -9,8 +9,8 @@ namespace CrystiliumMod.Content.Items
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Radiant Prism");
-			Tooltip.SetDefault("It's vibrating intensely");
+			// DisplayName.SetDefault("Radiant Prism");
+			// Tooltip.SetDefault("It's vibrating intensely");
 			Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(4, 4));
 		}
 

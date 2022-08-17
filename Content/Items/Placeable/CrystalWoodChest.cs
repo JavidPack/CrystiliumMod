@@ -7,8 +7,8 @@ namespace CrystiliumMod.Content.Items.Placeable
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Crystal Wood Chest");
-			Tooltip.SetDefault("A chest");
+			// DisplayName.SetDefault("Crystal Wood Chest");
+			// Tooltip.SetDefault("A chest");
 		}
 
 		public override void SetDefaults()

@@ -10,8 +10,8 @@ namespace CrystiliumMod.Content.Items.Weapons
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("True Emerald staff");
-			Tooltip.SetDefault("'Blow all your enemies away'");
+			// DisplayName.SetDefault("True Emerald staff");
+			// Tooltip.SetDefault("'Blow all your enemies away'");
 			Item.staff[Item.type] = true; //this makes the useStyle animate as a staff instead of as a gun
 		}
 

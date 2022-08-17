@@ -8,8 +8,8 @@ namespace CrystiliumMod.Content.Items
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Treasure Bag");
-			Tooltip.SetDefault("Right Click to open");
+			// DisplayName.SetDefault("Treasure Bag");
+			// Tooltip.SetDefault("Right Click to open");
 		}
 
 		public override void SetDefaults()

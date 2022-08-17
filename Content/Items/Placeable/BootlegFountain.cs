@@ -7,8 +7,8 @@ namespace CrystiliumMod.Content.Items.Placeable
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Bootleg Crystal Fountain");
-			Tooltip.SetDefault("'Looks the same, but is illegal in 48 states'");
+			// DisplayName.SetDefault("Bootleg Crystal Fountain");
+			// Tooltip.SetDefault("'Looks the same, but is illegal in 48 states'");
 		}
 
 		public override void SetDefaults()

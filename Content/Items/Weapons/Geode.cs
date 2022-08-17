@@ -7,8 +7,8 @@ namespace CrystiliumMod.Content.Items.Weapons
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Geode");
-			Tooltip.SetDefault("Very sharp when broken");
+			// DisplayName.SetDefault("Geode");
+			// Tooltip.SetDefault("Very sharp when broken");
 		}
 
 		public override void SetDefaults()

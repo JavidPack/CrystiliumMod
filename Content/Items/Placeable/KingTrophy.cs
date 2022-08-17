@@ -6,7 +6,7 @@ namespace CrystiliumMod.Content.Items.Placeable
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Crystal King Trophy");
+			// DisplayName.SetDefault("Crystal King Trophy");
 		}
 
 		public override void SetDefaults()

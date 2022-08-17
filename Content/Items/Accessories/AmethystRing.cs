@@ -8,7 +8,7 @@ namespace CrystiliumMod.Content.Items.Accessories
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Amethyst Ring");
+			// DisplayName.SetDefault("Amethyst Ring");
 		}
 
 		public override void SetDefaults()

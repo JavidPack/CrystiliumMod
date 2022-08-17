@@ -9,8 +9,8 @@ namespace CrystiliumMod.Content.Items.Placeable
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Crystal Wood Torch");
-			Tooltip.SetDefault("A crystal torch.");
+			// DisplayName.SetDefault("Crystal Wood Torch");
+			// Tooltip.SetDefault("A crystal torch.");
 		}
 
 		public override void SetDefaults()

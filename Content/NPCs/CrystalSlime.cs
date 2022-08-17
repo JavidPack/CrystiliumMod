@@ -11,7 +11,7 @@ namespace CrystiliumMod.Content.NPCs
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Crystal Slime");
+			// DisplayName.SetDefault("Crystal Slime");
 			Main.npcFrameCount[NPC.type] = 2;
 		}
 
@@ -35,7 +35,8 @@ namespace CrystiliumMod.Content.NPCs
 		{
 			bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[] {
 				CrystiliumMod.SpawnCondition,
-				new FlavorTextBestiaryInfoElement("Each time a slime lands on enchanted crystal, a small amount sticks to the surface. These slimes will release these jagged shards to cut prey down to size."),
+				new FlavorTextBestiaryInfoElement("Mods.CrystiliumMod.Bestiary.CrystalSlime"),
+				// new FlavorTextBestiaryInfoElement("Each time a slime lands on enchanted crystal, a small amount sticks to the surface. These slimes will release these jagged shards to cut prey down to size."),
 			});
 		}
 

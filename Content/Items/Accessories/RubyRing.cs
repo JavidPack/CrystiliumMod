@@ -8,8 +8,8 @@ namespace CrystiliumMod.Content.Items.Accessories
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Ruby Ring");
-			Tooltip.SetDefault("Your melee weapon flickers with heat");
+			// DisplayName.SetDefault("Ruby Ring");
+			// Tooltip.SetDefault("Your melee weapon flickers with heat");
 		}
 
 		public override void SetDefaults()

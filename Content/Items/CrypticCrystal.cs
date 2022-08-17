@@ -8,9 +8,9 @@ namespace CrystiliumMod.Content.Items
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Cryptic Crystal");
-			Tooltip.SetDefault("Use at the heart of the Crystal"
-				+ "\n'Boast of thy Treasures, and Dragons will come...'");
+			// DisplayName.SetDefault("Cryptic Crystal");
+			// Tooltip.SetDefault("Use at the heart of the Crystal"
+			// 	+ "\n'Boast of thy Treasures, and Dragons will come...'");
 		}
 
 		public override void SetDefaults()

@@ -8,7 +8,7 @@ namespace CrystiliumMod.Content.Items.Weapons
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Shatterang");
+			// DisplayName.SetDefault("Shatterang");
 		}
 
 		public override void SetDefaults()

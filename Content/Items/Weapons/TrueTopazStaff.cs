@@ -14,8 +14,8 @@ namespace CrystiliumMod.Content.Items.Weapons
 
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("True Topaz Staff");
-			Tooltip.SetDefault("'A storm of a billion grains'");
+			// DisplayName.SetDefault("True Topaz Staff");
+			// Tooltip.SetDefault("'A storm of a billion grains'");
 			Item.staff[Item.type] = true;
 		}
 

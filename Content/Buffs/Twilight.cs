@@ -8,8 +8,8 @@ namespace CrystiliumMod.Content.Buffs
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Twilight");
-			Description.SetDefault("+7% damage at night");
+			// DisplayName.SetDefault("Twilight");
+			// Description.SetDefault("+7% damage at night");
 			Main.debuff[Type] = false;
 			Main.pvpBuff[Type] = true;
 			LongerExpertDebuff = false;

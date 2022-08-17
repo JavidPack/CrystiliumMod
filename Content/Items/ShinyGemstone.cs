@@ -6,8 +6,8 @@ namespace CrystiliumMod.Content.Items
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Shining Gemstone");
-			Tooltip.SetDefault("Infused with mana");
+			// DisplayName.SetDefault("Shining Gemstone");
+			// Tooltip.SetDefault("Infused with mana");
 		}
 
 		public override void SetDefaults()

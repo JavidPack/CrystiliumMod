@@ -7,8 +7,8 @@ namespace CrystiliumMod.Content.Items.Weapons
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Slamborite");
-			Tooltip.SetDefault("Drops gemstones");
+			// DisplayName.SetDefault("Slamborite");
+			// Tooltip.SetDefault("Drops gemstones");
 		}
 
 		public override void SetDefaults()

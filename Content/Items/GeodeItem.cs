@@ -10,8 +10,8 @@ namespace CrystiliumMod.Content.Items
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Geode");
-			Tooltip.SetDefault("'I wonder what's inside!'");
+			// DisplayName.SetDefault("Geode");
+			// Tooltip.SetDefault("'I wonder what's inside!'");
 			ItemID.Sets.ExtractinatorMode[Item.type] = Item.type;
 		}
 

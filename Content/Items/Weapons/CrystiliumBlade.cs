@@ -11,8 +11,8 @@ namespace CrystiliumMod.Content.Items.Weapons
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Crystilium Cleaver");
-			Tooltip.SetDefault("Launches crystal embers");
+			// DisplayName.SetDefault("Crystilium Cleaver");
+			// Tooltip.SetDefault("Launches crystal embers");
 		}
 
 		public override void SetDefaults()

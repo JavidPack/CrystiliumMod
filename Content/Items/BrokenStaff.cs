@@ -7,7 +7,7 @@ namespace CrystiliumMod.Content.Items
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Broken Archmage Staff");
+			// DisplayName.SetDefault("Broken Archmage Staff");
 		}
 
 		public override void SetDefaults()

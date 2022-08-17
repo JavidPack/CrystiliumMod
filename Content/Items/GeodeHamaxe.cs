@@ -9,7 +9,7 @@ namespace CrystiliumMod.Content.Items
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Geode Hamaxe");
+			// DisplayName.SetDefault("Geode Hamaxe");
 		}
 
 		public override void SetDefaults()

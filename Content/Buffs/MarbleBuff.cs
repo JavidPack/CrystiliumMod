@@ -8,8 +8,8 @@ namespace CrystiliumMod.Content.Buffs
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Marble Aura");
-			Description.SetDefault("Light as a feather");
+			// DisplayName.SetDefault("Marble Aura");
+			// Description.SetDefault("Light as a feather");
 			Main.debuff[Type] = false;
 			Main.pvpBuff[Type] = true;
 			LongerExpertDebuff = false;

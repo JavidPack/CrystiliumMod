@@ -24,7 +24,7 @@ namespace CrystiliumMod.Content.NPCs.Bosses
 
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Crystal King");
+			// DisplayName.SetDefault("Crystal King");
 			Main.npcFrameCount[NPC.type] = 8;
 		}
 
@@ -51,7 +51,8 @@ namespace CrystiliumMod.Content.NPCs.Bosses
 		{
 			bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[] {
 				CrystiliumMod.SpawnCondition,
-				new FlavorTextBestiaryInfoElement("The ancient soul of a tyrant king, who became an elemental lich to prolong his reign. In life, he was very fond of swords."),
+				new FlavorTextBestiaryInfoElement("Mods.CrystiliumMod.Bestiary.CrystalKing"),
+				// new FlavorTextBestiaryInfoElement("The ancient soul of a tyrant king, who became an elemental lich to prolong his reign. In life, he was very fond of swords."),
 			});
 		}
 

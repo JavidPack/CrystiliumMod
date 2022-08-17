@@ -7,7 +7,7 @@ namespace CrystiliumMod.Content.Items.Placeable
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Crystal Block");
+			// DisplayName.SetDefault("Crystal Block");
 			ItemID.Sets.ExtractinatorMode[Item.type] = Item.type;
 		}
 

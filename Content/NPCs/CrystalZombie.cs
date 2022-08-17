@@ -11,7 +11,7 @@ namespace CrystiliumMod.Content.NPCs
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Crystal Zombie");
+			// DisplayName.SetDefault("Crystal Zombie");
 			Main.npcFrameCount[NPC.type] = Main.npcFrameCount[NPCID.Zombie];
 		}
 
@@ -35,7 +35,8 @@ namespace CrystiliumMod.Content.NPCs
 		{
 			bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[] {
 				CrystiliumMod.SpawnCondition,
-				new FlavorTextBestiaryInfoElement("An ordinary undead overtaken by crystals. Slivers of sharp crystal constantly split off from its body, infecting new hosts."),
+				new FlavorTextBestiaryInfoElement("Mods.CrystiliumMod.Bestiary.CrystalZombie"),
+				// new FlavorTextBestiaryInfoElement("An ordinary undead overtaken by crystals. Slivers of sharp crystal constantly split off from its body, infecting new hosts."),
 			});
 		}
 

@@ -9,9 +9,9 @@ namespace CrystiliumMod.Content.Items.Armor
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Hard Crystal Breastplate");
-			Tooltip.SetDefault("8% increased magic and summon damage"
-				+ "\nIncreases maximum minions");
+			// DisplayName.SetDefault("Hard Crystal Breastplate");
+			// Tooltip.SetDefault("8% increased magic and summon damage"
+			// 	+ "\nIncreases maximum minions");
 		}
 
 		public override void SetDefaults()

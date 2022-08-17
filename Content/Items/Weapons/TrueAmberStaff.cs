@@ -12,8 +12,8 @@ namespace CrystiliumMod.Content.Items.Weapons
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("True Amber Staff");
-			Tooltip.SetDefault("'Blades of Cleopatra'");
+			// DisplayName.SetDefault("True Amber Staff");
+			// Tooltip.SetDefault("'Blades of Cleopatra'");
 			Item.staff[Item.type] = true;
 		}
 

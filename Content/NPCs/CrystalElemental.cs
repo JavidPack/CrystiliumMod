@@ -11,7 +11,7 @@ namespace CrystiliumMod.Content.NPCs
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Crystal Elemental");
+			// DisplayName.SetDefault("Crystal Elemental");
 			Main.npcFrameCount[NPC.type] = Main.npcFrameCount[NPCID.Wraith];
 		}
 
@@ -37,7 +37,8 @@ namespace CrystiliumMod.Content.NPCs
 		{
 			bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[] {
 				CrystiliumMod.SpawnCondition,
-				new FlavorTextBestiaryInfoElement("A restless spirit bound to a mass of rough crystal through ancient magic. Chaotically teleports around, making it very difficult to hit its small core."),
+				new FlavorTextBestiaryInfoElement("Mods.CrystiliumMod.Bestiary.CrystalElemental"),
+				// new FlavorTextBestiaryInfoElement("A restless spirit bound to a mass of rough crystal through ancient magic. Chaotically teleports around, making it very difficult to hit its small core."),
 			});
 		}
 

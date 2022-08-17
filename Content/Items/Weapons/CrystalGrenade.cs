@@ -8,7 +8,7 @@ namespace CrystiliumMod.Content.Items.Weapons
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Crystal Grenade");
+			// DisplayName.SetDefault("Crystal Grenade");
 		}
 
 		public override void SetDefaults()

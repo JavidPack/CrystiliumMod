@@ -7,9 +7,9 @@ namespace CrystiliumMod.Content.Items.Accessories
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Crystal Monocle");
-			Tooltip.SetDefault("+10% Magic and ranged damage and Crit chance"
-				+"\nColorful distortion");
+			// DisplayName.SetDefault("Crystal Monocle");
+			// Tooltip.SetDefault("+10% Magic and ranged damage and Crit chance"
+			//	+"\nColorful distortion");
 		}
 
 		public override void SetDefaults()

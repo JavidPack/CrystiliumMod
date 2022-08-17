@@ -11,8 +11,8 @@ namespace CrystiliumMod.Content.Items.Weapons
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Crystilium Scepter");
-			Tooltip.SetDefault("Launches 5 bolts");
+			// DisplayName.SetDefault("Crystilium Scepter");
+			// Tooltip.SetDefault("Launches 5 bolts");
 			Item.staff[Item.type] = true; //this makes the useStyle animate as a staff instead of as a gun
 		}
 

@@ -7,8 +7,8 @@ namespace CrystiliumMod.Content.Items.Accessories
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Crystal Jewel");
-			Tooltip.SetDefault("Creates dangerous shards when hit");
+			// DisplayName.SetDefault("Crystal Jewel");
+			// Tooltip.SetDefault("Creates dangerous shards when hit");
 		}
 
 		public override void SetDefaults()

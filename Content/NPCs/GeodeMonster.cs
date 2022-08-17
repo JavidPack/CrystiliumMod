@@ -11,7 +11,7 @@ namespace CrystiliumMod.Content.NPCs
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Geode Mutant");
+			// DisplayName.SetDefault("Geode Mutant");
 			Main.npcFrameCount[NPC.type] = 8;
 		}
 
@@ -35,8 +35,8 @@ namespace CrystiliumMod.Content.NPCs
 		public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
 		{
 			bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[] {
-				CrystiliumMod.SpawnCondition,
-				new FlavorTextBestiaryInfoElement("A salamander twisted by crystalline energy. Precious gems grow from its rocky hide, cleansed of the warped blessing somehow."),
+				CrystiliumMod.SpawnCondition,new FlavorTextBestiaryInfoElement("Mods.CrystiliumMod.Bestiary.GeodeMonster"),
+				// new FlavorTextBestiaryInfoElement("A salamander twisted by crystalline energy. Precious gems grow from its rocky hide, cleansed of the warped blessing somehow."),
 			});
 		}
 

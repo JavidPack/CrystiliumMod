@@ -8,8 +8,8 @@ namespace CrystiliumMod.Content.Buffs
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Resonance");
-			Description.SetDefault("+1% magic damage");
+			// DisplayName.SetDefault("Resonance");
+			// Description.SetDefault("+1% magic damage");
 			Main.debuff[Type] = false;
 			Main.pvpBuff[Type] = true;
 			LongerExpertDebuff = false;
