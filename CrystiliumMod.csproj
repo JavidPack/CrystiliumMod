@@ -16,4 +16,18 @@
     <None Include="Content\Gores\Crystal_Archer_Gore_1.png" />
     <None Include="Content\Gores\Crystal_Archer_Gore_2.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Reference Include="FNA">
+      <HintPath>G:\SteamLibrary\steamapps\common\tModLoader\Libraries\FNA\1.0.0\FNA.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>G:\SteamLibrary\steamapps\common\tModLoader\Libraries\log4net\2.0.8.0\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="ReLogic">
+      <HintPath>G:\SteamLibrary\steamapps\common\tModLoader\Libraries\ReLogic\1.0.0\ReLogic.dll</HintPath>
+    </Reference>
+    <Reference Include="tModLoader">
+      <HintPath>G:\SteamLibrary\steamapps\common\tModLoader\tModLoader.dll</HintPath>
+    </Reference>
+  </ItemGroup>
 </Project>

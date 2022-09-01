@@ -42,7 +42,8 @@ namespace CrystiliumMod.Content.Tiles
 			ModTranslation name = CreateMapEntryName();
 			name.SetDefault("Crystal Wood Chest");
 			AddMapEntry(new Color(250, 140, 250), name, MapChestName);
-			DustType = Mod.Find<ModDust>("CrystalDust").Type;
+			if (!Main.dedServ)
+				DustType = Mod.Find<ModDust>("CrystalDust").Type;
 			AdjTiles = new int[] { TileID.Containers };
 			ChestDrop = ModContent.ItemType<Items.Placeable.CrystalWoodChest>();
 			ContainerName.SetDefault("Crystal Wood Chest");
