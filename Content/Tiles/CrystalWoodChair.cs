@@ -29,7 +29,8 @@ namespace CrystiliumMod.Content.Tiles
 			ModTranslation name = CreateMapEntryName();
 			name.SetDefault("CrystalWood Chair");
 			AddMapEntry(new Color(250, 140, 250), name);
-			DustType = Mod.Find<ModDust>("CrystalDust").Type;
+			if (!Main.dedServ)
+				DustType = Mod.Find<ModDust>("CrystalDust").Type;
 			TileID.Sets.DisableSmartCursor[Type] = true;
 			AdjTiles = new int[] { TileID.Chairs };
 		}
