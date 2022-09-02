@@ -16,6 +16,4 @@
     <None Include="Content\Gores\Crystal_Archer_Gore_1.png" />
     <None Include="Content\Gores\Crystal_Archer_Gore_2.png" />
   </ItemGroup>
-  <ItemGroup>
-  </ItemGroup>
 </Project>
