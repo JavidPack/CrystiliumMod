@@ -1,5 +1,5 @@
 author = Graydee, The dev team, jopojelly
-version = 12.0.0
+version = 12.0.1
 displayName = Crystilium
 homepage = https://discord.gg/BsyYWYVRsd
 hideCode = false
