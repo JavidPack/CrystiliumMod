@@ -22,11 +22,11 @@ Mods: {
             CrystalCharm: +1% magic damage
             CrystalHealing: I feel refreshed!
             CrystalLeak: Creates dangerous crystals
-            DragonBoost: 'RYUUGAWA GA TEKI WO KURAU'
+            DragonBoost: "'RYUUGAWA GA TEKI WO KURAU'"
             Dustbreak: +20% critical strike damage
             GraniteBuff: Hard as a rock
             MarbleBuff: Light as a feather
-            QuartzDisease: 'Keter.'
+            QuartzDisease: "'Keter.'"
             ThrowingBoost: +10% throwing damage
             Twilight: +7% damage at night
         }
@@ -213,7 +213,7 @@ Mods: {
                 '''
             HardCrystalLeggings: Increases maximum minions by 2
 
-            BootlegFountain: 'Looks the same, but is illegal in 48 states'
+            BootlegFountain: "'Looks the same, but is illegal in 48 states'"
 
             CrystalWoodChest: A chest
             CrystalWoodTorch: A crystal torch.
@@ -221,24 +221,24 @@ Mods: {
 
             RadiantOre: It's convulsing with mana
 
-            Callandor: 'I DID get this off of a Schmo'
+            Callandor: "'I DID get this off of a Schmo'"
             Cryst: Summons sharp crystals to orbit you
-            CrystalEdge: 'Drenched in holy water'
+            CrystalEdge: "'Drenched in holy water'"
             CrystalStaff: Summons a giant crystal
             
             CrystiliumBlade: Launches crystal embers
             CrystiliumSceptor: Launches 5 bolts
-            Crystishae: 'The powers of three do not set out alone'
+            Crystishae: "'The powers of three do not set out alone'"
 
             DiamondSceptor: Launches an explosive diamond
 
             EnchantedAmberStaff: Creates sharp daggers
-            EnchantedAmethystStaff: 'Made with shadow magic'
-            EnchantedDiamondStaff: 'Zap!'
-            EnchantedEmeraldStaff: 'Wield the power of the forest'
-            EnchantedRubyStaff: 'Feel the fire'
-            EnchantedSapphireStaff: 'Colder than tundra'
-            EnchantedTopazStaff: 'Bouncy gems are the best'
+            EnchantedAmethystStaff: "'Made with shadow magic'"
+            EnchantedDiamondStaff: "'Zap!'"
+            EnchantedEmeraldStaff: "'Wield the power of the forest'"
+            EnchantedRubyStaff: "'Feel the fire'"
+            EnchantedSapphireStaff: "'Colder than tundra'"
+            EnchantedTopazStaff: "'Bouncy gems are the best'"
 
             GemFury: Converts arrows into crystal arrows
             Gemshot: Converts arrows into enchanted crystal arrows
@@ -246,18 +246,18 @@ Mods: {
             Geode: Very sharp when broken
             Glowstrike: Summons a deadly fireball
             ManaDrainer: Steals mana
-            NebulaStaff: 'You feel the power of the cosmos'
+            NebulaStaff: "'You feel the power of the cosmos'"
             PrismaticBoomstick: Launches rainbow beams
 
-            PrismCast: 'Clense your soul'
+            PrismCast: "'Clense your soul'"
             PrismBlade: Consumes life.
             PrismsEye: A spectral bow assists you
 
             QuartzBlade: Launches tridents
-            QuartzSpear: 'Object class - Keter'
+            QuartzSpear: "'Object class - Keter'"
 
-            RoyalShredder: 'Crush your enemies'
-            Sharpoon: 'Smooth as a crystal'
+            RoyalShredder: "'Crush your enemies'"
+            Sharpoon: "'Smooth as a crystal'"
 
             Shatterocket: 
                 '''
@@ -268,20 +268,20 @@ Mods: {
             Shimmer: Rain lead on the enemy
             ShiningTrigger: High damage, low velocity
             Slamborite: Drops gemstones
-            SolarSickle: 'Shines with the ember of sunset'
-            StardustScepter: 'The glimmer of stars resides with you'
-            TerraStaff: 'Ultimate gemstone power'
+            SolarSickle: "'Shines with the ember of sunset'"
+            StardustScepter: "'The glimmer of stars resides with you'"
+            TerraStaff: "'Ultimate gemstone power'"
 
-            TrueAmberStaff: 'Blades of Cleopatra'
-            TrueAmethystStaff: 'Aura of Destruction'
-            TrueDiamondStaff: 'Rain lightning strikes'
-            TrueEmeraldStaff: 'Blow all your enemies away'
-            TrueGemStaff: 'Ultimate gemstone power'
+            TrueAmberStaff: "'Blades of Cleopatra'"
+            TrueAmethystStaff: "'Aura of Destruction'"
+            TrueDiamondStaff: "'Rain lightning strikes'"
+            TrueEmeraldStaff: "'Blow all your enemies away'"
+            TrueGemStaff: "'Ultimate gemstone power'"
             TrueRubyStaff: Shoots homing fireballs of doom
-            TrueSapphireStaff: 'Deadly storm'
-            TrueTopazStaff: 'A storm of a billion grains'
+            TrueSapphireStaff: "'Deadly storm'"
+            TrueTopazStaff: "'A storm of a billion grains'"
 
-            VortexCrystalGauntlet: 'A shiny swirl consumes your arm'
+            VortexCrystalGauntlet: "'A shiny swirl consumes your arm'"
 
             CrypticCrystal: 
                 '''
@@ -295,17 +295,17 @@ Mods: {
             CrystalKey: Unlocks the secrets of the shining caves
             CrystalPotion: Makes shards of crystals damage nearby enemies.
 
-            CrystiliumBar: 'Enchanted with the magic of an entire world'
+            CrystiliumBar: "'Enchanted with the magic of an entire world'"
             DragonWine: Quadruples your damage for 10 seconds, but you lose 200 hp on use
             DustbreakPotion: Increases critical strike damage
 
-            GeodeItem: 'I wonder what's inside!'
+            GeodeItem: "'I wonder what's inside!'"
 
             GranitePotion: More defense, but slower speed
             MarblePotion: Lower defense, but faster speed
 
             RadiantPrism: It's vibrating intensely
-            RPC: 'Rocket Propelled Crystal'
+            RPC: "'Rocket Propelled Crystal'"
             ShinyGemstone: Infused with mana
             TwilightPotion: +7% damage boost at night
         }
