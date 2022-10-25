@@ -27,8 +27,8 @@ namespace CrystiliumMod.Common.Compatibility
                 () => true,
                 new List<int> {ModContent.ItemType<KingTrophy>(), ModContent.ItemType<CrystalMask>()},
                 ModContent.ItemType<CrypticCrystal>(),
-                // Language.GetTextValue("Mods.CrystiliumMod.BossChecklist.BossDescription", [i:"ModContent.ItemType<CrypticCrystal>()"]);
-                "Right click on a Crystal Fountain with a [i:" + ModContent.ItemType<CrypticCrystal>() + "] in your inventory",
+                Language.GetTextValue("Mods.CrystiliumMod.BossChecklist.BossDescription", "[i:" + ModContent.ItemType<CrypticCrystal> () + "]"),
+                //"Right click on a Crystal Fountain with a [i:" + ModContent.ItemType<CrypticCrystal>() + "] in your inventory",
                 null,
                 null // TODO: Custom boss portrait.
             );
