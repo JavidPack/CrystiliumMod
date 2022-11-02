@@ -10,8 +10,8 @@ namespace CrystiliumMod.Content.Items.Weapons
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Solar Crystal Sickle");
-			Tooltip.SetDefault("'Shines with the ember of sunset'");
+			// DisplayName.SetDefault("Solar Crystal Sickle");
+			// Tooltip.SetDefault("'Shines with the ember of sunset'");
 		}
 
 		public override void SetDefaults()

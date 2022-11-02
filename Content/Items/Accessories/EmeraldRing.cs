@@ -8,8 +8,8 @@ namespace CrystiliumMod.Content.Items.Accessories
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Emerald Ring");
-			Tooltip.SetDefault("5% increased damage");
+			// DisplayName.SetDefault("Emerald Ring");
+			// Tooltip.SetDefault("5% increased damage");
 		}
 
 		public override void SetDefaults()

@@ -8,7 +8,7 @@ namespace CrystiliumMod.Content.Items
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Geode Pickaxe");
+			// DisplayName.SetDefault("Geode Pickaxe");
 		}
 
 		public override void SetDefaults()

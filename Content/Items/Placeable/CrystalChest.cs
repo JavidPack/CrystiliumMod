@@ -6,7 +6,7 @@ namespace CrystiliumMod.Content.Items.Placeable
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Crystal Chest");
+			// DisplayName.SetDefault("Crystal Chest");
 		}
 
 		public override void SetDefaults()

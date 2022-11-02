@@ -7,8 +7,8 @@ namespace CrystiliumMod.Content.Items
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Crystal Water Bottle");
-			Tooltip.SetDefault("The water glows a strange hue");
+			// DisplayName.SetDefault("Crystal Water Bottle");
+			// Tooltip.SetDefault("The water glows a strange hue");
 		}
 
 		public override void SetDefaults()

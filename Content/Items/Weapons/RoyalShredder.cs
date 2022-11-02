@@ -12,8 +12,8 @@ namespace CrystiliumMod.Content.Items.Weapons
 
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Royal Shredder");
-			Tooltip.SetDefault("'Crush your enemies'");
+			// DisplayName.SetDefault("Royal Shredder");
+			// Tooltip.SetDefault("'Crush your enemies'");
 		}
 
 		public override void SetDefaults()

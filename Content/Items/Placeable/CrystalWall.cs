@@ -8,7 +8,7 @@ namespace CrystiliumMod.Content.Items.Placeable
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Crystal Wall");
+			// DisplayName.SetDefault("Crystal Wall");
 		}
 
 		public override void SetDefaults()

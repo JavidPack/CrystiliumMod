@@ -6,8 +6,8 @@ namespace CrystiliumMod.Content.Items
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Crystal Bottle");
-			Tooltip.SetDefault("It seems enchanted");
+			// DisplayName.SetDefault("Crystal Bottle");
+			// Tooltip.SetDefault("It seems enchanted");
 		}
 
 		public override void SetDefaults()

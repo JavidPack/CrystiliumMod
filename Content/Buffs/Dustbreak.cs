@@ -8,8 +8,8 @@ namespace CrystiliumMod.Content.Buffs
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Dustbreak");
-			Description.SetDefault("+20% critical strike damage");
+			// DisplayName.SetDefault("Dustbreak");
+			// Description.SetDefault("+20% critical strike damage");
 			Main.debuff[Type] = false;
 			Main.pvpBuff[Type] = true;
 			LongerExpertDebuff = false;

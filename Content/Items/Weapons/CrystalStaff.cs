@@ -8,8 +8,8 @@ namespace CrystiliumMod.Content.Items.Weapons
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Crystal Staff");
-			Tooltip.SetDefault("Summons a giant crystal");
+			// DisplayName.SetDefault("Crystal Staff");
+			// Tooltip.SetDefault("Summons a giant crystal");
 			Item.staff[Item.type] = true; //this makes the useStyle animate as a staff instead of as a gun
 		}
 

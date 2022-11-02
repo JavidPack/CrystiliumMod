@@ -8,8 +8,8 @@ namespace CrystiliumMod.Content.Buffs
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Dragon Fury");
-			Description.SetDefault("'RYUUGAWA GA TEKI WO KURAU'");
+			// DisplayName.SetDefault("Dragon Fury");
+			// Description.SetDefault("'RYUUGAWA GA TEKI WO KURAU'");
 			Main.debuff[Type] = false;
 			Main.pvpBuff[Type] = true;
 			LongerExpertDebuff = false;

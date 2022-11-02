@@ -8,8 +8,8 @@ namespace CrystiliumMod.Content.Items
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Twilight Potion");
-			Tooltip.SetDefault("+7% damage boost at night");
+			// DisplayName.SetDefault("Twilight Potion");
+			// Tooltip.SetDefault("+7% damage boost at night");
 		}
 
 		public override void SetDefaults()

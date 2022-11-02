@@ -10,8 +10,8 @@ namespace CrystiliumMod.Content.Items.Weapons
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Gemshot");
-			Tooltip.SetDefault("Converts arrows into enchanted crystal arrows");
+			// DisplayName.SetDefault("Gemshot");
+			// Tooltip.SetDefault("Converts arrows into enchanted crystal arrows");
 		}
 
 		public override void SetDefaults()

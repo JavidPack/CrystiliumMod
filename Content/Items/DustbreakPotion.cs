@@ -8,8 +8,8 @@ namespace CrystiliumMod.Content.Items
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Dustbreak Potion");
-			Tooltip.SetDefault("Increases critical strike damage");
+			// DisplayName.SetDefault("Dustbreak Potion");
+			// Tooltip.SetDefault("Increases critical strike damage");
 		}
 
 		public override void SetDefaults()

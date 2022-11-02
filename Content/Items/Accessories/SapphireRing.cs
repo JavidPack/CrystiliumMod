@@ -8,8 +8,8 @@ namespace CrystiliumMod.Content.Items.Accessories
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Sapphire Ring");
-			Tooltip.SetDefault("5% increased melee speed");
+			// DisplayName.SetDefault("Sapphire Ring");
+			// Tooltip.SetDefault("5% increased melee speed");
 		}
 
 		public override void SetDefaults()

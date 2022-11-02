@@ -10,8 +10,8 @@ namespace CrystiliumMod.Content.Items.Weapons
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Prism's Eye");
-			Tooltip.SetDefault("A spectral bow assists you");
+			// DisplayName.SetDefault("Prism's Eye");
+			// Tooltip.SetDefault("A spectral bow assists you");
 		}
 
 		public override void SetDefaults()

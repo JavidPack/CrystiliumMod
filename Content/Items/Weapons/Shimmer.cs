@@ -10,8 +10,8 @@ namespace CrystiliumMod.Content.Items.Weapons
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Shimmer");
-			Tooltip.SetDefault("Rain lead on the enemy");
+			// DisplayName.SetDefault("Shimmer");
+			// Tooltip.SetDefault("Rain lead on the enemy");
 		}
 
 		public override void SetDefaults()

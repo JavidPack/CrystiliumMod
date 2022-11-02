@@ -8,8 +8,8 @@ namespace CrystiliumMod.Content.Items
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Marble Potion");
-			Tooltip.SetDefault("Lower defense, but faster speed");
+			// DisplayName.SetDefault("Marble Potion");
+			// Tooltip.SetDefault("Lower defense, but faster speed");
 		}
 
 		public override void SetDefaults()

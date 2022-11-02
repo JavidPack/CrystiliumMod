@@ -11,8 +11,8 @@ namespace CrystiliumMod.Content.Items.Weapons
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("True Amethyst Staff");
-			Tooltip.SetDefault("'Aura of Destruction'");
+			// DisplayName.SetDefault("True Amethyst Staff");
+			// Tooltip.SetDefault("'Aura of Destruction'");
 			Item.staff[Item.type] = true;
 		}
 

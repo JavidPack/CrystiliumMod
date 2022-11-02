@@ -10,8 +10,8 @@ namespace CrystiliumMod.Content.Items.Weapons
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Crystoshet");
-			Tooltip.SetDefault("'The powers of three do not set out alone'");
+			// DisplayName.SetDefault("Crystoshet");
+			// Tooltip.SetDefault("'The powers of three do not set out alone'");
 		}
 
 		public override void SetDefaults()

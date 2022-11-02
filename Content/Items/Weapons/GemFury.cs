@@ -11,8 +11,8 @@ namespace CrystiliumMod.Content.Items.Weapons
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Gem Fury");
-			Tooltip.SetDefault("Converts arrows into crystal arrows");
+			// DisplayName.SetDefault("Gem Fury");
+			// Tooltip.SetDefault("Converts arrows into crystal arrows");
 		}
 
 		public override void SetDefaults()

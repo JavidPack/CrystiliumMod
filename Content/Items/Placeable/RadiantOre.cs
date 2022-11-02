@@ -7,8 +7,8 @@ namespace CrystiliumMod.Content.Items.Placeable
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Radiant Ore");
-			Tooltip.SetDefault("It's convulsing with mana");
+			// DisplayName.SetDefault("Radiant Ore");
+			// Tooltip.SetDefault("It's convulsing with mana");
 			ItemID.Sets.ExtractinatorMode[Item.type] = Item.type;
 		}
 

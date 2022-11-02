@@ -9,8 +9,8 @@ namespace CrystiliumMod.Content.Items.Weapons
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Enchanted Diamond Staff");
-			Tooltip.SetDefault("'Zap!'");
+			// DisplayName.SetDefault("Enchanted Diamond Staff");
+			// Tooltip.SetDefault("'Zap!'");
 			Item.staff[Item.type] = true;
 		}
 

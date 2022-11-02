@@ -1,0 +1,348 @@
+Mods: {
+	CrystiliumMod: {
+		BossChecklist: {
+			BossName: Crystal King
+			BossDescription: Right click on a Crystal Fountain with a {0} in your inventory
+		}
+
+        BuffName: {
+            CrystalCharm: Resonance
+            CrystalHealing: Crystal Healing
+            CrystalLeak: Crystal Leak
+            DragonBoost: Dragon Fury
+            Dustbreak: Dustbreak
+            GraniteBuff: Granite Skin
+            MarbleBuff: Marble Aura
+            QuartzDisease: Quartz Disease
+            ThrowingBoost: Throwing Boost
+            Twilight: Twilight
+		}
+
+        BuffDescription: {
+            CrystalCharm: +1% magic damage
+            CrystalHealing: I feel refreshed!
+            CrystalLeak: Creates dangerous crystals
+            DragonBoost: "'RYUUGAWA GA TEKI WO KURAU'"
+            Dustbreak: +20% critical strike damage
+            GraniteBuff: Hard as a rock
+            MarbleBuff: Light as a feather
+            QuartzDisease: "'Keter.'"
+            ThrowingBoost: +10% throwing damage
+            Twilight: +7% damage at night
+        }
+
+        ItemName: {
+            AmberRing: Amber Ring
+            AmethystRing: Amethyst Ring
+            CrystalJewel: Crystal Jewel
+            CrystalMonocle: Crystal Monocle
+            EmeraldRing: Emerald Ring
+            RubyRing: Ruby Ring
+            SapphireRing: Sapphire Ring
+            TopazRing: Topaz Ring
+
+            CrystalBreastplate: Crystal Breastplate
+            CrystalHelm: Crystal Helm
+            CrystalLeggings: Crystal Leggings
+
+            CrystalMask: Crystal King Mask
+
+            CrystiliumBreastplate: Crystilium Breastplate
+            CrystiliumGreaves: Crystilium Greaves
+            CrystiliumHelmet: Crystilium Helmet
+
+            HardCrystalBreastplate: Hard Crystal Breastplate
+            HardCrystalHelm: Hard Crystal Helm
+            HardCrystalLeggings: Hard Crystal Leggings
+
+            BootlegFountain: Bootleg Crystal Fountain
+
+            CrystalBlock: Crystal Block
+            CrystalChest: Crystal Chest
+            CrystalWall: Crystal Wall
+            CrystalWood: Crystal Wood
+
+            CrystalWoodChair: Crystal Wood Chair
+            CrystalWoodChest: Crystal Wood Chest
+            CrystalWoodDoor: Crystal Wood Door
+            CrystalWoodTorch: Crystal Wood Torch
+            CrystalWoodWall: Crystal Wood Wall
+            CrystalWoodWorkbench: Crystal Wood Workbench
+
+            GlowingCrystal: Glowing Crystal
+
+            KingTrophy: Crystal King Trophy
+            PolishedCrystal: Polished Crystal Block
+
+            RadiantOre: Radiant Ore
+
+            Callandor: Callandor
+            Cryst: Cryst
+            CrystalEdge: Crystal Edge
+            CrystalGrenade: Crystal Grenade
+            CrystalSpear: Crystal Spear
+            CrystalStaff: Crystal Staff
+
+            CrystiliumBlade: Crystilium Cleaver
+            CrystiliumBow: Crystilium Bow
+            CrystiliumSceptor: Crystilium Scepter
+            Crystishae: Crystoshet
+
+            DiamondSceptor: Diamond Scepter
+
+            EnchantedAmberStaff: Enchanted Amber Staff
+            EnchantedAmethystStaff: Enchanted amethyst staff
+            EnchantedDiamondStaff: Enchanted Diamond Staff
+            EnchantedEmeraldStaff: Enchanted Emerald staff
+            EnchantedRubyStaff: Enchanted Ruby Staff
+            EnchantedSapphireStaff: Enchanted Sapphire Staff
+            EnchantedTopazStaff: Enchanted Topaz Staff
+
+            GemFury: Gem Fury
+            Gemshot: Gemshot
+
+            Geode: Geode
+            Glowstrike: Glowstrike
+            ManaDrainer: Mana Drainer
+            NebulaStaff: Nebula Crystal Staff
+            PrismaticBoomstick: Prismatic Boomstick
+            PrismCast: Prismatic Catalyst
+            PrismBlade: Prism Blade
+            PrismsEye: Prism's Eye
+
+            QuartzBlade: Quartz Blade
+            QuartzSpear: Quartz Spear
+
+            RoyalShredder: Royal Shredder
+            Sharpoon: Sharp Shooter
+
+            Shatterang: Shatterang
+            Shatterocket: Shatterocket
+
+            Shimmer: Shimmer
+            ShiningTrigger: Shining Trigger
+            Slamborite: Slamborite
+            SolarSickle: Solar Crystal Sickle
+            StardustScepter: Stardust Crystal Scepter
+            TerraStaff: Ultimate Gem Staff
+
+            TrueAmberStaff: True Amber Staff
+            TrueAmethystStaff: True Amethyst Staff
+            TrueDiamondStaff: True Diamond Staff
+            TrueEmeraldStaff: True Emerald staff
+            TrueGemStaff: Enchanted Gem Staff
+            TrueRubyStaff: True Ruby Staff
+            TrueSapphireStaff: True Sapphire Staff
+            TrueTopazStaff: True Topaz Staff
+
+            VortexCrystalGauntlet: Vortex Crystal Gauntlet
+            BrokenStaff: Broken Archmage Staff
+            CrypticCrystal: Cryptic Crystal
+
+            CrystalBag: Treasure Bag
+            CrystalBottle: Crystal Bottle
+            CrystalBottleWater: Crystal Water Bottle
+            CrystalKey: Crystal Key
+            CrystalPotion: Crystal Potion
+
+            CrystiliumBar: Crystilium Bar
+            DragonWine: Dragon Potion
+            DustbreakPotion: Dustbreak Potion
+
+            EnchantedGeode: Enchanted Geode
+            GeodeHamaxe: Geode Hamaxe
+            GeodeItem: Geode
+            GeodePickaxe: Geode Pickaxe
+
+            GranitePotion: Granite Potion
+            MarblePotion: Marble Potion
+
+            RadiantPrism: Radiant Prism
+            RPC: RPC
+            ShinyGemstone: Shining Gemstone
+            TwilightPotion: Twilight Potion
+        }
+
+        ItemTooltip: {
+            AmberRing: Slightly increases life regen
+            CrystalJewel: Creates dangerous shards when hit
+            CrystalMonocle: 
+                '''
+                +10% Magic and ranged damage and Crit chance
+                Colorful distortion
+                '''
+            EmeraldRing: 5% increased damage
+            RubyRing: Your melee weapon flickers with heat
+            SapphireRing: 5% increased melee speed
+            TopazRing: 5% increased movement speed
+
+            CrystalBreastplate: 
+                '''
+                10% increased magic and summon damage
+                Increases maximum minions
+                '''
+            CrystalHelm: 
+                '''
+                8% increased magic and summon damage
+                Increases maximum minions
+                '''
+            CrystalLeggings: 
+                '''
+                7% increased magic and summon crit chance
+                Increases maximum minions
+                '''
+            
+            CrystalMask: Vanity item
+
+            CrystiliumBreastplate: 12% increased magic damage
+            CrystiliumGreaves: +9% magic crit chance
+            CrystiliumHelmet: 
+                '''
+                9% increased magic damage
+                +60 mana
+                '''
+            HardCrystalBreastplate: 
+                '''
+                8% increased magic and summon damage
+                Increases maximum minions
+                '''
+            HardCrystalHelm: 
+                '''
+                6% increased magic and summon damage
+                Increases maximum minions
+                '''
+            HardCrystalLeggings: Increases maximum minions by 2
+
+            BootlegFountain: "'Looks the same, but is illegal in 48 states'"
+
+            CrystalWoodChest: A chest
+            CrystalWoodTorch: A crystal torch.
+            CrystalWoodWall: This is a crystal wood wall.
+
+            RadiantOre: It's convulsing with mana
+
+            Callandor: "'I DID get this off of a Schmo'"
+            Cryst: Summons sharp crystals to orbit you
+            CrystalEdge: "'Drenched in holy water'"
+            CrystalStaff: Summons a giant crystal
+            
+            CrystiliumBlade: Launches crystal embers
+            CrystiliumSceptor: Launches 5 bolts
+            Crystishae: "'The powers of three do not set out alone'"
+
+            DiamondSceptor: Launches an explosive diamond
+
+            EnchantedAmberStaff: Creates sharp daggers
+            EnchantedAmethystStaff: "'Made with shadow magic'"
+            EnchantedDiamondStaff: "'Zap!'"
+            EnchantedEmeraldStaff: "'Wield the power of the forest'"
+            EnchantedRubyStaff: "'Feel the fire'"
+            EnchantedSapphireStaff: "'Colder than tundra'"
+            EnchantedTopazStaff: "'Bouncy gems are the best'"
+
+            GemFury: Converts arrows into crystal arrows
+            Gemshot: Converts arrows into enchanted crystal arrows
+            
+            Geode: Very sharp when broken
+            Glowstrike: Summons a deadly fireball
+            ManaDrainer: Steals mana
+            NebulaStaff: "'You feel the power of the cosmos'"
+            PrismaticBoomstick: Launches rainbow beams
+
+            PrismCast: "'Clense your soul'"
+            PrismBlade: Consumes life.
+            PrismsEye: A spectral bow assists you
+
+            QuartzBlade: Launches tridents
+            QuartzSpear: "'Object class - Keter'"
+
+            RoyalShredder: "'Crush your enemies'"
+            Sharpoon: "'Smooth as a crystal'"
+
+            Shatterocket: 
+                '''
+                Uses RPCs as ammo
+                Fires dual volleys of varied shots
+                '''
+            
+            Shimmer: Rain lead on the enemy
+            ShiningTrigger: High damage, low velocity
+            Slamborite: Drops gemstones
+            SolarSickle: "'Shines with the ember of sunset'"
+            StardustScepter: "'The glimmer of stars resides with you'"
+            TerraStaff: "'Ultimate gemstone power'"
+
+            TrueAmberStaff: "'Blades of Cleopatra'"
+            TrueAmethystStaff: "'Aura of Destruction'"
+            TrueDiamondStaff: "'Rain lightning strikes'"
+            TrueEmeraldStaff: "'Blow all your enemies away'"
+            TrueGemStaff: "'Ultimate gemstone power'"
+            TrueRubyStaff: Shoots homing fireballs of doom
+            TrueSapphireStaff: "'Deadly storm'"
+            TrueTopazStaff: "'A storm of a billion grains'"
+
+            VortexCrystalGauntlet: "'A shiny swirl consumes your arm'"
+
+            CrypticCrystal: 
+                '''
+                Use at the heart of the Crystal
+                'Boast of thy Treasures, and Dragons will come...'
+                '''
+
+            CrystalBag: Right Click to open
+            CrystalBottle: It seems enchanted
+            CrystalBottleWater: The water glows a strange hue
+            CrystalKey: Unlocks the secrets of the shining caves
+            CrystalPotion: Makes shards of crystals damage nearby enemies.
+
+            CrystiliumBar: "'Enchanted with the magic of an entire world'"
+            DragonWine: Quadruples your damage for 10 seconds, but you lose 200 hp on use
+            DustbreakPotion: Increases critical strike damage
+
+            GeodeItem: "'I wonder what's inside!'"
+
+            GranitePotion: More defense, but slower speed
+            MarblePotion: Lower defense, but faster speed
+
+            RadiantPrism: It's vibrating intensely
+            RPC: "'Rocket Propelled Crystal'"
+            ShinyGemstone: Infused with mana
+            TwilightPotion: +7% damage boost at night
+        }
+
+        ArmorSetBonus: {
+			CrystalSet: Walking leaves behind damaging crystals
+
+            CrystiliumSet: Consecutive hits give you more damage
+
+            HardCrystalSet: 10% magic and summon damage
+        }
+
+        NPCName: {
+            CrystalCultist: Crystal Cultist
+            CrystalKing: Crystal King
+            CrystalArcher: Crystal Archer
+            CrystalElemental: Crystal Elemental
+            CrystalMimic: Crystal Mimic
+            CrystalSlime: Crystal Slime
+            CrystalZombie: Crystal Zombie
+            GeodeMonster: Geode Mutant
+        }
+
+        Bestiary: {
+            CrystalCultist: The most devout worshippers of the King of Crystal. They act as anchors for his spirit, distorting the Hallow's blessing to sustain his influence.
+            CrystalKing: The ancient soul of a tyrant king, who became an elemental lich to prolong his reign. In life, he was very fond of swords.
+            CrystalArcher: Swears fealty to a long-dead king. As initiation, these cultists take part in a grisly ritual sacrifice - they trade their mortal skin for enchanted crystal.
+            CrystalElemental: A restless spirit bound to a mass of rough crystal through ancient magic. Chaotically teleports around, making it very difficult to hit its small core.
+            CrystalMimic: Hallowed Mimics tainted by crystalline magic to serve a new master. The crystal cult also attempted to sway smaller mimics, resulting in the petrified chests scattered around their caverns.
+            CrystalSlime: Each time a slime lands on enchanted crystal, a small amount sticks to the surface. These slimes will release these jagged shards to cut prey down to size.
+            CrystalZombie: An ordinary undead overtaken by crystals. Slivers of sharp crystal constantly split off from its body, infecting new hosts.
+            GeodeMonster: A salamander twisted by crystalline energy. Precious gems grow from its rocky hide, cleansed of the warped blessing somehow.
+        }
+
+        // WorldGeneration: {
+        //     PolishingCrystals: Polishing crystals
+        //     PolishingMoreCrystals: Polishing more crystals
+        // }  
+    }
+}

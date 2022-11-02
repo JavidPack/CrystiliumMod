@@ -8,7 +8,7 @@ namespace CrystiliumMod.Content.Items.Placeable
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Crystal Wood Workbench");
+			// DisplayName.SetDefault("Crystal Wood Workbench");
 		}
 
 		public override void SetDefaults()

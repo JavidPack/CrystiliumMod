@@ -6,8 +6,8 @@ namespace CrystiliumMod.Content.Items
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("RPC");
-			Tooltip.SetDefault("'Rocket Propelled Crystal'");
+			// DisplayName.SetDefault("RPC");
+			// Tooltip.SetDefault("'Rocket Propelled Crystal'");
 		}
 
 		public override void SetDefaults()

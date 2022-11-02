@@ -12,7 +12,7 @@ namespace CrystiliumMod.Content.NPCs.Bosses
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Crystal Cultist");
+			// DisplayName.SetDefault("Crystal Cultist");
 			Main.npcFrameCount[NPC.type] = 7;
 		}
 
@@ -36,7 +36,8 @@ namespace CrystiliumMod.Content.NPCs.Bosses
 		{
 			bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[] {
 				CrystiliumMod.SpawnCondition,
-				new FlavorTextBestiaryInfoElement("The most devout worshippers of the King of Crystal. They act as anchors for his spirit, distorting the Hallow's blessing to sustain his influence."),
+				new FlavorTextBestiaryInfoElement("Mods.CrystiliumMod.Bestiary.CrystalCultist"),
+				// new FlavorTextBestiaryInfoElement("The most devout worshippers of the King of Crystal. They act as anchors for his spirit, distorting the Hallow's blessing to sustain his influence."),
 			});
 		}
 

@@ -8,8 +8,8 @@ namespace CrystiliumMod.Content.Buffs
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Crystal Leak");
-			Description.SetDefault("Creates dangerous crystals");
+			// DisplayName.SetDefault("Crystal Leak");
+			// Description.SetDefault("Creates dangerous crystals");
 			Main.debuff[Type] = false;
 			Main.pvpBuff[Type] = true;
 			LongerExpertDebuff = false;

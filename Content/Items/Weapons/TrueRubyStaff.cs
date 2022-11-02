@@ -8,8 +8,8 @@ namespace CrystiliumMod.Content.Items.Weapons
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("True Ruby Staff");
-			Tooltip.SetDefault("Shoots homing fireballs of doom");
+			// DisplayName.SetDefault("True Ruby Staff");
+			// Tooltip.SetDefault("Shoots homing fireballs of doom");
 			Item.staff[Item.type] = true;
 		}
 

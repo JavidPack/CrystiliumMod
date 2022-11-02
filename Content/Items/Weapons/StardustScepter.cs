@@ -10,8 +10,8 @@ namespace CrystiliumMod.Content.Items.Weapons
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Stardust Crystal Scepter");
-			Tooltip.SetDefault("'The glimmer of stars resides with you'");
+			// DisplayName.SetDefault("Stardust Crystal Scepter");
+			// Tooltip.SetDefault("'The glimmer of stars resides with you'");
 		}
 
 		public override void SetDefaults()

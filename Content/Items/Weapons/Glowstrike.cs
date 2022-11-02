@@ -9,8 +9,8 @@ namespace CrystiliumMod.Content.Items.Weapons
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Glowstrike");
-			Tooltip.SetDefault("Summons a deadly fireball");
+			// DisplayName.SetDefault("Glowstrike");
+			// Tooltip.SetDefault("Summons a deadly fireball");
 			Item.staff[Item.type] = true; //this makes the useStyle animate as a staff instead of as a gun
 		}
 

@@ -10,8 +10,8 @@ namespace CrystiliumMod.Content.Items.Weapons
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Enchanted Ruby Staff");
-			Tooltip.SetDefault("'Feel the fire'");
+			// DisplayName.SetDefault("Enchanted Ruby Staff");
+			// Tooltip.SetDefault("'Feel the fire'");
 			Item.staff[Item.type] = true;
 		}
 

@@ -8,8 +8,8 @@ namespace CrystiliumMod.Content.Items.Weapons
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Nebula Crystal Staff");
-			Tooltip.SetDefault("'You feel the power of the cosmos'");
+			// DisplayName.SetDefault("Nebula Crystal Staff");
+			// Tooltip.SetDefault("'You feel the power of the cosmos'");
 			Item.staff[Item.type] = true;
 		}
 

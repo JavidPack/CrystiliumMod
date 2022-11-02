@@ -6,8 +6,8 @@ namespace CrystiliumMod.Content.Items
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Crystilium Bar");
-			Tooltip.SetDefault("`Enchanted with the magic of an entire world`");
+			// DisplayName.SetDefault("Crystilium Bar");
+			// Tooltip.SetDefault("`Enchanted with the magic of an entire world`");
 		}
 
 		public override void SetDefaults()

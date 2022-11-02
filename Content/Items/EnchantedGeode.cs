@@ -6,7 +6,7 @@ namespace CrystiliumMod.Content.Items
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Enchanted Geode");
+			// DisplayName.SetDefault("Enchanted Geode");
 		}
 
 		public override void SetDefaults()

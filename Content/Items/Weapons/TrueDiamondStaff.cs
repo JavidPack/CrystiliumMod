@@ -11,8 +11,8 @@ namespace CrystiliumMod.Content.Items.Weapons
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("True Diamond Staff");
-			Tooltip.SetDefault("'Rain lightning strikes'");
+			// DisplayName.SetDefault("True Diamond Staff");
+			// Tooltip.SetDefault("'Rain lightning strikes'");
 			Item.staff[Item.type] = true;
 		}
 

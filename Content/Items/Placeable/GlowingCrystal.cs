@@ -6,7 +6,7 @@ namespace CrystiliumMod.Content.Items.Placeable
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Glowing Crystal");
+			// DisplayName.SetDefault("Glowing Crystal");
 		}
 
 		public override void SetDefaults()

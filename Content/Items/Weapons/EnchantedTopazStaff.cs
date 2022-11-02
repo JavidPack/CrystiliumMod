@@ -9,8 +9,8 @@ namespace CrystiliumMod.Content.Items.Weapons
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Enchanted Topaz Staff");
-			Tooltip.SetDefault("'Bouncy gems are the best'");
+			// DisplayName.SetDefault("Enchanted Topaz Staff");
+			// Tooltip.SetDefault("'Bouncy gems are the best'");
 			Item.staff[Item.type] = true;
 		}
 

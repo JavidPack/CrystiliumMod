@@ -7,8 +7,8 @@ namespace CrystiliumMod.Content.Items.Weapons
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Shining Trigger");
-			Tooltip.SetDefault("High damage, low velocity");
+			// DisplayName.SetDefault("Shining Trigger");
+			// Tooltip.SetDefault("High damage, low velocity");
 		}
 
 		public override void SetDefaults()

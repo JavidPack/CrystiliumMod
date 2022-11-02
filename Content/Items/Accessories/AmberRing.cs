@@ -8,8 +8,8 @@ namespace CrystiliumMod.Content.Items.Accessories
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Amber Ring");
-			Tooltip.SetDefault("Slightly increases life regen");
+			// DisplayName.SetDefault("Amber Ring");
+			// Tooltip.SetDefault("Slightly increases life regen");
 		}
 
 		public override void SetDefaults()

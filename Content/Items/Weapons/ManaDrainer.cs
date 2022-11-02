@@ -8,8 +8,8 @@ namespace CrystiliumMod.Content.Items.Weapons
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Mana Drainer");
-			Tooltip.SetDefault("Steals mana");
+			// DisplayName.SetDefault("Mana Drainer");
+			// Tooltip.SetDefault("Steals mana");
 			Item.staff[Item.type] = true;
 		}
 

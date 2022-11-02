@@ -10,8 +10,8 @@ namespace CrystiliumMod.Content.Items.Weapons
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Enchanted Sapphire Staff");
-			Tooltip.SetDefault("'Colder than tundra'");
+			// DisplayName.SetDefault("Enchanted Sapphire Staff");
+			// Tooltip.SetDefault("'Colder than tundra'");
 			Item.staff[Item.type] = true;
 		}
 

@@ -10,8 +10,8 @@ namespace CrystiliumMod.Content.Items.Weapons
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Enchanted amethyst staff");
-			Tooltip.SetDefault("'Made with shadow magic'");
+			// DisplayName.SetDefault("Enchanted amethyst staff");
+			// Tooltip.SetDefault("'Made with shadow magic'");
 			Item.staff[Item.type] = true; //this makes the useStyle animate as a staff instead of as a gun
 		}
 

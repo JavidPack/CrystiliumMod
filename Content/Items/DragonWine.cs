@@ -8,8 +8,8 @@ namespace CrystiliumMod.Content.Items
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Dragon Potion");
-			Tooltip.SetDefault("Quadruples your damage for 10 seconds, but you lose 200 hp on use");
+			// DisplayName.SetDefault("Dragon Potion");
+			// Tooltip.SetDefault("Quadruples your damage for 10 seconds, but you lose 200 hp on use");
 		}
 
 		public override void SetDefaults()

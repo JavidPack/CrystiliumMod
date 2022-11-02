@@ -7,8 +7,8 @@ namespace CrystiliumMod.Content.Items.Armor
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Crystal King Mask");
-			Tooltip.SetDefault("Vanity item");
+			// DisplayName.SetDefault("Crystal King Mask");
+			// Tooltip.SetDefault("Vanity item");
 		}
 
 		public override void SetDefaults()

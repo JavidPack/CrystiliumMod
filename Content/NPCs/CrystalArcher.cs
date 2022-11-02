@@ -14,7 +14,7 @@ namespace CrystiliumMod.Content.NPCs
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Crystal Archer");
+			// DisplayName.SetDefault("Crystal Archer");
 			Main.npcFrameCount[NPC.type] = Main.npcFrameCount[NPCID.SkeletonArcher];
 		}
 
@@ -36,7 +36,8 @@ namespace CrystiliumMod.Content.NPCs
         {
 			bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[] {
 				CrystiliumMod.SpawnCondition,
-				new FlavorTextBestiaryInfoElement("Swears fealty to a long-dead king. As initiation, these cultists take part in a grisly ritual sacrifice - they trade their mortal skin for enchanted crystal."),
+				new FlavorTextBestiaryInfoElement("Mods.CrystiliumMod.Bestiary.CrystalArcher"),
+				// new FlavorTextBestiaryInfoElement("Swears fealty to a long-dead king. As initiation, these cultists take part in a grisly ritual sacrifice - they trade their mortal skin for enchanted crystal."),
 			});
 		}
 

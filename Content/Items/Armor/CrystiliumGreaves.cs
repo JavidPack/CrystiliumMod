@@ -9,8 +9,8 @@ namespace CrystiliumMod.Content.Items.Armor
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Crystilium Greaves");
-			Tooltip.SetDefault("+9% magic crit chance");
+			// DisplayName.SetDefault("Crystilium Greaves");
+			// Tooltip.SetDefault("+9% magic crit chance");
 		}
 
 		public override void SetDefaults()

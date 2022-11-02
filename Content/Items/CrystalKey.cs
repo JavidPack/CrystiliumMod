@@ -8,8 +8,8 @@ namespace CrystiliumMod.Content.Items
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Crystal Key");
-			Tooltip.SetDefault("Unlocks the secrets of the shining caves");
+			// DisplayName.SetDefault("Crystal Key");
+			// Tooltip.SetDefault("Unlocks the secrets of the shining caves");
 		}
 
 		public override void SetDefaults()

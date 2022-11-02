@@ -11,8 +11,8 @@ namespace CrystiliumMod.Content.Items.Weapons
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Enchanted Emerald staff");
-			Tooltip.SetDefault("'Wield the power of the forest'");
+			// DisplayName.SetDefault("Enchanted Emerald staff");
+			// Tooltip.SetDefault("'Wield the power of the forest'");
 			Item.staff[Item.type] = true; //this makes the useStyle animate as a staff instead of as a gun
 		}
 

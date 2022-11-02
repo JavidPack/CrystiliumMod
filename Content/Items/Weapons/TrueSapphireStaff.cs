@@ -10,8 +10,8 @@ namespace CrystiliumMod.Content.Items.Weapons
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("True Sapphire Staff");
-			Tooltip.SetDefault("'Deadly storm'");
+			// DisplayName.SetDefault("True Sapphire Staff");
+			// Tooltip.SetDefault("'Deadly storm'");
 			Item.staff[Item.type] = true;
 		}
 
