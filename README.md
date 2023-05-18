@@ -1,4 +1,3 @@
-
 <!-- This uses our mod icon!!! If the root directory for out mod every moves, change this accordingly! -->
 <!-- Image scaling here isn't nearest-neighbor, so we can get away with changing the width and height like this. Doesn't look great, though... -->
 <img src="icon.png" align="right" width="100" height="100" />
